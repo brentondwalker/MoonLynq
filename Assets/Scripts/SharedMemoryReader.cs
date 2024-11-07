@@ -24,7 +24,7 @@ public class SharedMemoryReader : MonoBehaviour
         {
             try
             {
-                mmf = MemoryMappedFile.OpenExisting("SharedMemory_MacDelayUL");
+                mmf = MemoryMappedFile.OpenExisting("Omnetpp_SharedMemorySend");
                 accessor = mmf.CreateViewAccessor(0, 256, MemoryMappedFileAccess.Read);
                 Debug.Log("Shared memory opened successfully.");
                 return; 
