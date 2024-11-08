@@ -1,47 +1,61 @@
 using System;
 using System.IO.MemoryMappedFiles;
 using System.Text;
+using System.Collections;
 using UnityEngine;
 
 public class SharedMemoryReader : MonoBehaviour
 {
     private MemoryMappedFile mmf;
     private MemoryMappedViewAccessor accessor;
-    private const int maxRetries = 3; 
-    private const float retryDelay = 1.0f; 
 
     public string data;
 
+    // 用于跟踪内存是否已经打开
+    private bool isMemoryInitialized = false;
+
+    public float timeSinceLastUpdate;
+    private float lastUpdateTime;
+    private float updateInterval = 3;
+
     void Start()
     {
-        InitializeSharedMemory();
+        StartCoroutine(InitializeSharedMemory());
     }
 
-    private void InitializeSharedMemory()
+    private IEnumerator InitializeSharedMemory()
     {
-        int attempts = 0;
-        while (attempts < maxRetries)
+        if (isMemoryInitialized)
         {
-            try
-            {
-                mmf = MemoryMappedFile.OpenExisting("Omnetpp_SharedMemorySend");
-                accessor = mmf.CreateViewAccessor(0, 256, MemoryMappedFileAccess.Read);
-                Debug.Log("Shared memory opened successfully.");
-                return; 
-            }
-            catch (Exception ex)
-            {
-                attempts++;
-                Debug.LogError($"Error initializing shared memory: {ex.Message}. Attempt {attempts}/{maxRetries}.");
-                System.Threading.Thread.Sleep((int)(retryDelay * 1000));
-            }
+            Debug.Log("Shared memory is already initialized.");
+            yield break; 
         }
 
-        Debug.LogError("Failed to initialize shared memory after multiple attempts.");
+        try
+        {
+            mmf = MemoryMappedFile.OpenExisting("Omnetpp_SharedMemorySend");
+            accessor = mmf.CreateViewAccessor(0, 256, MemoryMappedFileAccess.Read);
+            Debug.Log("Shared memory opened successfully.");
+            isMemoryInitialized = true; 
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Error initializing shared memory: {ex.Message}");
+            yield break;
+        }
+
+        yield break;
     }
 
     void Update()
     {
+        timeSinceLastUpdate = Time.time - lastUpdateTime;
+        if (timeSinceLastUpdate >= updateInterval)
+        {
+            CustomUpdate();
+            lastUpdateTime = Time.time;
+        }
+
         if (accessor != null)
         {
             byte[] buffer = new byte[256];
@@ -51,6 +65,14 @@ public class SharedMemoryReader : MonoBehaviour
             {
                 //Debug.Log("Received from OMNeT++: " + data);
             }
+        }
+    }
+
+    void CustomUpdate()
+    {
+        if (!isMemoryInitialized) 
+        {
+            StartCoroutine(InitializeSharedMemory());
         }
     }
 

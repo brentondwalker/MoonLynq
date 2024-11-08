@@ -3,20 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\ueinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ueinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\gnbinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gnbinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\sharedmemorysender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\sharedmemorysender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\txpower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\txpower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\uemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeTxPower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\UeTxPower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\ueinfodisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ueinfodisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\visualline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\visualline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\uestatusdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uestatusdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\lookatplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\lookatplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\uespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\sharedmemoryreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\sharedmemoryreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\uemovementcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uemovementcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,53 +54,142 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TxPower.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\TxPower.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\TxPower.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\TxPower.cs",
-              "RelativeToolTip": "Assets\\Scripts\\TxPower.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAfAAAA",
+              "DocumentIndex": 3,
+              "Title": "UeManager.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UeManager.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UeManager.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAcwC4AAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T22:28:15.853Z",
+              "WhenOpened": "2024-11-08T01:53:37.443Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UeTxPower.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeTxPower.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UeTxPower.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeTxPower.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UeTxPower.cs",
+              "DocumentIndex": 1,
+              "Title": "GnbInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\GnbInfo.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GnbInfo.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\GnbInfo.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GnbInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T17:11:14.783Z"
+              "WhenOpened": "2024-11-08T01:36:33.591Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
+              "Title": "LookAtPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\LookAtPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LookAtPlayer.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\LookAtPlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LookAtPlayer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T01:15:28.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UeStatusDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeStatusDisplay.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UeStatusDisplay.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeStatusDisplay.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UeStatusDisplay.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwgAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T00:48:41.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UeInfoDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeInfoDisplay.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UeInfoDisplay.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeInfoDisplay.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UeInfoDisplay.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T00:43:26.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UeInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeInfo.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UeInfo.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeInfo.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UeInfo.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAxwCcAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T00:28:41.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VisualLine.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\VisualLine.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\VisualLine.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\VisualLine.cs",
+              "RelativeToolTip": "Assets\\Scripts\\VisualLine.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T00:16:57.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UeSpawner.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeSpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UeSpawner.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeSpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UeSpawner.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAjwCIAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T22:05:11.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UeMovementControl.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeMovementControl.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UeMovementControl.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeMovementControl.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UeMovementControl.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAADwvyEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T21:51:32.68Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "SharedMemoryReader.cs",
               "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\SharedMemoryReader.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SharedMemoryReader.cs",
               "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\SharedMemoryReader.cs",
               "RelativeToolTip": "Assets\\Scripts\\SharedMemoryReader.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAwwBgAAAAPAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAADwvwMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T16:33:54.017Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "SharedMemorySender.cs",
               "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\SharedMemorySender.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SharedMemorySender.cs",
               "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\SharedMemorySender.cs",
               "RelativeToolTip": "Assets\\Scripts\\SharedMemorySender.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAUwFAAAAA0AAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAIwF4AAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T16:28:16.387Z",
               "EditorCaption": ""

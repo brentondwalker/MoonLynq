@@ -23,6 +23,8 @@ public class SharedMemorySender : MonoBehaviour
     private IntPtr sharedMemoryHandle;
     private IntPtr sharedMemoryView;
 
+    public UeManager UeManager;
+
     void Start()
     {
         sharedMemoryHandle = CreateFileMapping(new IntPtr(-1), IntPtr.Zero, 0x04, 0, (uint)BufferSize, SharedMemoryName);
@@ -66,7 +68,7 @@ public class SharedMemorySender : MonoBehaviour
                      "txPower1->2049: " + 0 + "\n" +
                      "txPower2->2049: " + 60 + "\n");
         }
-        if (true)
+        if (false)
         {
             SendData("txPower1: 5\n" +
                      "txPower2050: 3\n" +
@@ -87,6 +89,10 @@ public class SharedMemorySender : MonoBehaviour
                      "txPower1->2055: " + 66 * TxPower.uePowerFactor + "\n" +
                      "txPower2->2049: " + 0 + "\n" +
                      "txPower1->2049: " + 60 * TxPower.uePowerFactor + "\n");
+        }
+        if (true)
+        {
+            SendData(UeManager.ulInfo+UeManager.dlInfo);
         }
     }
 
