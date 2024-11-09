@@ -22,6 +22,9 @@ public class MobilitySender : MonoBehaviour
     private IntPtr mobilityHandle;
     private IntPtr mobilityView;
 
+    public UeManager UeManager;
+    public GnbInfo GnbInfo;
+
 
     void Start()
     {
@@ -44,11 +47,7 @@ public class MobilitySender : MonoBehaviour
     private void Update()
     {
 
-        SendData("2049: 370 345 0\n"
-                    +"2050: 50 50 0\n"
-                    +"2051: 30 90 0\n"
-                    +"2052: 150 250 0\n"
-                    +"2053: 250 50 0\n");
+        SendData(UeManager.mobilityInfo + GnbInfo.gnbMobilityInfo);
 
 
     }

@@ -7,6 +7,7 @@ public class UeManager : MonoBehaviour
     private GameObject[] ueObjects;
     public string ulInfo = "";
     public string dlInfo = "";
+    public string mobilityInfo = "";
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class UeManager : MonoBehaviour
         {
             ulInfo = "";
             dlInfo = "";
+            mobilityInfo = "";
             foreach (GameObject ueObject in ueObjects)
             {
                 UeInfo ueInfo = ueObject.GetComponent<UeInfo>();
@@ -36,7 +38,7 @@ public class UeManager : MonoBehaviour
                 {
                     ulInfo += ueInfo.ulInfo + "\n";
                     dlInfo += ueInfo.dlInfo + "\n";
-
+                    mobilityInfo += ueInfo.mobilityInfo + "\n";
                 }
                 else
                 {

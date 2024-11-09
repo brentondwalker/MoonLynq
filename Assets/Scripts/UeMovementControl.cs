@@ -6,10 +6,12 @@ public class UeMovementControl : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public UeStatusDisplay statusDisplay;
-    public Transform cameraTransform; // 引用摄像机的 Transform
+    public Transform cameraTransform;
+    public Vector3 positionLocal;
 
     void Update()
     {
+        positionLocal = transform.localPosition;
         Vector3 move = Vector3.zero;
 
         Vector3 cameraForward = new Vector3(cameraTransform.forward.x, 0, cameraTransform.forward.z).normalized;

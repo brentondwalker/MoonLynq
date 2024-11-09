@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class UeInfo : MonoBehaviour
 {
@@ -14,17 +15,25 @@ public class UeInfo : MonoBehaviour
     public GnbInfo TargetGnb;
     public int targetGnbId = 0;
 
+    public UeMovementControl prefabMovement;
+    public Vector3 prefabPosition;
+
+    public string mobilityInfo;
+
     public string ulInfo = "";
     public string dlInfo = "";
 
     void Start()
     {
-        txPowerBaseUl = Random.Range( 10.0f, 20.0f );
+        txPowerBaseUl = UnityEngine.Random.Range( 10.0f, 20.0f );
     }
 
 
     void Update()
     {
+        prefabPosition = prefabMovement.positionLocal;
+        mobilityInfo = ueId.ToString() + ": " + Math.Round(prefabPosition.x,1) +" "+ -Math.Round(prefabPosition.z, 1) + " "+ Math.Round(prefabPosition.y, 1);
+
         losCollision = VisualLine.collision;
         targetGnbId = TargetGnb.gnbId;
 
