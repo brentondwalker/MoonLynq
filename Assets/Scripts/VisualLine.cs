@@ -56,22 +56,17 @@ public class VisualLine : MonoBehaviour
     {
         Vector3 direction = objectB.transform.position - objectA.transform.position;
         Ray ray = new Ray(objectA.transform.position, direction);
-        RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, direction.magnitude))
+        RaycastHit[] hits = Physics.RaycastAll(ray, direction.magnitude);
+        collision = false;
+
+        foreach (RaycastHit raycastHit in hits)
         {
-            if (hit.collider.CompareTag(targetTag))
+            if (raycastHit.collider.CompareTag(targetTag))
             {
                 collision = true;
+                break; 
             }
-            else
-            {
-                collision = false;
-            }
-        }
-        else
-        {
-            collision = false; 
         }
     }
 }

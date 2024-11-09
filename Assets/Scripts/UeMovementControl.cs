@@ -4,33 +4,39 @@ using UnityEngine;
 
 public class UeMovementControl : MonoBehaviour
 {
-    public float moveSpeed = 5f;  
-    
+    public float moveSpeed = 5f;
+    public UeStatusDisplay statusDisplay;
+    public Transform cameraTransform; // 引用摄像机的 Transform
 
     void Update()
     {
-
         Vector3 move = Vector3.zero;
+
+        Vector3 cameraForward = new Vector3(cameraTransform.forward.x, 0, cameraTransform.forward.z).normalized;
+        Vector3 cameraRight = new Vector3(cameraTransform.right.x, 0, cameraTransform.right.z).normalized;
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            move += Vector3.forward;  
+            move += cameraTransform.forward;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            move += Vector3.back; 
+            move += -cameraTransform.forward;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            move += Vector3.left; 
+            move += -cameraTransform.right;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            move += Vector3.right; 
+            move += cameraTransform.right;
         }
 
-        transform.Translate(move * moveSpeed * Time.deltaTime, Space.World);
+        move.y = 0;
 
-
+        if (statusDisplay.status)
+        {
+            transform.Translate(move.normalized * moveSpeed * Time.deltaTime, Space.World);
+        }
     }
 }

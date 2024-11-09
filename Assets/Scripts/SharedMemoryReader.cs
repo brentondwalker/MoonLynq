@@ -11,7 +11,6 @@ public class SharedMemoryReader : MonoBehaviour
 
     public string data;
 
-    // 用于跟踪内存是否已经打开
     private bool isMemoryInitialized = false;
 
     public float timeSinceLastUpdate;
@@ -34,7 +33,7 @@ public class SharedMemoryReader : MonoBehaviour
         try
         {
             mmf = MemoryMappedFile.OpenExisting("Omnetpp_SharedMemorySend");
-            accessor = mmf.CreateViewAccessor(0, 256, MemoryMappedFileAccess.Read);
+            accessor = mmf.CreateViewAccessor(0, 4096, MemoryMappedFileAccess.Read);
             Debug.Log("Shared memory opened successfully.");
             isMemoryInitialized = true; 
         }
@@ -58,7 +57,7 @@ public class SharedMemoryReader : MonoBehaviour
 
         if (accessor != null)
         {
-            byte[] buffer = new byte[256];
+            byte[] buffer = new byte[4096];
             accessor.ReadArray(0, buffer, 0, buffer.Length);
             data = Encoding.ASCII.GetString(buffer).TrimEnd('\0');
             if (!string.IsNullOrEmpty(data))
