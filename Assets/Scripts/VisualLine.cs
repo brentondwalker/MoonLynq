@@ -20,7 +20,11 @@ public class VisualLine : MonoBehaviour
     public DielectricObstacleLoss DielectricObstacleLoss;
     public UeInfo UeInfo;
 
-    public double totalLoss;
+    public double totalLossForward;
+    public double totalLossReverse;
+
+    public double totalLossForwardIndB;
+    public double totalLossReverseIndB;
 
 
     void Start()
@@ -91,7 +95,10 @@ public class VisualLine : MonoBehaviour
         hitReverse = hitReverse.OrderBy(hit => Vector3.Distance(objectB.transform.position, hit.point)).ToArray();
 
         collision = false;
-        totalLoss = 1.0;  
+        totalLossForward = 1.0;
+        totalLossReverse = 1.0;
+        totalLossForwardIndB = 0.0;
+        totalLossReverseIndB = 0.0;
 
         int maxHits = Mathf.Max(hitForward.Length, hitReverse.Length);
 
@@ -109,7 +116,10 @@ public class VisualLine : MonoBehaviour
                     RaycastHit hitR = hitReverse[reverseIndex];
                     if (hitF.collider.gameObject == hitR.collider.gameObject)
                     {
-                        totalLoss *= DielectricObstacleLoss.ComputeObjectLoss(hitF, hitR, UeInfo.frequency, objectA.transform.position, objectB.transform.position);
+                        totalLossForward *= DielectricObstacleLoss.ComputeObjectLoss(hitF, hitR, UeInfo.frequency, objectA.transform.position, objectB.transform.position);
+                        totalLossReverse *= DielectricObstacleLoss.ComputeObjectLoss(hitR, hitF, UeInfo.frequency, objectB.transform.position, objectA.transform.position);
+                        totalLossForwardIndB = PowerCalculator.linearToDb(totalLossForward);
+                        totalLossReverseIndB = PowerCalculator.linearToDb(totalLossReverse);
                     }
                 }
             }
@@ -125,7 +135,7 @@ public class VisualLine : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                hitInfo += "Forward Hit - GameObject: " + hit.collider.gameObject.name + ", Position: " + hit.point.ToString() + "\n";
+                hitInfo += "Forward Hit: " + hit.collider.gameObject.name + ", Position: " + hit.point.ToString() + "\n";
             }
         }
 
@@ -134,7 +144,7 @@ public class VisualLine : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                hitInfo += "Reverse Hit - GameObject: " + hit.collider.gameObject.name + ", Position: " + hit.point.ToString() + "\n";
+                hitInfo += "Reverse Hit: " + hit.collider.gameObject.name + ", Position: " + hit.point.ToString() + "\n";
             }
         }
     }

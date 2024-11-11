@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\visualline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\visualline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\visualline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\obstacle\\dielectricobstacleloss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\powercalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\powercalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\ueinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ueinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\obstacle\\dielectricobstacleloss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\obstacle\\dielectricobstacleloss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\obstacle\\materialproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\obstacle\\materialproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\obstacle\\materialproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\uespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\ueinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ueinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\mobilitysender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,8 +46,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PowerCalculator.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\PowerCalculator.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PowerCalculator.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\PowerCalculator.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PowerCalculator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T03:19:07.35Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -52,27 +69,26 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\VisualLine.cs",
               "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\VisualLine.cs",
               "RelativeToolTip": "Assets\\Scripts\\VisualLine.cs",
-              "ViewState": "AQIAAFYAAAAAAAAAAAAAAIgAAAAYAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAAGQAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T21:34:59.491Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DielectricObstacleLoss.cs",
               "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Obstacle\\DielectricObstacleLoss.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Obstacle\\DielectricObstacleLoss.cs",
               "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Obstacle\\DielectricObstacleLoss.cs",
               "RelativeToolTip": "Assets\\Scripts\\Obstacle\\DielectricObstacleLoss.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAYwFUAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T18:26:51.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T18:26:51.891Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MaterialProperties.cs",
               "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Obstacle\\MaterialProperties.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Obstacle\\MaterialProperties.cs",
@@ -80,12 +96,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Obstacle\\MaterialProperties.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAFoAAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T17:56:48.411Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T17:56:48.411Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MobilitySender.cs",
               "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\MobilitySender.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MobilitySender.cs",
@@ -97,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "UeManager.cs",
               "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UeManager.cs",
@@ -109,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GnbInfo.cs",
               "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\GnbInfo.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GnbInfo.cs",
@@ -121,20 +136,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "UeInfo.cs",
               "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeInfo.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UeInfo.cs",
               "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeInfo.cs",
               "RelativeToolTip": "Assets\\Scripts\\UeInfo.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAADwvwsAAAAoAAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAAAwCUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T00:28:41.154Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "UeSpawner.cs",
               "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UeSpawner.cs",
@@ -142,8 +157,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UeSpawner.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAAwCMAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T22:05:11.238Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T22:05:11.238Z"
             }
           ]
         }
