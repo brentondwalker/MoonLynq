@@ -32,6 +32,7 @@ Transform:
   - {fileID: 2849854497507224093}
   - {fileID: 602240668045965842}
   - {fileID: 3267313543682845396}
+  - {fileID: 761645564208853882}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1849949922465833481
@@ -95,6 +96,103 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
+--- !u!1 &2432934606006598481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90852439361277003}
+  - component: {fileID: 2920187107214423171}
+  m_Layer: 0
+  m_Name: Medium material
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &90852439361277003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2432934606006598481}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 761645564208853882}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2920187107214423171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2432934606006598481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908e9d9142ec7aa4a8abf57753b62ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 1
+  resistivity: 0
+  relativePermittivity: 0
+  relativePermeability: 0
+--- !u!1 &2764822554546163038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 761645564208853882}
+  - component: {fileID: 900911004848361986}
+  m_Layer: 0
+  m_Name: ObstacleLoss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &761645564208853882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764822554546163038}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 90852439361277003}
+  m_Father: {fileID: 5839165448725125935}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &900911004848361986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764822554546163038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 887c0e07a83b3eb4aa57b4223a7f0994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDielectricLoss: 1
+  enableReflectionLoss: 1
+  obstacleTag: Obstacle
+  mediumMaterial: {fileID: 2920187107214423171}
 --- !u!1 &3395387911839546460
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +486,9 @@ MonoBehaviour:
   lineRendererG: {fileID: 2110767176567402109}
   lineRendererR: {fileID: 7176006195479929007}
   collision: 0
+  DielectricObstacleLoss: {fileID: 900911004848361986}
+  UeInfo: {fileID: 3627855485555203804}
+  totalLoss: 0
 --- !u!1 &7669437582577715501
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +614,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  statusDisplay: {fileID: 0}
+  cameraTransform: {fileID: 0}
+  positionLocal: {x: 0, y: 0, z: 0}
 --- !u!114 &3627855485555203804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,8 +631,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisualLine: {fileID: 2623294467197763648}
   ueId: 0
+  frequency: 2e+9
   TargetGnb: {fileID: 0}
   targetGnbId: 0
+  prefabMovement: {fileID: 0}
+  prefabPosition: {x: 0, y: 0, z: 0}
+  mobilityInfo: 
   ulInfo: 
   dlInfo: 
 --- !u!114 &1609333289611013543
@@ -547,6 +655,7 @@ MonoBehaviour:
   status: 0
   materialIdle: {fileID: 0}
   materialActive: {fileID: 0}
+  materialHover: {fileID: 0}
 --- !u!1 &7705703581815515589
 GameObject:
   m_ObjectHideFlags: 0

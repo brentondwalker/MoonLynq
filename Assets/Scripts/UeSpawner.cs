@@ -9,9 +9,7 @@ public class UeSpawner : MonoBehaviour
     public GameObject parentObject;
     public int randomSpawnRange = 100;
 
-    public UeInfo UeInfo;
-
-    private int currentSpawnCount = 0;
+    private int currentSpawnCount = 1;
 
     void Start()
     {
@@ -42,12 +40,14 @@ public class UeSpawner : MonoBehaviour
             ueInstance.transform.localPosition = spawnPosition + spawnPositionDeviation;
             ueInstance.transform.localScale = uePrefab.transform.localScale;
 
-
-           
-            currentSpawnCount++;
             ueInstance.name = "Ue_" + (currentSpawnCount+2049);
-            UeInfo.ueId = currentSpawnCount + 2049;
+            GameObject ueChild = ueInstance.transform.Find("Ue")?.gameObject;
+            UeInfo ueInfo = ueChild.GetComponent<UeInfo>();
+            ueInfo.ueId = currentSpawnCount + 2049;
             yield return null;
+
+
+            currentSpawnCount++;
         }
         Debug.Log("All UEs spawned.");
     }

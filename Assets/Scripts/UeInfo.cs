@@ -9,6 +9,11 @@ public class UeInfo : MonoBehaviour
     private double txPowerBaseUl = 0.0f;
     private double txPowerDl = 0.0f;
     public int ueId = 0;
+    public float frequency = 2000000000;
+
+
+
+
     private bool losCollision = false;
 
 

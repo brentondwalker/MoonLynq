@@ -200,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 87149796}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 388.4, y: 0, z: -239.6}
+  m_LocalPosition: {x: 388.4, y: 0, z: -321.5}
   m_LocalScale: {x: 13.951947, y: 13.951947, z: 13.951947}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -222,17 +222,6 @@ MonoBehaviour:
   txPower: 40
   gnbMobiltiyLocal: {x: 0, y: 0, z: 0}
   gnbMobilityInfo: 
---- !u!114 &136761883 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3627855485555203804, guid: d43815731c534a240825eff79b7303dc, type: 3}
-  m_PrefabInstance: {fileID: 657172986}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de08af33dfc12db40bba0a59916c603e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &212303090 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1431983854225700337, guid: d43815731c534a240825eff79b7303dc, type: 3}
@@ -431,6 +420,9 @@ MonoBehaviour:
   lineRendererG: {fileID: 0}
   lineRendererR: {fileID: 0}
   collision: 0
+  DielectricObstacleLoss: {fileID: 0}
+  UeInfo: {fileID: 0}
+  totalLoss: 0
 --- !u!114 &288128548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -751,6 +743,7 @@ GameObject:
   - component: {fileID: 545695391}
   - component: {fileID: 545695390}
   - component: {fileID: 545695389}
+  - component: {fileID: 545695392}
   m_Layer: 0
   m_Name: Cube obstacle (1)
   m_TagString: Obstacle
@@ -767,8 +760,8 @@ Transform:
   m_GameObject: {fileID: 545695387}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 330.2, y: 17.399998, z: -476.1}
-  m_LocalScale: {x: 43.143, y: 43.143, z: 43.143}
+  m_LocalPosition: {x: 258.1, y: 17.399998, z: -336.4}
+  m_LocalScale: {x: 1, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 288128546}
@@ -847,6 +840,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545695387}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &545695392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545695387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908e9d9142ec7aa4a8abf57753b62ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 6
+  resistivity: 0
+  relativePermittivity: 0
+  relativePermeability: 0
 --- !u!1001 &657172986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -893,27 +902,27 @@ PrefabInstance:
       objectReference: {fileID: 657172988}
     - target: {fileID: 5839165448725125935, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.951947
+      value: 7.2113433
       objectReference: {fileID: 0}
     - target: {fileID: 5839165448725125935, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 13.951947
+      value: 7.2113433
       objectReference: {fileID: 0}
     - target: {fileID: 5839165448725125935, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 13.951947
+      value: 7.2113433
       objectReference: {fileID: 0}
     - target: {fileID: 5839165448725125935, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 241.70044
+      value: 241.72
       objectReference: {fileID: 0}
     - target: {fileID: 5839165448725125935, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.2145
       objectReference: {fileID: 0}
     - target: {fileID: 5839165448725125935, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -484.7
+      value: -409.1
       objectReference: {fileID: 0}
     - target: {fileID: 5839165448725125935, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1674,6 +1683,7 @@ GameObject:
   - component: {fileID: 1455941299}
   - component: {fileID: 1455941298}
   - component: {fileID: 1455941297}
+  - component: {fileID: 1455941301}
   m_Layer: 0
   m_Name: Cube obstacle
   m_TagString: Obstacle
@@ -1765,11 +1775,27 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 322.00073, y: 17.399998, z: -334.80005}
-  m_LocalScale: {x: 43.143, y: 43.143, z: 43.143}
+  m_LocalScale: {x: 1, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 288128546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1455941301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455941296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908e9d9142ec7aa4a8abf57753b62ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 7
+  resistivity: 0
+  relativePermittivity: 0
+  relativePermeability: 0
 --- !u!1 &1463154185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,11 +2134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uePrefab: {fileID: 212303090}
-  ueCount: 4
+  ueCount: 5
   originLocation: {x: 241, y: 0, z: -250}
   parentObject: {fileID: 288128545}
   randomSpawnRange: 250
-  UeInfo: {fileID: 136761883}
 --- !u!1 &1686190377
 GameObject:
   m_ObjectHideFlags: 0
