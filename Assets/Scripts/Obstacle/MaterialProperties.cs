@@ -5,7 +5,6 @@ public class MaterialProperties : MonoBehaviour
 {
     public enum MaterialType
     {
-        Vacuum,
         Air,
         Copper,
         Aluminium,
@@ -35,11 +34,6 @@ public class MaterialProperties : MonoBehaviour
     {
         switch (materialType)
         {
-            case MaterialType.Vacuum:
-                resistivity = float.NaN;
-                relativePermittivity = 1.0f;
-                relativePermeability = 1.0f;
-                break;
             case MaterialType.Air:
                 resistivity = float.NaN;
                 relativePermittivity = 1.00058986f;

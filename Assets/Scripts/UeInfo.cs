@@ -43,8 +43,8 @@ public class UeInfo : MonoBehaviour
         targetGnbId = TargetGnb.gnbId;
 
 
-        txPowerUl = System.Math.Round(txPowerBaseUl+VisualLine.totalLossForwardIndB, 1);
-        txPowerDl = System.Math.Round(TargetGnb.txPower+VisualLine.totalLossReverseIndB, 1);
+        txPowerUl = System.Math.Round(txPowerBaseUl+VisualLine.totalLossForwardInDB, 1);
+        txPowerDl = System.Math.Round(TargetGnb.txPower+VisualLine.totalLossReverseInDB, 1);
 
         
         ulInfo = "txPower"+ueId.ToString()+": " + txPowerUl.ToString();

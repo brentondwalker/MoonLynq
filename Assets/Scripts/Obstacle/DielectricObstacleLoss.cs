@@ -27,7 +27,7 @@ public class DielectricObstacleLoss : MonoBehaviour
         double delta = Math.Atan(lossTangent);
         float k = 2 * Mathf.PI * frequency / propagationSpeed;
         double factor = Math.Exp(-2 * delta * (k * distance));
-        Debug.Log("Dielectric loss factor: " + factor);
+        //Debug.Log("Dielectric loss factor: " + factor);
         return Mathf.Clamp((float)factor, 0, 1);
     }
 
@@ -45,13 +45,27 @@ public class DielectricObstacleLoss : MonoBehaviour
         return 1 - reflectance;
     }
 
-    public double ComputeObjectLoss(RaycastHit hit1, RaycastHit hit2, float frequency, Vector3 transmissionPosition, Vector3 receptionPosition)
+    public double ComputeObjectLoss(Collider obstacleHit, float frequency, Vector3 transmissionPosition, Vector3 receptionPosition)
     {
         double totalLoss = 1;
         Vector3 direction = (receptionPosition - transmissionPosition).normalized;
+
+        Ray rayF = new Ray(transmissionPosition, direction);
+        RaycastHit hit1;
+        obstacleHit.Raycast(rayF, out hit1, Vector3.Distance(transmissionPosition, receptionPosition));
+
+        Ray rayB = new Ray(receptionPosition, -direction);
+        RaycastHit hit2;
+        obstacleHit.Raycast(rayB, out hit2, Vector3.Distance(receptionPosition, transmissionPosition));
+
+
         intersectionComputationCount++;
         intersectionCount++;
-        MaterialProperties material = hit1.collider.gameObject.GetComponent<MaterialProperties>();
+        MaterialProperties material = obstacleHit.gameObject.GetComponent<MaterialProperties>();
+        if (material == null)
+        {
+            Debug.LogWarning("Material not found!");
+        }
 
         if (enableDielectricLoss)
         {

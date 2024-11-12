@@ -14,6 +14,7 @@ public class VisualLine : MonoBehaviour
 
     public RaycastHit[] hitForward;
     public RaycastHit[] hitReverse;
+
     public string hitInfo;
 
 
@@ -23,8 +24,8 @@ public class VisualLine : MonoBehaviour
     public double totalLossForward;
     public double totalLossReverse;
 
-    public double totalLossForwardIndB;
-    public double totalLossReverseIndB;
+    public double totalLossForwardInDB;
+    public double totalLossReverseInDB;
 
 
     void Start()
@@ -76,6 +77,7 @@ public class VisualLine : MonoBehaviour
         hitForward = new RaycastHit[0];
         hitReverse = new RaycastHit[0];
 
+
         Vector3 directionF = objectB.transform.position - objectA.transform.position;
         Ray rayF = new Ray(objectA.transform.position, directionF);
 
@@ -92,36 +94,50 @@ public class VisualLine : MonoBehaviour
                      .Where(hit => hit.collider.CompareTag(targetTag))
                      .ToArray();
 
-        hitReverse = hitReverse.OrderBy(hit => Vector3.Distance(objectB.transform.position, hit.point)).ToArray();
+        hitReverse = hitReverse.OrderBy(hit => Vector3.Distance(objectA.transform.position, hit.point)).ToArray();
+
 
         collision = false;
         totalLossForward = 1.0;
         totalLossReverse = 1.0;
-        totalLossForwardIndB = 0.0;
-        totalLossReverseIndB = 0.0;
+        totalLossForwardInDB = 0.0;
+        totalLossReverseInDB = 0.0;
 
-        int maxHits = Mathf.Max(hitForward.Length, hitReverse.Length);
+        int hitCountForward = hitForward.Length;
 
-        if (maxHits > 0) { collision = true; }
+        if (hitCountForward > 0) { collision = true; }
 
-        for (int i = 0; i < maxHits; i++)
+        for (int i = 0; i < hitCountForward; i++)
         {
-            if (i < hitForward.Length && hitForward[i].collider != null)
+            if (hitForward[i].collider != null)
             {
-                RaycastHit hitF = hitForward[i];
+                Collider obstacleHit = hitForward[i].collider;
 
-                int reverseIndex = hitReverse.Length - 1 - i;
-                if (reverseIndex >= 0 && reverseIndex < hitReverse.Length && hitReverse[reverseIndex].collider != null)
-                {
-                    RaycastHit hitR = hitReverse[reverseIndex];
-                    if (hitF.collider.gameObject == hitR.collider.gameObject)
-                    {
-                        totalLossForward *= DielectricObstacleLoss.ComputeObjectLoss(hitF, hitR, UeInfo.frequency, objectA.transform.position, objectB.transform.position);
-                        totalLossReverse *= DielectricObstacleLoss.ComputeObjectLoss(hitR, hitF, UeInfo.frequency, objectB.transform.position, objectA.transform.position);
-                        totalLossForwardIndB = PowerCalculator.linearToDb(totalLossForward);
-                        totalLossReverseIndB = PowerCalculator.linearToDb(totalLossReverse);
-                    }
-                }
+                totalLossForward *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeInfo.frequency, objectA.transform.position, objectB.transform.position);
+ 
+                totalLossForwardInDB = PowerCalculator.linearToDb(totalLossForward);
+  
+
+
+            }
+        }
+
+        int hitCountReverse = hitReverse.Length;
+
+        if (hitCountReverse > 0) { collision = true; }
+
+        for (int i = 0; i < hitCountReverse; i++)
+        {
+            if (hitReverse[i].collider != null)
+            {
+                Collider obstacleHit = hitReverse[i].collider;
+
+                
+                totalLossReverse *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeInfo.frequency, objectB.transform.position, objectA.transform.position);
+
+                totalLossReverseInDB = PowerCalculator.linearToDb(totalLossReverse);
+
+
             }
         }
 
