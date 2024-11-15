@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 1849949922465833481}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0032373, y: 1.55, z: 0}
+  m_LocalPosition: {x: 0.0032373, y: 1.39, z: 0}
   m_LocalScale: {x: 0.0012587531, y: 0.0012587531, z: 0.0012587531}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -193,6 +193,7 @@ MonoBehaviour:
   enableReflectionLoss: 1
   obstacleTag: Obstacle
   mediumMaterial: {fileID: 2920187107214423171}
+  distanceConvert: 10
 --- !u!1 &3395387911839546460
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,9 +487,13 @@ MonoBehaviour:
   lineRendererG: {fileID: 2110767176567402109}
   lineRendererR: {fileID: 7176006195479929007}
   collision: 0
+  hitInfo: 
   DielectricObstacleLoss: {fileID: 900911004848361986}
   UeInfo: {fileID: 3627855485555203804}
-  totalLoss: 0
+  totalLossForward: 0
+  totalLossReverse: 0
+  totalLossForwardInDB: 0
+  totalLossReverseInDB: 0
 --- !u!1 &7669437582577715501
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +525,7 @@ Transform:
   m_GameObject: {fileID: 7669437582577715501}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.449, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -614,7 +619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  statusDisplay: {fileID: 0}
+  statusDisplay: {fileID: 1609333289611013543}
   cameraTransform: {fileID: 0}
   positionLocal: {x: 0, y: 0, z: 0}
 --- !u!114 &3627855485555203804
@@ -632,6 +637,8 @@ MonoBehaviour:
   VisualLine: {fileID: 2623294467197763648}
   ueId: 0
   frequency: 2e+9
+  statusDisplay: {fileID: 0}
+  isSelect: 0
   TargetGnb: {fileID: 0}
   targetGnbId: 0
   prefabMovement: {fileID: 0}

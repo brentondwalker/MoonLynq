@@ -8,6 +8,7 @@ public class UeManager : MonoBehaviour
     public string ulInfo = "";
     public string dlInfo = "";
     public string mobilityInfo = "";
+    public UeInfo ueSelect = null;
 
     void Start()
     {
@@ -24,6 +25,8 @@ public class UeManager : MonoBehaviour
 
         private void Update()
     {
+        ueSelect = null;
+
         GameObject[] ueObjects = GameObject.FindGameObjectsWithTag("Ue");
         if (ueObjects != null)
         {
@@ -39,6 +42,7 @@ public class UeManager : MonoBehaviour
                     ulInfo += ueInfo.ulInfo + "\n";
                     dlInfo += ueInfo.dlInfo + "\n";
                     mobilityInfo += ueInfo.mobilityInfo + "\n";
+                    if (ueInfo.isSelect) { ueSelect = ueInfo; }
                 }
                 else
                 {

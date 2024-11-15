@@ -1,9 +1,11 @@
 using UnityEngine;
 using System;
 
+
+
 public class UeInfo : MonoBehaviour
 {
-    
+
     public VisualLine VisualLine;
     private double txPowerUl = 0.0f;
     private double txPowerBaseUl = 0.0f;
@@ -16,6 +18,8 @@ public class UeInfo : MonoBehaviour
 
     private bool losCollision = false;
 
+    public UeStatusDisplay statusDisplay;
+    public bool isSelect = false;
 
     public GnbInfo TargetGnb;
     public int targetGnbId = 0;
@@ -31,6 +35,7 @@ public class UeInfo : MonoBehaviour
     void Start()
     {
         txPowerBaseUl = UnityEngine.Random.Range( 25.0f, 27.0f );
+
     }
 
 
@@ -49,10 +54,16 @@ public class UeInfo : MonoBehaviour
         
         ulInfo = "txPower"+ueId.ToString()+": " + txPowerUl.ToString();
         dlInfo = "txPower" + targetGnbId.ToString() + "->" + ueId.ToString() + ": " + txPowerDl.ToString();
+
+        isSelect = statusDisplay.status;
+
     }
 
     public int GetUeId() { return ueId; }
     public void SetUeId(int id) { ueId = id; }
-    public double GetTxPower() { return txPowerUl; }
+    public double GetTxPower() { return txPowerBaseUl; }
+
+    public double GetTxPowerUl() { return txPowerUl; }
+    public double GetTxPowerDl() {  return txPowerDl; }
     public bool GetCollision() {  return losCollision; }
 }
