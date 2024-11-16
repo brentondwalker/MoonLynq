@@ -27,12 +27,13 @@ public class DielectricObstacleLoss : MonoBehaviour
         double delta = Math.Atan(lossTangent);
         float k = 2 * Mathf.PI * frequency / propagationSpeed;
         double factor = Math.Exp(-2 * delta * (k * distance));
-        //Debug.Log("Dielectric loss factor: " + factor);
+        Debug.Log("Dielectric loss factor: " + factor);
         return Mathf.Clamp((float)factor, 0, 1);
     }
 
     double ComputeReflectionLoss(MaterialProperties incidentMaterial, MaterialProperties refractiveMaterial, float angle)
     {
+        Debug.Log("Angle: " + angle);
         float n1 = GetRefractiveIndex(incidentMaterial);
         float n2 = GetRefractiveIndex(refractiveMaterial);
         float sinAngle = Mathf.Sin(angle);
@@ -42,6 +43,8 @@ public class DielectricObstacleLoss : MonoBehaviour
         double rs = Math.Pow((n1 * cosAngle - n2 * k) / (n1 * cosAngle + n2 * k), 2);
         double rp = Math.Pow((n1 * k - n2 * cosAngle) / (n1 * k + n2 * cosAngle), 2);
         double reflectance = (rs + rp) / 2;
+        Debug.Log("Angle: " + angle);
+        Debug.Log("Transmittance: " + (1 - reflectance));
         return 1 - reflectance;
     }
 
