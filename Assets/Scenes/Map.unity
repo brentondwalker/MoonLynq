@@ -23671,7 +23671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uePrefab: {fileID: 212303090}
-  ueCount: 5
+  ueCount: 1
   originLocation: {x: 241, y: 0, z: -250}
   parentObject: {fileID: 288128545}
   randomSpawnRange: 250
