@@ -8,13 +8,41 @@ using System;
 
 public class JsonToLua : MonoBehaviour
 {
-    public string jsonName = "emulation_data.json";
+    //public string jsonName = "emulation_data.json";
     public string luaName = "emulation_data.lua";
+
+    public JSONWriter jsonWriter;
+
+    public string luaData;
+
+    public float timeSinceLastUpdate;
+    private float lastUpdateTime;
+    private float updateInterval = 0.01f;
+
+
+    void Update()
+    {
+        timeSinceLastUpdate = Time.time - lastUpdateTime;
+        if (timeSinceLastUpdate >= updateInterval)
+        {
+            CustomUpdate();
+            lastUpdateTime = Time.time;
+        }
+    }
+    void CustomUpdate()
+    {
+        string jsonString = jsonWriter.jsonData;
+        var jsonData = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonString);
+        luaData = ConvertToLua(jsonData);
+        luaData = ConvertBrackets(luaData);
+        File.WriteAllText(Path.Combine(Application.streamingAssetsPath, luaName), luaData);
+    }
 
     public void ConvertJsonToLua()
     {
-        string jsonPath = Path.Combine(Application.streamingAssetsPath, jsonName);
-        string jsonString = File.ReadAllText(jsonPath);
+        //string jsonPath = Path.Combine(Application.streamingAssetsPath, jsonName);
+        //string jsonString = File.ReadAllText(jsonPath);
+        string jsonString = jsonWriter.jsonData;
         var jsonData = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonString);
         string luaString = ConvertToLua(jsonData);
         luaString = ConvertBrackets(luaString);
@@ -24,13 +52,13 @@ public class JsonToLua : MonoBehaviour
     string ConvertToLua(Dictionary<string, object> data)
     {
         System.Text.StringBuilder luaString = new System.Text.StringBuilder();
-        luaString.AppendLine("local data = {");
+        luaString.Append("{");
         foreach (var kvp in data)
         {
             AppendKeyValue(luaString, kvp.Key, kvp.Value, 1);
         }
-        luaString.AppendLine("}");
-        luaString.AppendLine("return data");
+        luaString.Append("}");
+        //luaString.AppendLine("return data");
         return luaString.ToString();
     }
 
@@ -39,21 +67,21 @@ public class JsonToLua : MonoBehaviour
         string indent = new string(' ', indentLevel * 4);
         if (value is Dictionary<string, object>)
         {
-            luaString.AppendLine($"{indent}{key} = {{");
+            luaString.Append($"{indent}{key} = {{");
             foreach (var kvp in (Dictionary<string, object>)value)
             {
                 AppendKeyValue(luaString, kvp.Key, kvp.Value, indentLevel + 1);
             }
-            luaString.AppendLine($"{indent}}},");
+            luaString.Append($"{indent}}},");
         }
         else if (value is IList<object>)
         {
             luaString.Append($"{indent}{key} = {ConvertArrayToLuaTable((IList<object>)value)}");
-            luaString.AppendLine(",");
+            luaString.Append(", ");
         }
         else
         {
-            luaString.AppendLine($"{indent}{key} = {ConvertValue(value)},");
+            luaString.Append($"{indent}{key} = {ConvertValue(value)},");
         }
     }
 

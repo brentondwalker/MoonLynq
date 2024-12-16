@@ -15,11 +15,11 @@ public class CanvasManager : MonoBehaviour
         {
             if (i == canvasIndex)
             {
-                canvases[i].gameObject.SetActive(true);  
+                canvases[i].enabled = true;  
             }
             else
             {
-                canvases[i].gameObject.SetActive(false); 
+                canvases[i].enabled = false; 
             }
         }
     }
