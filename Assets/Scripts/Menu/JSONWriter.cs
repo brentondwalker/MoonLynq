@@ -8,7 +8,7 @@ public class JSONWriter : MonoBehaviour
 
     public float timeSinceLastUpdate;
     private float lastUpdateTime;
-    private float updateInterval = 0.01f;
+    private float updateInterval = 1f;
 
     public InputFieldManager inputHARQLossRate;
 

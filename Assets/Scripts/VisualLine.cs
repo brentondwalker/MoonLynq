@@ -112,13 +112,8 @@ public class VisualLine : MonoBehaviour
             if (hitForward[i].collider != null)
             {
                 Collider obstacleHit = hitForward[i].collider;
-
                 totalLossForward *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeInfo.frequency, objectA.transform.position, objectB.transform.position);
- 
                 totalLossForwardInDB = PowerCalculator.linearToDb(totalLossForward);
-  
-
-
             }
         }
 
@@ -130,17 +125,11 @@ public class VisualLine : MonoBehaviour
         {
             if (hitReverse[i].collider != null)
             {
-                Collider obstacleHit = hitReverse[i].collider;
-
-                
+                Collider obstacleHit = hitReverse[i].collider;           
                 totalLossReverse *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeInfo.frequency, objectB.transform.position, objectA.transform.position);
-
                 totalLossReverseInDB = PowerCalculator.linearToDb(totalLossReverse);
-
-
             }
         }
-
         LogHitInfo();
     }
 
