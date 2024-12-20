@@ -27,11 +27,7 @@ public class HeatMapLosRay : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rangeX = planeInfo.width;
-        rangeZ = planeInfo.height;
-        startX = planeInfo.vertice.x;
-        startZ = planeInfo.vertice.z;
-        startY = planeInfo.vertice.y;
+        
 
 
         dataPoints = new List<Vector3>();
@@ -68,6 +64,11 @@ public class HeatMapLosRay : MonoBehaviour
     }
     void CustomUpdate()
     {
+        rangeX = planeInfo.width;
+        rangeZ = planeInfo.height;
+        startX = planeInfo.vertice.x;
+        startZ = planeInfo.vertice.z;
+        startY = planeInfo.vertice.y;
         gnbPosition = targetGnb.transform.position;
         GenerateDataPoints();
         totalLosses.Clear();

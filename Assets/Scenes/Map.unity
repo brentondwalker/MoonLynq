@@ -1425,7 +1425,8 @@ Transform:
   m_LocalPosition: {x: 383.35, y: 51.6, z: -352.55}
   m_LocalScale: {x: 2.4147255, y: 2.4147255, z: 2.4147255}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 424238153}
   m_Father: {fileID: 288128546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &87149800
@@ -4717,7 +4718,6 @@ Transform:
   - {fileID: 1591857072}
   - {fileID: 1471452496}
   - {fileID: 286514533}
-  - {fileID: 424238153}
   - {fileID: 1605634266}
   - {fileID: 1443755446}
   m_Father: {fileID: 0}
@@ -7226,31 +7226,31 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 288128546}
+    m_TransformParent: {fileID: 87149799}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c6cb836c470642f4e841b0f7f9808aa6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.41412574
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6cb836c470642f4e841b0f7f9808aa6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.41412574
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6cb836c470642f4e841b0f7f9808aa6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.41412574
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6cb836c470642f4e841b0f7f9808aa6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 383.6
+      value: 0.10346824
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6cb836c470642f4e841b0f7f9808aa6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.2
+      value: -10.932917
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6cb836c470642f4e841b0f7f9808aa6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -352.6
+      value: -0.020726506
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6cb836c470642f4e841b0f7f9808aa6, type: 3}
       propertyPath: m_LocalRotation.w
