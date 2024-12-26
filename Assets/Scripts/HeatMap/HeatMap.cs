@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class HeatMap : MonoBehaviour
 {
-    public Gradient gradient;      
-
+    public Gradient gradient;
+    public int spreadRange = 5;
     private Texture2D heatmapTexture;
 
     void Start()
@@ -18,7 +18,7 @@ public class HeatMap : MonoBehaviour
         //renderer.material.mainTexture = heatmapTexture;
     }
 
-    public void GenerateHeatmap(List<Vector3> dataPoints, List<float> totalLosses, int textureSize)
+    public void GenerateHeatMap(List<Vector3> dataPoints, List<float> totalLosses, int textureSize)
     {
         heatmapTexture = new Texture2D(textureSize, textureSize);
         float[,] density = new float[textureSize, textureSize];
@@ -42,7 +42,7 @@ public class HeatMap : MonoBehaviour
                 (int)((-worldPoint.z + worldPosition.z + rangeZ / 2) / rangeZ * textureSize),
                 0, textureSize - 1);
 
-            SpreadDensity(density, px, py, lossValue, 8, textureSize);
+            ApplyMosaicDensity(density, px, py, lossValue, spreadRange, textureSize);
         }
 
         for (int x = 0; x < textureSize; x++)
@@ -76,6 +76,22 @@ public class HeatMap : MonoBehaviour
                 {
                     density[nx, ny] += value * (1 - distance / radius); 
                 }
+            }
+        }
+    }
+
+    void ApplyMosaicDensity(float[,] density, int x, int y, float value, int gridSize, int textureSize)
+    {
+        int startX = Mathf.Clamp(x - gridSize / 2, 0, textureSize - 1);
+        int startY = Mathf.Clamp(y - gridSize / 2, 0, textureSize - 1);
+        int endX = Mathf.Min(startX + gridSize, textureSize);
+        int endY = Mathf.Min(startY + gridSize, textureSize);
+
+        for (int nx = startX; nx < endX; nx++)
+        {
+            for (int ny = startY; ny < endY; ny++)
+            {
+                density[nx, ny] = value; 
             }
         }
     }

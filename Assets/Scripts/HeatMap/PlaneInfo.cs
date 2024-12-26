@@ -5,7 +5,8 @@ public class PlaneInfo : MonoBehaviour
     public float width;
     public float height;
     public Vector3 vertice;
-    void Start()
+    public Vector3 verticeLocal;
+    void Update()
     {
         MeshFilter meshFilter = GetComponent<MeshFilter>();
         if (meshFilter == null)
@@ -24,8 +25,11 @@ public class PlaneInfo : MonoBehaviour
 
         width = transform.lossyScale.x * 10; 
         height = transform.lossyScale.z * 10;
+
+        verticeLocal = transform.localPosition + new Vector3(-width / 2 * ScenarioScale.staticScale, 0, -height / 2 * ScenarioScale.staticScale);
         vertice = worldVertices[0];
-        vertice.y = 15.75f;
+
+        //vertice.y = 15.75f;
         //Debug.Log("vertice: " + vertice.x +" "+ vertice.z); 
 
         foreach (Vector3 vertex in worldVertices)
@@ -35,4 +39,6 @@ public class PlaneInfo : MonoBehaviour
 
         //Debug.Log($"Plane width = {width}, height = {height}");
     }
+
+
 }

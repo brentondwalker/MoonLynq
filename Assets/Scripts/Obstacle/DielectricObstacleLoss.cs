@@ -10,7 +10,7 @@ public class DielectricObstacleLoss : MonoBehaviour
     public MaterialProperties mediumMaterial;
     private int intersectionComputationCount = 0;
     private int intersectionCount = 0;
-    public float distanceConvert = 10;
+    public float distanceConvert = 1;
 
     public List<Vector3> hitPointsPosition = new List<Vector3>();
 
@@ -20,14 +20,14 @@ public class DielectricObstacleLoss : MonoBehaviour
 
     void Start()
     {
-
+        distanceConvert = 1/ScenarioScale.staticScale;
     }
 
     void OnDestroy()
     {
     }
 
-    double ComputeDielectricLoss(MaterialProperties material, float frequency, float distance)
+    double ComputeDielectricLoss(MaterialProperties material, float frequency, double distance)
     {
         float lossTangent = GetDielectricLossTangent(material, frequency);
         float propagationSpeed = GetPropagationSpeed(material);
@@ -35,15 +35,14 @@ public class DielectricObstacleLoss : MonoBehaviour
         float k = 2 * Mathf.PI * frequency / propagationSpeed;
         double factor = Math.Exp(-2 * delta * (k * distance));
 
-        //Debug.Log("Dielectric loss factor: " + factor);
-        //Debug.Log("Distance: " + distance);
+        Debug.Log("Dielectric loss factor: " + factor);
+        Debug.Log("Distance: " + distance);
 
         return Mathf.Clamp((float)factor, 0, 1);
     }
 
     double ComputeReflectionLoss(MaterialProperties incidentMaterial, MaterialProperties refractiveMaterial, float angle)
     {
-        //Debug.Log("Angle: " + angle);
 
         float n1 = GetRefractiveIndex(incidentMaterial);
         float n2 = GetRefractiveIndex(refractiveMaterial);
@@ -55,8 +54,8 @@ public class DielectricObstacleLoss : MonoBehaviour
         double rp = Math.Pow((n1 * k - n2 * cosAngle) / (n1 * k + n2 * cosAngle), 2);
         double reflectance = (rs + rp) / 2;
 
-        //Debug.Log("Angle: " + angle);
-        //Debug.Log("Transmittance: " + (1 - reflectance));
+        Debug.Log("Angle: " + angle);
+        Debug.Log("Transmittance: " + (1 - reflectance));
 
         return 1 - reflectance;
     }
@@ -87,7 +86,7 @@ public class DielectricObstacleLoss : MonoBehaviour
 
                 if (enableDielectricLoss)
                 {
-                    float intersectionDistance = Vector3.Distance(hit1.point, hit2.point) * distanceConvert;
+                    double intersectionDistance = Vector3.Distance(hit1.point, hit2.point) * distanceConvert;
                     totalLoss *= ComputeDielectricLoss(material, frequency, intersectionDistance);
                 }
 
@@ -115,7 +114,7 @@ public class DielectricObstacleLoss : MonoBehaviour
 
             if (enableDielectricLoss)
             {
-                float intersectionDistance = Vector3.Distance(hitTransmission.point, hitReception.point) * distanceConvert;
+                double intersectionDistance = Vector3.Distance(hitTransmission.point, hitReception.point) * distanceConvert;
                 //Debug.Log("IntersectionDistance: " + intersectionDistance);
                 totalLoss *= ComputeDielectricLoss(material, frequency, intersectionDistance);
             }

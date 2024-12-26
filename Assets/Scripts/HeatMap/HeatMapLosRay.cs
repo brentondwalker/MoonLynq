@@ -7,15 +7,15 @@ public class HeatMapLosRay : MonoBehaviour
     Vector3 gnbPosition;
 
     public float frequency = 2000000000;
-    private List<Vector3> dataPoints;
-    private List<float> totalLosses;
+    public List<Vector3> dataPoints;
+    public List<float> totalLosses;
 
-    public int gridSpacing = 10;
-    private float rangeX;
-    private float rangeZ;
-    private float startX;
-    private float startZ;
-    private float startY;
+    public float gridSpacing = 10;
+    public float rangeX;
+    public float rangeZ;
+    public float startX;
+    public float startZ;
+    public float startY;
 
     public ObstacleLos obstacleLos;
     public string collisionInfo;
@@ -53,16 +53,16 @@ public class HeatMapLosRay : MonoBehaviour
     private float updateInterval = 2;
 
 
-    void Update()
-    {
-        timeSinceLastUpdate = Time.time - lastUpdateTime;
-        if (timeSinceLastUpdate >= updateInterval)
-        {
-            CustomUpdate();
-            lastUpdateTime = Time.time;
-        }
-    }
-    void CustomUpdate()
+    //void Update()
+    //{
+        //timeSinceLastUpdate = Time.time - lastUpdateTime;
+        //if (timeSinceLastUpdate >= updateInterval)
+        //{
+        //    CustomUpdate();
+        //    lastUpdateTime = Time.time;
+        //}
+    //}
+    public void UpdateHeatMap()
     {
         rangeX = planeInfo.width;
         rangeZ = planeInfo.height;
@@ -81,16 +81,31 @@ public class HeatMapLosRay : MonoBehaviour
             //Debug.Log(collisionInfo);
             //Debug.DrawLine(point, gnbPosition, Color.red, 100f);
         }
-        heatMap.GenerateHeatmap(dataPoints,totalLosses,textureSize);
+        heatMap.GenerateHeatMap(dataPoints,totalLosses,textureSize);
+    }
+
+    public void RegenerateHeatMap()
+    {
+        heatMap.GenerateHeatMap(dataPoints, totalLosses, textureSize);
     }
 
     void GenerateDataPoints()
     {
         dataPoints.Clear();
-        for (float x = startX-rangeX; x <= startX; x += gridSpacing)
+
+        int rows = Mathf.RoundToInt((float)planeInfo.height / gridSpacing);
+        int cols = Mathf.RoundToInt((float)planeInfo.width / gridSpacing);
+
+        Debug.Log("rows: " + rows);
+        Debug.Log("cols: " + cols);
+
+        for (int i = 0; i < rows; i++)
         {
-            for (float z = startZ-rangeZ; z <= startZ; z += gridSpacing)
+            for (int j = 0; j < cols; j++)
             {
+                float x = startX - rangeX + j * gridSpacing;
+                float z = startZ - rangeZ + i * gridSpacing;
+
                 Vector3 point = new Vector3(x, startY, z);
                 dataPoints.Add(point);
             }
