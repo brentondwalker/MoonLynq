@@ -21052,8 +21052,8 @@ MonoBehaviour:
   mediumMaterial: {fileID: 1231390258}
   distanceConvert: 10
   hitPointsPosition: []
-  useSegmentedRaycasts: 0
-  segments: 1
+  useSegmentedRaycasts: 1
+  segments: 2
 --- !u!1 &1233988205 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8622375273103888637, guid: 6f107bbb40104f54f8710c1435b697f6, type: 3}
@@ -26016,6 +26016,7 @@ MonoBehaviour:
   height: 0
   vertice: {x: 0, y: 0, z: 0}
   verticeLocal: {x: 0, y: 0, z: 0}
+  distanceConvert: 1
 --- !u!1 &1616863436 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 197696942519304418, guid: 6f107bbb40104f54f8710c1435b697f6, type: 3}
@@ -31224,7 +31225,6 @@ MonoBehaviour:
   heatMapLosRay: {fileID: 1481869462}
   jsonData: 
   writeJsonToLocal: 1
-  distanceConvert: 1
 --- !u!1 &1999994406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4351060805152183024, guid: 6f107bbb40104f54f8710c1435b697f6, type: 3}

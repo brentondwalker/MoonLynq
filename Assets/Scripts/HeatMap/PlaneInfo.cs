@@ -6,6 +6,14 @@ public class PlaneInfo : MonoBehaviour
     public float height;
     public Vector3 vertice;
     public Vector3 verticeLocal;
+
+    public float distanceConvert = 1;
+
+    void Start()
+    {
+        distanceConvert = 1 / ScenarioScale.staticScale;
+    }
+
     void Update()
     {
         MeshFilter meshFilter = GetComponent<MeshFilter>();
@@ -26,7 +34,7 @@ public class PlaneInfo : MonoBehaviour
         width = transform.lossyScale.x * 10; 
         height = transform.lossyScale.z * 10;
 
-        verticeLocal = transform.localPosition + new Vector3(-width / 2 * ScenarioScale.staticScale, 0, -height / 2 * ScenarioScale.staticScale);
+        verticeLocal = transform.localPosition + new Vector3(-width / 2 * distanceConvert, 0, -height / 2 * distanceConvert);
         vertice = worldVertices[0];
 
         //vertice.y = 15.75f;
