@@ -31,8 +31,8 @@ public class PlaneInfo : MonoBehaviour
             worldVertices[i] = transform.TransformPoint(vertices[i]); 
         }
 
-        width = transform.lossyScale.x * 10; 
-        height = transform.lossyScale.z * 10;
+        width = transform.lossyScale.x * 10 ; 
+        height = transform.lossyScale.z * 10 ;
 
         verticeLocal = transform.localPosition + new Vector3(-width / 2 * distanceConvert, 0, -height / 2 * distanceConvert);
         vertice = worldVertices[0];

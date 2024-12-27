@@ -99,12 +99,12 @@ public class HeatMapLosRay : MonoBehaviour
         Debug.Log("rows: " + rows);
         Debug.Log("cols: " + cols);
 
-        for (int i = 0; i < rows; i++)
+        for (int i = 0; i <= rows; i++)
         {
-            for (int j = 0; j < cols; j++)
+            for (int j = 0; j <= cols; j++)
             {
                 float x = startX - rangeX + j * gridSpacing;
-                float z = startZ - rangeZ + i * gridSpacing;
+                float z = startZ - i * gridSpacing;
 
                 Vector3 point = new Vector3(x, startY, z);
                 dataPoints.Add(point);
