@@ -17,6 +17,9 @@ public class HeatMapLosRay : MonoBehaviour
     public float startZ;
     public float startY;
 
+    public int rows = 1;
+    public int cols = 1;
+
     public ObstacleLos obstacleLos;
     public string collisionInfo;
 
@@ -75,7 +78,8 @@ public class HeatMapLosRay : MonoBehaviour
         foreach (var point in dataPoints)
         {
             collisionInfo = obstacleLos.CheckLineCollision(frequency, point, gnbPosition);
-            double totalLoss = obstacleLos.getTotalLossReverseInDB();
+            //double totalLoss = obstacleLos.getTotalLossReverseInDB();
+            double totalLoss = obstacleLos.getTotalLossForwardInDB();
             totalLosses.Add((float)totalLoss);
             //Debug.Log("Heat Map Loss added:" + totalLoss + " for point:" + point.x + " " + point.z);
             //Debug.Log(collisionInfo);
@@ -93,8 +97,8 @@ public class HeatMapLosRay : MonoBehaviour
     {
         dataPoints.Clear();
 
-        int rows = Mathf.RoundToInt((float)planeInfo.height / gridSpacing);
-        int cols = Mathf.RoundToInt((float)planeInfo.width / gridSpacing);
+        rows = Mathf.RoundToInt((float)planeInfo.height / gridSpacing);
+        cols = Mathf.RoundToInt((float)planeInfo.width / gridSpacing);
 
         Debug.Log("rows: " + rows);
         Debug.Log("cols: " + cols);
