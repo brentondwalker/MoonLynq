@@ -35,8 +35,8 @@ public class DielectricObstacleLoss : MonoBehaviour
         float k = 2 * Mathf.PI * frequency / propagationSpeed;
         double factor = Math.Exp(-2 * delta * (k * distance));
 
-        Debug.Log("Dielectric loss factor: " + factor);
-        Debug.Log("Distance: " + distance);
+        //Debug.Log("Dielectric loss factor: " + factor);
+        //Debug.Log("Distance: " + distance);
 
         return Mathf.Clamp((float)factor, 0, 1);
     }
@@ -54,8 +54,8 @@ public class DielectricObstacleLoss : MonoBehaviour
         double rp = Math.Pow((n1 * k - n2 * cosAngle) / (n1 * k + n2 * cosAngle), 2);
         double reflectance = (rs + rp) / 2;
 
-        Debug.Log("Angle: " + angle);
-        Debug.Log("Transmittance: " + (1 - reflectance));
+        //Debug.Log("Angle: " + angle);
+        //Debug.Log("Transmittance: " + (1 - reflectance));
 
         return 1 - reflectance;
     }
@@ -101,7 +101,7 @@ public class DielectricObstacleLoss : MonoBehaviour
         {
             if (material == null)
             {
-                Debug.LogWarning("Material not found!");
+                //Debug.LogWarning("Material not found!");
             }
 
             Ray rayF = new Ray(transmissionPosition, direction);
@@ -115,6 +115,8 @@ public class DielectricObstacleLoss : MonoBehaviour
             if (enableDielectricLoss)
             {
                 double intersectionDistance = Vector3.Distance(hitTransmission.point, hitReception.point) * distanceConvert;
+                //Debug.Log("hitTransmission.point: " + hitTransmission.point);
+                //Debug.Log("hitReception.point: " + hitReception.point);
                 //Debug.Log("IntersectionDistance: " + intersectionDistance);
                 totalLoss *= ComputeDielectricLoss(material, frequency, intersectionDistance);
             }

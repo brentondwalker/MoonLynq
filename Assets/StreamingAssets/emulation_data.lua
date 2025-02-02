@@ -1,1 +1,1 @@
-{    HARQ_loss_rate = 0,}
+{    HARQ_loss_rate = 0,    PDCP_throughput = 0,}

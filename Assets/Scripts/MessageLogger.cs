@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.IO;
 
 public class MessageLogger : MonoBehaviour
 {
@@ -31,7 +32,12 @@ public class MessageLogger : MonoBehaviour
 
     public List<string> GetLog()
     {
-        return logMessages;
+        int count = logMessages.Count;
+        if (count > 100)
+        {
+            return logMessages.GetRange(count - 100, 100);
+        }
+        return new List<string>(logMessages);
     }
 
     public void ClearLog()
@@ -44,6 +50,20 @@ public class MessageLogger : MonoBehaviour
         if (scrollbar != null)
         {
             scrollbar.value = 1f;
+        }
+    }
+
+    public void SaveLogToFile()
+    {
+        string path = Path.Combine(Application.dataPath, "log.txt");
+        try
+        {
+            File.WriteAllLines(path, logMessages);
+            Debug.Log($"Log saved to: {path}");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Failed to save log: {e.Message}");
         }
     }
 }

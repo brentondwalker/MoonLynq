@@ -52,7 +52,7 @@ public class UeInfo : MonoBehaviour
         txPowerDl = System.Math.Round(TargetGnb.txPower+VisualLine.totalLossReverseInDB, 1);
 
         
-        ulInfo = "txPower"+ueId.ToString()+": " + txPowerUl.ToString();
+        ulInfo = "txPower" + ueId.ToString() + "->" + targetGnbId.ToString()  + ": " + txPowerUl.ToString();
         dlInfo = "txPower" + targetGnbId.ToString() + "->" + ueId.ToString() + ": " + txPowerDl.ToString();
 
         isSelect = statusDisplay.status;
