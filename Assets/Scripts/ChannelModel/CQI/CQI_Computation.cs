@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CQI_Computaion : MonoBehaviour
 {
-    private List<double> baseMin; // 初始最小值列表
-    private double targetBler = 0.01; // 目标 BLER
+    private List<double> baseMin;
+    private double targetBler = 0.01; 
     public PisaData pisaData;
 
     public int minSnr;

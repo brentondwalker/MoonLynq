@@ -6,9 +6,9 @@ public class LteSINR : MonoBehaviour
 {
     public double antennaGainTx = 0.0;
     public double antennaGainRx = 0.0;
-    private double noiseFigure = 2.0;
-    private double cableLoss = 5.0;
-    private double thermalNoise = -110;
+    private double noiseFigure = 5.0;
+    private double cableLoss = 2.0;
+    private double thermalNoise = -104;
     private int numBands = 1; 
     private bool fadingEnabled = true;
 
@@ -74,8 +74,10 @@ public class LteSINR : MonoBehaviour
     private double ApplyFading(Vector3 ueCoord, Vector3 enbCoord, double speed)
     {
         // 应用 Rayleigh 或 Jakes 衰落模型
-        double fading = 0.0;
+        double fading = 5.0;
         return fading;
     }
+
+
 }
 

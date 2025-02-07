@@ -15034,6 +15034,10 @@ PrefabInstance:
       propertyPath: useSegmentedRaycasts
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1112139728689876349, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: lteMcs
+      value: 
+      objectReference: {fileID: 881776613}
     - target: {fileID: 1327713402620556874, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.49546635
@@ -21404,6 +21408,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 13.149093, y: 4, z: 0.19999999}
   m_Center: {x: 0, y: 0, z: -0.000015258789}
+--- !u!114 &881776613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3350767231099524412, guid: d43815731c534a240825eff79b7303dc, type: 3}
+  m_PrefabInstance: {fileID: 657172986}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa3abf96591edf4cb6c9927ccd82b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &881914985 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1296926767250541287, guid: 6f107bbb40104f54f8710c1435b697f6, type: 3}
