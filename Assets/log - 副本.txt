@@ -1,3 +1,16 @@
+Using username "Nairong".
+SSH Output: Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-204-generic x86_64)
+SSH Output:  * Documentation:  https://help.ubuntu.com
+SSH Output:  * Management:     https://landscape.canonical.com
+SSH Output:  * Support:        https://ubuntu.com/advantage
+SSH Output:  * Canonical Livepatch is available for installation.
+SSH Output:    - Reduce system reboots and improve kernel security. Activate at:
+SSH Output:      https://ubuntu.com/livepatch
+SSH Output: New release '20.04.6 LTS' available.
+SSH Output: Run 'do-release-upgrade' to upgrade to it.
+SSH Output: Last login: Mon Feb  3 05:37:33 2025 from 192.168.8.10
+SSH Output: ncat -l 12350 --keep-open
+SSH Output: Nairong@node2:~$ ncat -l 12350 --keep-open
 SSH Output: [Pkt] Id: 1, RX: 190ULL, TX: 268ULL, RLCQ: 0
 SSH Output: [Pkt] Id: 1, RX: 190ULL, TX: 268ULL, RLCQ: 0
 SSH Output: [Pkt] Id: 1, RX: 190ULL, TX: 268ULL, RLCQ: 0

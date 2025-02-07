@@ -8,7 +8,7 @@ public class UeInfo : MonoBehaviour
 
     public VisualLine VisualLine;
     private double txPowerUl = 0.0f;
-    private double txPowerBaseUl = 26.0f;
+    public double txPowerBaseUl = 26.0f;
     private double txPowerDl = 0.0f;
     public int ueId = 0;
     public float frequency = 2000000000;

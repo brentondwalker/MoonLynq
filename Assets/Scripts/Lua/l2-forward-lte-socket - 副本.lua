@@ -52,23 +52,17 @@ function master(args)
 	-- create the ring buffers
 	-- should set the size here, based on the line speed and latency, and maybe desired queue depth
 	local qdepth1 = args.queuedepth[1]
-	--qdepth1 = math.ceil(2097152/1280)
-
-
 	if qdepth1 < 1 then
 		qdepth1 = math.ceil((args.latency[1] * args.rate[1] * 1000)/672)
 		if (qdepth1 == 0) then
 			qdepth1 = 1
 		end
 
+		qdepth1 = math.ceil(2097152/1280)
+
 		print("automatically setting qdepth1="..qdepth1)
 	end
 	local qdepth2 = args.queuedepth[2]
-
-
-	--qdepth2 = math.ceil(2097152/1280)
-
-
 	if qdepth2 < 1 then
 		qdepth2 = math.ceil((args.latency[2] * args.rate[2] * 1000)/672)
 		if (qdepth2 == 0) then
@@ -95,19 +89,19 @@ function master(args)
 
 	-- start the receiving/latency tasks
 	for i = 1, args.threads do
-		mg.startTask("receive", ring1, args.dev[2]:getRxQueue(i - 1), args.dev[2], ns, 1)
+		mg.startTask("receive", ring1, args.dev[2]:getRxQueue(i - 1), args.dev[2])
 		if args.dev[1] ~= args.dev[2] then
-			mg.startTask("receive", ring2, args.dev[1]:getRxQueue(i - 1), args.dev[1], ns, 2)
+			mg.startTask("receive", ring2, args.dev[1]:getRxQueue(i - 1), args.dev[1])
 		end
 	end
 
-	mg.startTask("server", ns)
+	--mg.startTask("server", ns)
 
 	mg.waitForTasks()
 end
 
 
-function receive(ring, rxQueue, rxDev, ns, threadId)
+function receive(ring, rxQueue, rxDev)
 	--print("receive thread...")
 
 	local bufs = memory.createBufArray()
@@ -115,14 +109,6 @@ function receive(ring, rxQueue, rxDev, ns, threadId)
 	local count_hist = histogram:new()
 	local ringsize_hist = histogram:new()
 	local ringbytes_hist = histogram:new()
-
-	local tsc_hz = libmoon:getCyclesFrequency()
-	local tsc_hz_ms = tsc_hz / 1000
-	local overflow_count = 0
-	local start_time = limiter:get_tsc_cycles() / tsc_hz_ms
-	--local ring_capacity = pipe:capacityPktsizedRing(ring.ring)
-	local ring_capacity = math.ceil(2097152/1280)
-
 	while mg.running() do
 		count = rxQueue:recv(bufs)
 		count_hist:update(count)
@@ -134,26 +120,10 @@ function receive(ring, rxQueue, rxDev, ns, threadId)
 			--print("RXRX arrival: ", bit64.tohex(buf.udata64))
 		end
 		if count > 0 then
-			local ring_count = pipe:countPktsizedRing(ring.ring)
-			if ring_count + count <= ring_capacity then
-				pipe:sendToPktsizedRing(ring.ring, bufs, count)
-			else 
-				overflow_count = overflow_count + count
-				bufs:free(count)
-			end
-			--print("ring count: ",pipe:countPktsizedRing(ring.ring))
+			pipe:sendToPktsizedRing(ring.ring, bufs, count)
+			--print("ring count: ",pipe:countPacketRing(ring.ring))
 			ringsize_hist:update(pipe:countPktsizedRing(ring.ring))
 		end
-
-		if threadId == 2 then
-			local current_time = limiter:get_tsc_cycles() / tsc_hz_ms
-			ns.rlcMessage = string.format("[RLC] T: %s, Loss: %d, Queue: %d, of %d\n", 
-                                              tostring(current_time - start_time), overflow_count or 0, pipe:countPktsizedRing(ring.ring) or 0, ring_capacity)
-			--print("RLC Loss: ",overflow_count)
-		end
-
-		
-
 	end
 	count_hist:print()
 	count_hist:save("rxq-pkt-count-distribution-histogram-"..rxDev["id"]..".csv")
@@ -188,11 +158,7 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 	local count = 0
 
 	local lastPrintTime = 0
-	local last_send_time = 0
-	local start_time = limiter:get_tsc_cycles() / tsc_hz_ms
-
-	local packetBuffer = {}
-	local bufferIndex = 1
+	local last_send_time = 0;
 
 	while mg.running() do
 
@@ -204,6 +170,15 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 			harqLossRate = ns.HARQ_loss_rate or 0
 	 		throughPutPdcp = ns.PDCP_throughput or rate
+
+			local currentTime = os.time()
+
+			if currentTime - lastPrintTime >= 1 then
+				--print("Updated HARQ Loss Rate: " .. harqLossRate)
+				lastPrintTime = currentTime  
+			end
+
+
 
 			local retransmissionAttempt = 0;
 			local buf = bufs[iix]
@@ -263,9 +238,8 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 			local packetId = packetInfoLength + iix
             packetInfo[packetId] = {
                 id = packetId,
-                receiveTime = buf.udata64 / tsc_hz_ms - start_time,
-                sendTime = 0,
-				rlcQueue = pipe:countPktsizedRing(ring.ring)
+                receiveTime = buf.udata64 / tsc_hz_ms,
+                sendTime = 0
             }
 			end
 
@@ -275,8 +249,6 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 
 		end
-
-
 
 		if count > 0 then
 			-- the rate here doesn't affect the result afaict.  It's just to help decide the size of the bad pkts
@@ -293,10 +265,9 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 					currentSendTime = "Lost"
 				end
 
-
                 local packetId = packetInfoLength + iix
                 if packetInfo[packetId] then
-                    packetInfo[packetId].sendTime = currentSendTime  - start_time
+                    packetInfo[packetId].sendTime = currentSendTime 
 					
 					--print(string.format("Inserted Packet Info: ID=%d, ReceiveTime=%s, SendTime=%s",
 					--	packetInfo[packetId].id,
@@ -307,45 +278,34 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
                 end
             end
 			end
-			
+
 		end
 
 		packetInfoLength = packetInfoLength + count
 		ns.packetInfoLength = packetInfoLength
 
-		local currentTime = os.clock()
 
 
-
-if currentTime - lastPrintTime >= 1 and packetInfo[ns.packetIdToSend] and ns.packetIdToSend < packetInfoLength and ns.packetIdToSend >= ns.messageId then
-    local packetIdToSend = ns.packetIdToSend
-
-    local maxBatchSize = 500  
-    local batchCount = 0
-
-    while packetIdToSend < packetInfoLength and batchCount < maxBatchSize do
-        local packet = packetInfo[packetIdToSend]
-        if packet and packet.id and packet.receiveTime and packet.sendTime then
-            packetBuffer[bufferIndex] = 
-                string.format("[Pkt] Id: %d, RX: %s, TX: %s, RLCQ: %d\n", 
-                packet.id, tostring(packet.receiveTime), tostring(packet.sendTime), packet.rlcQueue)
-
-            ns.messageId = packet.id
-            packetIdToSend = packetIdToSend + 1
-            bufferIndex = bufferIndex + 1
-            batchCount = batchCount + 1
-        else
-            print("Packet missing required fields for ID: " .. tostring(ns.packetIdToSend))
-        end
-    end
-
-    lastPrintTime = currentTime  
-
-    if bufferIndex > 1 then
-        ns.messageToSend = table.concat(packetBuffer, "")  
-        packetBuffer = {}  
-        bufferIndex = 1
-    end
+		if packetInfo[ns.packetIdToSend] and ns.packetIdToSend < packetInfoLength then
+			local packetIdToSend = ns.packetIdToSend
+			ns.messageToSend = ""
+			while packetIdToSend < packetInfoLength do
+				local packet = packetInfo[packetIdToSend]
+				if packet.id and packet.receiveTime and packet.sendTime then
+					ns.messageToSend = ns.messageToSend .. 
+										string.format("PktId: %d, RX: %s, TX: %s", packet.id, 
+                                        tostring(packet.receiveTime), 
+                                        tostring(packet.sendTime)) 
+										.. "\n"
+					ns.messageId = packet.id
+					packetIdToSend = packetIdToSend + 1
+					--print("packetIdToSend: " .. tostring(ns.packetIdToSend))
+				else
+					print("Packet missing required fields for ID: " .. tostring(ns.packetIdToSend))
+				end
+			end
+		else
+    --print("No packet found for ID: " .. tostring(ns.packetIdToSend))
 end
 
 
@@ -363,16 +323,12 @@ function server(ns)
     server:settimeout(0)
     print("Server listening on 127.0.0.1:12345")
 
-	local lastReportTime = limiter:get_tsc_cycles() / tsc_hz_ms
-	local startTime = limiter:get_tsc_cycles() / tsc_hz_ms
-
 
 	ns.packetIdToSend = 1
 
     while mg.running() do
         local client = server:accept()
         if client then
-			client:settimeout(0)
             local message, err = client:receive()
             if not err and message then
                 print("Received raw message:", message)
@@ -396,43 +352,40 @@ function server(ns)
             client:close()
         end
 
-		mg.sleepMillis(1)  
 
-		
-	local success, test_err = pcall(function()
-        while ns.packetInfoLength and ns.packetIdToSend <= ns.packetInfoLength do
-            if ns.messageToSend and ns.messageId >= ns.packetIdToSend then
-                local send_client = socket.tcp()
-                send_client:settimeout(0.1)
 
-                if send_client:connect("127.0.0.1", 12350) then
-                    send_client:send(ns.messageToSend)
-                    ns.packetIdToSend = ns.messageId + 1    
-                end
-                send_client:close()
-            end
-        end
-    end)
+		while ns.packetInfoLength and ns.packetIdToSend <= ns.packetInfoLength do
+			local success, test_err = pcall(function()
+			
 
-    if not success then
-        print("Error sending message: ", test_err)
+			local packetToSend = ns.packetToSend
+
+			if ns.messageToSend and ns.messageId >= ns.packetIdToSend then
+				local send_client = assert(socket.connect("127.0.0.1", 12350))
+				send_client:settimeout(0.1)
+
+				local send_message = ns.messageToSend
+				send_client:send(send_message )
+				ns.packetIdToSend = ns.messageId + 1	
+				
+				send_client:close()
+			else
+				 --print("Packet with ID " .. ns.packetIdToSend .. " not found.")
+			end
+
+
+
+			--print("Sent message to 127.0.0.1:12350:", send_message)
+
+			end)
+
+			if not success then
+			    --print("Failed to send test message to 127.0.0.1:12350. Error:", test_err)
+			end
+		end
+
     end
 
-    local currentTime = limiter:get_tsc_cycles() / tsc_hz_ms
-    if currentTime > lastReportTime + 1000 then
-        local report_client = socket.tcp()
-        report_client:settimeout(0.1)
-
-        if report_client:connect("127.0.0.1", 12350) and ns.rlcMessage then
-            report_client:send(ns.rlcMessage)
-        end
-
-        report_client:close()
-        lastReportTime = currentTime
-    end
-
-		mg.sleepMillis(1)
-	end
     server:close()
     print("Server shut down.")
 end
