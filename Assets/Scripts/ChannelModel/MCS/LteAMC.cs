@@ -54,7 +54,7 @@ public class LteAMC : MonoBehaviour
         }
 
 
-        public int ComputeBitsOnNRbs(int cqi, int band, int layers, int blocks, bool isUpload)
+        public int ComputeBitsOnNRbs(int cqi, int layers, int blocks, bool isUpload)
         {
             if (blocks > 110) 
                 throw new Exception("LteAmc::blocks2bits(): Too many blocks");

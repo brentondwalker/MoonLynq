@@ -29,7 +29,7 @@ public class CQI_Test : MonoBehaviour
     }
     void CustomUpdate()
     {
-        meanSNR = cqiComputation.MeanSnr(lteSINR.GetSINR(0,true));
+        meanSNR = cqiComputation.MeanSnr(lteSINR.GetSINR(true));
         cqi = cqiComputation.GetCqi(txmode, meanSNR);
         //cqi = cqiComputation.GetCqi(txmode, 32);
     }

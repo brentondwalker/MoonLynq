@@ -36,9 +36,9 @@ public class UINodeSelectInfo : MonoBehaviour
                                 -Math.Round(selectUe.prefabPosition.z, 1) + " " +
                                 Math.Round(selectUe.prefabPosition.y, 1) + "\n" +
                             "<b>TxPower:</b> " + Math.Round(selectUe.GetTxPower(), 1) + "dBm" + "\n" + 
-                            "<b>Upload:</b> " + selectUe.GetUeId() + "->" + selectUe.TargetGnb.gnbId +
+                            "<b>Upload:</b> " + selectUe.GetUeId() + "->" + selectUe.TargetEnb.enbId +
                                 " TxPower: " + Math.Round(selectUe.GetTxPowerUl(), 1) + "dBm" + " Loss: " + Math.Round(selectUe.VisualLine.totalLossForwardInDB,1) + "dBm" + "\n" +
-                            "<b>Download:</b> " + selectUe.TargetGnb.gnbId + "->" + selectUe.ueId +
+                            "<b>Download:</b> " + selectUe.TargetEnb.enbId + "->" + selectUe.ueId +
                                 " TxPower: " + Math.Round(selectUe.GetTxPowerDl(), 1) + "dBm" + " Loss " + Math.Round(selectUe.VisualLine.totalLossReverseInDB,1) + "dBm" + "\n";
             nodeInfoDisplay.text = displayInfo;
         }

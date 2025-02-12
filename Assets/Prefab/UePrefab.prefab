@@ -573,9 +573,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lteAmc: {fileID: 1789630483437207225}
+  lteMcs: {fileID: 3350767231099524412}
   cqiTest: {fileID: 709645430696870306}
+  ueInfo: {fileID: 3627855485555203804}
+  cqi: 0
   iTbs: 0
-  tbsVect: 0
+  tbs: 0
+  mod: 0
+  bandwidth: 0
   timeSinceLastUpdate: 0
 --- !u!1 &7650223297950970496
 GameObject:
@@ -591,6 +596,8 @@ GameObject:
   - component: {fileID: 709645430696870306}
   - component: {fileID: 7549152053711253735}
   - component: {fileID: 6354863784154599624}
+  - component: {fileID: 3070849787909942887}
+  - component: {fileID: 9175739687531629458}
   m_Layer: 0
   m_Name: CQI
   m_TagString: Untagged
@@ -627,7 +634,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   antennaGainTx: 0
   antennaGainRx: 18
+  fadingEnabled: 1
+  fading: 0
   Ue: {fileID: 3627855485555203804}
+  jakesFading: {fileID: 3070849787909942887}
+  dopplerSpeed: {fileID: 9175739687531629458}
 --- !u!114 &4792644354616968728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,6 +696,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bb8e8652cb04e64d8f95e4c16b491ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3070849787909942887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7650223297950970496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4696abd9db07b8b46a36e6fd3c1cbac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dopplerSpeed: 0
+--- !u!114 &9175739687531629458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7650223297950970496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd2db74c06a78b4495ae04258921190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7669437582577715501
@@ -833,13 +869,15 @@ MonoBehaviour:
   frequency: 2e+9
   statusDisplay: {fileID: 0}
   isSelect: 0
-  TargetGnb: {fileID: 0}
-  targetGnbId: 0
+  TargetEnb: {fileID: 0}
+  targetEnbId: 0
   prefabMovement: {fileID: 0}
   prefabPosition: {x: 0, y: 0, z: 0}
   mobilityInfo: 
   ulInfo: 
   dlInfo: 
+  ueObject: {fileID: 0}
+  numBands: 1
 --- !u!114 &1609333289611013543
 MonoBehaviour:
   m_ObjectHideFlags: 0

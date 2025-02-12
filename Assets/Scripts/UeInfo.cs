@@ -21,8 +21,8 @@ public class UeInfo : MonoBehaviour
     public UeStatusDisplay statusDisplay;
     public bool isSelect = false;
 
-    public GnbInfo TargetGnb;
-    public int targetGnbId = 0;
+    public EnbInfo TargetEnb;
+    public int targetEnbId = 0;
 
     public UeMovementControl prefabMovement;
     public Vector3 prefabPosition;
@@ -31,6 +31,10 @@ public class UeInfo : MonoBehaviour
 
     public string ulInfo = "";
     public string dlInfo = "";
+
+    public GameObject ueObject;
+
+    public int numBands = 1;
 
     void Start()
     {
@@ -45,15 +49,15 @@ public class UeInfo : MonoBehaviour
         mobilityInfo = ueId.ToString() + ": " + Math.Round(prefabPosition.x,1) +" "+ -Math.Round(prefabPosition.z, 1) + " "+ Math.Round(prefabPosition.y, 1);
 
         losCollision = VisualLine.collision;
-        targetGnbId = TargetGnb.gnbId;
+        targetEnbId = TargetEnb.enbId;
 
 
         txPowerUl = System.Math.Round(txPowerBaseUl+VisualLine.totalLossForwardInDB, 1);
-        txPowerDl = System.Math.Round(TargetGnb.txPower+VisualLine.totalLossReverseInDB, 1);
+        txPowerDl = System.Math.Round(TargetEnb.txPower+VisualLine.totalLossReverseInDB, 1);
 
         
-        ulInfo = "txPower" + ueId.ToString() + "->" + targetGnbId.ToString()  + ": " + txPowerUl.ToString();
-        dlInfo = "txPower" + targetGnbId.ToString() + "->" + ueId.ToString() + ": " + txPowerDl.ToString();
+        ulInfo = "txPower" + ueId.ToString() + "->" + targetEnbId.ToString()  + ": " + txPowerUl.ToString();
+        dlInfo = "txPower" + targetEnbId.ToString() + "->" + ueId.ToString() + ": " + txPowerDl.ToString();
 
         isSelect = statusDisplay.status;
 

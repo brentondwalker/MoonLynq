@@ -2266,7 +2266,7 @@ GameObject:
   - component: {fileID: 87149797}
   - component: {fileID: 87149800}
   m_Layer: 0
-  m_Name: Gnb
+  m_Name: eNB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2353,10 +2353,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3caa5f2ee199c56419f6a1fa66aa57d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gnbId: 1
+  enbId: 1
   txPower: 40
-  gnbMobiltiyLocal: {x: 0, y: 0, z: 0}
-  gnbMobilityInfo: 
+  enbMobiltiyLocal: {x: 0, y: 0, z: 0}
+  enbMobilityInfo: 
+  enbObject: {fileID: 87149796}
 --- !u!1 &87547220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4915202262983804263, guid: 6f107bbb40104f54f8710c1435b697f6, type: 3}
@@ -10408,7 +10409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6cb836c470642f4e841b0f7f9808aa6, type: 3}
       propertyPath: m_Name
-      value: gnb
+      value: enb
       objectReference: {fileID: 0}
     - target: {fileID: 1188474125888089368, guid: c6cb836c470642f4e841b0f7f9808aa6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15095,6 +15096,18 @@ PrefabInstance:
       value: 2049
       objectReference: {fileID: 0}
     - target: {fileID: 3627855485555203804, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: numBands
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627855485555203804, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: ueObject
+      value: 
+      objectReference: {fileID: 212303090}
+    - target: {fileID: 3627855485555203804, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: TargetEnb
+      value: 
+      objectReference: {fileID: 87149800}
+    - target: {fileID: 3627855485555203804, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: TargetGnb
       value: 
       objectReference: {fileID: 87149800}
@@ -15106,6 +15119,10 @@ PrefabInstance:
       propertyPath: prefabMovement
       value: 
       objectReference: {fileID: 657172988}
+    - target: {fileID: 4324620982535302738, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: fadingEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5839165448725125935, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalScale.x
       value: 7.2113433
@@ -40913,7 +40930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UeManager: {fileID: 1471452497}
-  GnbInfo: {fileID: 87149800}
+  enbInfo: {fileID: 87149800}
 --- !u!1 &1688173330
 GameObject:
   m_ObjectHideFlags: 0

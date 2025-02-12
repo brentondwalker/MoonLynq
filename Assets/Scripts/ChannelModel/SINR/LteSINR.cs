@@ -9,20 +9,22 @@ public class LteSINR : MonoBehaviour
     private double noiseFigure = 5.0;
     private double cableLoss = 2.0;
     private double thermalNoise = -104;
-    private int numBands = 1; 
-    private bool fadingEnabled = true;
+    public bool fadingEnabled = true;
+
+    public double fading;
 
     public UeInfo Ue;
-
-    public List<double> GetSINR(double speed, bool isUpload)
+    public JakesFading jakesFading;
+    public DopplerSpeed dopplerSpeed;
+    public List<double> GetSINR(bool isUpload)
     {
-        List<double> snrVector = new List<double>(new double[numBands]);
+        List<double> snrVector = new List<double>(new double[Ue.numBands]);
 
         Vector3 ueCoord = Ue.prefabPosition;
-        Vector3 enbCoord = Ue.TargetGnb.gnbMobiltiyLocal;
+        Vector3 enbCoord = Ue.TargetEnb.enbMobiltiyLocal;
 
         double txPowerUe = Ue.txPowerBaseUl;
-        double txPowerENB = Ue.TargetGnb.txPower;
+        double txPowerENB = Ue.TargetEnb.txPower;
 
         double frequency = Ue.frequency;
 
@@ -38,18 +40,18 @@ public class LteSINR : MonoBehaviour
         recvPower += antennaGainRx;
         recvPower -= cableLoss;
 
-        double fadingAttenuation = 0.0;
-        if (fadingEnabled)
-        {
-            fadingAttenuation = ApplyFading(ueCoord, enbCoord, speed);
-        }
-        recvPower += fadingAttenuation;
+        float speed = dopplerSpeed.computeDopplerSpeed(Ue.ueObject, Ue.TargetEnb.enbObject);
 
-        for (int i = 0; i < numBands; i++)
+        for (int i = 0; i < Ue.numBands; i++)
         {
+            if (fadingEnabled)
+            {
+                fading = jakesFading.JakesFadingComputation(Ue.numBands, i, speed, true, Ue);
+            }
+
             double interference = 0.0; 
             double noise = thermalNoise + noiseFigure;
-            double sinr = (recvPower - interference) - noise;
+            double sinr = (recvPower + fading - interference) - noise;
             snrVector[i] = sinr;
         }
 
@@ -70,14 +72,5 @@ public class LteSINR : MonoBehaviour
         //Debug.Log("attenuation: " + attenuation);
         return attenuation;
     }
-
-    private double ApplyFading(Vector3 ueCoord, Vector3 enbCoord, double speed)
-    {
-        // 应用 Rayleigh 或 Jakes 衰落模型
-        double fading = 5.0;
-        return fading;
-    }
-
-
 }
 

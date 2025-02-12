@@ -23,7 +23,7 @@ public class MobilitySender : MonoBehaviour
     private IntPtr mobilityView;
 
     public UeManager UeManager;
-    public GnbInfo GnbInfo;
+    public EnbInfo enbInfo;
 
 
     void Start()
@@ -47,7 +47,7 @@ public class MobilitySender : MonoBehaviour
     private void Update()
     {
 
-        SendData(UeManager.mobilityInfo + GnbInfo.gnbMobilityInfo);
+        SendData(UeManager.mobilityInfo + enbInfo.enbMobilityInfo);
 
 
     }
