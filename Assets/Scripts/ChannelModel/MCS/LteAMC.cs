@@ -71,16 +71,10 @@ public class LteAMC : MonoBehaviour
         }
 
 
-    public int BandWidthComputation(int numBands, int tbs, Modulation mod)
-    {   
-        int bandWidth = 0;
-        int bitsPerSymbol = 2;
-        if (mod == Modulation.QAM16){ bitsPerSymbol = 4; }
-        if (mod == Modulation.QAM64) { bitsPerSymbol = 6; }
-        int SymbolsPerTimeSlot = 14;
-        int numSubCarriers = 12;
-        int subCarrierFrequency = 15000;
-        bandWidth = (tbs / bitsPerSymbol) / SymbolsPerTimeSlot * numSubCarriers * subCarrierFrequency * numBands;
-        return bandWidth;
+    public float ThroughputComputation(int numBands, int numLayers, int tbs)
+    {
+        float TTI = 0.001f;
+        float throughput = numBands * numLayers * tbs/ TTI;
+        return throughput;
     }
 }

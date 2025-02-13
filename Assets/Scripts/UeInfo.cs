@@ -35,6 +35,7 @@ public class UeInfo : MonoBehaviour
     public GameObject ueObject;
 
     public int numBands = 1;
+    public int numLayers = 1;
 
     void Start()
     {

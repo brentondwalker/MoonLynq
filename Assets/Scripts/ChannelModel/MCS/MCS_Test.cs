@@ -12,7 +12,7 @@ public class MCS_Test : MonoBehaviour
     public int iTbs;
     public int tbs;
     public Modulation mod;
-    public int bandwidth;
+    public float throughput;
 
     void Start()
     {
@@ -38,11 +38,12 @@ public class MCS_Test : MonoBehaviour
     {
         cqi = cqiTest.cqi;
         int numBands = ueInfo.numBands;
-        tbs = lteAmc.ComputeBitsOnNRbs(cqi,1,1,true);
+        int numLayers = ueInfo.numLayers;
+        tbs = lteAmc.ComputeBitsOnNRbs(cqi,numLayers,1,true);
         iTbs = lteAmc.GetItbsPerCqi(cqi, true);
         CQIelem entry = lteMcs.CQITable[cqi];
         mod = entry.ModulationType;
-        bandwidth = lteAmc.BandWidthComputation(numBands,tbs,mod);
+        throughput = lteAmc.ThroughputComputation(numBands,numLayers,tbs);
     }
 
 }

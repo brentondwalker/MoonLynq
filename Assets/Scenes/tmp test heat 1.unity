@@ -15097,7 +15097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3627855485555203804, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: numBands
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3627855485555203804, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: ueObject

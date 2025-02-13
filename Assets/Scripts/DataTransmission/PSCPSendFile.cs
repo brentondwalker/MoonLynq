@@ -6,7 +6,7 @@ public class PSCPSendFile : MonoBehaviour
 {
     public string privateKeyPath = "\"C:\\Users\\Bude\\.ssh\\id_rsa_putty.ppk\"";
     public string pscpPath = "C:\\Users\\Bude\\Emulator Test\\Assets\\pscp.exe";
-    public string localFilePath = @"C:\Users\Bude\Emulator Test\Assets\StreamingAssets\emulation_data.lua";
+    public string localFilePath = @"C:\Users\Bude\Emulator Test\Assets\StreamingAssets\emulation_data_throughput.lua";
     public string sshUser = "Nairong";
     public string sshHost = "pc7.filab.uni-hannover.de";
     public string remoteFilePath = "/mnt/";
@@ -32,6 +32,11 @@ public class PSCPSendFile : MonoBehaviour
     void CustomUpdate()
     {
 
+        //Task.Run(() => TransferFilesAsync());
+    }
+
+    public void RunAsyncTask()
+    {
         Task.Run(() => TransferFilesAsync());
     }
 
