@@ -1,214 +1,174 @@
 [
   {
     "time": "0",
-    "throughput": 127.0
+    "throughput": 68.0
   },
   {
     "time": "1",
-    "throughput": 45.0
+    "throughput": 66.0
   },
   {
     "time": "2",
-    "throughput": 45.0
+    "throughput": 66.0
   },
   {
     "time": "3",
-    "throughput": 45.0
+    "throughput": 66.0
   },
   {
     "time": "4",
-    "throughput": 45.0
+    "throughput": 66.0
   },
   {
     "time": "5",
-    "throughput": 35.0
+    "throughput": 67.0
   },
   {
     "time": "6",
-    "throughput": 35.0
+    "throughput": 66.0
   },
   {
     "time": "7",
-    "throughput": 35.0
+    "throughput": 66.0
   },
   {
     "time": "8",
-    "throughput": 35.0
+    "throughput": 66.0
   },
   {
     "time": "9",
-    "throughput": 35.0
+    "throughput": 66.0
   },
   {
     "time": "10",
-    "throughput": 5.0
+    "throughput": 67.0
   },
   {
     "time": "11",
-    "throughput": 5.0
+    "throughput": 48.0
   },
   {
     "time": "12",
-    "throughput": 5.0
+    "throughput": 3.0
   },
   {
     "time": "13",
-    "throughput": 5.0
+    "throughput": 1.0
   },
   {
     "time": "14",
-    "throughput": 5.0
+    "throughput": 2.0
   },
   {
     "time": "15",
-    "throughput": 45.0
+    "throughput": 1.0
   },
   {
     "time": "16",
-    "throughput": 45.0
+    "throughput": 64.0
   },
   {
     "time": "17",
-    "throughput": 45.0
+    "throughput": 38.0
   },
   {
     "time": "18",
-    "throughput": 45.0
+    "throughput": 66.0
   },
   {
     "time": "19",
-    "throughput": 45.0
+    "throughput": 67.0
   },
   {
     "time": "20",
-    "throughput": 35.0
+    "throughput": 48.0
   },
   {
     "time": "21",
-    "throughput": 35.0
+    "throughput": 49.0
   },
   {
     "time": "22",
-    "throughput": 35.0
+    "throughput": 66.0
   },
   {
     "time": "23",
-    "throughput": 35.0
+    "throughput": 66.0
   },
   {
     "time": "24",
-    "throughput": 35.0
+    "throughput": 7.0
   },
   {
     "time": "25",
-    "throughput": 5.0
+    "throughput": 2.0
   },
   {
     "time": "26",
-    "throughput": 5.0
+    "throughput": 1.0
   },
   {
     "time": "27",
-    "throughput": 5.0
+    "throughput": 2.0
   },
   {
     "time": "28",
-    "throughput": 5.0
+    "throughput": 39.0
   },
   {
     "time": "29",
-    "throughput": 5.0
+    "throughput": 66.0
   },
   {
     "time": "30",
-    "throughput": 45.0
+    "throughput": 67.0
   },
   {
     "time": "31",
-    "throughput": 45.0
+    "throughput": 66.0
   },
   {
     "time": "32",
-    "throughput": 45.0
+    "throughput": 66.0
   },
   {
     "time": "33",
-    "throughput": 45.0
+    "throughput": 66.0
   },
   {
     "time": "34",
-    "throughput": 45.0
+    "throughput": 66.0
   },
   {
     "time": "35",
-    "throughput": 35.0
+    "throughput": 67.0
   },
   {
     "time": "36",
-    "throughput": 35.0
+    "throughput": 66.0
   },
   {
     "time": "37",
-    "throughput": 35.0
+    "throughput": 66.0
   },
   {
     "time": "38",
-    "throughput": 35.0
+    "throughput": 66.0
   },
   {
     "time": "39",
-    "throughput": 35.0
+    "throughput": 67.0
   },
   {
     "time": "40",
-    "throughput": 5.0
+    "throughput": 66.0
   },
   {
     "time": "41",
-    "throughput": 5.0
+    "throughput": 66.0
   },
   {
     "time": "42",
-    "throughput": 5.0
-  },
-  {
-    "time": "43",
-    "throughput": 5.0
-  },
-  {
-    "time": "44",
-    "throughput": 5.0
-  },
-  {
-    "time": "45",
-    "throughput": 98.0
-  },
-  {
-    "time": "46",
-    "throughput": 100.0
-  },
-  {
-    "time": "47",
-    "throughput": 100.0
-  },
-  {
-    "time": "48",
-    "throughput": 100.0
-  },
-  {
-    "time": "49",
-    "throughput": 100.0
-  },
-  {
-    "time": "50",
-    "throughput": 100.0
-  },
-  {
-    "time": "51",
-    "throughput": 100.0
-  },
-  {
-    "time": "52",
-    "throughput": 37.0
+    "throughput": 27.0
   }
 ]

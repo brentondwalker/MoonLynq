@@ -8,13 +8,13 @@ using TMPro;
 [System.Serializable]
 public class DataRecord
 {
-    public float elapsedTime;  
-    public float externalValue;
+    public float t;  
+    public float throughput;
 
     public DataRecord(float time, float value)
     {
-        elapsedTime = time;
-        externalValue = value;
+        t = time;
+        throughput = value;
     }
 }
 
