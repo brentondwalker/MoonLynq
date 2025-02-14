@@ -1,5 +1,7 @@
+using TMPro;
 using UnityEngine;
 using static LteMCS;
+using System;
 
 public class MCS_Test : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class MCS_Test : MonoBehaviour
     public int tbs;
     public Modulation mod;
     public float throughput;
+
+    public int packetLength = 1344;
+    public float pkts = 0f;
 
     void Start()
     {
@@ -44,6 +49,7 @@ public class MCS_Test : MonoBehaviour
         CQIelem entry = lteMcs.CQITable[cqi];
         mod = entry.ModulationType;
         throughput = lteAmc.ThroughputComputation(numBands,numLayers,tbs);
+        pkts = throughput / 8 / packetLength;
     }
 
 }

@@ -28,7 +28,7 @@ function configure(parser)
 	parser:option("-o --loss", "Rate of packet drops"):args(2):convert(tonumber):default({0,0})
 	parser:option("-H --harq", "HARQ loss rate on the link."):args(2):convert(tonumber):default({0,0})
 
-	parser:flag("-s --use_socket", "Enable socket.")
+	parser:flag("-s --use_listener", "Enable listener.")
     parser:flag("-f --read_file", "Read preconfigured file.")
 
 
@@ -39,8 +39,20 @@ end
 function master(args)
 
 	if args.read_file then
-		local filepath = "/mnt/emulation_data_throughput.lua"
+    
+		local filepath = "./examples/emulation_data_throughput.lua"
+		print("Attempting to load file from:", filepath)
+    
 		preFile = loadDataFromFile(filepath)
+		preFile = stringToTable (preFile)
+		
+		print(preFile)
+    
+		if preFile then
+		    print("File loaded successfully.")
+		else
+		    print("Failed to load file.")
+		end
 	end
 
 	-- configure devices
@@ -99,9 +111,9 @@ function master(args)
 
 	-- start the forwarding tasks
 	for i = 1, args.threads do
-		mg.startTask("forward", ring1, args.dev[1]:getTxQueue(i - 1), args.dev[1], ns, args.rate[1], args.latency[1], args.loss[1], args.harq[1],1)
+		mg.startTask("forward", ring1, args.dev[1]:getTxQueue(i - 1), args.dev[1], ns, args.rate[1], args.latency[1], args.loss[1], args.harq[1], 1, args.use_listener, args.read_file, preFile)
 		if args.dev[1] ~= args.dev[2] then
-			mg.startTask("forward", ring2, args.dev[2]:getTxQueue(i - 1), args.dev[2], ns, args.rate[2], args.latency[2], args.loss[2], args.harq[2],2)
+			mg.startTask("forward", ring2, args.dev[2]:getTxQueue(i - 1), args.dev[2], ns, args.rate[2], args.latency[2], args.loss[2], args.harq[2], 2, args.use_listener, args.read_file, preFile)
 		end
 	end
 
@@ -114,9 +126,8 @@ function master(args)
 	end
 
 
-	if args.use_socket then
-		mg.startTask("server", ns)
-	end
+	mg.startTask("server", ns, args.use_listener)
+	
 
 	mg.waitForTasks()
 end
@@ -176,7 +187,7 @@ function receive(ring, rxQueue, rxDev, ns, threadId)
 	ringsize_hist:save("rxq-ringsize-distribution-histogram-"..rxDev["id"]..".csv")
 end
 
-function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate, threadId)
+function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate, threadId, listener, file, preFile)
 
 	local latencyHarq = 6;
 	local harqMaxAttempt = 4;
@@ -204,11 +215,13 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 	local lastPrintTime = 0
 	local last_send_time = 0
+	local last_throughput_read_time = 0
+	local emu_time = 0
 	local start_time = limiter:get_tsc_cycles() / tsc_hz_ms
 
 	local packetBuffer = {}
 	local bufferIndex = 1
-	local throughPutPdcp = 0
+	local throughput = 0
 	local harqLossRate = 0
 
 	while mg.running() do
@@ -219,14 +232,17 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 		for iix=1,count do
 
-			if args.use_socket then
+			if listener then
 				harqLossRate = ns.HARQ_loss_rate or 0
-	 			throughPutPdcp = ns.PDCP_throughput or rate
+	 			throughput = ns.PDCP_throughput or rate
 			end
 
-			if args.read_file then
-				local emu_time = (limiter:get_tsc_cycles() / tsc_hz_ms - start_time)/1000
-				PDCP_throughput = getThroughput(emu_time, data)
+			if file then
+				emu_time = (limiter:get_tsc_cycles() / tsc_hz_ms - start_time)/1000
+				if (emu_time - last_throughput_read_time) > 0.2 then
+					throughput = getThroughput(emu_time, preFile)
+					last_throughput_read_time = emu_time
+				end
 			end
 
 			local retransmissionAttempt = 0;
@@ -259,7 +275,7 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 			--local min_latency_due_to_throughput = (1292 * 8) / throughPutPdcp * tsc_hz_ms
 
-			local min_latency_due_to_throughput = 1 / 67 * tsc_hz
+			local min_latency_due_to_throughput = 1 / throughput * tsc_hz
 
 			local send_time = arrival_timestamp + (latencyHarq * tsc_hz_ms * retransmissionAttempt)
 			local send_time_limit = last_send_time + min_latency_due_to_throughput
@@ -337,14 +353,14 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 		packetInfoLength = packetInfoLength + count
 		ns.packetInfoLength = packetInfoLength
 
-		local currentTime = os.clock()
+		local currentTime = limiter:get_tsc_cycles() / tsc_hz
 
 
 
-if currentTime - lastPrintTime >= 1 and packetInfo[ns.packetIdToSend] and ns.packetIdToSend < packetInfoLength and ns.packetIdToSend >= ns.messageId then
+if currentTime - lastPrintTime >= 0.1 and packetInfo[ns.packetIdToSend] and ns.packetIdToSend < packetInfoLength and ns.packetIdToSend >= ns.messageId then
     local packetIdToSend = ns.packetIdToSend
 
-    local maxBatchSize = 500  
+    local maxBatchSize = 1000  
     local batchCount = 0
 
     while packetIdToSend < packetInfoLength and batchCount < maxBatchSize do
@@ -378,7 +394,7 @@ end
 end
 
 
-function server(ns)
+function server(ns, listener)
 
 	local tsc_hz = libmoon:getCyclesFrequency()
 	local tsc_hz_ms = tsc_hz / 1000
@@ -394,6 +410,7 @@ function server(ns)
 	ns.packetIdToSend = 1
 
     while mg.running() do
+		if listener then
         local client = server:accept()
         if client then
 			client:settimeout(0)
@@ -418,24 +435,24 @@ function server(ns)
             end
 
             client:close()
+		end
         end
 
 		mg.sleepMillis(1)  
 
 		
 	local success, test_err = pcall(function()
+		local send_client = socket.tcp()
+        send_client:settimeout(0.1)
         while ns.packetInfoLength and ns.packetIdToSend <= ns.packetInfoLength do
             if ns.messageToSend and ns.messageId >= ns.packetIdToSend then
-                local send_client = socket.tcp()
-                send_client:settimeout(0.1)
-
                 if send_client:connect("127.0.0.1", 12350) then
                     send_client:send(ns.messageToSend)
                     ns.packetIdToSend = ns.messageId + 1    
-                end
-                send_client:close()
+                end        
             end
         end
+		send_client:close()
     end)
 
     if not success then
@@ -462,31 +479,46 @@ function server(ns)
 end
 
 function loadDataFromFile(filepath)
-    local file = loadfile(filepath)
-    if file then
-        local env = {}
-        setfenv(file, env) 
-        file()
-        return env.data or {} 
-    else
-        print("Failed to load file:", filepath)
-        return {}
+    local file = io.open(filepath, "r") 
+    if not file then
+        return nil
     end
+    local content = file:read("*a") 
+    return content
 end
 
 function getThroughput(current_time, data)
-    local last_throughput = 0 
 
-    for i = 1, #data do
+--print("Data before calling getThroughput:", data) 
+
+if not data then
+    print("Error: data is nil!") 
+else
+    --print("Data length:", #data) 
+end
+
+    for i = #data, 1, -1 do 
         local entry_time = tonumber(data[i].t)
         if current_time >= entry_time then
-            last_throughput = data[i].throughput
-        else
-            break
+			print("Current throughput: ", data[i].throughput)
+            return data[i].throughput
         end
     end
+    return 0 
+end
 
-    return last_throughput
+
+function stringToTable(str)
+    local func = load("return " .. str) 
+    if func then
+        local ok, result = pcall(func) 
+        if ok then
+            return result
+        else
+            print("Error parsing string:", result)
+        end
+    end
+    return nil
 end
 
 

@@ -11,6 +11,7 @@ public class PlinkSSH : MonoBehaviour
 
     public InputCommand inputCommand;
     public MessageLogger messageLogger;
+    public MGMessageManager messageManager;
 
     public string sshPath = "\"C:\\Users\\Bude\\Emulator Test\\Assets\\plink.exe\"";
     public string privateKeyPath = "\"C:\\Users\\Bude\\.ssh\\id_rsa_putty.ppk\"";
@@ -35,6 +36,19 @@ public class PlinkSSH : MonoBehaviour
         {
             UnityEngine.Debug.Log(logMessage);
             messageLogger.LogMessage(logMessage);
+            if (messageManager != null)
+            {
+                if (logMessage.Contains("[Pkt]"))
+                {
+                    messageManager.HandlePktMessage(logMessage);
+                    UnityEngine.Debug.Log("PKT message handled");
+                }
+                else if (logMessage.Contains("[RLC]"))
+                {
+                    messageManager.HandleRlcMessage(logMessage);
+                    UnityEngine.Debug.Log("RLC message handled");
+                }
+            }
         }
     }
 
@@ -84,6 +98,7 @@ public class PlinkSSH : MonoBehaviour
             {
                 UnityEngine.Debug.LogError($"SSH Error: {e.Data}");
                 messageLogger.LogMessage(e.Data);
+
             }
         };
 
