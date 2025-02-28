@@ -1,9 +1,12 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CQI_Test : MonoBehaviour
 {
     public CQI_Computaion cqiComputation;
     public LteSINR lteSINR;
+    public List<double> snrv = new List<double>();
     public int cqi;
     public double meanSNR;
     public int txmode = 2;
@@ -29,7 +32,9 @@ public class CQI_Test : MonoBehaviour
     }
     void CustomUpdate()
     {
-        meanSNR = cqiComputation.MeanSnr(lteSINR.GetSINR(true));
+        snrv.Clear();
+        snrv = lteSINR.GetSINR(true);
+        meanSNR = cqiComputation.MeanSnr(snrv);
         cqi = cqiComputation.GetCqi(txmode, meanSNR);
         //cqi = cqiComputation.GetCqi(txmode, 32);
     }

@@ -6,6 +6,7 @@ public class LteSINR : MonoBehaviour
 {
     public double antennaGainTx = 0.0;
     public double antennaGainRx = 0.0;
+    public double recvPower = 0.0;
     private double noiseFigure = 5.0;
     private double cableLoss = 2.0;
     private double thermalNoise = -104;
@@ -27,8 +28,6 @@ public class LteSINR : MonoBehaviour
         double txPowerENB = Ue.TargetEnb.txPower;
 
         double frequency = Ue.frequency;
-
-        double recvPower = 0;
 
         if (isUpload ) {recvPower = txPowerUe; }
         else {recvPower = txPowerENB; }

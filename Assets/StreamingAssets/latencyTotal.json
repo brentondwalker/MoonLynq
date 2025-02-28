@@ -1,26 +1,26 @@
 [
   {
     "time": "5",
-    "throughput": 82.0
+    "latency": "0.159"
   },
   {
     "time": "6",
-    "throughput": 96.0
+    "latency": "0.185"
   },
   {
     "time": "7",
-    "throughput": 128.0
+    "latency": "0.176"
   },
   {
     "time": "8",
-    "throughput": 91.0
+    "latency": "0.196"
   },
   {
     "time": "9",
-    "throughput": 94.0
+    "latency": "0.195"
   },
   {
     "time": "10",
-    "throughput": 23.0
+    "latency": "0.115"
   }
 ]

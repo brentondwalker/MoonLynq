@@ -35,6 +35,7 @@ Transform:
   - {fileID: 761645564208853882}
   - {fileID: 2934655800803529601}
   - {fileID: 548381383144328605}
+  - {fileID: 8384086471311117223}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1849949922465833481
@@ -199,6 +200,69 @@ MonoBehaviour:
   hitPointsPosition: []
   useSegmentedRaycasts: 0
   segments: 1
+--- !u!1 &3288972467506855969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8384086471311117223}
+  - component: {fileID: 7252248730496720909}
+  - component: {fileID: 4090864873485764150}
+  m_Layer: 0
+  m_Name: HARQ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8384086471311117223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3288972467506855969}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5839165448725125935}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7252248730496720909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3288972467506855969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cad16753797f574ba96e104779ad833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pisaData: {fileID: 7549152053711253735}
+--- !u!114 &4090864873485764150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3288972467506855969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56558570b429de5439b1044567fb3cf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isError: {fileID: 7252248730496720909}
+  ErrorRateFrame: 0
+  PktErrorRateFrame: 0
+  mcsTest: {fileID: 1112139728689876349}
+  timeSinceLastUpdate: 0
 --- !u!1 &3395387911839546460
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +274,7 @@ GameObject:
   - component: {fileID: 4415013368070127575}
   - component: {fileID: 7176006195479929007}
   m_Layer: 0
-  m_Name: line red
+  m_Name: line red LOS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,7 +515,7 @@ GameObject:
   - component: {fileID: 602240668045965842}
   - component: {fileID: 2623294467197763648}
   m_Layer: 0
-  m_Name: Lines
+  m_Name: Lines LOS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,7 +644,9 @@ MonoBehaviour:
   iTbs: 0
   tbs: 0
   mod: 0
-  bandwidth: 0
+  throughput: 0
+  packetLength: 1344
+  pkts: 0
   timeSinceLastUpdate: 0
 --- !u!1 &7650223297950970496
 GameObject:
@@ -634,6 +700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   antennaGainTx: 0
   antennaGainRx: 18
+  recvPower: 0
   fadingEnabled: 1
   fading: 0
   Ue: {fileID: 3627855485555203804}
@@ -669,6 +736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cqiComputation: {fileID: 4792644354616968728}
   lteSINR: {fileID: 4324620982535302738}
+  snrv: []
   cqi: 0
   meanSNR: 0
   txmode: 2
@@ -878,6 +946,7 @@ MonoBehaviour:
   dlInfo: 
   ueObject: {fileID: 0}
   numBands: 1
+  numLayers: 1
 --- !u!114 &1609333289611013543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -906,7 +975,7 @@ GameObject:
   - component: {fileID: 4064685842505257294}
   - component: {fileID: 2110767176567402109}
   m_Layer: 0
-  m_Name: line green
+  m_Name: line green LOS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

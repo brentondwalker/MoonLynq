@@ -11,6 +11,9 @@ public class MGMessageManager : MonoBehaviour
     private List<rlcQueue> rlcQueueInfo = new List<rlcQueue>();
     private List<rlcLoss> rlcLossInfo = new List<rlcLoss>();
     private List<pdcpThroughput> pdcpThroughputInfo = new List<pdcpThroughput>();
+    private List<latencyTotal> latencyTotalInfo = new List<latencyTotal>();
+
+
     private int queueMaxTemp;
 
     public List<pkt> getPktInfo () { return pktInfo; }
@@ -20,6 +23,12 @@ public class MGMessageManager : MonoBehaviour
     { 
         CalculateThroughputPerSecond();
         return pdcpThroughputInfo; 
+    }
+
+    public List <latencyTotal> GetLatencyTotalInfo () 
+    {  
+        CalculateLatencyPerSecond();
+        return latencyTotalInfo; 
     }
 
 
@@ -122,6 +131,45 @@ public class MGMessageManager : MonoBehaviour
         }
     }
 
+
+    public void CalculateLatencyPerSecond()
+    {
+        var sortedPkts = pktInfo
+            .Where(pkt => pkt.txTime != "Loss")
+            .OrderBy(pkt => int.Parse(pkt.txTime))
+            .ToList();
+
+        Dictionary<int, (int totalLatency, int count)> latencyData = new Dictionary<int, (int, int)>();
+
+        foreach (var pkt in sortedPkts)
+        {
+            if (int.TryParse(pkt.txTime, out int txTimeValue) &&
+                int.TryParse(pkt.rxTime, out int rxTimeValue))
+            {
+                int currentSecond = txTimeValue / 1000;
+                int latency = txTimeValue - rxTimeValue; // µ¥Î»Îªms
+
+                if (!latencyData.ContainsKey(currentSecond))
+                {
+                    latencyData[currentSecond] = (0, 0);
+                }
+
+                var currentData = latencyData[currentSecond];
+                latencyData[currentSecond] = (currentData.totalLatency + latency, currentData.count + 1);
+            }
+        }
+
+        latencyTotalInfo.Clear();
+        foreach (var entry in latencyData)
+        {
+            double avgLatencySeconds = (double)entry.Value.totalLatency / entry.Value.count / 1000.0;
+            latencyTotalInfo.Add(new latencyTotal
+            {
+                time = entry.Key.ToString(),
+                latency = avgLatencySeconds.ToString("F3")
+            });
+        }
+    }
 
 
 }

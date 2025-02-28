@@ -27,4 +27,9 @@ public static class MGData
         public string time;
         public float throughput;
     }
+    public class latencyTotal
+    {
+        public string time;
+        public string latency;
+    }
 }
