@@ -62,7 +62,7 @@ public class LteSINR : MonoBehaviour
         double distance = Vector3.Distance(ueCoord, enbCoord);
         double pathLoss = 20 * Math.Log10(distance) + 20 * Math.Log10(frequency) - 147.55;
         double obstacleLoss = 0;
-        VisualLine visualLine = Ue.VisualLine;
+        LOS_Ray visualLine = Ue.LOS_Ray;
         if (isUpload) { obstacleLoss = visualLine.totalLossForwardInDB; }
         else { obstacleLoss = visualLine.totalLossReverseInDB; }
         double attenuation = -obstacleLoss + pathLoss;

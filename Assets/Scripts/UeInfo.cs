@@ -6,7 +6,7 @@ using System;
 public class UeInfo : MonoBehaviour
 {
 
-    public VisualLine VisualLine;
+    public LOS_Ray LOS_Ray;
     private double txPowerUl = 0.0f;
     public double txPowerBaseUl = 26.0f;
     private double txPowerDl = 0.0f;
@@ -49,12 +49,12 @@ public class UeInfo : MonoBehaviour
         prefabPosition = prefabMovement.positionLocal;
         mobilityInfo = ueId.ToString() + ": " + Math.Round(prefabPosition.x,1) +" "+ -Math.Round(prefabPosition.z, 1) + " "+ Math.Round(prefabPosition.y, 1);
 
-        losCollision = VisualLine.collision;
+        losCollision = LOS_Ray.collision;
         targetEnbId = TargetEnb.enbId;
 
 
-        txPowerUl = System.Math.Round(txPowerBaseUl+VisualLine.totalLossForwardInDB, 1);
-        txPowerDl = System.Math.Round(TargetEnb.txPower+VisualLine.totalLossReverseInDB, 1);
+        txPowerUl = System.Math.Round(txPowerBaseUl+LOS_Ray.totalLossForwardInDB, 1);
+        txPowerDl = System.Math.Round(TargetEnb.txPower+LOS_Ray.totalLossReverseInDB, 1);
 
         
         ulInfo = "txPower" + ueId.ToString() + "->" + targetEnbId.ToString()  + ": " + txPowerUl.ToString();

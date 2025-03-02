@@ -10,9 +10,12 @@ public class IsError : MonoBehaviour
 
     public double GetErrorRate(int cqi, int numBands, List<double> snrV)
     {
-        if (cqi == 0 || cqi > 15) throw new Exception("Invalid CQI value");
+        if (cqi < 0 || cqi > 15) throw new Exception("Invalid CQI value");
 
         double finalSuccess = 1.0;
+
+        if (cqi == 0) 
+        { return 1; }
 
         for (int i = 0; i < snrV.Count; i++)
         {

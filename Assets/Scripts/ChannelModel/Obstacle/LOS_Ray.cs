@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class VisualLine : MonoBehaviour
+public class LOS_Ray : MonoBehaviour
 {
     public GameObject objectA;
     public GameObject objectB;

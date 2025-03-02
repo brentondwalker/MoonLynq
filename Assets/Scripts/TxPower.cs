@@ -5,7 +5,7 @@ using System.IO; // 引入文件操作命名空间
 
 public class TxPower : MonoBehaviour
 {
-    public VisualLine line;
+    public LOS_Ray line;
     public double uePower = 26;
     public double uePowerFactor = 1;
     public double eNodeBtxPower = 40;
