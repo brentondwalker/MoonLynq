@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -245,14 +245,14 @@ MonoBehaviour:
     y: 594
     width: 1270
     height: 227.33331
-  m_MinSize: {x: 101, y: 126}
-  m_MaxSize: {x: 4001, y: 4026}
-  m_ActualView: {fileID: 16}
+  m_MinSize: {x: 231, y: 276}
+  m_MaxSize: {x: 10001, y: 10026}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -272,8 +272,8 @@ MonoBehaviour:
     y: 0
     width: 436.66663
     height: 821.3333
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -418,23 +418,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: fa7e0000
+      m_SelectedIDs: d07c0000
       m_LastClickedID: 0
-      m_ExpandedIDs: fcfaffff52aa0000b8ab0000
+      m_ExpandedIDs: c8f6fffffcfaffff58aa0000beab00004cc10000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Lines Diffraction
-        m_OriginalName: Lines Diffraction
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -17480
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 8}
@@ -1010,9 +1010,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 40.710815, y: -1183.0466, z: 1143.9943}
+    m_Target: {x: 831.4811, y: 83.00758, z: -556.1478}
     speed: 2
-    m_Value: {x: 40.710815, y: -1183.0466, z: 1143.9943}
+    m_Value: {x: 831.4811, y: 83.00758, z: -556.1478}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1058,9 +1058,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.27134228, y: 0.38676524, z: -0.11317207, w: 0.8761317}
+    m_Target: {x: 0.0022241373, y: 0.77728134, z: 0.00981367, w: 0.63201743}
     speed: 2
-    m_Value: {x: 0.2708513, y: 0.38606542, z: -0.1129673, w: 0.8745464}
+    m_Value: {x: 0.0022200188, y: 0.7758421, z: 0.009795498, w: 0.63084716}
   m_Size:
     m_Target: 698.5622
     speed: 2
@@ -1142,7 +1142,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/ChannelModel/CQI
+    - Assets/Scripts/ChannelModel/Obstacle
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1152,16 +1152,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 50
   m_LastFolders:
-  - Assets/Scripts/ChannelModel/CQI
+  - Assets/Scripts/ChannelModel/Obstacle
   m_LastFoldersGridSize: 50
   m_LastProjectPath: C:\Users\Bude\OmnetppUnityMoonGen
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: dcd80000
-    m_LastClickedID: 55516
-    m_ExpandedIDs: 0000000060d8000062d80000ced8000000ca9a3b
+    scrollPos: {x: 0, y: 90.66669}
+    m_SelectedIDs: f6d80000
+    m_LastClickedID: 55542
+    m_ExpandedIDs: 0000000078d800007ad80000e4d8000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1190,7 +1190,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000060d8000062d80000
+    m_ExpandedIDs: 0000000078d800007ad80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1216,8 +1216,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: fa7e0000
-    m_LastClickedInstanceID: 32506
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000ba7700002e790000e2a40000ac950000
     m_RenameOverlay:

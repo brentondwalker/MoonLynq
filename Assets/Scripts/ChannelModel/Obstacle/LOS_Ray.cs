@@ -67,8 +67,8 @@ public class LOS_Ray : MonoBehaviour
 
     void LineInitialisation (LineRenderer line)
     {
-        line.startWidth = 0.1f;
-        line.endWidth = 0.1f;
+        line.startWidth = 0.5f;
+        line.endWidth = 0.5f;
         line.positionCount = 2;
     }
     void CheckLineCollision()
