@@ -57,11 +57,11 @@ public class DiffractionRay : MonoBehaviour
         UpdateLinePosition(lineRendererB, Vector3.zero, Vector3.zero);
         UpdateLinePosition(lineRendererC, Vector3.zero, Vector3.zero);
         RayA = FindFirstCorner();
-        RayC = rayToDest(RayA);
+        RayC = RayToDest(RayA);
         if (RayA != Vector3.zero && RayC == Vector3.zero)
         {
             RayB = FindSecondCorner(RayA);
-            if (RayB != Vector3.zero) RayC = rayToDest(RayA + RayB);
+            if (RayB != Vector3.zero) RayC = RayToDest(RayA + RayB);
         }
         else hitStatusB = "Not activated";
     }
@@ -145,7 +145,7 @@ public class DiffractionRay : MonoBehaviour
         }
     }
 
-    Vector3 rayToDest (Vector3 direction)
+    Vector3 RayToDest (Vector3 direction)
     {
         
         if (direction == Vector3.zero)
