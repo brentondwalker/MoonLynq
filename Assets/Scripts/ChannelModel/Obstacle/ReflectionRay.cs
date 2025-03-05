@@ -24,6 +24,7 @@ public class ReflectionRay : MonoBehaviour
     private Vector3 destH;
 
     private float disTolerance = 20;
+    private float finalDisTolereance = 10;
 
 
     void Start()
@@ -73,16 +74,19 @@ public class ReflectionRay : MonoBehaviour
             reflectionRayGroup[i] = CastReflectionRayH(step * (i - 1), step * i, 10);
             if (reflectionRayGroup[i].minDistance < disTolerance)
             {
-                reflectionRayGroup[i] = CastReflectionRayH(reflectionRayGroup[i].closestDeg - 6, reflectionRayGroup[i].closestDeg + 5, 6);
-                int closestDegH = reflectionRayGroup[i].closestDeg;
-                if (closestDegH  < step * i && closestDegH > step * (i - 1))
+                reflectionRayGroup[i] = CastReflectionRayH(reflectionRayGroup[i].closestDeg - 6, reflectionRayGroup[i].closestDeg + 6, 0.5f);
+                float closestDegH = reflectionRayGroup[i].closestDeg;
+                if (closestDegH  < step * i && closestDegH >= step * (i - 1))
                 {
                     reflectionRayGroup[i] = CastReflectionRayV(closestDegH, 0, 90, 5);
                     if (reflectionRayGroup[i].minDistance < disTolerance)
                     {
-                        reflectionRayGroup[i] = CastReflectionRayV(closestDegH, reflectionRayGroup[i].closestDeg - 5, reflectionRayGroup[i].closestDeg + 5, 1);
-                        UpdateLinePosition(lineRendererA[i], start, reflectionRayGroup[i].incidenceDirection.normalized * Vector3.Distance(start, reflectionRayGroup[i].hitPoint));
-                        UpdateLinePosition(lineRendererB[i], reflectionRayGroup[i].hitPoint, reflectionRayGroup[i].reflectionDirection * Vector3.Distance(reflectionRayGroup[i].hitPoint, dest));
+                        reflectionRayGroup[i] = CastReflectionRayV(closestDegH, reflectionRayGroup[i].closestDeg - 5, reflectionRayGroup[i].closestDeg + 5, 0.5f);
+                        if (reflectionRayGroup[i].minDistance < finalDisTolereance)
+                        {
+                            UpdateLinePosition(lineRendererA[i], start, reflectionRayGroup[i].incidenceDirection.normalized * Vector3.Distance(start, reflectionRayGroup[i].hitPoint));
+                            UpdateLinePosition(lineRendererB[i], reflectionRayGroup[i].hitPoint, reflectionRayGroup[i].reflectionDirection * Vector3.Distance(reflectionRayGroup[i].hitPoint, dest));
+                        }
                     }
                 }
             }
@@ -91,19 +95,19 @@ public class ReflectionRay : MonoBehaviour
     }
 
 
-    reflectionRayGroup CastReflectionRayH(int degStart, int degEnd, int degStep) 
+    reflectionRayGroup CastReflectionRayH(float degStart, float degEnd, float degStep) 
     {
         reflectionRayGroup rayGroup = new reflectionRayGroup();
         Vector3 closestIncidence = Vector3.zero;
         Vector3 closestReflection = Vector3.zero;
         Vector3 closestHit = Vector3.zero;
         float minDistance = float.MaxValue;
-        int closestDeg = 0;
+        float closestDeg = 0;
         Vector3 direction = Vector3.zero;
 
         hitStatusA = "No init hit";
 
-        for (int deg = degStart; deg < degEnd; deg = deg + degStep)
+        for (float deg = degStart; deg < degEnd; deg = deg + degStep)
         {
             float range = Vector3.Distance(start, destH);
             direction = new Vector3(Mathf.Cos(deg * Mathf.Deg2Rad), 0, Mathf.Sin(deg * Mathf.Deg2Rad)) ;
@@ -143,19 +147,19 @@ public class ReflectionRay : MonoBehaviour
         return rayGroup;
     }
 
-    reflectionRayGroup CastReflectionRayV(int degH,int degVStart,int degVEnd, int degVStep)
+    reflectionRayGroup CastReflectionRayV(float degH, float degVStart, float degVEnd, float degVStep)
     {
         reflectionRayGroup rayGroup = new reflectionRayGroup();
         Vector3 closestIncidence = Vector3.zero;
         Vector3 closestReflection = Vector3.zero;
         Vector3 closestHit = Vector3.zero;
         float minDistance = float.MaxValue;
-        int closestDeg = 0;
+        float closestDeg = 0;
         Vector3 direction = Vector3.zero;
 
         hitStatusA = "No init hit";
 
-        for (int degV = degVStart; degV < degVEnd; degV = degV + degVStep)
+        for (float degV = degVStart; degV < degVEnd; degV = degV + degVStep)
         {
             float range = Vector3.Distance(start, destH);
             direction = new Vector3(Mathf.Cos(degH * Mathf.Deg2Rad), Mathf.Cos(degV * Mathf.Deg2Rad), Mathf.Sin(degH * Mathf.Deg2Rad));
@@ -237,6 +241,6 @@ public class ReflectionRay : MonoBehaviour
         public Vector3 reflectionDirection = Vector3.zero;
         public Vector3 hitPoint = Vector3.zero;
         public float minDistance = float.MaxValue;
-        public int closestDeg;
+        public float closestDeg;
     }
 }

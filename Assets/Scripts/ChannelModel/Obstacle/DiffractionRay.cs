@@ -1,6 +1,4 @@
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.PackageManager;
+using System;
 using UnityEngine;
 
 public class DiffractionRay : MonoBehaviour
@@ -20,10 +18,14 @@ public class DiffractionRay : MonoBehaviour
     //public RaycastHit[] hitReverse;
 
     public UeInfo UeInfo;
+    public KnifeEdgeObstacle knifeEdge;
 
     private float largestStructureSize = 50;
     private float edgeTolerance = 2;
 
+    public double diffractionLoss = 0;
+    public double pathLoss;
+    public double totalLoss;
 
 
     void Start()
@@ -50,6 +52,11 @@ public class DiffractionRay : MonoBehaviour
     }
     void CustomUpdate()
     {
+        diffractionLoss = 0;
+        pathLoss = 0;
+        totalLoss = 0;
+        double distance = double.MaxValue;
+
         Vector3 RayA = Vector3.zero;
         Vector3 RayB = Vector3.zero;
         Vector3 RayC = Vector3.zero;
@@ -61,9 +68,28 @@ public class DiffractionRay : MonoBehaviour
         if (RayA != Vector3.zero && RayC == Vector3.zero)
         {
             RayB = FindSecondCorner(RayA);
-            if (RayB != Vector3.zero) RayC = RayToDest(RayA + RayB);
+            double diffractionLossA = knifeEdge.ComputeSingleKnifeEdge(UeInfo.frequency, RayA, RayB);
+            if (RayB != Vector3.zero)
+            {
+                RayC = RayToDest(RayA + RayB);
+                if (RayC != Vector3.zero)
+                {
+                    double diffractionLossB = knifeEdge.ComputeSingleKnifeEdge(UeInfo.frequency, RayB, RayC);
+                    diffractionLoss = knifeEdge.ComputeDoubleKnifeEdgeLc(diffractionLossA, diffractionLossB, RayA, RayB, RayC, objectA.transform.position, objectB.transform.position);
+                    distance = RayA.magnitude + RayB.magnitude + RayC.magnitude;
+                }
+                else diffractionLoss = double.NaN;
+            }
+            else diffractionLoss = double.NaN;
         }
-        else hitStatusB = "Not activated";
+        else
+        {
+            diffractionLoss = knifeEdge.ComputeSingleKnifeEdge(UeInfo.frequency, RayA, RayC);
+            distance = RayA.magnitude + RayC.magnitude;
+            hitStatusB = "Not activated";
+        }
+        pathLoss = 20 * Math.Log10(distance) + 20 * Math.Log10(UeInfo.frequency) - 147.55;
+        totalLoss = pathLoss + diffractionLoss;
     }
 
 
