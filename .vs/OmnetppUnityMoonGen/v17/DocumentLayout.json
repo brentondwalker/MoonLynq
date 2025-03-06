@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\channelmodel\\sinr\\ltesinr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\channelmodel\\sinr\\ltesinr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\physics\\sinr\\ltesinr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\sinr\\ltesinr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\channelmodel\\obstacle\\diffractionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\channelmodel\\obstacle\\diffractionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\physics\\loss\\nlos\\reflectionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\loss\\nlos\\reflectionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\channelmodel\\obstacle\\knifeedgeobstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\channelmodel\\obstacle\\knifeedgeobstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\physics\\loss\\nlos\\diffractionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\loss\\nlos\\diffractionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\ueinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ueinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\physics\\loss\\los\\dielectricobstacleloss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\loss\\los\\dielectricobstacleloss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\uespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\channelmodel\\obstacle\\reflectionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\channelmodel\\obstacle\\reflectionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\channelmodel\\harq\\lteharq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\channelmodel\\harq\\lteharq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\physics\\loss\\nlos\\reflectance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\loss\\nlos\\reflectance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Lua\\l2-forward-lte-socket-pre.lua||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -42,99 +34,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "KnifeEdgeObstacle.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\ChannelModel\\Obstacle\\KnifeEdgeObstacle.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ChannelModel\\Obstacle\\KnifeEdgeObstacle.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\ChannelModel\\Obstacle\\KnifeEdgeObstacle.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ChannelModel\\Obstacle\\KnifeEdgeObstacle.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwBoAAACMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T20:18:58.102Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DiffractionRay.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\ChannelModel\\Obstacle\\DiffractionRay.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ChannelModel\\Obstacle\\DiffractionRay.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\ChannelModel\\Obstacle\\DiffractionRay.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ChannelModel\\Obstacle\\DiffractionRay.cs",
-              "ViewState": "AQIAAEQAAAAAAAAAAAAQwDkAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T20:04:01.674Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UeInfo.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeInfo.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UeInfo.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeInfo.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UeInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T20:13:46.57Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UeSpawner.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeSpawner.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UeSpawner.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeSpawner.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UeSpawner.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAAwCUAAABeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T11:24:08.948Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ReflectionRay.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\ChannelModel\\Obstacle\\ReflectionRay.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ChannelModel\\Obstacle\\ReflectionRay.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\ChannelModel\\Obstacle\\ReflectionRay.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ChannelModel\\Obstacle\\ReflectionRay.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAADwvxwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T20:08:26.49Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "LteHARQ.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\ChannelModel\\HARQ\\LteHARQ.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ChannelModel\\HARQ\\LteHARQ.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\ChannelModel\\HARQ\\LteHARQ.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ChannelModel\\HARQ\\LteHARQ.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAACQAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T21:48:52.401Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "LteSINR.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\ChannelModel\\SINR\\LteSINR.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ChannelModel\\SINR\\LteSINR.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\ChannelModel\\SINR\\LteSINR.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ChannelModel\\SINR\\LteSINR.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAADwvwkAAAAlAAAA",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\SINR\\LteSINR.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\SINR\\LteSINR.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\SINR\\LteSINR.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Physics\\SINR\\LteSINR.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAADwvxsAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T08:12:03.694Z",
+              "WhenOpened": "2025-03-06T22:08:31.608Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
+              "Title": "DiffractionRay.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\NLoS\\DiffractionRay.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\Loss\\NLoS\\DiffractionRay.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\NLoS\\DiffractionRay.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Physics\\Loss\\NLoS\\DiffractionRay.cs",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAAAGAAAABiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T20:54:40.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReflectionRay.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\NLoS\\ReflectionRay.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\Loss\\NLoS\\ReflectionRay.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\NLoS\\ReflectionRay.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Physics\\Loss\\NLoS\\ReflectionRay.cs",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAAAFoAAACHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T20:29:42.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Reflectance.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\NLoS\\Reflectance.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\Loss\\NLoS\\Reflectance.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\NLoS\\Reflectance.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Physics\\Loss\\NLoS\\Reflectance.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAADwvwoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T20:30:13.645Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DielectricObstacleLoss.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\LOS\\DielectricObstacleLoss.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\Loss\\LOS\\DielectricObstacleLoss.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\LOS\\DielectricObstacleLoss.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Physics\\Loss\\LOS\\DielectricObstacleLoss.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAwF8AAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T20:29:46.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "l2-forward-lte-socket-pre.lua",
               "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Lua\\l2-forward-lte-socket-pre.lua",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Lua\\l2-forward-lte-socket-pre.lua",

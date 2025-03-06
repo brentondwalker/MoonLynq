@@ -52,8 +52,8 @@ public class DiffractionRay : MonoBehaviour
     }
     void CustomUpdate()
     {
-        diffractionLoss = 0;
-        pathLoss = 0;
+        diffractionLoss = double.NaN;
+        pathLoss = double.NaN;
         totalLoss = 0;
         double distance = double.MaxValue;
 
@@ -63,32 +63,41 @@ public class DiffractionRay : MonoBehaviour
         UpdateLinePosition(lineRendererA, Vector3.zero, Vector3.zero);
         UpdateLinePosition(lineRendererB, Vector3.zero, Vector3.zero);
         UpdateLinePosition(lineRendererC, Vector3.zero, Vector3.zero);
-        RayA = FindFirstCorner();
-        RayC = RayToDest(RayA);
-        if (RayA != Vector3.zero && RayC == Vector3.zero)
+
+
+        if (!IsLoS(objectA.transform.position, objectB.transform.position))
         {
-            RayB = FindSecondCorner(RayA);
-            double diffractionLossA = knifeEdge.ComputeSingleKnifeEdge(UeInfo.frequency, RayA, RayB);
-            if (RayB != Vector3.zero)
+
+            RayA = FindFirstCorner();
+            RayC = RayToDest(RayA);
+
+
+            if (RayA != Vector3.zero && RayC == Vector3.zero)
             {
-                RayC = RayToDest(RayA + RayB);
-                if (RayC != Vector3.zero)
+                RayB = FindSecondCorner(RayA);
+                double diffractionLossA = knifeEdge.ComputeSingleKnifeEdge(UeInfo.frequency, RayA, RayB);
+                if (RayB != Vector3.zero)
                 {
-                    double diffractionLossB = knifeEdge.ComputeSingleKnifeEdge(UeInfo.frequency, RayB, RayC);
-                    diffractionLoss = knifeEdge.ComputeDoubleKnifeEdgeLc(diffractionLossA, diffractionLossB, RayA, RayB, RayC, objectA.transform.position, objectB.transform.position);
-                    distance = RayA.magnitude + RayB.magnitude + RayC.magnitude;
+                    RayC = RayToDest(RayA + RayB);
+                    if (RayC != Vector3.zero)
+                    {
+                        double diffractionLossB = knifeEdge.ComputeSingleKnifeEdge(UeInfo.frequency, RayB, RayC);
+                        diffractionLoss = knifeEdge.ComputeDoubleKnifeEdgeLc(diffractionLossA, diffractionLossB, RayA, RayB, RayC, objectA.transform.position, objectB.transform.position);
+                        distance = RayA.magnitude + RayB.magnitude + RayC.magnitude;
+                        pathLoss = 20 * Math.Log10(distance) + 20 * Math.Log10(UeInfo.frequency) - 147.55;
+                    }
+                    else diffractionLoss = double.NaN;
                 }
                 else diffractionLoss = double.NaN;
             }
-            else diffractionLoss = double.NaN;
-        }
-        else
-        {
-            diffractionLoss = knifeEdge.ComputeSingleKnifeEdge(UeInfo.frequency, RayA, RayC);
-            distance = RayA.magnitude + RayC.magnitude;
+            else if (RayA != Vector3.zero && RayC != Vector3.zero)
+            {
+                diffractionLoss = knifeEdge.ComputeSingleKnifeEdge(UeInfo.frequency, RayA, RayC);
+                distance = RayA.magnitude + RayC.magnitude;
+                pathLoss = 20 * Math.Log10(distance) + 20 * Math.Log10(UeInfo.frequency) - 147.55;
+            }
             hitStatusB = "Not activated";
         }
-        pathLoss = 20 * Math.Log10(distance) + 20 * Math.Log10(UeInfo.frequency) - 147.55;
         totalLoss = pathLoss + diffractionLoss;
     }
 
@@ -255,4 +264,11 @@ public class DiffractionRay : MonoBehaviour
         return Vector3.zero;
     }
 
+    bool IsLoS (Vector3 start, Vector3 dest)
+    {
+        Ray losCheck = new Ray(start, dest - start);
+        float rayRange = Vector3.Distance(start, dest);
+        if (Physics.Raycast(losCheck, rayRange)) return false;
+        else return true;
+    }
 }

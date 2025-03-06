@@ -804,6 +804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1567526874620684380}
   - component: {fileID: 6441651450307272292}
+  - component: {fileID: 7685993308116757487}
   m_Layer: 0
   m_Name: Reflection
   m_TagString: Untagged
@@ -844,6 +845,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44c14fcf1f722544819171589750e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  absorptionLoss:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pathLoss:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  totalLoss:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   objectA: {fileID: 7669437582577715501}
   targetTag: Obstacle
   lineRendererA:
@@ -865,7 +887,21 @@ MonoBehaviour:
   hitStatusA: 
   hitStatusB: 
   UeInfo: {fileID: 3627855485555203804}
+  reflectance: {fileID: 7685993308116757487}
+  mediumMaterial: {fileID: 2920187107214423171}
   timeSinceLastUpdate: 0
+--- !u!114 &7685993308116757487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428053159348234555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d857024dfe4f8fc4497298f1dd87e22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1431983854225700337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,6 +1096,8 @@ MonoBehaviour:
   UeInfo: {fileID: 3627855485555203804}
   knifeEdge: {fileID: 1297986523934438563}
   diffractionLoss: 0
+  pathLoss: 0
+  totalLoss: 0
   timeSinceLastUpdate: 0
 --- !u!114 &1297986523934438563
 MonoBehaviour:

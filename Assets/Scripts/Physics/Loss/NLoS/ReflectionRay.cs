@@ -1,10 +1,13 @@
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.ShaderGraph.Internal;
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditorInternal.VersionControl.ListControl;
 
 public class ReflectionRay : MonoBehaviour
 {
+    public double[] absorptionLoss;
+    public double[] pathLoss;
+    public double[] totalLoss;
+    
     public GameObject objectA;
     private GameObject objectB;
     public string targetTag = "Obstacle";
@@ -18,6 +21,8 @@ public class ReflectionRay : MonoBehaviour
 
 
     public UeInfo UeInfo;
+    public Reflectance reflectance;
+    public MaterialProperties mediumMaterial;
 
     private Vector3 start;
     private Vector3 dest;
@@ -29,6 +34,7 @@ public class ReflectionRay : MonoBehaviour
 
     void Start()
     {
+
         objectB = UeInfo.TargetEnb.enbObject;
         for (int i = 0; i < lineCount; i++)
         {
@@ -60,21 +66,29 @@ public class ReflectionRay : MonoBehaviour
         destH = Vector3.zero;
         destH.x = dest.x;
         destH.z = dest.z;
+
+
         reflectionRayGroup[] reflectionRayGroup = new reflectionRayGroup[lineCount];
         for (int i = 0;i < lineCount;i++) 
         {
             UpdateLinePosition(lineRendererA[i], Vector3.zero, Vector3.zero);
             UpdateLinePosition(lineRendererB[i], Vector3.zero, Vector3.zero);
+
+            absorptionLoss[i] = 0;
+            pathLoss[i] = 0;
+            totalLoss[i] = 0;
         }
 
         int step = 360 / lineCount;
 
         for (int i = 0; i < lineCount; i++)
         {
+            absorptionLoss[i] = double.NaN;
+            pathLoss[i] = double.NaN;
             reflectionRayGroup[i] = CastReflectionRayH(step * (i - 1), step * i, 10);
             if (reflectionRayGroup[i].minDistance < disTolerance)
             {
-                reflectionRayGroup[i] = CastReflectionRayH(reflectionRayGroup[i].closestDeg - 6, reflectionRayGroup[i].closestDeg + 6, 0.5f);
+                reflectionRayGroup[i] = CastReflectionRayH(reflectionRayGroup[i].closestDeg - 11, reflectionRayGroup[i].closestDeg + 11, 0.5f);
                 float closestDegH = reflectionRayGroup[i].closestDeg;
                 if (closestDegH  < step * i && closestDegH >= step * (i - 1))
                 {
@@ -82,16 +96,27 @@ public class ReflectionRay : MonoBehaviour
                     if (reflectionRayGroup[i].minDistance < disTolerance)
                     {
                         reflectionRayGroup[i] = CastReflectionRayV(closestDegH, reflectionRayGroup[i].closestDeg - 5, reflectionRayGroup[i].closestDeg + 5, 0.5f);
-                        if (reflectionRayGroup[i].minDistance < finalDisTolereance)
+                        if (reflectionRayGroup[i].minDistance < finalDisTolereance && reflectionRayGroup[i].incidenceHit.gameObject.GetComponent<MaterialProperties>() != null)
                         {
-                            UpdateLinePosition(lineRendererA[i], start, reflectionRayGroup[i].incidenceDirection.normalized * Vector3.Distance(start, reflectionRayGroup[i].hitPoint));
-                            UpdateLinePosition(lineRendererB[i], reflectionRayGroup[i].hitPoint, reflectionRayGroup[i].reflectionDirection * Vector3.Distance(reflectionRayGroup[i].hitPoint, dest));
+                            float distanceIncidence = Vector3.Distance(start, reflectionRayGroup[i].hitPoint);
+                            float distanceReflection = Vector3.Distance(reflectionRayGroup[i].hitPoint, dest);
+
+                            UpdateLinePosition(lineRendererA[i], start, reflectionRayGroup[i].incidenceDirection.normalized * distanceIncidence);
+                            UpdateLinePosition(lineRendererB[i], reflectionRayGroup[i].hitPoint, reflectionRayGroup[i].reflectionDirection.normalized * distanceReflection);
+
+                            MaterialProperties refractiveMaterial = reflectionRayGroup[i].incidenceHit.gameObject.GetComponent<MaterialProperties>();
+                            float angle = Vector3.Angle(reflectionRayGroup[i].hitNormal, -reflectionRayGroup[i].incidenceDirection.normalized);
+                            absorptionLoss[i] = reflectance.ComputeReflectance(mediumMaterial, refractiveMaterial, angle * Mathf.Deg2Rad);
+                            absorptionLoss[i] = -PowerCalculator.linearToDb(absorptionLoss[i]);
+                            double distance = distanceIncidence + distanceReflection;
+                            pathLoss[i] = 20 * Math.Log10(distance) + 20 * Math.Log10(UeInfo.frequency) - 147.55;
                         }
                     }
                 }
             }
+            
+            totalLoss[i] = pathLoss[i] + absorptionLoss[i];
         }
-        
     }
 
 
@@ -107,7 +132,7 @@ public class ReflectionRay : MonoBehaviour
 
         hitStatusA = "No init hit";
 
-        for (float deg = degStart; deg < degEnd; deg = deg + degStep)
+        for (float deg = degStart; deg <= degEnd; deg = deg + degStep)
         {
             float range = Vector3.Distance(start, destH);
             direction = new Vector3(Mathf.Cos(deg * Mathf.Deg2Rad), 0, Mathf.Sin(deg * Mathf.Deg2Rad)) ;
@@ -153,13 +178,14 @@ public class ReflectionRay : MonoBehaviour
         Vector3 closestIncidence = Vector3.zero;
         Vector3 closestReflection = Vector3.zero;
         Vector3 closestHit = Vector3.zero;
+        Collider incidenceHit = null;
         float minDistance = float.MaxValue;
         float closestDeg = 0;
         Vector3 direction = Vector3.zero;
 
         hitStatusA = "No init hit";
 
-        for (float degV = degVStart; degV < degVEnd; degV = degV + degVStep)
+        for (float degV = degVStart; degV <= degVEnd; degV = degV + degVStep)
         {
             float range = Vector3.Distance(start, destH);
             direction = new Vector3(Mathf.Cos(degH * Mathf.Deg2Rad), Mathf.Cos(degV * Mathf.Deg2Rad), Mathf.Sin(degH * Mathf.Deg2Rad));
@@ -171,6 +197,8 @@ public class ReflectionRay : MonoBehaviour
                 float hitDistance = hit.distance;
                 Vector3 normal = hit.normal;
                 Vector3 reflectDirection = Vector3.Reflect(direction, normal).normalized;
+                incidenceHit = hit.collider;
+                rayGroup.hitNormal = hit.normal;
 
                 Ray reflectionRay = new Ray(hitPosition, reflectDirection * Vector3.Distance(hitPosition, dest));
 
@@ -203,6 +231,7 @@ public class ReflectionRay : MonoBehaviour
         rayGroup.hitPoint = closestHit;
         rayGroup.minDistance = minDistance;
         rayGroup.closestDeg = closestDeg;
+        rayGroup.incidenceHit = incidenceHit;
         return rayGroup;
     }
 
@@ -242,5 +271,7 @@ public class ReflectionRay : MonoBehaviour
         public Vector3 hitPoint = Vector3.zero;
         public float minDistance = float.MaxValue;
         public float closestDeg;
+        public Collider incidenceHit;
+        public Vector3 hitNormal;
     }
 }
