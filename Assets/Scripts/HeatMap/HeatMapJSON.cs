@@ -12,7 +12,7 @@ public class HeatmapJSON : MonoBehaviour
     private float lastUpdateTime;
     private float updateInterval = 1f;
 
-    public HeatMapLosRay heatMapLosRay;
+    public HeatMapRayBase heatMapRayBase;
 
     public string jsonData;
     public bool writeJsonToLocal = true;
@@ -20,8 +20,8 @@ public class HeatmapJSON : MonoBehaviour
 
     public void WriteHeatmapData()
     {
-        List<Vector3> dataPoints = heatMapLosRay.dataPoints;
-        List<float> totalLosses = heatMapLosRay.totalLosses;
+        List<Vector3> dataPoints = heatMapRayBase.dataPoints;
+        List<float> totalLosses = heatMapRayBase.losTotalLosses;
 
         if (dataPoints == null || totalLosses == null || dataPoints.Count != totalLosses.Count)
         {
@@ -31,9 +31,9 @@ public class HeatmapJSON : MonoBehaviour
 
         HeatmapData heatmap = new HeatmapData
         {
-            rows = Mathf.RoundToInt((float)heatMapLosRay.planeInfo.height / heatMapLosRay.gridSpacing),
-            cols = Mathf.RoundToInt((float)heatMapLosRay.planeInfo.width / heatMapLosRay.gridSpacing),
-            data = ConvertTo2DArray(dataPoints, totalLosses, heatMapLosRay.gridSpacing)
+            rows = Mathf.RoundToInt((float)heatMapRayBase.planeInfo.height / heatMapRayBase.gridSpacing),
+            cols = Mathf.RoundToInt((float)heatMapRayBase.planeInfo.width / heatMapRayBase.gridSpacing),
+            data = ConvertTo2DArray(dataPoints, totalLosses, heatMapRayBase.gridSpacing)
         };
 
         string json = JsonConvert.SerializeObject(heatmap, Formatting.Indented);
@@ -58,8 +58,8 @@ public class HeatmapJSON : MonoBehaviour
 
     private List<List<float>> ConvertTo2DArray(List<Vector3> points, List<float> values, float spacing)
     {
-        int rows = heatMapLosRay.rows;
-        int cols = heatMapLosRay.cols;
+        int rows = heatMapRayBase.rows;
+        int cols = heatMapRayBase.cols;
 
         List<List<float>> data = new List<List<float>>();
 
@@ -73,8 +73,8 @@ public class HeatmapJSON : MonoBehaviour
             Vector3 point = points[i];
             float value = values[i];
 
-            int row = Mathf.RoundToInt((-point.z + heatMapLosRay.startZ) / spacing);
-            int col = Mathf.RoundToInt((point.x - heatMapLosRay.startX + heatMapLosRay.rangeX) / spacing);  
+            int row = Mathf.RoundToInt((-point.z + heatMapRayBase.startZ) / spacing);
+            int col = Mathf.RoundToInt((point.x - heatMapRayBase.startX + heatMapRayBase.rangeX) / spacing);  
             if (row >= 0 && row < rows && col >= 0 && col < cols)
             {
                 if (float.IsNegativeInfinity(value) || float.IsNaN(value))

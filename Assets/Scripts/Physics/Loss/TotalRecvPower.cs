@@ -19,11 +19,15 @@ public class TotalRecvPower : MonoBehaviour
 
     public double computeTotalRecvpower(bool isUpload)
     {
-        double distance = Vector3.Distance(ueInfo.ueObject.transform.position, ueInfo.TargetEnb.enbObject.transform.position);
+        Vector3 start = ueInfo.ueObject.transform.position;
+        Vector3 dest = ueInfo.TargetEnb.enbObject.transform.position;
+        float frequency = ueInfo.frequency;
+
+        double distance = Vector3.Distance(start, dest);
 
         double losPower = 0;
         double diffractionPower = 0;
-        double[] reflectionPower = new double[reflection.totalLoss.Length];
+        double[] reflectionPower = new double[reflection.lineCount];
 
         double txPower = 0;
         txPower += antennaGainTx + antennaGainRx - cableLoss;
@@ -39,12 +43,14 @@ public class TotalRecvPower : MonoBehaviour
             losPower = txPower + los.totalLossReverseInDB - LosPathLoss(distance);
         }
 
-        diffractionPower = txPower - diffraction.totalLoss;
+        diffractionPower = txPower - diffraction.ComputeNlosDiffraction(start, dest, frequency);
         if (double.IsNaN(diffractionPower)) diffractionPower = double.NegativeInfinity;
 
-        for (int i = 0; i < reflection.totalLoss.Length; i++) 
+        double[] absorptionLoss = new double[reflection.lineCount];
+        absorptionLoss = reflection.ComputeNlosReflection(start, dest, frequency);
+        for (int i = 0; i < reflection.lineCount; i++) 
         {
-            reflectionPower[i] = txPower - reflection.totalLoss[i];
+            reflectionPower[i] = txPower - absorptionLoss[i];
             if (double.IsNaN(reflectionPower[i])) reflectionPower[i] = double.NegativeInfinity;
         }
 
@@ -95,6 +101,6 @@ public class TotalRecvPower : MonoBehaviour
         return rand.NextDouble() * 2 * Math.PI;
     }
 
-    double LosPathLoss(double distance) { return 20 * Math.Log10(distance) + 20 * Math.Log10(ueInfo.frequency) - 147.55;; }
+    double LosPathLoss(double distance) { return 20 * Math.Log10(distance) + 20 * Math.Log10(ueInfo.frequency) - 147.55; }
 
 }

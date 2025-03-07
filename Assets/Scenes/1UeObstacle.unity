@@ -34916,8 +34916,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1481869462}
-        m_TargetAssemblyTypeName: HeatMapLosRay, Assembly-CSharp
-        m_MethodName: UpdateHeatMap
+        m_TargetAssemblyTypeName: HeatMapRayBase, Assembly-CSharp
+        m_MethodName: UpdateLosHeatMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34965,6 +34965,110 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723756111}
   m_CullTransparentMesh: 1
+--- !u!1 &723820497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 723820498}
+  - component: {fileID: 723820501}
+  - component: {fileID: 723820500}
+  - component: {fileID: 723820499}
+  m_Layer: 0
+  m_Name: Heat Map Reflection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &723820498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723820497}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1481869461}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &723820499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723820497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908e9d9142ec7aa4a8abf57753b62ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 0
+  resistivity: 0
+  relativePermittivity: 0
+  relativePermeability: 0
+--- !u!114 &723820500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723820497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d857024dfe4f8fc4497298f1dd87e22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &723820501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723820497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44c14fcf1f722544819171589750e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  absorptionLoss:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pathLoss:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  totalLoss:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  targetTag: Obstacle
+  lineRendererA: []
+  lineRendererB: []
+  lineCount: 6
+  collision: 0
+  hitStatusA: 
+  hitStatusB: 
+  reflectance: {fileID: 723820500}
+  mediumMaterial: {fileID: 723820499}
 --- !u!1 &724566901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8054143525193121585, guid: 6f107bbb40104f54f8710c1435b697f6, type: 3}
@@ -59799,11 +59903,11 @@ Transform:
   m_GameObject: {fileID: 1231390256}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.166667, y: 6.800003, z: 4.166667}
+  m_LocalPosition: {x: -4.1666675, y: 6.800003, z: 4.166667}
   m_LocalScale: {x: 0.016666668, y: 1, z: 0.016666668}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1605634266}
+  m_Father: {fileID: 1481869461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1231390258
 MonoBehaviour:
@@ -65099,6 +65203,76 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0714283, y: 2.3867946, z: 41.5}
   m_Center: {x: 0, y: 0, z: 0.0000076293945}
+--- !u!1 &1344896415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344896416}
+  - component: {fileID: 1344896418}
+  - component: {fileID: 1344896417}
+  m_Layer: 0
+  m_Name: Heat Map Diffraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1344896416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344896415}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1481869461}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1344896417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344896415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88fea144df70824eac03a7f9601c9c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1344896418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344896415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6f2842ab32e4f44927d45177d2e293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Obstacle
+  lineRendererA: {fileID: 0}
+  lineRendererB: {fileID: 0}
+  lineRendererC: {fileID: 0}
+  collision: 0
+  hitStatusA: 
+  hitStatusB: 
+  hitStatusC: 
+  knifeEdge: {fileID: 1344896417}
+  diffractionLoss: 0
+  pathLoss: 0
+  totalLoss: 0
+  timeSinceLastUpdate: 0
 --- !u!1 &1347222009 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4581778055745615757, guid: 6f107bbb40104f54f8710c1435b697f6, type: 3}
@@ -72018,7 +72192,7 @@ GameObject:
   - component: {fileID: 1481869461}
   - component: {fileID: 1481869462}
   m_Layer: 0
-  m_Name: Heat Map Raycast
+  m_Name: Heat Map Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72036,7 +72210,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1231390257}
+  - {fileID: 1344896416}
+  - {fileID: 723820498}
   m_Father: {fileID: 1605634266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1481869462
@@ -72054,7 +72231,9 @@ MonoBehaviour:
   targetGnb: {fileID: 87149796}
   frequency: 2e+9
   dataPoints: []
-  totalLosses: []
+  losTotalLosses: []
+  reflectionTotalLosses: []
+  diffractionTotalLosses: []
   gridSpacing: 10
   rangeX: 0
   rangeZ: 0
@@ -72065,6 +72244,8 @@ MonoBehaviour:
   cols: 1
   obstacleLos: {fileID: 1231390259}
   collisionInfo: 
+  reflectionRay: {fileID: 723820501}
+  diffractionRay: {fileID: 1344896418}
   heatMap: {fileID: 1605634271}
   planeInfo: {fileID: 1605634272}
   textureSize: 256
@@ -78352,7 +78533,6 @@ Transform:
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1231390257}
   - {fileID: 1481869461}
   - {fileID: 1995087612}
   m_Father: {fileID: 288128546}
@@ -96398,7 +96578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filename: heatmap_data.json
   timeSinceLastUpdate: 0
-  heatMapLosRay: {fileID: 1481869462}
+  heatMapRayBase: {fileID: 0}
   jsonData: 
   writeJsonToLocal: 1
 --- !u!1 &1997067385 stripped

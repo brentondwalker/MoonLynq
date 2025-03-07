@@ -32,7 +32,8 @@ public class HeatMap : MonoBehaviour
             Vector3 point = dataPoints[i];
             Vector3 worldPoint = point;
 
-            float lossValue = Mathf.Clamp01((- totalLosses[i]) / 60.0f);
+            //float lossValue = Mathf.Clamp01((- totalLosses[i]) / 60.0f);
+            float lossValue = Mathf.Clamp01((-totalLosses[i] - 75) / 60.0f);
 
             int px = Mathf.Clamp(
                 (int)((-worldPoint.x + worldPosition.x + rangeX / 2) / rangeX * textureSize),
