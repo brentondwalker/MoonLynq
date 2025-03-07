@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DiffractionRay : MonoBehaviour
 {
-    public GameObject objectA;
+    private GameObject objectA;
     private GameObject objectB;
     public string targetTag = "Obstacle";
     public LineRenderer lineRendererA;
@@ -30,6 +30,7 @@ public class DiffractionRay : MonoBehaviour
 
     void Start()
     {
+        objectA = UeInfo.ueObject;
         objectB = UeInfo.TargetEnb.enbObject;
         LineInitialisation(lineRendererA);
         LineInitialisation(lineRendererB);

@@ -8,7 +8,7 @@ public class ReflectionRay : MonoBehaviour
     public double[] pathLoss;
     public double[] totalLoss;
     
-    public GameObject objectA;
+    private GameObject objectA;
     private GameObject objectB;
     public string targetTag = "Obstacle";
     public LineRenderer[] lineRendererA;
@@ -34,7 +34,7 @@ public class ReflectionRay : MonoBehaviour
 
     void Start()
     {
-
+        objectA = UeInfo.ueObject;
         objectB = UeInfo.TargetEnb.enbObject;
         for (int i = 0; i < lineCount; i++)
         {

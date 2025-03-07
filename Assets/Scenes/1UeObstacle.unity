@@ -31358,7 +31358,7 @@ PrefabInstance:
       objectReference: {fileID: 657172988}
     - target: {fileID: 4324620982535302738, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: fadingEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5839165448725125935, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalScale.x

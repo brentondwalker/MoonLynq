@@ -820,7 +820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428053159348234555}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -831,7 +831,7 @@ Transform:
   - {fileID: 6107607598099156545}
   - {fileID: 7100602881503931331}
   - {fileID: 5394565817747396470}
-  m_Father: {fileID: 5839165448725125935}
+  m_Father: {fileID: 4930584764102255812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6441651450307272292
 MonoBehaviour:
@@ -866,7 +866,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  objectA: {fileID: 7669437582577715501}
   targetTag: Obstacle
   lineRendererA:
   - {fileID: 4766173440868201835}
@@ -932,9 +931,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2849854497507224093}
-  - {fileID: 602240668045965842}
-  - {fileID: 4073020268647031677}
-  - {fileID: 1567526874620684380}
+  - {fileID: 4930584764102255812}
   - {fileID: 3267313543682845396}
   - {fileID: 761645564208853882}
   - {fileID: 2934655800803529601}
@@ -942,6 +939,60 @@ Transform:
   - {fileID: 8384086471311117223}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1515595327357099046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4930584764102255812}
+  - component: {fileID: 5328276967716637472}
+  m_Layer: 0
+  m_Name: Power
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4930584764102255812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515595327357099046}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 602240668045965842}
+  - {fileID: 4073020268647031677}
+  - {fileID: 1567526874620684380}
+  m_Father: {fileID: 5839165448725125935}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5328276967716637472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515595327357099046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464fe594de3542e47aff43bf9afdbca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  los: {fileID: 2623294467197763648}
+  reflection: {fileID: 6441651450307272292}
+  diffraction: {fileID: 6087408772304051536}
+  ueInfo: {fileID: 3627855485555203804}
+  antennaGainTx: 0
+  antennaGainRx: 18
+  cableLoss: 2
 --- !u!1 &1516552411609108998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,7 +1113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2358315614897382957}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1070,7 +1121,7 @@ Transform:
   - {fileID: 5895459936168342528}
   - {fileID: 3621201540241056112}
   - {fileID: 6405717914424711644}
-  m_Father: {fileID: 5839165448725125935}
+  m_Father: {fileID: 4930584764102255812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6087408772304051536
 MonoBehaviour:
@@ -1084,7 +1135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6f2842ab32e4f44927d45177d2e293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectA: {fileID: 7669437582577715501}
   targetTag: Obstacle
   lineRendererA: {fileID: 3027699354969858934}
   lineRendererB: {fileID: 3566002363006216411}
@@ -1991,14 +2041,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5832169574047935875}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4415013368070127575}
   - {fileID: 4064685842505257294}
-  m_Father: {fileID: 5839165448725125935}
+  m_Father: {fileID: 4930584764102255812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2623294467197763648
 MonoBehaviour:
@@ -2716,14 +2766,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647f16e3af191c34bb15886e54bd0096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  antennaGainTx: 0
-  antennaGainRx: 18
+  fadingEnabled: 0
   recvPower: 0
-  fadingEnabled: 1
   fading: 0
   Ue: {fileID: 3627855485555203804}
   jakesFading: {fileID: 3070849787909942887}
   dopplerSpeed: {fileID: 9175739687531629458}
+  totalRecvPower: {fileID: 5328276967716637472}
 --- !u!114 &4792644354616968728
 MonoBehaviour:
   m_ObjectHideFlags: 0
