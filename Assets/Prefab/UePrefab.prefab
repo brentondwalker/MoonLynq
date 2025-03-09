@@ -885,10 +885,8 @@ MonoBehaviour:
   collision: 0
   hitStatusA: 
   hitStatusB: 
-  UeInfo: {fileID: 3627855485555203804}
   reflectance: {fileID: 7685993308116757487}
   mediumMaterial: {fileID: 2920187107214423171}
-  timeSinceLastUpdate: 0
 --- !u!114 &7685993308116757487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,6 +991,8 @@ MonoBehaviour:
   antennaGainTx: 0
   antennaGainRx: 18
   cableLoss: 2
+  enableReflection: 1
+  enableDiffraction: 1
 --- !u!1 &1516552411609108998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1143,6 @@ MonoBehaviour:
   hitStatusA: 
   hitStatusB: 
   hitStatusC: 
-  UeInfo: {fileID: 3627855485555203804}
   knifeEdge: {fileID: 1297986523934438563}
   diffractionLoss: 0
   pathLoss: 0
@@ -1307,7 +1306,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cad16753797f574ba96e104779ad833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bler: 0
   pisaData: {fileID: 7549152053711253735}
+  getBler: {fileID: 6354863784154599624}
 --- !u!114 &4090864873485764150
 MonoBehaviour:
   m_ObjectHideFlags: 0

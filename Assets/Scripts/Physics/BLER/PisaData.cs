@@ -45,6 +45,11 @@ public class PisaData : MonoBehaviour
         return getBler.GetBLER(k + blerShift_, j);
     }
 
+    public double GetBler(double snr, int cqi)
+    {
+        return getBler.GetBLER(snr + blerShift_, cqi);
+    }
+
     public int MinSnr()
     {
         return -14 - blerShift_; 

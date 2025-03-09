@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Drawing;
 
 public class HeatMapRayBase : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class HeatMapRayBase : MonoBehaviour
     public List<float> losTotalLosses;
     public List<float> reflectionTotalLosses;
     public List<float> diffractionTotalLosses;
+    public List<float> totalLosses;
 
     public float gridSpacing = 10;
     public float rangeX;
@@ -32,6 +34,8 @@ public class HeatMapRayBase : MonoBehaviour
     public HeatMap heatMap;
     public PlaneInfo planeInfo;
     public int textureSize = 256;
+
+    public DropdownManager dropdownManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -66,13 +70,26 @@ public class HeatMapRayBase : MonoBehaviour
 
     //void Update()
     //{
-        //timeSinceLastUpdate = Time.time - lastUpdateTime;
-        //if (timeSinceLastUpdate >= updateInterval)
-        //{
-        //    CustomUpdate();
-        //    lastUpdateTime = Time.time;
-        //}
+    //timeSinceLastUpdate = Time.time - lastUpdateTime;
+    //if (timeSinceLastUpdate >= updateInterval)
+    //{
+    //    CustomUpdate();
+    //    lastUpdateTime = Time.time;
     //}
+    //}
+
+    public void UpdateHeatmap()
+    {
+        string mode = dropdownManager.currentMode;
+
+        if (mode == "LoS") UpdateLosHeatMap();
+        if (mode == "Reflection") UpdateReflectionHeatMap();
+        if (mode == "Diffraction") UpdateDiffractionHeatMap();
+        if (mode == "Total") UpdateTotalHeatMap();
+
+        RegenerateHeatMap();
+    }
+
     public void UpdateLosHeatMap()
     {
         rangeX = planeInfo.width;
@@ -123,7 +140,7 @@ public class HeatMapRayBase : MonoBehaviour
         heatMap.GenerateHeatMap(dataPoints, reflectionTotalLosses, textureSize);
     }
 
-    public void UpdatediffractionHeatMap()
+    public void UpdateDiffractionHeatMap()
     {
         rangeX = planeInfo.width;
         rangeZ = planeInfo.height;
@@ -132,20 +149,46 @@ public class HeatMapRayBase : MonoBehaviour
         startY = planeInfo.vertice.y;
         gnbPosition = targetGnb.transform.position;
         GenerateDataPoints();
-        reflectionTotalLosses.Clear();
+        diffractionTotalLosses.Clear();
         foreach (var point in dataPoints)
         {
             double totalLoss = diffractionRay.ComputeNlosDiffraction(point, gnbPosition, frequency);
             if (double.IsNaN(totalLoss)) totalLoss = double.NegativeInfinity;
             else totalLoss = -totalLoss;
-            reflectionTotalLosses.Add((float)totalLoss);
+            diffractionTotalLosses.Add((float)totalLoss);
         }
-        heatMap.GenerateHeatMap(dataPoints, reflectionTotalLosses, textureSize);
+        heatMap.GenerateHeatMap(dataPoints, diffractionTotalLosses, textureSize);
+    }
+
+    public void UpdateTotalHeatMap()
+    {
+        UpdateLosHeatMap();
+        UpdateReflectionHeatMap();
+        UpdateDiffractionHeatMap();
+
+        totalLosses.Clear();
+
+        //Debug.Log("LosHeatMap Length: " + losTotalLosses.Count);
+        //Debug.Log("ReflectionHeatMap Length: " + reflectionTotalLosses.Count);
+        //Debug.Log("DiffractionHeatMap Length: " + diffractionTotalLosses.Count);
+
+        for (int i = 0; i < losTotalLosses.Count; i++)
+        {
+            //float combinedLoss = losTotalLosses[i] + reflectionTotalLosses[i] + diffractionTotalLosses[i];
+            double distance = Vector3.Distance(dataPoints[i], gnbPosition);
+            float combinedLoss = (float)ComputeCoherentPower(losTotalLosses[i], reflectionTotalLosses[i], diffractionTotalLosses[i], distance);
+            totalLosses.Add(combinedLoss);
+        }
+        heatMap.GenerateHeatMap(dataPoints, totalLosses, textureSize);
     }
 
     public void RegenerateHeatMap()
     {
-        heatMap.GenerateHeatMap(dataPoints, losTotalLosses, textureSize);
+        string mode = dropdownManager.currentMode;
+        if (mode == "LoS") heatMap.GenerateHeatMap(dataPoints, losTotalLosses, textureSize);
+        if (mode == "Reflection") heatMap.GenerateHeatMap(dataPoints, reflectionTotalLosses, textureSize);
+        if (mode == "Diffraction") heatMap.GenerateHeatMap(dataPoints, diffractionTotalLosses, textureSize);
+        if (mode == "Total") heatMap.GenerateHeatMap(dataPoints, totalLosses, textureSize);
     }
 
     void GenerateDataPoints()
@@ -171,7 +214,7 @@ public class HeatMapRayBase : MonoBehaviour
         }
     }
 
-    double ComputeCoherentPower(double losPower, double diffractionPower, double[] reflectionPower, double distance)
+    double ComputeCoherentPower(double losPower, double diffractionPower, double reflectionPower, double distance)
     {
         double E_real = 0, E_imag = 0;
 
@@ -186,13 +229,12 @@ public class HeatMapRayBase : MonoBehaviour
             E_real += E_diffraction * Math.Cos(phase_diffraction);
             E_imag += E_diffraction * Math.Sin(phase_diffraction);
 
-            for (int i = 0; i < reflectionPower.Length; i++)
-            {
-                double E_ref = Math.Sqrt(PowerCalculator.dBToLinear(reflectionPower[i]));
-                double phase_ref = GenerateRandomPhase(Math.Pow(distance, 0.1 * i));
+
+                double E_ref = Math.Sqrt(PowerCalculator.dBToLinear(reflectionPower));
+                double phase_ref = GenerateRandomPhase(Math.Pow(distance, 0.1));
                 E_real += E_ref * Math.Cos(phase_ref);
                 E_imag += E_ref * Math.Sin(phase_ref);
-            }
+           
         
 
         double E_total = Math.Sqrt(E_real * E_real + E_imag * E_imag);

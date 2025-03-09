@@ -10,11 +10,13 @@ public class DataRecord
 {
     public float t;  
     public float throughput;
+    public double bler;
 
-    public DataRecord(float time, float value)
+    public DataRecord(float time, float throughputValue, double blerValue)
     {
         t = time;
-        throughput = value;
+        throughput = throughputValue;
+        bler = blerValue;
     }
 }
 
@@ -28,6 +30,7 @@ public class DataRecorder : MonoBehaviour
 
     private List<DataRecord> recordedData = new List<DataRecord>();
     public MCS_Test mcs;
+    public IsError isError;
 
     public InputFieldManager intervalInput;
     public InputFieldManager durationInput;
@@ -62,7 +65,7 @@ public class DataRecorder : MonoBehaviour
 
         while (elapsedTime < recordDuration)
         {
-            recordedData.Add(new DataRecord(elapsedTime, externalValue));
+            recordedData.Add(new DataRecord(elapsedTime, mcs.pkts, isError.bler));
             Debug.Log($"Recorded: Time={elapsedTime}, ExternalValue={externalValue}");
 
             yield return new WaitForSeconds(recordInterval);
