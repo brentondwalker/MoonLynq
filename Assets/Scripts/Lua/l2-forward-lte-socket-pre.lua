@@ -40,7 +40,7 @@ function master(args)
 
 	if args.read_file then
     
-		local filepath = "./examples/emulation_data_throughput.lua"
+		local filepath = "./examples/emulation_data_record.lua"
 		print("Attempting to load file from:", filepath)
     
 		preFile = loadDataFromFile(filepath)

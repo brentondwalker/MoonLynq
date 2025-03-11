@@ -46,8 +46,8 @@ public class MobilitySender : MonoBehaviour
 
     private void Update()
     {
+        if (enbInfo != null) SendData(UeManager.mobilityInfo + enbInfo.enbMobilityInfo);
 
-        SendData(UeManager.mobilityInfo + enbInfo.enbMobilityInfo);
 
 
     }
