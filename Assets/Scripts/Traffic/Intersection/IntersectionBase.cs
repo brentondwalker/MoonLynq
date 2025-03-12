@@ -9,10 +9,7 @@ public class IntersectionBase : MonoBehaviour
     {
         public string intersectionName;
 
-        public IntersectionNode nodeA;
-        public IntersectionNode nodeB;
-        public IntersectionNode nodeC;
-        public IntersectionNode nodeD;
+        //public IntersectionNode[] node = new IntersectionNode[4];
 
         public Dictionary<TrafficLightState, bool> trafficLights = new Dictionary<TrafficLightState, bool>();
 
@@ -33,6 +30,18 @@ public class IntersectionBase : MonoBehaviour
                 trafficLights[state] = (state == activeState);
             }
         }
+
+        public string GetTrafficLightState()
+        {
+            foreach (var kvp in trafficLights)
+            {
+                if (kvp.Value) 
+                {
+                    return kvp.Key.ToString();
+                }
+            }
+            return "None";
+        }
     }
 
     public enum TrafficLightState
@@ -43,15 +52,12 @@ public class IntersectionBase : MonoBehaviour
         BD_LeftTurn   
     }
 
-    private Intersection intersection;
+    public Intersection intersection;
     private TrafficLightState currentState;
     private Dictionary<TrafficLightState, float> stateDurations;
 
 
-    public IntersectionNodeBase nodeA_Local;
-    public IntersectionNodeBase nodeB_Local;
-    public IntersectionNodeBase nodeC_Local;
-    public IntersectionNodeBase nodeD_Local;
+    public IntersectionNodeBase[] node_Local = new IntersectionNodeBase[4];
 
 
     public float AC_StraightDuration = 5f;
@@ -66,6 +72,11 @@ public class IntersectionBase : MonoBehaviour
         intersection = new Intersection();
         currentState = TrafficLightState.AC_Straight;
 
+        for (int i = 0; i < node_Local.Length; i++)
+        {
+            node_Local[i].nodeId = i;
+        }
+
         intersection.intersectionName = interSectionName;
 
         stateDurations = new Dictionary<TrafficLightState, float>
@@ -79,12 +90,20 @@ public class IntersectionBase : MonoBehaviour
         StartCoroutine(SwitchTrafficLights());
     }
 
+    private void Update()
+    {
+        for (int i = 0; i < node_Local.Length; i++)
+        {
+            node_Local[i].nodeId = i;
+        }
+    }
+
     private IEnumerator SwitchTrafficLights()
     {
         while (true)
         {
             intersection.SetTrafficLightState(currentState);
-            Debug.Log($"{intersection.intersectionName} state: {currentState}, duration: {stateDurations[currentState]} seconds.");
+            //Debug.Log($"{intersection.intersectionName} state: {currentState}, duration: {stateDurations[currentState]} seconds.");
 
             yield return new WaitForSeconds(stateDurations[currentState]); 
 
