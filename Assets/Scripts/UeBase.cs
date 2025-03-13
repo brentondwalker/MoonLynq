@@ -43,6 +43,9 @@ public class UeBase : MonoBehaviour
     public TransmissionParameter[] transmissionParameters;
     public UeBase[] ueBases;
 
+    public float maxD2D_ConnectionDistance = 300;
+    public int maxD2D_ConnectionNum = 4;
+
     void Start()
     {
         //txPowerBaseUl = UnityEngine.Random.Range( 25.0f, 27.0f );
@@ -137,7 +140,10 @@ public class UeBase : MonoBehaviour
     void FindOtherUeBases()
     {
         UeBase[] allUeBases = FindObjectsByType<UeBase>(FindObjectsSortMode.None);
-        ueBases = allUeBases.Where(ue => ue != this).ToArray();
+        ueBases = allUeBases
+            .Where(ue => ue != this && Vector3.Distance(ue.ueObject.transform.position, this.ueObject.transform.position) < maxD2D_ConnectionDistance)
+            .Take(maxD2D_ConnectionNum)
+            .ToArray();
     }
 
 }
