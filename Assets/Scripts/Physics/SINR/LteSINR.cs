@@ -10,21 +10,21 @@ public class LteSINR : MonoBehaviour
     public double recvPower = 0.0;
     public double fading;
 
-    public UeInfo Ue;
+    public UeBase Ue;
     public JakesFading jakesFading;
     public DopplerSpeed dopplerSpeed;
     public TotalRecvPower totalRecvPower;
     public List<double> GetSINR(bool isUpload)
     {
-        List<double> snrVector = new List<double>(new double[Ue.numBands]);
+        List<double> snrVector = new List<double>(new double[Ue.ueParameters.numBands]);
 
         Vector3 ueCoord = Ue.prefabPosition;
         Vector3 enbCoord = Ue.TargetEnb.enbMobiltiyLocal;
 
-        double txPowerUe = Ue.txPowerBaseUl;
+        double txPowerUe = Ue.ueParameters.txPower;
         double txPowerENB = Ue.TargetEnb.txPower;
 
-        double frequency = Ue.frequency;
+        double frequency = Ue.ueParameters.frequency;
 
         if (isUpload ) {recvPower = txPowerUe; }
         else {recvPower = txPowerENB; }
@@ -33,11 +33,11 @@ public class LteSINR : MonoBehaviour
 
         float speed = dopplerSpeed.computeDopplerSpeed(Ue.ueObject, Ue.TargetEnb.enbObject);
 
-        for (int i = 0; i < Ue.numBands; i++)
+        for (int i = 0; i < Ue.ueParameters.numBands; i++)
         {
             if (fadingEnabled)
             {
-                fading = jakesFading.JakesFadingComputation(Ue.numBands, i, speed, true, Ue);
+                fading = jakesFading.JakesFadingComputation(Ue.ueParameters.numBands, i, speed, true, Ue);
             }
 
             double interference = 0.0; 

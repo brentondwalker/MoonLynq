@@ -8,20 +8,19 @@ public class TotalRecvPower : MonoBehaviour
     public LOS_Ray los;
     public ReflectionRay reflection;
     public DiffractionRay diffraction;
-    public UeInfo ueInfo;
+    public UeBase ueBase;
 
     public double antennaGainTx = 0.0;
     public double antennaGainRx = 18.0;
-    public double cableLoss = 2.0;
 
     public bool enableReflection = true;
     public bool enableDiffraction = true;
 
     public double computeTotalRecvpower(bool isUpload)
     {
-        Vector3 start = ueInfo.ueObject.transform.position;
-        Vector3 dest = ueInfo.TargetEnb.enbObject.transform.position;
-        float frequency = ueInfo.frequency;
+        Vector3 start = ueBase.ueObject.transform.position;
+        Vector3 dest = ueBase.TargetEnb.enbObject.transform.position;
+        float frequency = ueBase.ueParameters.frequency;
 
         double distance = Vector3.Distance(start, dest);
 
@@ -30,16 +29,16 @@ public class TotalRecvPower : MonoBehaviour
         double[] reflectionPower = new double[reflection.lineCount];
 
         double txPower = 0;
-        txPower += antennaGainTx + antennaGainRx - cableLoss;
+        txPower += antennaGainTx + antennaGainRx - ueBase.ueParameters.cableLoss;
 
         if (isUpload)
         {   
-            txPower += ueInfo.txPowerBaseUl;
+            txPower += ueBase.ueParameters.txPower;
             losPower = txPower + los.totalLossForwardInDB - LosPathLoss(distance);
         }
         else 
         {           
-            txPower += ueInfo.TargetEnb.txPower;
+            txPower += ueBase.TargetEnb.txPower;
             losPower = txPower + los.totalLossReverseInDB - LosPathLoss(distance);
         }
 
@@ -101,6 +100,6 @@ public class TotalRecvPower : MonoBehaviour
         return rand.NextDouble() * 2 * Math.PI;
     }
 
-    double LosPathLoss(double distance) { return 20 * Math.Log10(distance) + 20 * Math.Log10(ueInfo.frequency) - 147.55; }
+    double LosPathLoss(double distance) { return 20 * Math.Log10(distance) + 20 * Math.Log10(ueBase.ueParameters.frequency) - 147.55; }
 
 }

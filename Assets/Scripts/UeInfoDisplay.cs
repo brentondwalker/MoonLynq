@@ -7,7 +7,7 @@ public class UeInfoDisplay : MonoBehaviour
 {
 
     public TextMeshProUGUI ueInfoDisplay;
-    public UeInfo UeInfo;
+    public UeBase UeBase;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,8 +17,8 @@ public class UeInfoDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ueInfoDisplay.text = "Ue_" + UeInfo.GetUeId().ToString() + "\n"
-                            + UeInfo.ulInfo + "\n"
-                            + UeInfo.dlInfo;
+        ueInfoDisplay.text = "Ue_" + UeBase.ueId.ToString() + "\n"
+                            + UeBase.ulInfo + "\n"
+                            + UeBase.dlInfo;
     }
 }

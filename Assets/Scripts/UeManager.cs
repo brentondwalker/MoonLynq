@@ -8,7 +8,7 @@ public class UeManager : MonoBehaviour
     public string ulInfo = "";
     public string dlInfo = "";
     public string mobilityInfo = "";
-    public UeInfo ueSelect = null;
+    public UeBase ueSelect = null;
 
     void Start()
     {
@@ -35,18 +35,18 @@ public class UeManager : MonoBehaviour
             mobilityInfo = "";
             foreach (GameObject ueObject in ueObjects)
             {
-                UeInfo ueInfo = ueObject.GetComponent<UeInfo>();
+                UeBase ueBase = ueObject.GetComponent<UeBase>();
 
-                if (ueInfo != null)
+                if (ueBase != null)
                 {
-                    ulInfo += ueInfo.ulInfo + "\n";
-                    dlInfo += ueInfo.dlInfo + "\n";
-                    mobilityInfo += ueInfo.mobilityInfo + "\n";
-                    if (ueInfo.isSelect) { ueSelect = ueInfo; }
+                    ulInfo += ueBase.ulInfo + "\n";
+                    dlInfo += ueBase.dlInfo + "\n";
+                    mobilityInfo += ueBase.mobilityInfo + "\n";
+                    if (ueBase.isSelect) { ueSelect = ueBase; }
                 }
                 else
                 {
-                    Debug.LogWarning("No UeInfo component found on " + ueObject.name);
+                    Debug.LogWarning("No UeBase component found on " + ueObject.name);
                 }
             }
 

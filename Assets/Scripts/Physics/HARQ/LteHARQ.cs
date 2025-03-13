@@ -30,7 +30,7 @@ public class LteHARQ : MonoBehaviour
     void CustomUpdate()
     {
         int cqi = mcsTest.cqiTest.cqi;
-        int numBands = mcsTest.ueInfo.numBands;
+        int numBands = mcsTest.ueBase.ueParameters.numBands;
         ErrorRateFrame = isError.GetErrorRate(cqi, numBands, mcsTest.cqiTest.snrv);
         PktErrorRateFrame = isError.GetPktErrorRate(1344, ErrorRateFrame, mcsTest.throughput);
         //PktErrorRateFrame = isError.GetPktErrorRate(1344, 0.5, mcsTest.throughput);

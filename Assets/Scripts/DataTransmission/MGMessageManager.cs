@@ -8,7 +8,7 @@ using static MGData;
 public class MGMessageManager : MonoBehaviour
 {
     private List<pkt> pktInfo = new List<pkt>();
-    private List<rlcQueue> rlcQueueInfo = new List<rlcQueue>();
+    private List<rlcQueue> rlcQueueBase = new List<rlcQueue>();
     private List<rlcLoss> rlcLossInfo = new List<rlcLoss>();
     private List<pdcpThroughput> pdcpThroughputInfo = new List<pdcpThroughput>();
     private List<latencyTotal> latencyTotalInfo = new List<latencyTotal>();
@@ -17,7 +17,7 @@ public class MGMessageManager : MonoBehaviour
     private int queueMaxTemp;
 
     public List<pkt> getPktInfo () { return pktInfo; }
-    public List<rlcQueue> getRlcQueueInfo () {  return rlcQueueInfo; }
+    public List<rlcQueue> getRlcQueueBase () {  return rlcQueueBase; }
     public List<rlcLoss> getRlcLossInfo () { return rlcLossInfo; }
     public List<pdcpThroughput> GetPdcpThroughputs () 
     { 
@@ -55,7 +55,7 @@ public class MGMessageManager : MonoBehaviour
                 queue = int.Parse(match.Groups[4].Value)
             };
 
-            rlcQueueInfo.Add(newRlc);
+            rlcQueueBase.Add(newRlc);
         }
         else
         {
@@ -78,7 +78,7 @@ public class MGMessageManager : MonoBehaviour
 
             queueMaxTemp = int.Parse(match.Groups[4].Value);
 
-            rlcQueueInfo.Add(newRlc);
+            rlcQueueBase.Add(newRlc);
             //Debug.Log($"[RLC] Parsed: T={newRlc.time}, Loss={newRlc.loss}, Queue={newRlc.queue}/{newRlc.queueMax}");
 
             rlcLoss newRlcLoss = new rlcLoss

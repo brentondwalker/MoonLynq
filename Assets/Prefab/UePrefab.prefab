@@ -987,10 +987,9 @@ MonoBehaviour:
   los: {fileID: 2623294467197763648}
   reflection: {fileID: 6441651450307272292}
   diffraction: {fileID: 6087408772304051536}
-  ueInfo: {fileID: 3627855485555203804}
+  ueBase: {fileID: 3627855485555203804}
   antennaGainTx: 0
   antennaGainRx: 18
-  cableLoss: 2
   enableReflection: 1
   enableDiffraction: 1
 --- !u!1 &1516552411609108998
@@ -1073,7 +1072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ueInfoDisplay: {fileID: 7008071830997057029}
-  UeInfo: {fileID: 3627855485555203804}
+  UeBase: {fileID: 3627855485555203804}
 --- !u!114 &3150079033817898654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,7 +1307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bler: 0
   pisaData: {fileID: 7549152053711253735}
-  getBler: {fileID: 6354863784154599624}
 --- !u!114 &4090864873485764150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2071,7 +2069,7 @@ MonoBehaviour:
   collision: 0
   hitInfo: 
   DielectricObstacleLoss: {fileID: 900911004848361986}
-  UeInfo: {fileID: 3627855485555203804}
+  UeBase: {fileID: 3627855485555203804}
   totalLossForward: 0
   totalLossReverse: 0
   totalLossForwardInDB: 0
@@ -2708,7 +2706,7 @@ MonoBehaviour:
   lteAmc: {fileID: 1789630483437207225}
   lteMcs: {fileID: 3350767231099524412}
   cqiTest: {fileID: 709645430696870306}
-  ueInfo: {fileID: 3627855485555203804}
+  ueBase: {fileID: 3627855485555203804}
   cqi: 0
   iTbs: 0
   tbs: 0
@@ -2874,6 +2872,7 @@ GameObject:
   - component: {fileID: 1615506618829099290}
   - component: {fileID: 3627855485555203804}
   - component: {fileID: 1609333289611013543}
+  - component: {fileID: 4421550662611993277}
   m_Layer: 0
   m_Name: Ue
   m_TagString: Ue
@@ -3000,9 +2999,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LOS_Ray: {fileID: 2623294467197763648}
-  txPowerBaseUl: 26
+  txPowerUl: 0
+  txPowerDl: 0
   ueId: 0
-  frequency: 2e+9
+  ueType: 0
+  ueParameters: {fileID: 4421550662611993277}
   statusDisplay: {fileID: 1609333289611013543}
   isSelect: 0
   TargetEnb: {fileID: 0}
@@ -3013,8 +3014,6 @@ MonoBehaviour:
   ulInfo: 
   dlInfo: 
   ueObject: {fileID: 7669437582577715501}
-  numBands: 1
-  numLayers: 1
 --- !u!114 &1609333289611013543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3032,6 +3031,26 @@ MonoBehaviour:
   materialIdle: {fileID: 2100000, guid: 0576b3b7409a3844198f013f63db8ecb, type: 2}
   materialActive: {fileID: 2100000, guid: f528fce6beae09740a9c89377bdcebca, type: 2}
   materialHover: {fileID: 2100000, guid: 37875e5c4f5158c4198e2893ae8f665f, type: 2}
+--- !u!114 &4421550662611993277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669437582577715501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9944e235664530a4e8db068b4aa2588e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txPower: 26
+  frequency: 2e+9
+  noiseFigure: 5
+  thermalNoise: -104
+  antennaGainRx: 0
+  cableLoss: 2
+  numBands: 1
+  numLayers: 1
 --- !u!1 &7705703581815515589
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,13 +14,13 @@ public class JakesFading : MonoBehaviour
 
     public float dopplerSpeed = 0;
 
-    public double JakesFadingComputation(int numBands, int band, float speed, bool isUpload, UeInfo ueInfo)
+    public double JakesFadingComputation(int numBands, int band, float speed, bool isUpload, UeBase ueBase)
     {
         Dictionary<int, Dictionary<int, JakesFadingData>> actualJakesMap = isUpload
             ? jakesFadingMap : jakesFadingMapUe ;
 
-        int nodeId = ueInfo.ueId;
-        float carrierFrequency = ueInfo.frequency;
+        int nodeId = ueBase.ueId;
+        float carrierFrequency = ueBase.ueParameters.frequency;
 
         dopplerSpeed = speed;
 
