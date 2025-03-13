@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using static IntersectionBase;
 using static IntersectionNodeBase;
@@ -12,6 +13,8 @@ public class VehicleBehaviour : MonoBehaviour
     public GameObject vehicle;
     public IntersectionBase initialIntersection;
     public VehicleMobility mobility;
+    public VehicleCollisionAvoidance vehicleCollision;
+
     public int initialIntersectionNode;
 
     private vehicleWayPoint wayPoint;
@@ -23,6 +26,23 @@ public class VehicleBehaviour : MonoBehaviour
     public float distanceToWayPoint;
     public string turnDisplay;
     public string trafficLightDisplay;
+
+
+
+    private Dictionary<int, int> rightTurnMap = new Dictionary<int, int>()
+        {
+            { 0, 3 }, { 1, 0 }, { 2, 1 }, { 3, 2 }
+        };
+
+    private Dictionary<int, int> leftTurnMap = new Dictionary<int, int>()
+        {
+            { 0, 1 }, { 1, 2 }, { 2, 3 }, { 3, 0 }
+        };
+
+    private Dictionary<int, int> straightMap = new Dictionary<int, int>()
+        {
+            { 0, 2 }, { 1, 3 }, { 2, 0 }, { 3, 1 }
+        };
 
 
     IEnumerator DelayedStart()
@@ -49,6 +69,7 @@ public class VehicleBehaviour : MonoBehaviour
 
 
     private bool reachedMiddleDest = false;
+    private bool reachedMiddleStart = false;
 
 
     void Update()
@@ -65,10 +86,19 @@ public class VehicleBehaviour : MonoBehaviour
         }
 
         //Debug.Log("pointMiddleStart: " + initialIntersection.node_Local[wayPoint.middleNodeStart].pointsPosition[3]);
-
-        Vector3 pointMiddleStart = wayPoint.middleIntersection.node_Local[wayPoint.middleNodeStart].pointsPosition[3];
-        Vector3 pointMiddleDest = wayPoint.middleIntersection.node_Local[wayPoint.middleNodeDest].pointsPosition[0];
+        int laneId = 0;
+        if (wayPoint.turnType == "AC_LeftTurn" || wayPoint.turnType == "BD_LeftTurn") laneId = 0;
+        if (wayPoint.turnType == "AC_Straight" || wayPoint.turnType == "BD_Straight") laneId = 1;
+        if (wayPoint.turnType == "AC_RightTurn" || wayPoint.turnType == "BD_RightTurn") laneId = 2;
+        Vector3 pointMiddleStart = wayPoint.middleIntersection.node_Local[wayPoint.middleNodeStart].pointsPosition[5 - laneId];
+        Vector3 pointMiddleDest = wayPoint.middleIntersection.node_Local[wayPoint.middleNodeDest].pointsPosition[2 - laneId];
         Vector3 currentPostion = vehicle.transform.position;
+
+        if (vehicleCollision.CheckVehicleCollision() && vehicleStatus != VehicleStatus.passthroughIntersection)
+        {
+            mobility.StopMovement();
+            return;
+        }
 
         switch (vehicleStatus)
         {
@@ -85,9 +115,15 @@ public class VehicleBehaviour : MonoBehaviour
                 break;
         }
 
-        if (Vector3.Distance(currentPostion, pointMiddleStart) < 1)
+        if (!reachedMiddleStart && Vector3.Distance(currentPostion, pointMiddleStart) < 1)
         {
             PassThroughIntersection(wayPoint);
+            reachedMiddleStart = true;
+        }
+
+        if (reachedMiddleStart && Vector3.Distance(currentPostion, pointMiddleDest) > 1.5f)
+        {
+            reachedMiddleStart = false;
         }
 
         if (!reachedMiddleDest && Vector3.Distance(currentPostion, pointMiddleDest) < 1)
@@ -109,76 +145,25 @@ public class VehicleBehaviour : MonoBehaviour
 
         statusDisplay = vehicleStatus.ToString();
         distanceToWayPoint = Vector3.Distance(currentPostion, pointMiddleStart);
+        turnDisplay = wayPoint.turnType;
     }
 
     public void PassThroughIntersection (vehicleWayPoint wayPoint)
     {
         IntersectionBase middleIntersection = wayPoint.middleIntersection;
-        int middleNodeStart = wayPoint.middleNodeStart;
-        int middleNodeDest = wayPoint.middleNodeDest;
         string trafficLightState = middleIntersection.intersection.GetTrafficLightState();
 
         trafficLightDisplay = trafficLightState.ToString();
 
-        Dictionary<int, int> rightTurnMap = new Dictionary<int, int>()
+
+        if (wayPoint.turnType == "AC_RightTurn" || wayPoint.turnType == "BD_RightTurn")
         {
-            { 0, 3 }, { 1, 0 }, { 2, 1 }, { 3, 2 }
-        };
-
-        Dictionary<int, int> leftTurnMap = new Dictionary<int, int>()
-        {
-            { 0, 1 }, { 1, 2 }, { 2, 3 }, { 3, 0 }
-        };
-
-        Dictionary<int, int> straightMap = new Dictionary<int, int>()
-        {
-            { 0, 2 }, { 1, 3 }, { 2, 0 }, { 3, 1 }
-        };
-
-
-        string turnType = "";
-
-        if (middleNodeStart == 0 | middleNodeStart == 2) 
-        {
-            if (straightMap[middleNodeStart] == middleNodeDest)
-            {
-                turnType = "AC_Straight";
-            }
-            else if (rightTurnMap[middleNodeStart] == middleNodeDest)
-            {
-                turnType = "AC_RightTurn";
-                turnDisplay = turnType;
-                vehicleStatus = VehicleStatus.passthroughIntersection;
-                return;
-            }
-            else if (leftTurnMap[middleNodeStart] == middleNodeDest)
-            {
-                turnType = "AC_LeftTurn";
-            }
+            vehicleStatus = VehicleStatus.passthroughIntersection;
+            return;
         }
-        else
-        {
-            if (straightMap[middleNodeStart] == middleNodeDest)
-            {
-                turnType = "BD_Straight";
-            }
-            else if (rightTurnMap[middleNodeStart] == middleNodeDest)
-            {
-                turnType = "BD_RightTurn";
-                turnDisplay = turnType;
-                vehicleStatus = VehicleStatus.passthroughIntersection;
-                return;
-            }
-            else if (leftTurnMap[middleNodeStart] == middleNodeDest)
-            {
-                turnType = "BD_LeftTurn";
-            }
-        }
-
-        if (turnType == trafficLightState) { vehicleStatus = VehicleStatus.passthroughIntersection; }
+        if (wayPoint.turnType == trafficLightState) { vehicleStatus = VehicleStatus.passthroughIntersection; }
         else { vehicleStatus = VehicleStatus.stop; }
 
-        turnDisplay = turnType;
     }
 
     public void MoveToIntersection (vehicleWayPoint wayPoint)
@@ -208,6 +193,44 @@ public class VehicleBehaviour : MonoBehaviour
             wayPoint.middleNodeDest = selectedNodeId;
             wayPoint.nextIntersection = selectedNode.node_Connection.parentIntersection;
             wayPoint.nextNode = selectedNode.node_Connection.nodeId;
+
+
+            string turnType = "";
+            int middleNodeStart = wayPoint.middleNodeStart;
+            int middleNodeDest = wayPoint.middleNodeDest;
+
+            if (middleNodeStart == 0 || middleNodeStart == 2)
+            {
+                if (straightMap[middleNodeStart] == middleNodeDest)
+                {
+                    turnType = "AC_Straight";
+                }
+                else if (rightTurnMap[middleNodeStart] == middleNodeDest)
+                {
+                    turnType = "AC_RightTurn";
+                }
+                else if (leftTurnMap[middleNodeStart] == middleNodeDest)
+                {
+                    turnType = "AC_LeftTurn";
+                }
+            }
+            else
+            {
+                if (straightMap[middleNodeStart] == middleNodeDest)
+                {
+                    turnType = "BD_Straight";
+                }
+                else if (rightTurnMap[middleNodeStart] == middleNodeDest)
+                {
+                    turnType = "BD_RightTurn";
+                }
+                else if (leftTurnMap[middleNodeStart] == middleNodeDest)
+                {
+                    turnType = "BD_LeftTurn";
+                }
+            }
+            wayPoint.turnType = turnType;
+            
         }
     }
 
@@ -227,5 +250,7 @@ public class VehicleBehaviour : MonoBehaviour
         public int middleNodeDest;
         public IntersectionBase nextIntersection;
         public int nextNode;
+
+        public string turnType;
     }
 }

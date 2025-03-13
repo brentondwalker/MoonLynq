@@ -79,6 +79,11 @@ public class IntersectionBase : MonoBehaviour
 
         intersection.intersectionName = interSectionName;
 
+        if (node_Local[0].node_Connection == null || node_Local[2].node_Connection == null) AC_StraightDuration = 0;
+        if (node_Local[1].node_Connection == null || node_Local[3].node_Connection == null) BD_StraightDuration = 0;
+        if ((node_Local[0].node_Connection == null && node_Local[1].node_Connection == null) || (node_Local[2].node_Connection == null && node_Local[3].node_Connection == null)) BD_TurnDuration = 0;
+        if ((node_Local[1].node_Connection == null && node_Local[2].node_Connection == null) || (node_Local[0].node_Connection == null && node_Local[3].node_Connection == null)) AC_TurnDuration = 0;
+
         stateDurations = new Dictionary<TrafficLightState, float>
         {
             { TrafficLightState.AC_Straight, AC_StraightDuration },  

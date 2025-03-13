@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - Floor
   - Ue
+  - Screen
+  - vehicle
   layers:
   - Default
   - TransparentFX
