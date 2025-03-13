@@ -33,6 +33,22 @@ public class UeMovementControl : MonoBehaviour
         {
             move += cameraTransform.right;
         }
+        if (Input.GetKey(KeyCode.I))
+        {
+            move.z += moveSpeed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.K))
+        {
+            move.z -= moveSpeed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.J))
+        {
+            move.x -= moveSpeed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.L))
+        {
+            move.x += moveSpeed * Time.deltaTime;
+        }
 
         move.y = 0;
 

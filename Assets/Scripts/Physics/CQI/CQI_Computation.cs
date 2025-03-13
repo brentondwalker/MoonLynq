@@ -6,7 +6,7 @@ using UnityEngine;
 public class CQI_Computaion : MonoBehaviour
 {
     private List<double> baseMin;
-    private double targetBler = 0.01; 
+    public double targetBler = 0.01; 
     public PisaData pisaData;
 
     public int minSnr;

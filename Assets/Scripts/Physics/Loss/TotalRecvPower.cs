@@ -10,9 +10,6 @@ public class TotalRecvPower : MonoBehaviour
     public DiffractionRay diffraction;
     //public UeBase ueBase;
 
-    public double antennaGainTx = 0.0;
-    public double antennaGainRx = 18.0;
-
     public bool enableReflection = true;
     public bool enableDiffraction = true;
 
@@ -29,7 +26,7 @@ public class TotalRecvPower : MonoBehaviour
         double[] reflectionPower = new double[reflection.lineCount];
 
         double txPower = 0;
-        txPower += antennaGainTx + antennaGainRx - transmissionParameter.cableLoss;
+        txPower += transmissionParameter.antennaGainA + transmissionParameter.antennaGainB - transmissionParameter.cableLoss;
 
 
             txPower += transmissionParameter.txPowerA;
