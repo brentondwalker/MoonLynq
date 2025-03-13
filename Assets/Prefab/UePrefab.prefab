@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c030cec5aa1f46345a61c61a930e90b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetBler: 0.01
   pisaData: {fileID: 3623002011706877024}
   minSnr: 0
   maxSnr: 0
@@ -1004,6 +1005,7 @@ MonoBehaviour:
   hitStatusB: 
   reflectance: {fileID: 7685993308116757487}
   mediumMaterial: {fileID: 2920187107214423171}
+  lineWidth: 0.5
 --- !u!114 &7685993308116757487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,8 +1102,6 @@ MonoBehaviour:
   los: {fileID: 2623294467197763648}
   reflection: {fileID: 6441651450307272292}
   diffraction: {fileID: 6087408772304051536}
-  antennaGainTx: 0
-  antennaGainRx: 18
   enableReflection: 1
   enableDiffraction: 1
 --- !u!1 &1516552411609108998
@@ -1357,6 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Obstacle
+  floorTag: Floor
   lineRendererA: {fileID: 3027699354969858934}
   lineRendererB: {fileID: 3566002363006216411}
   lineRendererC: {fileID: 5954588909623339520}
@@ -1368,7 +1369,7 @@ MonoBehaviour:
   diffractionLoss: 0
   pathLoss: 0
   totalLoss: 0
-  timeSinceLastUpdate: 0
+  lineWidth: 0.5
 --- !u!114 &1297986523934438563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1602,7 +1603,7 @@ LineRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9e0769b24cb319a4a8376282b1910b51, type: 2}
+  - {fileID: 2100000, guid: fc1b37628c436f24c9f2d0f0fb3b0bbd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2295,6 +2296,7 @@ MonoBehaviour:
   totalLossReverse: 0
   totalLossForwardInDB: 0
   totalLossReverseInDB: 0
+  lineWidth: 0.5
 --- !u!1 &6312950002865945092
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,6 +3155,8 @@ MonoBehaviour:
   dlInfo: 
   ueObject: {fileID: 7669437582577715501}
   ueBases: []
+  maxD2D_ConnectionDistance: 300
+  maxD2D_ConnectionNum: 4
 --- !u!114 &1609333289611013543
 MonoBehaviour:
   m_ObjectHideFlags: 0

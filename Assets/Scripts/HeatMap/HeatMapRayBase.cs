@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using System.Drawing;
+using static TransmissionParameterManager;
 
 public class HeatMapRayBase : MonoBehaviour
 {
@@ -128,7 +128,11 @@ public class HeatMapRayBase : MonoBehaviour
         reflectionTotalLosses.Clear();
         foreach (var point in dataPoints)
         {
-            double[] totalLoss = reflectionRay.ComputeNlosReflection(point, gnbPosition, frequency);
+            TransmissionParameter paraTemp = new TransmissionParameter();
+            paraTemp.positionA = point;
+            paraTemp.positionB = gnbPosition;
+            paraTemp.frequency = frequency;
+            double[] totalLoss = reflectionRay.ComputeNlosReflection(paraTemp);
             for (int i = 0; i < totalLoss.Length; i++)
             {
                 if (double.IsNaN(totalLoss[i])) totalLoss[i] = double.NegativeInfinity;
@@ -152,7 +156,11 @@ public class HeatMapRayBase : MonoBehaviour
         diffractionTotalLosses.Clear();
         foreach (var point in dataPoints)
         {
-            double totalLoss = diffractionRay.ComputeNlosDiffraction(point, gnbPosition, frequency);
+            TransmissionParameter paraTemp = new TransmissionParameter();
+            paraTemp.positionA = point;
+            paraTemp.positionB = gnbPosition;
+            paraTemp.frequency = frequency;
+            double totalLoss = diffractionRay.ComputeNlosDiffraction(paraTemp);
             if (double.IsNaN(totalLoss)) totalLoss = double.NegativeInfinity;
             else totalLoss = -totalLoss;
             diffractionTotalLosses.Add((float)totalLoss);

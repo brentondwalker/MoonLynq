@@ -33,11 +33,11 @@ public class TotalRecvPower : MonoBehaviour
             losPower = txPower + los.GetLosLoss(isUpload, transmissionParameter) - LosPathLoss(distance, frequency);
 
 
-        diffractionPower = txPower - diffraction.ComputeNlosDiffraction(start, dest, frequency);
+        diffractionPower = txPower - diffraction.ComputeNlosDiffraction(transmissionParameter);
         if (double.IsNaN(diffractionPower)) diffractionPower = double.NegativeInfinity;
 
         double[] absorptionLoss = new double[reflection.lineCount];
-        absorptionLoss = reflection.ComputeNlosReflection(start, dest, frequency);
+        absorptionLoss = reflection.ComputeNlosReflection(transmissionParameter);
         for (int i = 0; i < reflection.lineCount; i++) 
         {
             reflectionPower[i] = txPower - absorptionLoss[i];

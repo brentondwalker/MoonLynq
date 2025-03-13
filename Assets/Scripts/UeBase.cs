@@ -76,8 +76,11 @@ public class UeBase : MonoBehaviour
                 break;
         }
 
-        prefabPosition = prefabMovement.positionLocal;
-        mobilityInfo = ueId.ToString() + ": " + Math.Round(prefabPosition.x,1) +" "+ -Math.Round(prefabPosition.z, 1) + " "+ Math.Round(prefabPosition.y, 1);
+        if (prefabMovement != null)
+        {
+            prefabPosition = prefabMovement.positionLocal;
+            mobilityInfo = ueId.ToString() + ": " + Math.Round(prefabPosition.x, 1) + " " + -Math.Round(prefabPosition.z, 1) + " " + Math.Round(prefabPosition.y, 1);
+        }
 
         //losCollision = LOS_Ray.collision;
         //targetEnbId = TargetEnb.enbId;
@@ -90,7 +93,8 @@ public class UeBase : MonoBehaviour
         //ulInfo = "txPower" + ueId.ToString() + "->" + targetEnbId.ToString()  + ": " + txPowerUl.ToString();
         //dlInfo = "txPower" + targetEnbId.ToString() + "->" + ueId.ToString() + ": " + txPowerDl.ToString();
 
-        isSelect = statusDisplay.status;
+        if (statusDisplay != null) isSelect = statusDisplay.status;
+
 
     }
 
@@ -114,6 +118,9 @@ public class UeBase : MonoBehaviour
             transmissionParameters[i].cableLoss = ueParameters.cableLoss;
             transmissionParameters[i].noiseFigure = ueParameters.noiseFigure;
             transmissionParameters[i].thermalNoise = ueParameters.thermalNoise;
+
+            transmissionParameters[i].lastUpdateTime = Time.time;
+
         }
     }
 
@@ -135,6 +142,8 @@ public class UeBase : MonoBehaviour
             transmissionParameters[0].cableLoss = ueParameters.cableLoss;
             transmissionParameters[0].noiseFigure = ueParameters.noiseFigure;
             transmissionParameters[0].thermalNoise = ueParameters.thermalNoise;
+
+        transmissionParameters[0].lastUpdateTime = Time.time;
     }
 
     void FindOtherUeBases()

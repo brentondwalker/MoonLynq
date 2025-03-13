@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static TransmissionParameterManager;
 
 public class DiffractionRay : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class DiffractionRay : MonoBehaviour
 
     private float scanDistanceBuffer;
 
+    public float lineWidth = 0.5f;
+
     void Start()
     {
         LineInitialisation(lineRendererA);
@@ -35,27 +38,37 @@ public class DiffractionRay : MonoBehaviour
         LineInitialisation(lineRendererC);
     }
 
-    public float timeSinceLastUpdate;
-    private float lastUpdateTime;
-    private float updateInterval = 0.1f;
 
 
-    void Update()
+    private void Update()
     {
-        timeSinceLastUpdate = Time.time - lastUpdateTime;
-        if (timeSinceLastUpdate >= updateInterval)
+        IdleDetection();
+    }
+
+    private float lastUpdateTime = -1f;
+
+    void IdleDetection()
+    {
+
+        if (Time.time - lastUpdateTime > 0.5)
         {
-            CustomUpdate();
-            lastUpdateTime = Time.time;
+            UpdateLinePosition(lineRendererA, Vector3.zero, Vector3.zero);
+            UpdateLinePosition(lineRendererB, Vector3.zero, Vector3.zero);
+            UpdateLinePosition(lineRendererC, Vector3.zero, Vector3.zero);
         }
-    }
-    void CustomUpdate()
-    {
-        
+
     }
 
-    public double ComputeNlosDiffraction(Vector3 start, Vector3 dest, float frequency)
+
+    public double ComputeNlosDiffraction(TransmissionParameter parameter)
     {
+
+        lastUpdateTime = parameter.lastUpdateTime;
+
+        Vector3 dest = parameter.positionB;
+        Vector3 start = parameter.positionA;
+        float frequency = parameter.frequency;
+
         diffractionLoss = double.NaN;
         pathLoss = double.NaN;
         totalLoss = 0;
@@ -119,8 +132,8 @@ public class DiffractionRay : MonoBehaviour
     void LineInitialisation(LineRenderer line)
     {
         if (line == null) return;   
-        line.startWidth = 0.5f;
-        line.endWidth = 0.5f;
+        line.startWidth = lineWidth;
+        line.endWidth = lineWidth;
         line.positionCount = 2;
     }
 

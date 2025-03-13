@@ -1,6 +1,6 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
+using static TransmissionParameterManager;
 
 public class ReflectionRay : MonoBehaviour
 {
@@ -23,6 +23,11 @@ public class ReflectionRay : MonoBehaviour
     private float disTolerance = 20;
     private float finalDisTolereance = 10;
 
+    public bool useVerticalScan = true;
+
+    public float lineWidth = 0.5f;
+
+    private float scanDistanceBuffer;
 
     void Start()
     {
@@ -33,10 +38,46 @@ public class ReflectionRay : MonoBehaviour
         }
     }
 
-    public double[] ComputeNlosReflection(Vector3 start, Vector3 dest, float frequency)
+    private void Update()
     {
+        IdleDetection();
+    }
+
+    private float lastUpdateTime = -1f;
+
+    void IdleDetection()
+    {
+
+        if (Time.time - lastUpdateTime > 0.5)
+        {
+            for (int i = 0; i < lineCount; i++)
+            {
+                if (lineRendererA.Length != 0 && lineRendererB.Length != 0)
+                {
+                    UpdateLinePosition(lineRendererA[i], Vector3.zero, Vector3.zero);
+                    UpdateLinePosition(lineRendererB[i], Vector3.zero, Vector3.zero);
+                }
+
+            }
+
+        }
+        
+    }
+
+    public double[] ComputeNlosReflection(TransmissionParameter parameter)
+    {
+
+        lastUpdateTime = parameter.lastUpdateTime;
+
+
+        Vector3 start = parameter.positionA;
+        Vector3 dest = parameter.positionB;
+        float frequency = parameter.frequency;
+        
+        
         Vector3 destH = Vector3.zero;
         destH.x = dest.x;
+        destH.y = start.y;
         destH.z = dest.z;
 
 
@@ -72,10 +113,10 @@ public class ReflectionRay : MonoBehaviour
                 float closestDegH = reflectionRayGroup[i].closestDeg;
                 if (closestDegH < step * i && closestDegH >= step * (i - 1))
                 {
-                    reflectionRayGroup[i] = CastReflectionRayV(closestDegH, -90, 90, 5, start, dest, destH);
+                    if (useVerticalScan) reflectionRayGroup[i] = CastReflectionRayV(closestDegH, -90, 90, 5, start, dest, destH);
                     if (reflectionRayGroup[i].minDistance < disTolerance)
                     {
-                        reflectionRayGroup[i] = CastReflectionRayV(closestDegH, reflectionRayGroup[i].closestDeg - 5, reflectionRayGroup[i].closestDeg + 5, 0.5f, start, dest, destH);
+                        if (useVerticalScan) reflectionRayGroup[i] = CastReflectionRayV(closestDegH, reflectionRayGroup[i].closestDeg - 5, reflectionRayGroup[i].closestDeg + 5, 0.5f, start, dest, destH);
                         if (reflectionRayGroup[i].minDistance < finalDisTolereance && reflectionRayGroup[i].incidenceHit.gameObject.GetComponent<MaterialProperties>() != null)
                         {
                             //Debug.Log("Final reflection scan");
@@ -109,6 +150,7 @@ public class ReflectionRay : MonoBehaviour
         Vector3 closestIncidence = Vector3.zero;
         Vector3 closestReflection = Vector3.zero;
         Vector3 closestHit = Vector3.zero;
+        Collider incidenceHit = null;
         float minDistance = float.MaxValue;
         float closestDeg = 0;
         Vector3 direction = Vector3.zero;
@@ -124,6 +166,7 @@ public class ReflectionRay : MonoBehaviour
             if (Physics.Raycast(ray, out hit, range))
             {
                 Vector3 hitPosition = hit.point;
+                incidenceHit = hit.collider;
                 float hitDistance = hit.distance;
                 Vector3 normal = hit.normal; 
                 Vector3 reflectDirection = Vector3.Reflect(direction, normal).normalized;
@@ -152,6 +195,7 @@ public class ReflectionRay : MonoBehaviour
         rayGroup.hitPoint = closestHit;
         rayGroup.minDistance = minDistance;
         rayGroup.closestDeg = closestDeg;
+        rayGroup.incidenceHit = incidenceHit;
         return rayGroup;
     }
 
@@ -231,8 +275,8 @@ public class ReflectionRay : MonoBehaviour
     void LineInitialisation(LineRenderer line)
     {
         if (line == null) return;
-        line.startWidth = 0.5f;
-        line.endWidth = 0.5f;
+        line.startWidth = lineWidth;
+        line.endWidth = lineWidth;
         line.positionCount = 2;
     }
 

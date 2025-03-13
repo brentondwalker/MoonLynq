@@ -20,5 +20,7 @@ public class TransmissionParameterManager : MonoBehaviour
         public double cableLoss;
         public double noiseFigure;
         public double thermalNoise;
+
+        public float lastUpdateTime;
     }
 }

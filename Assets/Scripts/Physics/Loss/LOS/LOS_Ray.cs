@@ -32,6 +32,10 @@ public class LOS_Ray : MonoBehaviour
     private Vector3 start = Vector3.zero;
     private Vector3 end = Vector3.zero;
 
+    public float lineWidth = 0.5f;
+
+    
+
     void Start()
     {
         LineInitialisation(lineRendererG);
@@ -41,9 +45,7 @@ public class LOS_Ray : MonoBehaviour
     void Update()
     {
 
-
-            
-            
+        
 
             if (collision)
             {
@@ -55,6 +57,18 @@ public class LOS_Ray : MonoBehaviour
                 UpdateLinePosition(lineRendererG, start, end);
                 UpdateLinePosition(lineRendererR, Vector3.zero, Vector3.zero);
             }
+        IdleDetection();
+    }
+
+    float lastUpdateTime = -1f;
+
+    void IdleDetection()
+    {
+        if (Time.time - lastUpdateTime > 0.5)
+        {
+            UpdateLinePosition(lineRendererG, Vector3.zero, Vector3.zero);
+            UpdateLinePosition(lineRendererR, Vector3.zero, Vector3.zero);
+        }
     }
 
 
@@ -66,12 +80,16 @@ public class LOS_Ray : MonoBehaviour
 
     void LineInitialisation (LineRenderer line)
     {
-        line.startWidth = 0.5f;
-        line.endWidth = 0.5f;
+        line.startWidth = lineWidth;
+        line.endWidth = lineWidth;
         line.positionCount = 2;
     }
     public double GetLosLoss(bool isUpload, TransmissionParameter parameter)
     {
+        
+        lastUpdateTime = parameter.lastUpdateTime;
+
+        
         hitInfo = string.Empty;
         hitForward = new RaycastHit[0];
         hitReverse = new RaycastHit[0];
