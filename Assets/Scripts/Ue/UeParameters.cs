@@ -7,7 +7,7 @@ public class UeParameters : MonoBehaviour
 
     public double noiseFigure = 5.0;
     public double thermalNoise = -104;
-    public double antennaGainRx = 0.0;
+    public double antennaGain = 0.0;
     public double cableLoss = 2.0;
 
     public int numBands = 1;

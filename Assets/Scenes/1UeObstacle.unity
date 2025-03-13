@@ -3908,7 +3908,7 @@ GameObject:
   - component: {fileID: 87149800}
   m_Layer: 0
   m_Name: eNB
-  m_TagString: Untagged
+  m_TagString: eNB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3998,6 +3998,7 @@ MonoBehaviour:
   txPower: 40
   enbMobiltiyLocal: {x: 0, y: 0, z: 0}
   enbMobilityInfo: 
+  antennaGain: 18
   enbObject: {fileID: 87149796}
 --- !u!1 &87547220 stripped
 GameObject:
@@ -13913,7 +13914,7 @@ MonoBehaviour:
   collision: 0
   hitInfo: 
   DielectricObstacleLoss: {fileID: 0}
-  UeInfo: {fileID: 0}
+  UeBase: {fileID: 0}
   totalLossForward: 0
   totalLossReverse: 0
   totalLossForwardInDB: 0

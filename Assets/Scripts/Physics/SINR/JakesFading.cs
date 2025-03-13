@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static TransmissionParameterManager;
 
 public class JakesFading : MonoBehaviour
 {
@@ -14,13 +15,13 @@ public class JakesFading : MonoBehaviour
 
     public float dopplerSpeed = 0;
 
-    public double JakesFadingComputation(int numBands, int band, float speed, bool isUpload, UeBase ueBase)
+    public double JakesFadingComputation(TransmissionParameter transmissionParameter, int id, float speed, bool isUpload)
     {
         Dictionary<int, Dictionary<int, JakesFadingData>> actualJakesMap = isUpload
             ? jakesFadingMap : jakesFadingMapUe ;
 
-        int nodeId = ueBase.ueId;
-        float carrierFrequency = ueBase.ueParameters.frequency;
+        int nodeId = id;
+        float carrierFrequency = transmissionParameter.frequency;
 
         dopplerSpeed = speed;
 
@@ -28,7 +29,7 @@ public class JakesFading : MonoBehaviour
         {
             actualJakesMap[nodeId] = new Dictionary<int, JakesFadingData>();  
 
-            for (int j = 0; j < numBands; j++)
+            for (int j = 0; j < transmissionParameter.numBands; j++)
             {
                 JakesFadingData temp = new JakesFadingData();
 
@@ -48,7 +49,7 @@ public class JakesFading : MonoBehaviour
         float re_h = 0f;
         float im_h = 0f;
 
-        JakesFadingData actualJakesData = actualJakesMap[nodeId][band];
+        JakesFadingData actualJakesData = actualJakesMap[nodeId][transmissionParameter.numBands];
 
         float dopplerShift = (speed * f) / SPEED_OF_LIGHT;
 

@@ -1,14 +1,14 @@
 using UnityEngine;
 using System;
 using Unity.VisualScripting;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
+using static TransmissionParameterManager;
 
 public class TotalRecvPower : MonoBehaviour
 {
     public LOS_Ray los;
     public ReflectionRay reflection;
     public DiffractionRay diffraction;
-    public UeBase ueBase;
+    //public UeBase ueBase;
 
     public double antennaGainTx = 0.0;
     public double antennaGainRx = 18.0;
@@ -16,11 +16,11 @@ public class TotalRecvPower : MonoBehaviour
     public bool enableReflection = true;
     public bool enableDiffraction = true;
 
-    public double computeTotalRecvpower(bool isUpload)
+    public double computeTotalRecvpower(bool isUpload, TransmissionParameter transmissionParameter)
     {
-        Vector3 start = ueBase.ueObject.transform.position;
-        Vector3 dest = ueBase.TargetEnb.enbObject.transform.position;
-        float frequency = ueBase.ueParameters.frequency;
+        Vector3 start = transmissionParameter.positionA;
+        Vector3 dest = transmissionParameter.positionB;
+        float frequency = transmissionParameter.frequency;
 
         double distance = Vector3.Distance(start, dest);
 
@@ -29,17 +29,17 @@ public class TotalRecvPower : MonoBehaviour
         double[] reflectionPower = new double[reflection.lineCount];
 
         double txPower = 0;
-        txPower += antennaGainTx + antennaGainRx - ueBase.ueParameters.cableLoss;
+        txPower += antennaGainTx + antennaGainRx - transmissionParameter.cableLoss;
 
         if (isUpload)
         {   
-            txPower += ueBase.ueParameters.txPower;
-            losPower = txPower + los.totalLossForwardInDB - LosPathLoss(distance);
+            txPower += transmissionParameter.txPowerA;
+            losPower = txPower + los.totalLossForwardInDB - LosPathLoss(distance, frequency);
         }
         else 
         {           
-            txPower += ueBase.TargetEnb.txPower;
-            losPower = txPower + los.totalLossReverseInDB - LosPathLoss(distance);
+            txPower += transmissionParameter.txPowerB;
+            losPower = txPower + los.totalLossReverseInDB - LosPathLoss(distance, frequency);
         }
 
         diffractionPower = txPower - diffraction.ComputeNlosDiffraction(start, dest, frequency);
@@ -100,6 +100,6 @@ public class TotalRecvPower : MonoBehaviour
         return rand.NextDouble() * 2 * Math.PI;
     }
 
-    double LosPathLoss(double distance) { return 20 * Math.Log10(distance) + 20 * Math.Log10(ueBase.ueParameters.frequency) - 147.55; }
+    double LosPathLoss(double distance, float frequency) { return 20 * Math.Log10(distance) + 20 * Math.Log10(frequency) - 147.55; }
 
 }

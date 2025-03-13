@@ -7,7 +7,7 @@ public class MCS_Test : MonoBehaviour
 {
     public LteAMC lteAmc;
     public LteMCS lteMcs;
-    public CQI_Test cqiTest;
+    public CQI_Base cqiBase;
     public UeBase ueBase;
 
     public int cqi;
@@ -41,7 +41,7 @@ public class MCS_Test : MonoBehaviour
     }
     void CustomUpdate()
     {
-        cqi = cqiTest.cqi;
+        cqi = cqiBase.cqi;
         int numBands = ueBase.ueParameters.numBands;
         int numLayers = ueBase.ueParameters.numLayers;
         tbs = lteAmc.ComputeBitsOnNRbs(cqi,numLayers,1,true);

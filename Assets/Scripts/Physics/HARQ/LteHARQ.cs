@@ -29,9 +29,9 @@ public class LteHARQ : MonoBehaviour
     }
     void CustomUpdate()
     {
-        int cqi = mcsTest.cqiTest.cqi;
+        int cqi = mcsTest.cqiBase.cqi;
         int numBands = mcsTest.ueBase.ueParameters.numBands;
-        ErrorRateFrame = isError.GetErrorRate(cqi, numBands, mcsTest.cqiTest.snrv);
+        ErrorRateFrame = isError.GetErrorRate(cqi, numBands, mcsTest.cqiBase.snrv);
         PktErrorRateFrame = isError.GetPktErrorRate(1344, ErrorRateFrame, mcsTest.throughput);
         //PktErrorRateFrame = isError.GetPktErrorRate(1344, 0.5, mcsTest.throughput);
     }

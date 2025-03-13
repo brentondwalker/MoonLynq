@@ -7,6 +7,7 @@ public class EnbInfo : MonoBehaviour
     public double txPower = 40;
     public Vector3 enbMobiltiyLocal;
     public string enbMobilityInfo;
+    public double antennaGain = 18.0;
     public GameObject enbObject;
 
     private void Update()

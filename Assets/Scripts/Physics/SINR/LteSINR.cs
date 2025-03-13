@@ -1,43 +1,47 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static TransmissionParameterManager;
 
 public class LteSINR : MonoBehaviour
 {
-    private double noiseFigure = 5.0;
-    private double thermalNoise = -104;
+    
     public bool fadingEnabled = true;
     public double recvPower = 0.0;
     public double fading;
 
-    public UeBase Ue;
+    //public UeBase Ue;
     public JakesFading jakesFading;
     public DopplerSpeed dopplerSpeed;
     public TotalRecvPower totalRecvPower;
-    public List<double> GetSINR(bool isUpload)
+    public List<double> GetSINR(bool isUpload, TransmissionParameter transmissionParameter)
     {
-        List<double> snrVector = new List<double>(new double[Ue.ueParameters.numBands]);
+        //Debug.Log(transmissionParameter.numBands);
+        List<double> snrVector = new List<double>(new double[transmissionParameter.numBands]);
 
-        Vector3 ueCoord = Ue.prefabPosition;
-        Vector3 enbCoord = Ue.TargetEnb.enbMobiltiyLocal;
+        double noiseFigure = transmissionParameter.noiseFigure;
+        double thermalNoise = transmissionParameter.thermalNoise;
 
-        double txPowerUe = Ue.ueParameters.txPower;
-        double txPowerENB = Ue.TargetEnb.txPower;
+        Vector3 ueCoord = transmissionParameter.positionA;
+        Vector3 enbCoord = transmissionParameter.positionB;
 
-        double frequency = Ue.ueParameters.frequency;
+        double txPowerUl = transmissionParameter.txPowerA;
+        double txPowerDl = transmissionParameter.txPowerB;
 
-        if (isUpload ) {recvPower = txPowerUe; }
-        else {recvPower = txPowerENB; }
+        double frequency = transmissionParameter.frequency;
 
-        recvPower = totalRecvPower.computeTotalRecvpower(isUpload);
+        if (isUpload ) {recvPower = txPowerUl; }
+        else {recvPower = txPowerDl; }
 
-        float speed = dopplerSpeed.computeDopplerSpeed(Ue.ueObject, Ue.TargetEnb.enbObject);
+        recvPower = totalRecvPower.computeTotalRecvpower(isUpload, transmissionParameter);
 
-        for (int i = 0; i < Ue.ueParameters.numBands; i++)
+        float speed = dopplerSpeed.computeDopplerSpeed(transmissionParameter);
+
+        for (int i = 0; i < transmissionParameter.numBands; i++)
         {
             if (fadingEnabled)
             {
-                fading = jakesFading.JakesFadingComputation(Ue.ueParameters.numBands, i, speed, true, Ue);
+                fading = jakesFading.JakesFadingComputation(transmissionParameter, i, speed, true);
             }
 
             double interference = 0.0; 
