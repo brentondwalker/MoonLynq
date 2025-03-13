@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+using static TransmissionParameterManager;
+
 public class LOS_Ray : MonoBehaviour
 {
-    public GameObject objectA;
-    public GameObject objectB;
+    //public GameObject objectA;
+    //public GameObject objectB;
     public string targetTag = "Obstacle"; 
     public LineRenderer lineRendererG;
     public LineRenderer lineRendererR;
@@ -27,6 +29,8 @@ public class LOS_Ray : MonoBehaviour
     public double totalLossForwardInDB;
     public double totalLossReverseInDB;
 
+    private Vector3 start = Vector3.zero;
+    private Vector3 end = Vector3.zero;
 
     void Start()
     {
@@ -38,31 +42,26 @@ public class LOS_Ray : MonoBehaviour
     {
 
 
-        if (objectA != null && objectB != null)
-        {
-            UpdateLinePosition(lineRendererG);
-            UpdateLinePosition(lineRendererR);
-
-            CheckLineCollision(); 
+            
+            
 
             if (collision)
             {
-                lineRendererR.enabled = true;
-                lineRendererG.enabled = false;
+                UpdateLinePosition(lineRendererR, start, end);
+                UpdateLinePosition(lineRendererG, Vector3.zero, Vector3.zero);
             }
             else
             {
-                lineRendererR.enabled = false;
-                lineRendererG.enabled = true;
+                UpdateLinePosition(lineRendererG, start, end);
+                UpdateLinePosition(lineRendererR, Vector3.zero, Vector3.zero);
             }
-        }
     }
 
 
-    void UpdateLinePosition(LineRenderer line)
+    void UpdateLinePosition(LineRenderer line, Vector3 start, Vector3 end)
     {
-        line.SetPosition(0, objectA.transform.position);
-        line.SetPosition(1, objectB.transform.position);
+        line.SetPosition(0, start);
+        line.SetPosition(1, end);
     }
 
     void LineInitialisation (LineRenderer line)
@@ -71,30 +70,33 @@ public class LOS_Ray : MonoBehaviour
         line.endWidth = 0.5f;
         line.positionCount = 2;
     }
-    void CheckLineCollision()
+    public double GetLosLoss(bool isUpload, TransmissionParameter parameter)
     {
         hitInfo = string.Empty;
         hitForward = new RaycastHit[0];
         hitReverse = new RaycastHit[0];
 
+        start = parameter.positionA;
+        end = parameter.positionB;
 
-        Vector3 directionF = objectB.transform.position - objectA.transform.position;
-        Ray rayF = new Ray(objectA.transform.position, directionF);
+
+        Vector3 directionF = end - start;
+        Ray rayF = new Ray(start, directionF);
 
         hitForward = Physics.RaycastAll(rayF, directionF.magnitude)
                      .Where(hit => hit.collider.CompareTag(targetTag))
                      .ToArray();
 
-        hitForward = hitForward.OrderBy(hit => Vector3.Distance(objectA.transform.position, hit.point)).ToArray();
+        hitForward = hitForward.OrderBy(hit => Vector3.Distance(start, hit.point)).ToArray();
 
-        Vector3 directionR = objectA.transform.position - objectB.transform.position;
-        Ray rayR = new Ray(objectB.transform.position, directionR);
+        Vector3 directionR = start - end;
+        Ray rayR = new Ray(end, directionR);
 
         hitReverse = Physics.RaycastAll(rayR, directionR.magnitude)
                      .Where(hit => hit.collider.CompareTag(targetTag))
                      .ToArray();
 
-        hitReverse = hitReverse.OrderBy(hit => Vector3.Distance(objectA.transform.position, hit.point)).ToArray();
+        hitReverse = hitReverse.OrderBy(hit => Vector3.Distance(start, hit.point)).ToArray();
 
 
         collision = false;
@@ -112,7 +114,7 @@ public class LOS_Ray : MonoBehaviour
             if (hitForward[i].collider != null)
             {
                 Collider obstacleHit = hitForward[i].collider;
-                totalLossForward *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeBase.ueParameters.frequency, objectA.transform.position, objectB.transform.position);
+                totalLossForward *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeBase.ueParameters.frequency, start, end);
                 totalLossForwardInDB = PowerCalculator.linearToDb(totalLossForward);
             }
         }
@@ -126,11 +128,14 @@ public class LOS_Ray : MonoBehaviour
             if (hitReverse[i].collider != null)
             {
                 Collider obstacleHit = hitReverse[i].collider;           
-                totalLossReverse *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeBase.ueParameters.frequency, objectB.transform.position, objectA.transform.position);
+                totalLossReverse *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeBase.ueParameters.frequency, end, start);
                 totalLossReverseInDB = PowerCalculator.linearToDb(totalLossReverse);
             }
         }
         LogHitInfo();
+
+        if (isUpload) return totalLossForwardInDB;
+        else return totalLossReverseInDB;
     }
 
     void LogHitInfo()

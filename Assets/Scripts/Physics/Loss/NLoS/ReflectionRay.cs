@@ -72,7 +72,7 @@ public class ReflectionRay : MonoBehaviour
                 float closestDegH = reflectionRayGroup[i].closestDeg;
                 if (closestDegH < step * i && closestDegH >= step * (i - 1))
                 {
-                    reflectionRayGroup[i] = CastReflectionRayV(closestDegH, 0, 90, 5, start, dest, destH);
+                    reflectionRayGroup[i] = CastReflectionRayV(closestDegH, -90, 90, 5, start, dest, destH);
                     if (reflectionRayGroup[i].minDistance < disTolerance)
                     {
                         reflectionRayGroup[i] = CastReflectionRayV(closestDegH, reflectionRayGroup[i].closestDeg - 5, reflectionRayGroup[i].closestDeg + 5, 0.5f, start, dest, destH);

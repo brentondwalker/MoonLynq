@@ -31,16 +31,10 @@ public class TotalRecvPower : MonoBehaviour
         double txPower = 0;
         txPower += antennaGainTx + antennaGainRx - transmissionParameter.cableLoss;
 
-        if (isUpload)
-        {   
+
             txPower += transmissionParameter.txPowerA;
-            losPower = txPower + los.totalLossForwardInDB - LosPathLoss(distance, frequency);
-        }
-        else 
-        {           
-            txPower += transmissionParameter.txPowerB;
-            losPower = txPower + los.totalLossReverseInDB - LosPathLoss(distance, frequency);
-        }
+            losPower = txPower + los.GetLosLoss(isUpload, transmissionParameter) - LosPathLoss(distance, frequency);
+
 
         diffractionPower = txPower - diffraction.ComputeNlosDiffraction(start, dest, frequency);
         if (double.IsNaN(diffractionPower)) diffractionPower = double.NegativeInfinity;

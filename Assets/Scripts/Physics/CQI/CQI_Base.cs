@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using static TransmissionParameterManager;
 
 public class CQI_Base : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class CQI_Base : MonoBehaviour
     public int cqi;
     public double meanSNR;
     public int txmode = 2;
-    public UeBase ueBase;
+    //public UeBase ueBase;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,27 +19,13 @@ public class CQI_Base : MonoBehaviour
         
     }
 
-    public float timeSinceLastUpdate;
-    private float lastUpdateTime;
-    private float updateInterval = 0.1f;
-    // Update is called once per frame
-    void Update()
-    {
-        timeSinceLastUpdate = Time.time - lastUpdateTime;
-        if (timeSinceLastUpdate >= updateInterval)
-        {
-            CustomUpdate();
-            lastUpdateTime = Time.time;
-        }
-    }
-    void CustomUpdate()
+    public int GetCqi(TransmissionParameter parameter)
     {
         snrv.Clear();
-        for (int i = 0; i < ueBase.transmissionParameters.Length; i++) {
-            snrv = lteSINR.GetSINR(true, ueBase.transmissionParameters[i]);
-        }
+        snrv = lteSINR.GetSINR(true, parameter);
         meanSNR = cqiComputation.MeanSnr(snrv);
         cqi = cqiComputation.GetCqi(txmode, meanSNR);
         //cqi = cqiComputation.GetCqi(txmode, 32);
+        return cqi;
     }
 }

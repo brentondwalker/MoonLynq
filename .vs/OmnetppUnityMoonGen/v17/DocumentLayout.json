@@ -3,68 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\physics\\cqi\\cqi_base.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\cqi\\cqi_base.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\physics\\sinr\\jakesfading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\sinr\\jakesfading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\physics\\sinr\\ltesinr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\sinr\\ltesinr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\physics\\loss\\totalrecvpower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\loss\\totalrecvpower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\physics\\loss\\nlos\\diffractionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\loss\\nlos\\diffractionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\uebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\transmissionparametermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\transmissionparametermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\ue\\ueparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ue\\ueparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\physics\\loss\\los\\los_ray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\loss\\los\\los_ray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\uinodeselectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uinodeselectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\enbinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enbinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\physics\\transmissionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\transmissionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\traffic\\vehicle\\vehiclecollsionavoidance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\traffic\\vehicle\\vehiclecollsionavoidance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\physics\\channelmodelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\channelmodelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\traffic\\intersection\\intersectionbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\traffic\\intersection\\intersectionbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\traffic\\vehicle\\vehiclemobility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\traffic\\vehicle\\vehiclemobility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\traffic\\intersection\\intersectionnodebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\traffic\\intersection\\intersectionnodebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\traffic\\vehicle\\vehiclebehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\traffic\\vehicle\\vehiclebehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|C:\\Users\\Bude\\OmnetppUnityMoonGen\\assets\\scripts\\physics\\loss\\nlos\\diffractionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\loss\\nlos\\diffractionray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Lua\\l2-forward-lte-socket-pre.lua||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Lua\\l2-forward-lte-socket-pre.lua||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|c:\\users\\bude\\omnetppunitymoongen\\assets\\scripts\\physics\\mcs\\mcs_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D94B03F-8C2B-7269-FF7F-27014F3C04D1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\physics\\mcs\\mcs_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -79,196 +43,92 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CQI_Base.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\CQI\\CQI_Base.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\CQI\\CQI_Base.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\CQI\\CQI_Base.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Physics\\CQI\\CQI_Base.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAAwCgAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T14:54:45.695Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "JakesFading.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\SINR\\JakesFading.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\SINR\\JakesFading.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\SINR\\JakesFading.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Physics\\SINR\\JakesFading.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAowBUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T13:52:33.565Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TransmissionParameterManager.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\TransmissionParameterManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\TransmissionParameterManager.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\TransmissionParameterManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\TransmissionParameterManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T13:11:27.863Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UINodeSelectInfo.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UINodeSelectInfo.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UINodeSelectInfo.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UINodeSelectInfo.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UINodeSelectInfo.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAqwCYAAABhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T11:45:56.422Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LteSINR.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\SINR\\LteSINR.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\SINR\\LteSINR.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\SINR\\LteSINR.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Physics\\SINR\\LteSINR.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAAwBYAAABAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T11:45:08.308Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EnbInfo.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\EnbInfo.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\EnbInfo.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\EnbInfo.cs",
-              "RelativeToolTip": "Assets\\Scripts\\EnbInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvwoAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T11:34:52.093Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UeBase.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeBase.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UeBase.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeBase.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UeBase.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAuwCoAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T11:25:57.131Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TotalRecvPower.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\TotalRecvPower.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\Loss\\TotalRecvPower.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\TotalRecvPower.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Physics\\Loss\\TotalRecvPower.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAAwCgAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T11:21:01.668Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UeParameters.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Ue\\UeParameters.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Ue\\UeParameters.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Ue\\UeParameters.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Ue\\UeParameters.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T02:33:19.469Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "VehicleCollsionAvoidance.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Traffic\\Vehicle\\VehicleCollsionAvoidance.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Traffic\\Vehicle\\VehicleCollsionAvoidance.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Traffic\\Vehicle\\VehicleCollsionAvoidance.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Traffic\\Vehicle\\VehicleCollsionAvoidance.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T00:12:12.192Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "VehicleBehaviour.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Traffic\\Vehicle\\VehicleBehaviour.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Traffic\\Vehicle\\VehicleBehaviour.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Traffic\\Vehicle\\VehicleBehaviour.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Traffic\\Vehicle\\VehicleBehaviour.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAAAF0AAAB1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T18:56:16.824Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "VehicleMobility.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Traffic\\Vehicle\\VehicleMobility.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Traffic\\Vehicle\\VehicleMobility.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Traffic\\Vehicle\\VehicleMobility.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Traffic\\Vehicle\\VehicleMobility.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T14:29:49.928Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IntersectionNodeBase.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Traffic\\Intersection\\IntersectionNodeBase.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Traffic\\Intersection\\IntersectionNodeBase.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Traffic\\Intersection\\IntersectionNodeBase.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Traffic\\Intersection\\IntersectionNodeBase.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAAwBEAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T02:03:28.089Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IntersectionBase.cs",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Traffic\\Intersection\\IntersectionBase.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Traffic\\Intersection\\IntersectionBase.cs",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Traffic\\Intersection\\IntersectionBase.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Traffic\\Intersection\\IntersectionBase.cs",
-              "ViewState": "AQIAAEQAAAAAAAAAAAAowFQAAADGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T00:55:50.496Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
               "Title": "DiffractionRay.cs",
               "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\NLoS\\DiffractionRay.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\Loss\\NLoS\\DiffractionRay.cs",
               "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\NLoS\\DiffractionRay.cs",
               "RelativeToolTip": "Assets\\Scripts\\Physics\\Loss\\NLoS\\DiffractionRay.cs",
-              "ViewState": "AQIAAGEAAAAAAAAAAAAAAGkAAAAEAAAA",
+              "ViewState": "AQIAAH0AAAAAAAAAAAAswIsAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T01:37:05.726Z"
+              "WhenOpened": "2025-03-13T17:57:45.544Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "l2-forward-lte-socket-pre.lua",
-              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Lua\\l2-forward-lte-socket-pre.lua",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Lua\\l2-forward-lte-socket-pre.lua",
-              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Lua\\l2-forward-lte-socket-pre.lua",
-              "RelativeToolTip": "Assets\\Scripts\\Lua\\l2-forward-lte-socket-pre.lua",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-02-13T07:31:53.334Z",
+              "DocumentIndex": 2,
+              "Title": "LOS_Ray.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\LOS\\LOS_Ray.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\Loss\\LOS\\LOS_Ray.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\Loss\\LOS\\LOS_Ray.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Physics\\Loss\\LOS\\LOS_Ray.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAqwDYAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T15:43:11.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MCS_Test.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\MCS\\MCS_Test.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\MCS\\MCS_Test.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\MCS\\MCS_Test.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Physics\\MCS\\MCS_Test.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAQwDQAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T15:18:42.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ChannelModelManager.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\ChannelModelManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\ChannelModelManager.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\ChannelModelManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Physics\\ChannelModelManager.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAQwDoAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T15:16:32.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TransmissionManager.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\TransmissionManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Physics\\TransmissionManager.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\Physics\\TransmissionManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Physics\\TransmissionManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T15:14:41.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UINodeSelectInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UINodeSelectInfo.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UINodeSelectInfo.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UINodeSelectInfo.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UINodeSelectInfo.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAADwvywAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T11:45:56.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UeBase.cs",
+              "DocumentMoniker": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeBase.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UeBase.cs",
+              "ToolTip": "C:\\Users\\Bude\\OmnetppUnityMoonGen\\Assets\\Scripts\\UeBase.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UeBase.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAuwCgAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T11:25:57.131Z",
               "EditorCaption": ""
             }
           ]

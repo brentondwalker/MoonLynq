@@ -13857,7 +13857,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 288128546}
-  - component: {fileID: 288128547}
   - component: {fileID: 288128548}
   - component: {fileID: 288128549}
   m_Layer: 0
@@ -13894,31 +13893,6 @@ Transform:
   - {fileID: 1885820265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &288128547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 288128545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4747425d4651a24e945b17de7d33cdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectA: {fileID: 0}
-  objectB: {fileID: 87149796}
-  targetTag: Obstacle
-  lineRendererG: {fileID: 0}
-  lineRendererR: {fileID: 0}
-  collision: 0
-  hitInfo: 
-  DielectricObstacleLoss: {fileID: 0}
-  UeBase: {fileID: 0}
-  totalLossForward: 0
-  totalLossReverse: 0
-  totalLossForwardInDB: 0
-  totalLossReverseInDB: 0
 --- !u!114 &288128548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13931,7 +13905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1119f664518e373429fc441fc6692a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 288128547}
+  line: {fileID: 0}
   uePower: 26
   uePowerFactor: 1
   eNodeBtxPower: 40
@@ -31839,6 +31813,10 @@ PrefabInstance:
       propertyPath: materialActive
       value: 
       objectReference: {fileID: 2100000, guid: f528fce6beae09740a9c89377bdcebca, type: 2}
+    - target: {fileID: 1615506618829099290, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 1823688467}
     - target: {fileID: 2623294467197763648, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: objectB
       value: 
@@ -31868,6 +31846,10 @@ PrefabInstance:
       value: 2049
       objectReference: {fileID: 0}
     - target: {fileID: 3627855485555203804, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: ueType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627855485555203804, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: numBands
       value: 10
       objectReference: {fileID: 0}
@@ -31893,6 +31875,10 @@ PrefabInstance:
       objectReference: {fileID: 657172988}
     - target: {fileID: 4324620982535302738, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: fadingEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328276967716637472, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: enableDiffraction
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5839165448725125935, guid: d43815731c534a240825eff79b7303dc, type: 3}
@@ -31959,8 +31945,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ue
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1615506618829099290, guid: d43815731c534a240825eff79b7303dc, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -66457,6 +66442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Obstacle
+  floorTag: Floor
   lineRendererA: {fileID: 0}
   lineRendererB: {fileID: 0}
   lineRendererC: {fileID: 0}
@@ -71460,11 +71446,10 @@ GameObject:
   - component: {fileID: 1443755446}
   - component: {fileID: 1443755449}
   - component: {fileID: 1443755448}
-  - component: {fileID: 1443755447}
   - component: {fileID: 1443755450}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71484,28 +71469,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 288128546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1443755447
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443755445}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1443755448
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -71578,8 +71541,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 2.220446e-16, z: 10}
-  m_Center: {x: 0.0000019073486, y: 0, z: 0}
+  m_Size: {x: 10.000009, y: 18.125408, z: 10.000009}
+  m_Center: {x: 0.0000020345053, y: -9.062704, z: 0}
 --- !u!1 &1444256116 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2008540436444849079, guid: 6f107bbb40104f54f8710c1435b697f6, type: 3}

@@ -63,7 +63,12 @@ public class UeBase : MonoBehaviour
 
 
             case UeType.UeD2D:
+                FindOtherUeBases();
                 transmissionParameters = new TransmissionParameter[ueBases.Length];
+                for (int i = 0; i < transmissionParameters.Length; i++)
+                {
+                    transmissionParameters[i] = new TransmissionParameter();
+                }
                 updateTransmissionParameterD2D(ueBases);
                 break;
         }

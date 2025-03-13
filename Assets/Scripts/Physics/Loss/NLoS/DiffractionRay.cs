@@ -4,6 +4,7 @@ using UnityEngine;
 public class DiffractionRay : MonoBehaviour
 {
     public string targetTag = "Obstacle";
+    public string floorTag = "Floor";
     public LineRenderer lineRendererA;
     public LineRenderer lineRendererB;
     public LineRenderer lineRendererC;
@@ -17,13 +18,15 @@ public class DiffractionRay : MonoBehaviour
 
     public KnifeEdgeObstacle knifeEdge;
 
-    private float largestStructureSize = 50;
+    private float largestStructureSize = 80;
     private float edgeTolerance = 2;
 
     public double diffractionLoss = 0;
     public double pathLoss;
     public double totalLoss;
 
+
+    private float scanDistanceBuffer;
 
     void Start()
     {
@@ -68,13 +71,14 @@ public class DiffractionRay : MonoBehaviour
 
         if (!IsLoS(start, dest))
         {
-
+            scanDistanceBuffer = 0;
             RayA = FindFirstCorner(start, dest);
             RayC = RayToDest(RayA, start, dest);
 
 
             if (RayA != Vector3.zero && RayC == Vector3.zero)
             {
+                scanDistanceBuffer = 0;
                 RayB = FindSecondCorner(RayA, start, dest);
                 double diffractionLossA = knifeEdge.ComputeSingleKnifeEdge(frequency, RayA, RayB);
                 if (RayB != Vector3.zero)
@@ -99,6 +103,7 @@ public class DiffractionRay : MonoBehaviour
             }
             hitStatusB = "Not activated";
         }
+        else hitStatusA = "No initial hit";
         totalLoss = pathLoss + diffractionLoss;
         return totalLoss;
     }
@@ -129,14 +134,24 @@ public class DiffractionRay : MonoBehaviour
 
         if (Physics.Raycast(rayF, out hitInfo, directionF.magnitude))
         {
-            newDirectionF = ScanCorner(start, 3, 30, directionF, hitInfo, false, out hitStatusA);
-            if (newDirectionF != Vector3.zero) 
+            if (hitInfo.collider.CompareTag(targetTag))
             {
-                newDirectionF = ScanCorner(start, 0.3f, 3, newDirectionF, hitInfo, false, out hitStatusA);
-                newDirectionF = ScanCorner(start, 0.03f, 0.3f, newDirectionF, hitInfo, true, out hitStatusA);
+                newDirectionF = ScanCorner(start, 1, 30, directionF, hitInfo, false, out hitStatusA);
+                if (newDirectionF != Vector3.zero)
+                {
+                    newDirectionF = ScanCorner(start, 0.2f, 2.2f, newDirectionF, hitInfo, false, out hitStatusA);
+                    newDirectionF = ScanCorner(start, 0.02f, 0.22f, newDirectionF, hitInfo, true, out hitStatusA);
+
+                }
+                UpdateLinePosition(lineRendererA, start, newDirectionF);
+                return newDirectionF;
             }
-            UpdateLinePosition(lineRendererA,start, newDirectionF);
-            return newDirectionF;
+            else
+            {
+                hitStatusA = "No initial hit, not target Tag";
+                UpdateLinePosition(lineRendererA, Vector3.zero, Vector3.zero);
+                return Vector3.zero;
+            }
         }
         else
         {
@@ -164,14 +179,23 @@ public class DiffractionRay : MonoBehaviour
 
         if (Physics.Raycast(rayF, out hitInfo, directionF.magnitude))
         {
-            newDirectionF = ScanCorner(rayStart, 3, 30, directionF, hitInfo, false, out hitStatusB);
-            if (newDirectionF != Vector3.zero)
+            if (hitInfo.collider.CompareTag(targetTag))
             {
-                newDirectionF = ScanCorner(rayStart, 0.3f, 3, newDirectionF, hitInfo, false, out hitStatusB);
-                newDirectionF = ScanCorner(rayStart, 0.03f, 0.3f, newDirectionF, hitInfo, true, out hitStatusB);
+                newDirectionF = ScanCorner(rayStart, 1, 30, directionF, hitInfo, false, out hitStatusB);
+                if (newDirectionF != Vector3.zero)
+                {
+                    newDirectionF = ScanCorner(rayStart, 0.2f, 2.2f, newDirectionF, hitInfo, false, out hitStatusB);
+                    newDirectionF = ScanCorner(rayStart, 0.02f, 0.22f, newDirectionF, hitInfo, true, out hitStatusB);
+                }
+                UpdateLinePosition(lineRendererB, rayStart, newDirectionF);
+                return newDirectionF;
             }
-            UpdateLinePosition(lineRendererB, rayStart, newDirectionF);
-            return newDirectionF;
+            else
+            {
+                hitStatusB = "No initial hit, not target Tag";
+                UpdateLinePosition(lineRendererB, Vector3.zero, Vector3.zero);
+                return Vector3.zero;
+            }
         }
         else
         {
@@ -201,8 +225,17 @@ public class DiffractionRay : MonoBehaviour
 
             if (Physics.Raycast(toDest, out hitInfo, directionToDest.magnitude))
             {
-                UpdateLinePosition(lineRendererC, rayStart, Vector3.zero);
-                hitStatusC = "No direct path found";
+                if (!hitInfo.collider.CompareTag(targetTag))
+                {
+                    UpdateLinePosition(lineRendererC, rayStart, directionToDest);
+                    hitStatusC = "Direct path found";
+                    return directionToDest;
+                }
+                else
+                {
+                    UpdateLinePosition(lineRendererC, rayStart, Vector3.zero);
+                    hitStatusC = "No direct path found";
+                }
             }
             else
             {
@@ -236,15 +269,38 @@ public class DiffractionRay : MonoBehaviour
 
                 if (Physics.Raycast(offsetRay, out hitInfoNew, rayRange))
                 {
-                    if (hitInfoNew.collider == obstacleCollider)
+                    if (hitInfoNew.collider.CompareTag(targetTag))
                     {
-                        statusString = "No Edge found";
+                        if (hitInfoNew.collider == obstacleCollider)
+                        {
+                            statusString = "No Edge found";
+                        }
+                        else
+                        {
+                            statusString = "Different obstacle found";
+                        }
+                        lastDistance = Vector3.Distance(start, hitInfoNew.point);
+                        scanDistanceBuffer = Math.Max(scanDistanceBuffer, lastDistance);
                     }
                     else
                     {
-                        statusString = "Different obstacle found";
+                        if (hitInfoNew.collider.CompareTag(floorTag))
+                        {
+                            statusString = "Floor found";
+                            lastDistance = scanDistanceBuffer;
+                        }
+                        else
+                        {
+                            statusString = "Edge found";
+                            finalDirection = rotatedDir;
+                            if (returnFinalValue)
+                            {
+                                finalDirection = finalDirection.normalized * lastDistance;
+                                return finalDirection;
+                            }
+                            return lastDirection;
+                        }
                     }
-                    lastDistance = Vector3.Distance(start, hitInfoNew.point);
                 }
                 else
                 {
@@ -269,7 +325,12 @@ public class DiffractionRay : MonoBehaviour
     {
         Ray losCheck = new Ray(start, dest - start);
         float rayRange = Vector3.Distance(start, dest);
-        if (Physics.Raycast(losCheck, rayRange)) return false;
+        RaycastHit hitInfo;
+        if (Physics.Raycast(losCheck, out hitInfo, rayRange))
+        {
+            if (hitInfo.collider.CompareTag(targetTag)) return false;
+            else return true;
+        }
         else return true;
     }
 }

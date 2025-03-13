@@ -37,9 +37,9 @@ public class UINodeSelectInfo : MonoBehaviour
                                 Math.Round(selectUe.prefabPosition.y, 1) + "\n" +
                             "<b>TxPower:</b> " + Math.Round(selectUe.txPowerUl, 1) + "dBm" + "\n" + 
                             "<b>Upload:</b> " + selectUe.ueId + "->" + selectUe.TargetEnb.enbId +
-                                " TxPower: " + Math.Round(selectUe.txPowerUl, 1) + "dBm" + " Loss: " + Math.Round(selectUe.LOS_Ray.totalLossForwardInDB,1) + "dBm" + "\n" +
+                                " TxPower: " + Math.Round(selectUe.txPowerUl, 1) + "dBm" + " Loss: " + Math.Round(selectUe.LOS_Ray.GetLosLoss(true, selectUe.transmissionParameters[0]),1) + "dBm" + "\n" +
                             "<b>Download:</b> " + selectUe.TargetEnb.enbId + "->" + selectUe.ueId +
-                                " TxPower: " + Math.Round(selectUe.txPowerDl, 1) + "dBm" + " Loss " + Math.Round(selectUe.LOS_Ray.totalLossReverseInDB,1) + "dBm" + "\n";
+                                " TxPower: " + Math.Round(selectUe.txPowerDl, 1) + "dBm" + " Loss " + Math.Round(selectUe.LOS_Ray.GetLosLoss(false, selectUe.transmissionParameters[0]), 1) + "dBm" + "\n";
             nodeInfoDisplay.text = displayInfo;
         }
     }
