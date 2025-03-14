@@ -95,12 +95,30 @@ public class IntersectionBase : MonoBehaviour
         StartCoroutine(SwitchTrafficLights());
     }
 
-    private void Update()
+    public float timeSinceLastUpdate;
+    private float lastUpdateTime;
+    private float updateInterval = 1f;
+
+    void Update()
+    {
+        timeSinceLastUpdate = Time.time - lastUpdateTime;
+        if (timeSinceLastUpdate >= updateInterval)
+        {
+            CustomUpdate();
+            lastUpdateTime = Time.time;
+        }
+    }
+
+    private void CustomUpdate()
     {
         for (int i = 0; i < node_Local.Length; i++)
         {
             node_Local[i].nodeId = i;
         }
+        if (node_Local[0].node_Connection == null || node_Local[2].node_Connection == null) AC_StraightDuration = 0;
+        if (node_Local[1].node_Connection == null || node_Local[3].node_Connection == null) BD_StraightDuration = 0;
+        if ((node_Local[0].node_Connection == null && node_Local[1].node_Connection == null) || (node_Local[2].node_Connection == null && node_Local[3].node_Connection == null)) BD_TurnDuration = 0;
+        if ((node_Local[1].node_Connection == null && node_Local[2].node_Connection == null) || (node_Local[0].node_Connection == null && node_Local[3].node_Connection == null)) AC_TurnDuration = 0;
     }
 
     private IEnumerator SwitchTrafficLights()

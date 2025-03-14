@@ -43,12 +43,6 @@ public class VehicleBehaviour : MonoBehaviour
         };
 
 
-    IEnumerator DelayedStart()
-    {
-        yield return new WaitForSeconds(2f); 
-        Start(); 
-    }
-
     private bool isStartCompleted = false;
 
     IEnumerator Start()
@@ -64,10 +58,12 @@ public class VehicleBehaviour : MonoBehaviour
     }
 
 
-
-
     private bool reachedMiddleDest = false;
     private bool reachedMiddleStart = false;
+
+
+    private float stopTimer = 0f; 
+    public float maxStopTime = 30f; 
 
 
     void Update()
@@ -102,14 +98,23 @@ public class VehicleBehaviour : MonoBehaviour
         {
             case VehicleStatus.movingToNextIntersection:
                 mobility.MoveToPoint(pointMiddleStart);
+                stopTimer = 0f;
                 break;
 
             case VehicleStatus.passthroughIntersection:
                 mobility.MoveToPoint(pointMiddleDest);
+                stopTimer = 0f;
                 break;
 
             case VehicleStatus.stop:
                 mobility.StopMovement();
+                stopTimer += Time.deltaTime; 
+
+                if (stopTimer >= maxStopTime)
+                {
+                    vehicleStatus = VehicleStatus.movingToNextIntersection; 
+                    stopTimer = 0f; 
+                }
                 break;
         }
 
@@ -164,6 +169,7 @@ public class VehicleBehaviour : MonoBehaviour
 
     }
 
+
     public void MoveToIntersection (vehicleWayPoint wayPoint)
     {
         IntersectionBase lastIntersection = wayPoint.lastIntersection;
@@ -179,6 +185,7 @@ public class VehicleBehaviour : MonoBehaviour
 
         if (availableNodeIndices.Length > 0)
         {
+            Random.InitState(System.DateTime.Now.Millisecond + GetInstanceID());
             int randomIndex = Random.Range(0, availableNodeIndices.Length);
             int selectedNodeId = availableNodeIndices[randomIndex];
 
