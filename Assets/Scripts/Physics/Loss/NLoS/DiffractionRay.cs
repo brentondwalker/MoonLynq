@@ -19,7 +19,7 @@ public class DiffractionRay : MonoBehaviour
 
     public KnifeEdgeObstacle knifeEdge;
 
-    private float largestStructureSize = 80;
+    private float largestStructureSize = 60;
     private float edgeTolerance = 2;
 
     public double diffractionLoss = 0;
@@ -149,11 +149,11 @@ public class DiffractionRay : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag(targetTag))
             {
-                newDirectionF = ScanCorner(start, 1, 30, directionF, hitInfo, false, out hitStatusA);
+                newDirectionF = ScanCorner(start, dest, 1, 30, directionF, hitInfo, false, out hitStatusA);
                 if (newDirectionF != Vector3.zero)
                 {
-                    newDirectionF = ScanCorner(start, 0.2f, 2.2f, newDirectionF, hitInfo, false, out hitStatusA);
-                    newDirectionF = ScanCorner(start, 0.02f, 0.22f, newDirectionF, hitInfo, true, out hitStatusA);
+                    newDirectionF = ScanCorner(start, dest, 0.2f, 2.2f, newDirectionF, hitInfo, false, out hitStatusA);
+                    newDirectionF = ScanCorner(start, dest, 0.02f, 0.22f, newDirectionF, hitInfo, true, out hitStatusA);
 
                 }
                 UpdateLinePosition(lineRendererA, start, newDirectionF);
@@ -194,11 +194,11 @@ public class DiffractionRay : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag(targetTag))
             {
-                newDirectionF = ScanCorner(rayStart, 1, 30, directionF, hitInfo, false, out hitStatusB);
+                newDirectionF = ScanCorner(rayStart, dest, 1, 30, directionF, hitInfo, false, out hitStatusB);
                 if (newDirectionF != Vector3.zero)
                 {
-                    newDirectionF = ScanCorner(rayStart, 0.2f, 2.2f, newDirectionF, hitInfo, false, out hitStatusB);
-                    newDirectionF = ScanCorner(rayStart, 0.02f, 0.22f, newDirectionF, hitInfo, true, out hitStatusB);
+                    newDirectionF = ScanCorner(rayStart, dest, 0.2f, 2.2f, newDirectionF, hitInfo, false, out hitStatusB);
+                    newDirectionF = ScanCorner(rayStart, dest, 0.02f, 0.22f, newDirectionF, hitInfo, true, out hitStatusB);
                 }
                 UpdateLinePosition(lineRendererB, rayStart, newDirectionF);
                 return newDirectionF;
@@ -261,10 +261,10 @@ public class DiffractionRay : MonoBehaviour
         return Vector3.zero;
     }
 
-    Vector3 ScanCorner(Vector3 start, float angleStep, float angleMax, Vector3 directionF, RaycastHit hitInfo, bool returnFinalValue, out string statusString)
+    Vector3 ScanCorner(Vector3 start, Vector3 dest, float angleStep, float angleMax, Vector3 directionF, RaycastHit hitInfo, bool returnFinalValue, out string statusString)
     {
         Collider obstacleCollider = hitInfo.collider;
-        float rayRange = Vector3.Distance(start, hitInfo.point) + largestStructureSize;
+        float rayRange = Math.Min(Vector3.Distance(start, hitInfo.point) + largestStructureSize, Vector3.Distance(start, dest));
         RaycastHit hitInfoNew;
         Vector3 finalDirection = Vector3.zero;
         Vector3 lastDirection = directionF;

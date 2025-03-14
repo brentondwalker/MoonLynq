@@ -48,7 +48,7 @@ public class ChannelModelManager : MonoBehaviour
         {
             if (transmissionList[i] == null)
             {
-                transmissionList[i] = Instantiate(transmission);
+                transmissionList[i] = Instantiate(transmission, transmission.transform.parent);
                 transmissionManagers[i] = transmissionList[i].GetComponent<TransmissionManager>();
             }
         }
