@@ -21,6 +21,8 @@ public  class GetBLER_TU : MonoBehaviour
         //CQI = Mathf.Clamp(CQI, 1, 15);
         double R = 0.0;
 
+        if (SINR_15_CQI_TU == null) return 0;
+
         if (SINR <= SINR_15_CQI_TU[CQI - 1, 0])
         {
             BLER = 1.0;

@@ -31774,10 +31774,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 900911004848361986, guid: d43815731c534a240825eff79b7303dc, type: 3}
-      propertyPath: distanceConvert
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 900911004848361986, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: useSegmentedRaycasts
       value: 1
       objectReference: {fileID: 0}
@@ -31832,10 +31828,6 @@ PrefabInstance:
     - target: {fileID: 2849854497507224093, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.48511305
-      objectReference: {fileID: 0}
-    - target: {fileID: 2920187107214423171, guid: d43815731c534a240825eff79b7303dc, type: 3}
-      propertyPath: materialType
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3150079033817898654, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: playerTransform
@@ -35593,6 +35585,8 @@ MonoBehaviour:
   hitStatusB: 
   reflectance: {fileID: 723820500}
   mediumMaterial: {fileID: 723820499}
+  useVerticalScan: 1
+  lineWidth: 0.5
 --- !u!1 &724566901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8054143525193121585, guid: 6f107bbb40104f54f8710c1435b697f6, type: 3}
@@ -66454,7 +66448,7 @@ MonoBehaviour:
   diffractionLoss: 0
   pathLoss: 0
   totalLoss: 0
-  timeSinceLastUpdate: 0
+  lineWidth: 0.5
 --- !u!1 &1347222009 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4581778055745615757, guid: 6f107bbb40104f54f8710c1435b697f6, type: 3}

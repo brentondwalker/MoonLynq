@@ -30,7 +30,9 @@ public class CQI_Computaion : MonoBehaviour
         if (newsnr > maxSnr)
             return 15;
 
+        baseMin = new List<double>(new double[pisaData.nMcs()]);
         List<double> min = new List<double>(baseMin);
+
         int found = 0;
         double low = 2.0;
 

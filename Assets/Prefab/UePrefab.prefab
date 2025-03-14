@@ -1005,6 +1005,7 @@ MonoBehaviour:
   hitStatusB: 
   reflectance: {fileID: 7685993308116757487}
   mediumMaterial: {fileID: 2920187107214423171}
+  useVerticalScan: 1
   lineWidth: 0.5
 --- !u!114 &7685993308116757487
 MonoBehaviour:
@@ -1426,7 +1427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908e9d9142ec7aa4a8abf57753b62ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialType: 1
+  materialType: 0
   resistivity: 0
   relativePermittivity: 0
   relativePermeability: 0

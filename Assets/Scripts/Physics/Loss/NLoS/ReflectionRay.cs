@@ -133,6 +133,8 @@ public class ReflectionRay : MonoBehaviour
                             absorptionLoss[i] = -PowerCalculator.linearToDb(absorptionLoss[i]);
                             double distance = distanceIncidence + distanceReflection;
                             pathLoss[i] = 20 * Math.Log10(distance) + 20 * Math.Log10(frequency) - 147.55;
+
+                            //Debug.Log("absorptionLoss" + i + ": " + absorptionLoss[i]);
                         }
                     }
                 }
