@@ -43,6 +43,8 @@ public class UeBase : MonoBehaviour
     public TransmissionParameter[] transmissionParameters;
     public UeBase[] ueBases;
 
+    public UeExtraModuleManager extraModule;
+
     public float maxD2D_ConnectionDistance = 300;
     public int maxD2D_ConnectionNum = 4;
 
@@ -120,7 +122,7 @@ public class UeBase : MonoBehaviour
             transmissionParameters[i].thermalNoise = ueParameters.thermalNoise;
 
             transmissionParameters[i].lastUpdateTime = Time.time;
-
+            transmissionParameters[i].targetUeBase = ueBases[i];
         }
     }
 
@@ -144,6 +146,7 @@ public class UeBase : MonoBehaviour
             transmissionParameters[0].thermalNoise = ueParameters.thermalNoise;
 
         transmissionParameters[0].lastUpdateTime = Time.time;
+        transmissionParameters[0].targetUeBase = ueBases[0];
     }
 
     void FindOtherUeBases()
