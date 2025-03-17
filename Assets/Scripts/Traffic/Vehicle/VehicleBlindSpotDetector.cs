@@ -9,14 +9,16 @@ public class VehicleBlindSpotDetector : MonoBehaviour
 
     private Vector3 vehiclePosition;
     private BlindSpot[] allBlindSpots;
-    private BlindSpotInfo[] blindSpotInfos = new BlindSpotInfo[8];
+    public BlindSpotInfo[] blindSpotInfos = new BlindSpotInfo[8];
 
     public string blindSpotInfoDisplay = "";
+
+
 
     void Start()
     {
         vehiclePosition = ueBase.ueObject.transform.position;
-        allBlindSpots = FindObjectsByType<BlindSpot>(FindObjectsSortMode.None);
+        allBlindSpots = FindObjectsByType<BlindSpot>(FindObjectsSortMode.InstanceID);
 
         for (int i = 0; i < blindSpotInfos.Length; i++)
         {
@@ -67,7 +69,7 @@ public class VehicleBlindSpotDetector : MonoBehaviour
             }
 
 
-            blindSpotInfoDisplay = GetBlindSpotInfo();
+            blindSpotInfoDisplay = GetBlindSpotInfoDisplay();
         }
 
 
@@ -77,6 +79,7 @@ public class VehicleBlindSpotDetector : MonoBehaviour
             blindSpotInfos[index].pointId = -1;
             blindSpotInfos[index].isVisible = false;
             blindSpotInfos[index].lastVisibleTime = -1;
+            blindSpotInfos[index].lastVisibleTimeViaCommunication = -1;
         }
     }
 
@@ -100,9 +103,11 @@ public class VehicleBlindSpotDetector : MonoBehaviour
         public int pointId;
         public bool isVisible;
         public double lastVisibleTime;
+        public double lastVisibleTimeViaCommunication;
+        public double TimeSinceLastVisibleTime;
     }
 
-    public string GetBlindSpotInfo()
+    public string GetBlindSpotInfoDisplay()
     {
         System.Text.StringBuilder sb = new System.Text.StringBuilder();
 

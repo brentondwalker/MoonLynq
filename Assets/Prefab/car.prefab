@@ -2451,6 +2451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cqiBase: {fileID: 7051645999013359909}
   cqi: 0
+  targetId: 0
 --- !u!1 &4572862521745339053
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,6 +2796,53 @@ Transform:
   - {fileID: 4018953149409735304}
   m_Father: {fileID: 7829755137486815740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5226172417953199698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2033328557777162097}
+  - component: {fileID: 945706062920079331}
+  m_Layer: 0
+  m_Name: Ue Extra Module
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2033328557777162097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5226172417953199698}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8387446577644476922}
+  - {fileID: 3334836607567334329}
+  m_Father: {fileID: 7275612455217603708}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &945706062920079331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5226172417953199698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd4febc74f49c64893061ffd1736e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleBlindSpotDetector: {fileID: 9069348856788312600}
 --- !u!1 &5421301756421233828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,7 +2877,7 @@ Transform:
   - {fileID: 6317160885262403556}
   - {fileID: 2498248946717331775}
   - {fileID: 889058696665916558}
-  - {fileID: 8387446577644476922}
+  - {fileID: 2033328557777162097}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &82561927967150398
@@ -2964,6 +3012,7 @@ MonoBehaviour:
   dlInfo: 
   ueObject: {fileID: 5722884354016635685}
   ueBases: []
+  extraModule: {fileID: 945706062920079331}
   maxD2D_ConnectionDistance: 100
   maxD2D_ConnectionNum: 4
 --- !u!114 &7723843167593683833
@@ -3150,12 +3199,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6933890266014815280}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7275612455217603708}
+  m_Father: {fileID: 2033328557777162097}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9069348856788312600
 MonoBehaviour:
@@ -3412,8 +3461,58 @@ MonoBehaviour:
   ueBase: {fileID: 5792521944358103414}
   transmission: {fileID: 4446636884231960963}
   cqi: 00000000
+  targetId: 
+  ueBases: []
   timeSinceLastUpdate: 0
   updateInterval: 0.1
+--- !u!1 &7697464143476777973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3334836607567334329}
+  - component: {fileID: 5677470055666664879}
+  m_Layer: 0
+  m_Name: Vehicle Data Communicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3334836607567334329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697464143476777973}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2033328557777162097}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5677470055666664879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697464143476777973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6dcdcbabdae70418ebed321e546db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfBlindSpot: {fileID: 9069348856788312600}
+  channelModelManager: {fileID: 1652835453621667288}
+  ueBases: []
+  blindSpotInfoDisplay: 
 --- !u!1 &8550428924465841257
 GameObject:
   m_ObjectHideFlags: 0

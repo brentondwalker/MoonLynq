@@ -9,6 +9,7 @@ public class ChannelModelManager : MonoBehaviour
 
     public int[] cqi;
     public int[] targetId;
+    public UeBase[] ueBases;
 
     void Start()
     {
@@ -56,10 +57,12 @@ public class ChannelModelManager : MonoBehaviour
 
         cqi = new int[connectionNum];
         targetId = new int[connectionNum];
+        ueBases = new UeBase[connectionNum];
         for (int i = 0; i < connectionNum; i++)
         {
             cqi[i] = transmissionManagers[i].GetCqi(ueBase.transmissionParameters[i]);
             targetId[i] = transmissionManagers[i].GetTargetId(ueBase.transmissionParameters[i]);
+            ueBases[i] = transmissionManagers[i].GetTargetUe(ueBase.transmissionParameters[i]);
         }
     }
 }

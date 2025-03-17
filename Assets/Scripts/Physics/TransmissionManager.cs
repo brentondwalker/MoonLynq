@@ -16,4 +16,9 @@ public class TransmissionManager : MonoBehaviour
         targetId = parameter.nodeB_Id;
         return targetId;
     }
+
+    public UeBase GetTargetUe(TransmissionParameter parameter) 
+    {
+        return parameter.targetUeBase;
+    }
 }
