@@ -5,7 +5,7 @@ public class VehicleBlindSpotDetector : MonoBehaviour
     public UeBase ueBase;
 
     public string targetTag = "Obstacle";
-    public float detectionRange = 100;
+    private float detectionRange = 80;
 
     private Vector3 vehiclePosition;
     private BlindSpot[] allBlindSpots;
@@ -52,6 +52,7 @@ public class VehicleBlindSpotDetector : MonoBehaviour
 
                     blindSpotInfos[index].nodeId = blindSpot.nodeId;
                     blindSpotInfos[index].pointId = i;
+                    blindSpotInfos[index].intersection = blindSpot.getParentIntersection();
                     blindSpotInfos[index].isVisible = !isBlocked;
                     if (!isBlocked)
                     {
@@ -62,6 +63,7 @@ public class VehicleBlindSpotDetector : MonoBehaviour
                 {
                     blindSpotInfos[index].nodeId = blindSpot.nodeId;
                     blindSpotInfos[index].pointId = i;
+                    blindSpotInfos[index].intersection = blindSpot.getParentIntersection();
                     blindSpotInfos[index].isVisible = false;
                 }
 
@@ -80,6 +82,7 @@ public class VehicleBlindSpotDetector : MonoBehaviour
             blindSpotInfos[index].isVisible = false;
             blindSpotInfos[index].lastVisibleTime = -1;
             blindSpotInfos[index].lastVisibleTimeViaCommunication = -1;
+            blindSpotInfos[index].intersection = null;
         }
     }
 
@@ -105,6 +108,8 @@ public class VehicleBlindSpotDetector : MonoBehaviour
         public double lastVisibleTime;
         public double lastVisibleTimeViaCommunication;
         public double TimeSinceLastVisibleTime;
+
+        public IntersectionBase intersection;
     }
 
     public string GetBlindSpotInfoDisplay()

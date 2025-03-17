@@ -619,6 +619,55 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!1 &2138178775402568673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068536724980380076}
+  - component: {fileID: 4081706404620975262}
+  m_Layer: 0
+  m_Name: Dangerous Turn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2068536724980380076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138178775402568673}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2033328557777162097}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4081706404620975262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138178775402568673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311c4feacffc7f0429391b80e3286f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleBehaviour: {fileID: 82561927967150398}
+  vehicleBlindSpotDetector: {fileID: 9069348856788312600}
+  rightTurnCount: 0
+  dangerousTurnCount: 0
+  dangerousTimeThreshold: 0.5
 --- !u!1 &2368449204208024325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2828,6 +2877,7 @@ Transform:
   m_Children:
   - {fileID: 8387446577644476922}
   - {fileID: 3334836607567334329}
+  - {fileID: 2068536724980380076}
   m_Father: {fileID: 7275612455217603708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &945706062920079331
@@ -2901,6 +2951,9 @@ MonoBehaviour:
   distanceToWayPoint: 0
   turnDisplay: 
   trafficLightDisplay: 
+  dangerousTurn: 0
+  dangerousTurnNode: 0
+  dangerousIntersection: {fileID: 0}
   maxStopTime: 30
 --- !u!114 &5258457986305344573
 MonoBehaviour:
@@ -3476,7 +3529,7 @@ GameObject:
   - component: {fileID: 3334836607567334329}
   - component: {fileID: 5677470055666664879}
   m_Layer: 0
-  m_Name: Vehicle Data Communicator
+  m_Name: Data Communicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3511,7 +3564,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selfBlindSpot: {fileID: 9069348856788312600}
   channelModelManager: {fileID: 1652835453621667288}
-  ueBases: []
+  cqiThreshold: 5
+  enableDataCommunication: 1
   blindSpotInfoDisplay: 
 --- !u!1 &8550428924465841257
 GameObject:

@@ -13,6 +13,8 @@ public class VehicleDataCommunicator : MonoBehaviour
 
     public bool enableDataCommunication = true;
 
+    //private bool enableDataCommunication = false;
+
     public string blindSpotInfoDisplay = "";
 
     private void Start()

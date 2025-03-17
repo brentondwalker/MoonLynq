@@ -25,7 +25,9 @@ public class VehicleBehaviour : MonoBehaviour
     public string turnDisplay;
     public string trafficLightDisplay;
 
-
+    public bool dangerousTurn;
+    public int dangerousTurnNode;
+    public IntersectionBase dangerousIntersection;
 
     private Dictionary<int, int> rightTurnMap = new Dictionary<int, int>()
         {
@@ -81,6 +83,10 @@ public class VehicleBehaviour : MonoBehaviour
 
         //Debug.Log("pointMiddleStart: " + initialIntersection.node_Local[wayPoint.middleNodeStart].pointsPosition[3]);
         int laneId = 0;
+        dangerousTurnNode = -1;
+        dangerousTurn = false;
+        dangerousIntersection = null;
+
         if (wayPoint.turnType == "AC_LeftTurn" || wayPoint.turnType == "BD_LeftTurn") laneId = 0;
         if (wayPoint.turnType == "AC_Straight" || wayPoint.turnType == "BD_Straight") laneId = 1;
         if (wayPoint.turnType == "AC_RightTurn" || wayPoint.turnType == "BD_RightTurn") laneId = 2;
@@ -104,6 +110,14 @@ public class VehicleBehaviour : MonoBehaviour
             case VehicleStatus.passthroughIntersection:
                 mobility.MoveToPoint(pointMiddleDest);
                 stopTimer = 0f;
+
+                if (wayPoint.turnType == "AC_RightTurn" || wayPoint.turnType == "BD_RightTurn")
+                {
+                    dangerousTurn = true;
+                    dangerousTurnNode = wayPoint.middleNodeDest;
+                    dangerousIntersection = wayPoint.middleIntersection;
+                }
+
                 break;
 
             case VehicleStatus.stop:
