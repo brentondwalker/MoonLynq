@@ -146,7 +146,6 @@ public class UeBase : MonoBehaviour
             transmissionParameters[0].thermalNoise = ueParameters.thermalNoise;
 
         transmissionParameters[0].lastUpdateTime = Time.time;
-        transmissionParameters[0].targetUeBase = ueBases[0];
     }
 
     void FindOtherUeBases()

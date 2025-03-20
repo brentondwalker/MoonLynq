@@ -4,8 +4,7 @@ public class LteHARQ : MonoBehaviour
 {
     public IsError isError;
 
-    public double ErrorRateFrame = 0;
-    public double PktErrorRateFrame = 0;
+    public double per = 0;
     public MCS_Test mcsTest;
 
     void Start()
@@ -31,8 +30,6 @@ public class LteHARQ : MonoBehaviour
     {
         int cqi = mcsTest.cqiBase.cqi;
         int numBands = mcsTest.ueBase.ueParameters.numBands;
-        ErrorRateFrame = isError.GetErrorRate(cqi, numBands, mcsTest.cqiBase.snrv);
-        PktErrorRateFrame = isError.GetPktErrorRate(1344, ErrorRateFrame, mcsTest.throughput);
-        //PktErrorRateFrame = isError.GetPktErrorRate(1344, 0.5, mcsTest.throughput);
+        per = isError.GetErrorRate(cqi, numBands, mcsTest.cqiBase.snrv);
     }
 }

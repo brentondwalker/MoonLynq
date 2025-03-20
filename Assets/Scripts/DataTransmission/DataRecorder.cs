@@ -10,14 +10,14 @@ public class DataRecord
 {
     public float t;  
     public float throughput;
-    public double bler;
+    public double per;
     public int iTbs;
 
-    public DataRecord(float time, float throughputValue, double blerValue, int tbsIndex)
+    public DataRecord(float time, float throughputValue, double perValue, int tbsIndex)
     {
         t = time;
         throughput = throughputValue;
-        bler = blerValue;
+        per = perValue;
         iTbs = tbsIndex;
     }
 }
@@ -31,14 +31,14 @@ public class DataRecorder : MonoBehaviour
 
     private List<DataRecord> recordedData = new List<DataRecord>();
     public MCS_Test mcs;
-    public IsError isError;
+    public LteHARQ harq;
 
     public InputFieldManager intervalInput;
     public InputFieldManager durationInput;
 
     public TMP_Text showElapesdTime;
     public TMP_Text showPkts;
-    public TMP_Text showBLER;
+    public TMP_Text showPER;
     public TMP_Text showITBS;
 
     public ConvertJsonToLua jsonToLua;
@@ -53,7 +53,7 @@ public class DataRecorder : MonoBehaviour
 
         showElapesdTime.text = elapsedTime.ToString("000.0");
         if (mcs != null) showPkts.text = mcs.pkts.ToString("0.0");
-        if (isError != null) showBLER.text = isError.bler.ToString("0.000");
+        if (harq != null) showPER.text = harq.per.ToString("0.000");
         if (mcs != null) showITBS.text = mcs.iTbs.ToString("0");
         recordInterval = intervalInput.inputNumber;
         recordDuration = durationInput.inputNumber;
@@ -68,7 +68,7 @@ public class DataRecorder : MonoBehaviour
 
         while (elapsedTime < recordDuration)
         {
-            recordedData.Add(new DataRecord(elapsedTime, mcs.pkts, isError.bler, mcs.iTbs));
+            recordedData.Add(new DataRecord(elapsedTime, mcs.pkts, harq.per, mcs.iTbs));
 
             yield return new WaitForSeconds(recordInterval);
             elapsedTime += recordInterval;

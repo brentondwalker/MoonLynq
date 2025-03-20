@@ -214,7 +214,7 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 	local lastPrintTime = 0
 	local last_send_time = 0
-	local last_throughput_read_time = 0
+	local last_file_read_time = 0
 	local emu_time = 0
 	local start_time = limiter:get_tsc_cycles() / tsc_hz_ms
 
@@ -225,7 +225,7 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 	local baseLatency = 20
 
 	local harqLossRate = 0
-	local latencyHarq = 6
+	local latencyHarq = 8
 	local harqLossReduction = 0.2
 	local harqMaxAttempt = 4
 
@@ -245,9 +245,9 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 			if file then
 				emu_time = (limiter:get_tsc_cycles() / tsc_hz_ms - start_time)/1000
-				if (emu_time - last_throughput_read_time) > 0.2 then
+				if (emu_time - last_file_read_time) > 0.1 then
 					throughput = getThroughput(emu_time, preFile)
-					last_throughput_read_time = emu_time
+					last_file_read_time = emu_time
 				end
 				if (emu_time < 10.0) and (emu_time >= 5.0) then
 					harqLossRate = 0.5
@@ -259,7 +259,7 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 			local retransmissionAttempt = 0;
 			local buf = bufs[iix]
 
-			local harqLossRateReduced =  harqLossRate - retransmissionAttempt * harqLossReduction 
+			local harqLossRateReduced =  harqLossRate * harqLossReduction ^ (retransmissionAttempt - 1)
 			harqLossRateReduced = math.max(0, harqLossRateReduced)
 
 			local pktf = throughput / 100
@@ -299,16 +299,11 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 			local min_latency_due_to_throughput = 1 / throughput * tsc_hz
 
-			local send_time = arrival_timestamp + baseLatency * tsc_hz_ms
-			local send_time_limit = last_send_time + min_latency_due_to_throughput + ((latencyHarq) * tsc_hz_ms + min_latency_due_to_throughput) * retransmissionAttempt
+			local send_time_base = arrival_timestamp + baseLatency * tsc_hz_ms
+			local send_time_harq = last_send_time + retransmissionAttempt * (latencyHarq) * tsc_hz_ms
+			local send_time_limit = last_send_time + min_latency_due_to_throughput
 
-			if (send_time_limit - send_time)/tsc_hz_ms > 250 then
-				sendCount = sendCount - 1
-				else if send_time_limit > send_time then
-					send_time = send_time_limit
-				end
-			end
-
+			local send_time = math.max(send_time_base, send_time_harq, send_time_limit)
 
 			last_send_time = send_time
 
@@ -535,6 +530,24 @@ end
     return 0 
 end
 
+function getPer(current_time, data)
+
+
+if not data then
+    print("Error: data is nil!") 
+else
+    --print("Data length:", #data) 
+end
+
+    for i = #data, 1, -1 do 
+        local entry_time = tonumber(data[i].t)
+        if current_time >= entry_time then
+			print("Current PER: ", data[i].per)
+            return data[i].throughput
+        end
+    end
+    return 0 
+end
 
 function stringToTable(str)
     local func = load("return " .. str) 

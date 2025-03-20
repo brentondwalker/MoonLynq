@@ -32,11 +32,4 @@ public class IsError : MonoBehaviour
 
         return per;
     }
-
-    public double GetPktErrorRate (int pktLength, double per, float throughput)
-    {
-        double pktf = throughput / pktLength / 8 / 100;
-        double pktPer = Math.Pow(per, 1 / pktf);
-        return pktPer;
-    }
 }

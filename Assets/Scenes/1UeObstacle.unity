@@ -25120,7 +25120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BLER
+  m_text: PER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -31869,6 +31869,10 @@ PrefabInstance:
       propertyPath: fadingEnabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4421550662611993277, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: numBands
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5328276967716637472, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: enableDiffraction
       value: 0
@@ -31962,7 +31966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79cefc9c89502d4097cac389e495235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
+  moveSpeed: 10
   statusDisplay: {fileID: 1486178121}
   cameraTransform: {fileID: 1823688467}
   positionLocal: {x: 0, y: 0, z: 0}
@@ -65283,15 +65287,15 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 549212236}
   m_SourcePrefab: {fileID: 100100000, guid: 6f107bbb40104f54f8710c1435b697f6, type: 3}
---- !u!114 &1322987950 stripped
+--- !u!114 &1322987952 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7252248730496720909, guid: d43815731c534a240825eff79b7303dc, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4090864873485764150, guid: d43815731c534a240825eff79b7303dc, type: 3}
   m_PrefabInstance: {fileID: 657172986}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cad16753797f574ba96e104779ad833, type: 3}
+  m_Script: {fileID: 11500000, guid: 56558570b429de5439b1044567fb3cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1323992160 stripped
@@ -92381,12 +92385,12 @@ MonoBehaviour:
   recordDuration: 10
   elapsedTime: 0
   mcs: {fileID: 881776614}
-  isError: {fileID: 1322987950}
+  harq: {fileID: 1322987952}
   intervalInput: {fileID: 274876995}
   durationInput: {fileID: 748826619}
   showElapesdTime: {fileID: 7387326}
   showPkts: {fileID: 953768245}
-  showBLER: {fileID: 1691846104}
+  showPER: {fileID: 1691846104}
   showITBS: {fileID: 1255381880}
   jsonToLua: {fileID: 1862380335}
 --- !u!114 &1862380335
@@ -93148,7 +93152,7 @@ Transform:
   m_GameObject: {fileID: 1885820264}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.3, y: 25, z: -166.20007}
+  m_LocalPosition: {x: -95.7, y: 25, z: -166.20007}
   m_LocalScale: {x: 1, y: 1.6928488, z: 2.7025}
   m_ConstrainProportionsScale: 0
   m_Children: []
