@@ -21,7 +21,7 @@ public class MGMessageManager : MonoBehaviour
     public List<rlcLoss> getRlcLossInfo () { return rlcLossInfo; }
     public List<pdcpThroughput> GetPdcpThroughputs () 
     { 
-        CalculateThroughputPerSecond();
+        CalculateThroughputPerInterval();
         return pdcpThroughputInfo; 
     }
 
@@ -39,23 +39,33 @@ public class MGMessageManager : MonoBehaviour
 
         if (match.Success)
         {
-            pkt newPkt = new pkt
+            int pktId = int.Parse(match.Groups[1].Value);
+
+            bool pktExists = pktInfo.Any(pkt => pkt.id == pktId);
+            if (!pktExists)
             {
-                id = int.Parse(match.Groups[1].Value),
-                rxTime = match.Groups[2].Value,
-                txTime = match.Groups[3].Value
-            };
+                pkt newPkt = new pkt
+                {
+                    id = pktId,
+                    rxTime = match.Groups[2].Value,
+                    txTime = match.Groups[3].Value
+                };
 
-            pktInfo.Add(newPkt);
-            //Debug.Log($"[Pkt] Parsed: Id={newPkt.id}, RX={newPkt.rxTime}, TX={newPkt.txTime}");
+                pktInfo.Add(newPkt);
+                //Debug.Log($"[Pkt] Parsed: Id={newPkt.id}, RX={newPkt.rxTime}, TX={newPkt.txTime}");
 
-            rlcQueue newRlc = new rlcQueue
+                rlcQueue newRlc = new rlcQueue
+                {
+                    time = match.Groups[3].Value,
+                    queue = int.Parse(match.Groups[4].Value)
+                };
+
+                rlcQueueBase.Add(newRlc);
+            }
+            else
             {
-                time = match.Groups[3].Value,
-                queue = int.Parse(match.Groups[4].Value)
-            };
-
-            rlcQueueBase.Add(newRlc);
+                //Debug.Log($"Duplicate Pkt Id detected: {pktId}");
+            }
         }
         else
         {
@@ -96,27 +106,32 @@ public class MGMessageManager : MonoBehaviour
     }
 
 
-    public void CalculateThroughputPerSecond()
+    public void CalculateThroughputPerInterval()
     {
         var sortedPkts = pktInfo
             .Where(pkt => pkt.txTime != "Loss")
             .OrderBy(pkt => int.Parse(pkt.txTime))
             .ToList();
 
+        int interval = 1000;
+
+        if (sortedPkts.Count == 0) return;
+        int minTimeSlot = int.Parse(sortedPkts.First().txTime) / interval;
+        int maxTimeSlot = int.Parse(sortedPkts.Last().txTime) / interval;
+
         Dictionary<int, int> throughputData = new Dictionary<int, int>();
+
+        for (int t = minTimeSlot; t <= maxTimeSlot; t++)
+        {
+            throughputData[t] = 0;  
+        }
 
         foreach (var pkt in sortedPkts)
         {
             if (int.TryParse(pkt.txTime, out int txTimeValue))
             {
-                int currentSecond = txTimeValue / 1000;        
-
-                if (!throughputData.ContainsKey(currentSecond))
-                {
-                    throughputData[currentSecond] = 0;
-                }
-                throughputData[currentSecond]++;
-
+                int timeSlot = txTimeValue / interval;
+                throughputData[timeSlot]++; 
             }
         }
 
@@ -125,7 +140,7 @@ public class MGMessageManager : MonoBehaviour
         {
             pdcpThroughputInfo.Add(new pdcpThroughput
             {
-                time = entry.Key.ToString(),
+                time = (entry.Key * interval).ToString(),  
                 throughput = entry.Value
             });
         }
@@ -147,7 +162,7 @@ public class MGMessageManager : MonoBehaviour
                 int.TryParse(pkt.rxTime, out int rxTimeValue))
             {
                 int currentSecond = txTimeValue / 1000;
-                int latency = txTimeValue - rxTimeValue; // µ¥Î»Îªms
+                int latency = txTimeValue - rxTimeValue; 
 
                 if (!latencyData.ContainsKey(currentSecond))
                 {

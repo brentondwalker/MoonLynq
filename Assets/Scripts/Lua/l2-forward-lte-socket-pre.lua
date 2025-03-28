@@ -150,6 +150,9 @@ function receive(ring, rxQueue, rxDev, ns, threadId)
 	--local ring_capacity = math.ceil(2097152/1280)
 	local ring_capacity = math.ceil(2048000/1280)
 
+
+	-- ring_capacity = 1
+
 	while mg.running() do
 		count = rxQueue:recv(bufs)
 		count_hist:update(count)
@@ -172,7 +175,7 @@ function receive(ring, rxQueue, rxDev, ns, threadId)
 			ringsize_hist:update(pipe:countPktsizedRing(ring.ring))
 		end
 
-		if threadId == 2 then
+		if threadId == 1 then
 			local current_time = limiter:get_tsc_cycles() / tsc_hz_ms
 			ns.rlcMessage = string.format("[RLC] T: %s, Loss: %d, Queue: %d, of %d\n", 
                                               tostring(current_time - start_time), overflow_count or 0, pipe:countPktsizedRing(ring.ring) or 0, ring_capacity)
@@ -235,6 +238,7 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 		-- receive one or more packets from the queue
 		count = pipe:recvFromPktsizedRing(ring.ring, bufs, 1)
 		local sendCount = count
+		local dequeue_timestamp = limiter:get_tsc_cycles() / tsc_hz_ms
 
 		for iix=1,count do
 
@@ -244,35 +248,28 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 			end
 
 			if file then
-				emu_time = (limiter:get_tsc_cycles() / tsc_hz_ms - start_time)/1000
-				if (emu_time - last_file_read_time) > 0.1 then
+				emu_time = (limiter:get_tsc_cycles() / tsc_hz_ms - start_time)
+				if (emu_time - last_file_read_time) > 100 then
 					throughput = getThroughput(emu_time, preFile)
+					harqLossRate = getPer(emu_time, preFile)
 					last_file_read_time = emu_time
-				end
-				if (emu_time < 10.0) and (emu_time >= 5.0) then
-					harqLossRate = 0.5
-				else 
-					harqLossRate = 0
+					-- print("emu_time: ", emu_time)
 				end
 			end
+
 
 			local retransmissionAttempt = 0;
 			local buf = bufs[iix]
 
-			local harqLossRateReduced =  harqLossRate * harqLossReduction ^ (retransmissionAttempt - 1)
-			harqLossRateReduced = math.max(0, harqLossRateReduced)
+			local harqLossRateReduced =  harqLossRate
 
-			local pktf = throughput / 100
-			local harqLossRatePkt = math.pow(harqLossRateReduced, 1 / pktf)
 
-			-- print("harqLossRatePkt: ", harqLossRatePkt)
+			-- print("harqLossRate: ", harqLossRate)
 
 			-- get the buf's arrival timestamp and compute departure time
-			while math.random() < harqLossRatePkt and retransmissionAttempt <= harqMaxAttempt do
+			while math.random() < harqLossRateReduced and retransmissionAttempt <= harqMaxAttempt do
 				retransmissionAttempt = retransmissionAttempt + 1
-				harqLossRateReduced =  harqLossRate - retransmissionAttempt * harqLossReduction 
-				harqLossRateReduced = math.max(0, harqLossRateReduced)
-				harqLossRatePkt = math.pow(harqLossRateReduced, 1 / pktf)
+				harqLossRateReduced =  harqLossRate * harqLossReduction ^ retransmissionAttempt
 			end
 
 
@@ -282,10 +279,8 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 				print("HARQ retransmission max attempts reached, packet lost")
 				retransmissionAttempt = 4
 			else
-				--print("HARQ retransmission attempt: ", retransmissionAttempt)
+				-- print("HARQ retransmission attempt: ", retransmissionAttempt)
 			end
-
-
 
 			-- local current_time = limiter:get_tsc_cycles()
 			-- get the buf's arrival timestamp and compute departure time
@@ -299,11 +294,15 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 			local min_latency_due_to_throughput = 1 / throughput * tsc_hz
 
-			local send_time_base = arrival_timestamp + baseLatency * tsc_hz_ms
-			local send_time_harq = last_send_time + retransmissionAttempt * (latencyHarq) * tsc_hz_ms
-			local send_time_limit = last_send_time + min_latency_due_to_throughput
-
-			local send_time = math.max(send_time_base, send_time_harq, send_time_limit)
+			local send_time_base = arrival_timestamp + baseLatency * tsc_hz_ms + retransmissionAttempt * (latencyHarq) * tsc_hz_ms
+			local send_time_limit = last_send_time + retransmissionAttempt * (latencyHarq) * tsc_hz_ms + min_latency_due_to_throughput
+			
+			local send_time = arrival_timestamp
+			if send_time_base > send_time_limit then
+				send_time = send_time_base
+			else
+				send_time = send_time_limit
+			end
 
 			last_send_time = send_time
 
@@ -320,11 +319,15 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 			end
 
 			
-			if threadId == 2 then
+			if threadId == 1 then
 			local packetId = packetInfoLength + iix
             packetInfo[packetId] = {
                 id = packetId,
+
                 receiveTime = buf.udata64 / tsc_hz_ms - start_time,
+
+				-- receiveTime = dequeue_timestamp - start_time,
+
                 sendTime = 0,
 				rlcQueue = pipe:countPktsizedRing(ring.ring)
             }
@@ -345,7 +348,7 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 			local currentSendTime = limiter:get_tsc_cycles() / tsc_hz_ms
 
-			if threadId == 2 then
+			if threadId == 1 then
 			for iix = 1, count do
 
 				sendCount = sendCount - 1
@@ -521,8 +524,8 @@ else
 end
 
     for i = #data, 1, -1 do 
-        local entry_time = tonumber(data[i].t)
-        if current_time >= entry_time then
+        local entry_time = tonumber(data[i].t) * 1000
+        if current_time > entry_time then
 			print("Current throughput: ", data[i].throughput)
             return data[i].throughput
         end
@@ -540,10 +543,10 @@ else
 end
 
     for i = #data, 1, -1 do 
-        local entry_time = tonumber(data[i].t)
-        if current_time >= entry_time then
+        local entry_time = tonumber(data[i].t) * 1000
+        if current_time > entry_time then
 			print("Current PER: ", data[i].per)
-            return data[i].throughput
+            return data[i].per
         end
     end
     return 0 

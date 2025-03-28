@@ -1,0 +1,170 @@
+[
+  {
+    "time": "0",
+    "throughput": 17.0
+  },
+  {
+    "time": "1000",
+    "throughput": 66.0
+  },
+  {
+    "time": "2000",
+    "throughput": 64.0
+  },
+  {
+    "time": "3000",
+    "throughput": 57.0
+  },
+  {
+    "time": "4000",
+    "throughput": 65.0
+  },
+  {
+    "time": "5000",
+    "throughput": 62.0
+  },
+  {
+    "time": "6000",
+    "throughput": 59.0
+  },
+  {
+    "time": "7000",
+    "throughput": 63.0
+  },
+  {
+    "time": "8000",
+    "throughput": 63.0
+  },
+  {
+    "time": "9000",
+    "throughput": 59.0
+  },
+  {
+    "time": "10000",
+    "throughput": 53.0
+  },
+  {
+    "time": "11000",
+    "throughput": 53.0
+  },
+  {
+    "time": "12000",
+    "throughput": 51.0
+  },
+  {
+    "time": "13000",
+    "throughput": 49.0
+  },
+  {
+    "time": "14000",
+    "throughput": 44.0
+  },
+  {
+    "time": "15000",
+    "throughput": 44.0
+  },
+  {
+    "time": "16000",
+    "throughput": 44.0
+  },
+  {
+    "time": "17000",
+    "throughput": 40.0
+  },
+  {
+    "time": "18000",
+    "throughput": 38.0
+  },
+  {
+    "time": "19000",
+    "throughput": 38.0
+  },
+  {
+    "time": "20000",
+    "throughput": 37.0
+  },
+  {
+    "time": "21000",
+    "throughput": 36.0
+  },
+  {
+    "time": "22000",
+    "throughput": 36.0
+  },
+  {
+    "time": "23000",
+    "throughput": 36.0
+  },
+  {
+    "time": "24000",
+    "throughput": 34.0
+  },
+  {
+    "time": "25000",
+    "throughput": 25.0
+  },
+  {
+    "time": "26000",
+    "throughput": 24.0
+  },
+  {
+    "time": "27000",
+    "throughput": 24.0
+  },
+  {
+    "time": "28000",
+    "throughput": 25.0
+  },
+  {
+    "time": "29000",
+    "throughput": 26.0
+  },
+  {
+    "time": "30000",
+    "throughput": 26.0
+  },
+  {
+    "time": "31000",
+    "throughput": 25.0
+  },
+  {
+    "time": "32000",
+    "throughput": 25.0
+  },
+  {
+    "time": "33000",
+    "throughput": 25.0
+  },
+  {
+    "time": "34000",
+    "throughput": 25.0
+  },
+  {
+    "time": "35000",
+    "throughput": 24.0
+  },
+  {
+    "time": "36000",
+    "throughput": 26.0
+  },
+  {
+    "time": "37000",
+    "throughput": 25.0
+  },
+  {
+    "time": "38000",
+    "throughput": 24.0
+  },
+  {
+    "time": "39000",
+    "throughput": 22.0
+  },
+  {
+    "time": "40000",
+    "throughput": 19.0
+  },
+  {
+    "time": "41000",
+    "throughput": 17.0
+  }
+]

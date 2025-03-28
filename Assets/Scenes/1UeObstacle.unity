@@ -20149,6 +20149,10 @@ PrefabInstance:
       propertyPath: sshHost
       value: pc4.filab.uni-hannover.de
       objectReference: {fileID: 0}
+    - target: {fileID: 950936349985577155, guid: 1499069da9af06442848d617c4a2b2c1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: iperf -u -b 0.1m -c 192.168.1.3 -i 1 -t 60 -l 1250
+      objectReference: {fileID: 0}
     - target: {fileID: 1377600171842336565, guid: 1499069da9af06442848d617c4a2b2c1, type: 3}
       propertyPath: enterMoonGenDirectory
       value: 1
@@ -31871,11 +31875,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4421550662611993277, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: numBands
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5328276967716637472, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: enableDiffraction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5839165448725125935, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: m_LocalScale.x

@@ -682,7 +682,7 @@ Transform:
   m_GameObject: {fileID: 87149796}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 50, z: 0}
   m_LocalScale: {x: 2.4147255, y: 2.4147255, z: 2.4147255}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -705,7 +705,7 @@ MonoBehaviour:
   txPower: 40
   enbMobiltiyLocal: {x: 0, y: 0, z: 0}
   enbMobilityInfo: 
-  antennaGain: 0
+  antennaGain: 18
   enbObject: {fileID: 87149796}
 --- !u!1 &111534882
 GameObject:
@@ -2186,6 +2186,10 @@ PrefabInstance:
       propertyPath: sshHost
       value: pc4.filab.uni-hannover.de
       objectReference: {fileID: 0}
+    - target: {fileID: 950936349985577155, guid: 1499069da9af06442848d617c4a2b2c1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: iperf -u -b 1m -c 192.168.1.3 -i 1 -t 60 -l 1250
+      objectReference: {fileID: 0}
     - target: {fileID: 1377600171842336565, guid: 1499069da9af06442848d617c4a2b2c1, type: 3}
       propertyPath: enterMoonGenDirectory
       value: 1
@@ -3368,7 +3372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1572525398018570716, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: targetBler
-      value: 0.05
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1609333289611013543, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: materialIdle
@@ -3446,6 +3450,10 @@ PrefabInstance:
       propertyPath: prefabMovement
       value: 
       objectReference: {fileID: 657172988}
+    - target: {fileID: 4090864873485764150, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: enablePer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4324620982535302738, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: fadingEnabled
       value: 0
@@ -3453,6 +3461,10 @@ PrefabInstance:
     - target: {fileID: 4421550662611993277, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: txPower
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421550662611993277, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: numBands
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5328276967716637472, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: enableDiffraction
@@ -4060,6 +4072,8 @@ MonoBehaviour:
   hitStatusB: 
   reflectance: {fileID: 723820500}
   mediumMaterial: {fileID: 723820499}
+  useVerticalScan: 1
+  lineWidth: 0.5
 --- !u!1 &748826617
 GameObject:
   m_ObjectHideFlags: 0
@@ -7008,17 +7022,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1322987950 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7252248730496720909, guid: d43815731c534a240825eff79b7303dc, type: 3}
-  m_PrefabInstance: {fileID: 657172986}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cad16753797f574ba96e104779ad833, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1344896415
 GameObject:
   m_ObjectHideFlags: 0
@@ -7089,7 +7092,7 @@ MonoBehaviour:
   diffractionLoss: 0
   pathLoss: 0
   totalLoss: 0
-  timeSinceLastUpdate: 0
+  lineWidth: 0.5
 --- !u!1 &1362037244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3947910251074986763, guid: dea565483fe582e42bc438ec16c14fd8, type: 3}
@@ -7626,6 +7629,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3744a6f404f13545afb53899a7e1e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1488203070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4090864873485764150, guid: d43815731c534a240825eff79b7303dc, type: 3}
+  m_PrefabInstance: {fileID: 657172986}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56558570b429de5439b1044567fb3cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1542761154
@@ -9161,15 +9175,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recordInterval: 0.1
-  recordDuration: 10
+  recordDuration: 40
   elapsedTime: 0
   mcs: {fileID: 881776614}
-  isError: {fileID: 1322987950}
+  harq: {fileID: 1488203070}
   intervalInput: {fileID: 274876995}
   durationInput: {fileID: 748826619}
   showElapesdTime: {fileID: 7387326}
   showPkts: {fileID: 953768245}
-  showBLER: {fileID: 1691846104}
+  showPER: {fileID: 0}
   showITBS: {fileID: 1255381880}
   jsonToLua: {fileID: 1862380335}
 --- !u!114 &1862380335

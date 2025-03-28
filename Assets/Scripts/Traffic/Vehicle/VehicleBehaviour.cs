@@ -25,6 +25,8 @@ public class VehicleBehaviour : MonoBehaviour
     public string turnDisplay;
     public string trafficLightDisplay;
 
+    public bool passingThroughIntersection;
+    public IntersectionBase currentIntersection;
     public bool dangerousTurn;
     public int dangerousTurnNode;
     public IntersectionBase dangerousIntersection;
@@ -87,6 +89,9 @@ public class VehicleBehaviour : MonoBehaviour
         dangerousTurn = false;
         dangerousIntersection = null;
 
+        passingThroughIntersection = false;
+        currentIntersection = null;
+
         if (wayPoint.turnType == "AC_LeftTurn" || wayPoint.turnType == "BD_LeftTurn") laneId = 0;
         if (wayPoint.turnType == "AC_Straight" || wayPoint.turnType == "BD_Straight") laneId = 1;
         if (wayPoint.turnType == "AC_RightTurn" || wayPoint.turnType == "BD_RightTurn") laneId = 2;
@@ -117,6 +122,9 @@ public class VehicleBehaviour : MonoBehaviour
                     dangerousTurnNode = wayPoint.middleNodeDest;
                     dangerousIntersection = wayPoint.middleIntersection;
                 }
+
+                passingThroughIntersection = true;
+                currentIntersection = wayPoint.middleIntersection;
 
                 break;
 

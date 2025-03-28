@@ -6,6 +6,7 @@ public class LteHARQ : MonoBehaviour
 
     public double per = 0;
     public MCS_Test mcsTest;
+    public bool enablePer = true;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class LteHARQ : MonoBehaviour
     {
         int cqi = mcsTest.cqiBase.cqi;
         int numBands = mcsTest.ueBase.ueParameters.numBands;
-        per = isError.GetErrorRate(cqi, numBands, mcsTest.cqiBase.snrv);
+        if (enablePer) per = isError.GetErrorRate(cqi, numBands, mcsTest.cqiBase.snrv);
+        else per = 0;
     }
 }

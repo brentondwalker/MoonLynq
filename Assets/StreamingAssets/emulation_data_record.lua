@@ -1,2408 +1,2408 @@
 {
   {
     t= 0.0,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 0.1,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 0.2,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 0.3,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 0.4,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 0.5,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 0.6,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 0.700000048,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 0.8000001,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 0.9000001,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 1.00000012,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 1.10000014,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 1.20000017,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 1.30000019,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 1.40000021,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 1.50000024,
-    throughput= 662.202332,
+    throughput= 66.22023,
     per= 0.0,
     iTbs= 26
   },
   {
     t= 1.60000026,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.020977929718634547,
     iTbs= 26
   },
   {
     t= 1.70000029,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.027552959789702069,
     iTbs= 26
   },
   {
     t= 1.80000031,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.034165070419875931,
     iTbs= 26
   },
   {
     t= 1.90000033,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.041862756453114325,
     iTbs= 26
   },
   {
     t= 2.00000024,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.049927168638058017,
     iTbs= 26
   },
   {
     t= 2.10000014,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.060159053827930409,
     iTbs= 26
   },
   {
     t= 2.2,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.070061588853246537,
     iTbs= 26
   },
   {
     t= 2.3,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.088612147868986857,
     iTbs= 26
   },
   {
     t= 2.39999986,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.10818203586361996,
     iTbs= 26
   },
   {
     t= 2.49999976,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.12626028691727376,
     iTbs= 26
   },
   {
     t= 2.59999967,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.14026197799210327,
     iTbs= 26
   },
   {
     t= 2.69999957,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.15382305596715828,
     iTbs= 26
   },
   {
     t= 2.79999948,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.17368283473371637,
     iTbs= 26
   },
   {
     t= 2.89999938,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.21547477845878071,
     iTbs= 26
   },
   {
     t= 2.99999928,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.25534959232197696,
     iTbs= 26
   },
   {
     t= 3.09999919,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.29406617711564764,
     iTbs= 26
   },
   {
     t= 3.199999,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.31644634618173373,
     iTbs= 26
   },
   {
     t= 3.299999,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.3377529090254493,
     iTbs= 26
   },
   {
     t= 3.399999,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.35839156822076013,
     iTbs= 26
   },
   {
     t= 3.49999881,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.37844932120755359,
     iTbs= 26
   },
   {
     t= 3.59999871,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.39861956295720535,
     iTbs= 26
   },
   {
     t= 3.69999862,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.029295992257613257,
     iTbs= 26
   },
   {
     t= 3.79999852,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.033125168546895067,
     iTbs= 26
   },
   {
     t= 3.89999843,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.037799480251710538,
     iTbs= 26
   },
   {
     t= 3.99999833,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.045101459159903268,
     iTbs= 26
   },
   {
     t= 4.09999847,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.052263311413616065,
     iTbs= 26
   },
   {
     t= 4.19999838,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.059128814330816626,
     iTbs= 26
   },
   {
     t= 4.29999828,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.065990742878952013,
     iTbs= 26
   },
   {
     t= 4.399998,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.078508561545888589,
     iTbs= 26
   },
   {
     t= 4.499998,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.093910261410252382,
     iTbs= 26
   },
   {
     t= 4.599998,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.1087385914308483,
     iTbs= 26
   },
   {
     t= 4.699998,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.12321591691855927,
     iTbs= 26
   },
   {
     t= 4.799998,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.1375356648919015,
     iTbs= 26
   },
   {
     t= 4.89999771,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.14557571830968985,
     iTbs= 26
   },
   {
     t= 4.99999762,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.14849617049875363,
     iTbs= 26
   },
   {
     t= 5.09999752,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.1513133368655204,
     iTbs= 26
   },
   {
     t= 5.19999743,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.15406532253046312,
     iTbs= 26
   },
   {
     t= 5.29999733,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.15680751915210522,
     iTbs= 26
   },
   {
     t= 5.399997,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.15949395203090988,
     iTbs= 26
   },
   {
     t= 5.499997,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.17343384467444367,
     iTbs= 26
   },
   {
     t= 5.599997,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.18958974579918564,
     iTbs= 26
   },
   {
     t= 5.699997,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.20546535755008843,
     iTbs= 26
   },
   {
     t= 5.799997,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.22060615004637385,
     iTbs= 26
   },
   {
     t= 5.89999676,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.23607336216075281,
     iTbs= 26
   },
   {
     t= 5.99999666,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.25085583458578409,
     iTbs= 26
   },
   {
     t= 6.09999657,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.26392532445873251,
     iTbs= 26
   },
   {
     t= 6.19999647,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.27430065229809,
     iTbs= 26
   },
   {
     t= 6.29999638,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.28458408844088834,
     iTbs= 26
   },
   {
     t= 6.39999628,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.29462406508927286,
     iTbs= 26
   },
   {
     t= 6.499996,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.30452259109734725,
     iTbs= 26
   },
   {
     t= 6.599996,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.314250779008159,
     iTbs= 26
   },
   {
     t= 6.699996,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.32404311480129522,
     iTbs= 26
   },
   {
     t= 6.799996,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.33393058536297215,
     iTbs= 26
   },
   {
     t= 6.899996,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.34496631793496935,
     iTbs= 26
   },
   {
     t= 6.99999571,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.35638181355839205,
     iTbs= 26
   },
   {
     t= 7.09999561,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.36726663508401525,
     iTbs= 26
   },
   {
     t= 7.19999552,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.0604315063915114,
     iTbs= 26
   },
   {
     t= 7.29999542,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.062423558141915692,
     iTbs= 26
   },
   {
     t= 7.39999533,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.064322686524191819,
     iTbs= 26
   },
   {
     t= 7.499995,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.066207198159640934,
     iTbs= 26
   },
   {
     t= 7.599995,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.06828711811538779,
     iTbs= 26
   },
   {
     t= 7.699995,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.076649437647279717,
     iTbs= 26
   },
   {
     t= 7.799995,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.085027262175230378,
     iTbs= 26
   },
   {
     t= 7.899995,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.093204640297104069,
     iTbs= 26
   },
   {
     t= 7.99999475,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.10114581733865113,
     iTbs= 26
   },
   {
     t= 8.099995,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.1090201539226282,
     iTbs= 26
   },
   {
     t= 8.199995,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.1168481860857028,
     iTbs= 26
   },
   {
     t= 8.299995,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.12452614917197669,
     iTbs= 26
   },
   {
     t= 8.399996,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.13234436540744765,
     iTbs= 26
   },
   {
     t= 8.499996,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.1399014709199341,
     iTbs= 26
   },
   {
     t= 8.599997,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.14478394166680708,
     iTbs= 26
   },
   {
     t= 8.699997,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.14982643814192764,
     iTbs= 26
   },
   {
     t= 8.799997,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.15471386166419188,
     iTbs= 26
   },
   {
     t= 8.899998,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.15942798338574637,
     iTbs= 26
   },
   {
     t= 8.999998,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.164563578393504,
     iTbs= 26
   },
   {
     t= 9.099998,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.1692457187162808,
     iTbs= 26
   },
   {
     t= 9.199999,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.17386182705601549,
     iTbs= 26
   },
   {
     t= 9.299999,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.17850846625753503,
     iTbs= 26
   },
   {
     t= 9.4,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.18305928212338363,
     iTbs= 26
   },
   {
     t= 9.5,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.18745655278208007,
     iTbs= 26
   },
   {
     t= 9.6,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.2029387263093172,
     iTbs= 26
   },
   {
     t= 9.700001,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.21923413368094646,
     iTbs= 26
   },
   {
     t= 9.800001,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.23544188220421391,
     iTbs= 26
   },
   {
     t= 9.900002,
-    throughput= 662.202332,
-    per= 0.0,
+    throughput= 66.22023,
+    per= 0.25174883628995348,
     iTbs= 26
   },
   {
     t= 10.0000019,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.26799189013212232,
+    iTbs= 25
   },
   {
     t= 10.1000023,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.090929038197915979,
+    iTbs= 25
   },
   {
     t= 10.2000027,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.099009814443337785,
+    iTbs= 25
   },
   {
     t= 10.3000031,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.10698857008959162,
+    iTbs= 25
   },
   {
     t= 10.4000034,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.11490517940721245,
+    iTbs= 25
   },
   {
     t= 10.5000038,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.12262385925826902,
+    iTbs= 25
   },
   {
     t= 10.6000042,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.1301584990527721,
+    iTbs= 25
   },
   {
     t= 10.7000046,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.1379447505589928,
+    iTbs= 25
   },
   {
     t= 10.800005,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.14560222775002041,
+    iTbs= 25
   },
   {
     t= 10.9000053,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.15302697830013656,
+    iTbs= 25
   },
   {
     t= 11.0000057,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.16061359750026694,
+    iTbs= 25
   },
   {
     t= 11.1000061,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.16789094952630423,
+    iTbs= 25
   },
   {
     t= 11.2000065,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.17529901149114735,
+    iTbs= 25
   },
   {
     t= 11.3000069,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.18165374044251847,
+    iTbs= 25
   },
   {
     t= 11.4000072,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.18630318354466224,
+    iTbs= 25
   },
   {
     t= 11.5000076,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.19096507650042727,
+    iTbs= 25
   },
   {
     t= 11.600008,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.19551554322911779,
+    iTbs= 25
   },
   {
     t= 11.7000084,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.20006403125852956,
+    iTbs= 25
   },
   {
     t= 11.8000088,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.20456982241240551,
+    iTbs= 25
   },
   {
     t= 11.9000092,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.20906740044333394,
+    iTbs= 25
   },
   {
     t= 12.00001,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.21356543980246845,
+    iTbs= 25
   },
   {
     t= 12.10001,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.2178650065096388,
+    iTbs= 25
   },
   {
     t= 12.20001,
-    throughput= 662.202332,
-    per= 0.18536767966965872,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.222400028290914,
+    iTbs= 25
   },
   {
     t= 12.3000107,
-    throughput= 662.202332,
-    per= 0.19483529914086228,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.2267304827924278,
+    iTbs= 25
   },
   {
     t= 12.4000111,
-    throughput= 662.202332,
-    per= 0.20435080761180402,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.23097037246576291,
+    iTbs= 25
   },
   {
     t= 12.5000114,
-    throughput= 662.202332,
-    per= 0.21427202786686061,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.23516669339658225,
+    iTbs= 25
   },
   {
     t= 12.6000118,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 57.2916679,
+    per= 0.2393933321683096,
+    iTbs= 25
   },
   {
     t= 12.7000122,
-    throughput= 260.416656,
-    per= 0.0,
-    iTbs= 15
+    throughput= 57.2916679,
+    per= 0.24425754422455315,
+    iTbs= 25
   },
   {
     t= 12.8000126,
-    throughput= 193.452362,
-    per= 0.0,
-    iTbs= 12
+    throughput= 57.2916679,
+    per= 0.24920562454598394,
+    iTbs= 25
   },
   {
     t= 12.900013,
-    throughput= 22.3214264,
-    per= 0.16526156793429014,
-    iTbs= 1
+    throughput= 57.2916679,
+    per= 0.25404235967795397,
+    iTbs= 25
   },
   {
     t= 13.0000134,
-    throughput= 14.8809528,
-    per= 0.029234378176587805,
-    iTbs= 0
+    throughput= 57.2916679,
+    per= 0.25897103004961264,
+    iTbs= 25
   },
   {
     t= 13.1000137,
-    throughput= 14.8809528,
-    per= 0.99999776176961508,
-    iTbs= 0
+    throughput= 57.2916679,
+    per= 0.26373206318846953,
+    iTbs= 25
   },
   {
     t= 13.2000141,
-    throughput= 14.8809528,
-    per= 0.999999826429707,
-    iTbs= 0
+    throughput= 57.2916679,
+    per= 0.26872200879082675,
+    iTbs= 25
   },
   {
     t= 13.3000145,
-    throughput= 14.8809528,
-    per= 0.99976641902441488,
-    iTbs= 0
+    throughput= 57.2916679,
+    per= 0.2735055566942981,
+    iTbs= 25
   },
   {
     t= 13.4000149,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 57.2916679,
+    per= 0.27817450702577995,
+    iTbs= 25
   },
   {
     t= 13.5000153,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 57.2916679,
+    per= 0.2828999963407528,
+    iTbs= 25
   },
   {
     t= 13.6000156,
-    throughput= 22.3214264,
-    per= 1.0,
-    iTbs= 1
+    throughput= 57.2916679,
+    per= 0.2875781173193418,
+    iTbs= 25
   },
   {
     t= 13.700016,
-    throughput= 14.8809528,
-    per= 0.053959063901280246,
-    iTbs= 0
+    throughput= 57.2916679,
+    per= 0.29222311596495387,
+    iTbs= 25
   },
   {
     t= 13.8000164,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 57.2916679,
+    per= 0.29687244132989266,
+    iTbs= 25
   },
   {
     t= 13.9000168,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 57.2916679,
+    per= 0.30152579863906381,
+    iTbs= 25
   },
   {
     t= 14.0000172,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 57.2916679,
+    per= 0.30607720225369661,
+    iTbs= 25
   },
   {
     t= 14.1000175,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.31054934731387585,
+    iTbs= 22
   },
   {
     t= 14.2000179,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.12149722194981649,
+    iTbs= 22
   },
   {
     t= 14.3000183,
-    throughput= 14.8809528,
-    per= 0.24830975104765329,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.12663972450356054,
+    iTbs= 22
   },
   {
     t= 14.4000187,
-    throughput= 14.8809528,
-    per= 0.22394958053509995,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.13177860932611474,
+    iTbs= 22
   },
   {
     t= 14.5000191,
-    throughput= 14.8809528,
-    per= 0.20058775924293359,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.13692325186952092,
+    iTbs= 22
   },
   {
     t= 14.6000195,
-    throughput= 14.8809528,
-    per= 0.17667896537679473,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.14192667474647536,
+    iTbs= 22
   },
   {
     t= 14.70002,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.146963905521447,
+    iTbs= 22
   },
   {
     t= 14.80002,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.15192760892685553,
+    iTbs= 22
   },
   {
     t= 14.9000206,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.15695398753585033,
+    iTbs= 22
   },
   {
     t= 15.000021,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.16302554101812972,
+    iTbs= 22
   },
   {
     t= 15.1000214,
-    throughput= 14.8809528,
-    per= 0.52188597632298217,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.171241868690297,
+    iTbs= 22
   },
   {
     t= 15.2000217,
-    throughput= 14.8809528,
-    per= 0.99999621525847515,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.17926768911288204,
+    iTbs= 22
   },
   {
     t= 15.3000221,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.18727578819871948,
+    iTbs= 22
   },
   {
     t= 15.4000225,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 48.36309,
+    per= 0.19531678485961945,
+    iTbs= 22
   },
   {
     t= 15.5000229,
-    throughput= 37.2023773,
-    per= 1.0,
-    iTbs= 3
+    throughput= 48.36309,
+    per= 0.20339760366852488,
+    iTbs= 22
   },
   {
     t= 15.6000233,
-    throughput= 260.416656,
-    per= 0.0,
-    iTbs= 15
+    throughput= 48.36309,
+    per= 0.21126621599597284,
+    iTbs= 22
   },
   {
     t= 15.7000237,
-    throughput= 260.416656,
-    per= 0.1261705516020003,
-    iTbs= 15
+    throughput= 48.36309,
+    per= 0.21936167634261894,
+    iTbs= 22
   },
   {
     t= 15.800024,
-    throughput= 260.416656,
-    per= 0.0956304280753959,
-    iTbs= 15
+    throughput= 48.36309,
+    per= 0.22712686821737527,
+    iTbs= 22
   },
   {
     t= 15.9000244,
-    throughput= 260.416656,
-    per= 0.20910453720951283,
-    iTbs= 15
+    throughput= 48.36309,
+    per= 0.2346931868484472,
+    iTbs= 22
   },
   {
     t= 16.0000248,
-    throughput= 572.9166,
-    per= 0.12159567343949551,
-    iTbs= 25
+    throughput= 48.36309,
+    per= 0.24208564658926712,
+    iTbs= 22
   },
   {
     t= 16.1000252,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.25002498487324654,
+    iTbs= 22
   },
   {
     t= 16.2000256,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.25746683460941089,
+    iTbs= 22
   },
   {
     t= 16.3000259,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.26562600824213911,
+    iTbs= 22
   },
   {
     t= 16.4000263,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.27314509091658579,
+    iTbs= 22
   },
   {
     t= 16.5000267,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.28054203608302941,
+    iTbs= 22
   },
   {
     t= 16.6000271,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.28824292309350374,
+    iTbs= 22
   },
   {
     t= 16.7000275,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.29552835182835047,
+    iTbs= 22
   },
   {
     t= 16.8000278,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.30201242970255315,
+    iTbs= 22
   },
   {
     t= 16.9000282,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.30703797757881968,
+    iTbs= 22
   },
   {
     t= 17.0000286,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.31195276928506066,
+    iTbs= 22
   },
   {
     t= 17.100029,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.31694528902583086,
+    iTbs= 22
   },
   {
     t= 17.20003,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.3218487034978843,
+    iTbs= 22
   },
   {
     t= 17.30003,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 48.36309,
+    per= 0.32679425865950362,
+    iTbs= 22
   },
   {
     t= 17.40003,
-    throughput= 260.416656,
-    per= 0.0,
-    iTbs= 15
+    throughput= 48.36309,
+    per= 0.33161460794889,
+    iTbs= 22
   },
   {
     t= 17.50003,
-    throughput= 260.416656,
-    per= 0.20498652943786488,
-    iTbs= 15
+    throughput= 48.36309,
+    per= 0.3364708782560738,
+    iTbs= 22
   },
   {
     t= 17.60003,
-    throughput= 260.416656,
-    per= 0.20233111659502223,
-    iTbs= 15
+    throughput= 48.36309,
+    per= 0.34124652465758576,
+    iTbs= 22
   },
   {
     t= 17.7000313,
-    throughput= 260.416656,
-    per= 0.199903522076882,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.34603168631687553,
+    iTbs= 19
   },
   {
     t= 17.8000317,
-    throughput= 260.416656,
-    per= 0.19761421114284339,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.030343320031136933,
+    iTbs= 19
   },
   {
     t= 17.900032,
-    throughput= 260.416656,
-    per= 0.195471550963779,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.03092460196759228,
+    iTbs= 19
   },
   {
     t= 18.0000324,
-    throughput= 260.416656,
-    per= 0.19354101963828407,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.03151519856747953,
+    iTbs= 19
   },
   {
     t= 18.1000328,
-    throughput= 260.416656,
-    per= 0.19165868358553084,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.03209584237161478,
+    iTbs= 19
   },
   {
     t= 18.2000332,
-    throughput= 260.416656,
-    per= 0.19013767687070282,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.032664080898629155,
+    iTbs= 19
   },
   {
     t= 18.3000336,
-    throughput= 260.416656,
-    per= 0.18869802650434209,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.033244031570054844,
+    iTbs= 19
   },
   {
     t= 18.400034,
-    throughput= 260.416656,
-    per= 0.18734793061106458,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.033796876077235583,
+    iTbs= 19
   },
   {
     t= 18.5000343,
-    throughput= 260.416656,
-    per= 0.18634901498885004,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.034385186742163287,
+    iTbs= 19
   },
   {
     t= 18.6000347,
-    throughput= 260.416656,
-    per= 0.18545871539540504,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.03494655363317456,
+    iTbs= 19
   },
   {
     t= 18.7000351,
-    throughput= 260.416656,
-    per= 0.18473511164877054,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.035506840995811362,
+    iTbs= 19
   },
   {
     t= 18.8000355,
-    throughput= 14.8809528,
-    per= 0.1842111322871679,
-    iTbs= 0
+    throughput= 37.9464264,
+    per= 0.036511877157051509,
+    iTbs= 19
   },
   {
     t= 18.9000359,
-    throughput= 483.630951,
-    per= 1.0,
-    iTbs= 22
+    throughput= 37.9464264,
+    per= 0.040951056575258882,
+    iTbs= 19
   },
   {
     t= 19.0000362,
-    throughput= 483.630951,
-    per= 0.0,
-    iTbs= 22
+    throughput= 37.9464264,
+    per= 0.045393247790119884,
+    iTbs= 19
   },
   {
     t= 19.1000366,
-    throughput= 483.630951,
-    per= 0.0,
-    iTbs= 22
+    throughput= 37.9464264,
+    per= 0.049821751626353938,
+    iTbs= 19
   },
   {
     t= 19.200037,
-    throughput= 483.630951,
-    per= 0.0,
-    iTbs= 22
+    throughput= 37.9464264,
+    per= 0.054219694195330681,
+    iTbs= 19
   },
   {
     t= 19.3000374,
-    throughput= 483.630951,
-    per= 0.0,
-    iTbs= 22
+    throughput= 37.9464264,
+    per= 0.058557818493271019,
+    iTbs= 19
   },
   {
     t= 19.4000378,
-    throughput= 14.8809528,
-    per= 0.0,
-    iTbs= 0
+    throughput= 37.9464264,
+    per= 0.0628655117102499,
+    iTbs= 19
   },
   {
     t= 19.5000381,
-    throughput= 260.416656,
-    per= 0.44094593679509064,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.067189870897951587,
+    iTbs= 19
   },
   {
     t= 19.6000385,
-    throughput= 260.416656,
-    per= 0.18637319228118132,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.071446500719945072,
+    iTbs= 19
   },
   {
     t= 19.7000389,
-    throughput= 260.416656,
-    per= 0.18745828431960299,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.075776610182482718,
+    iTbs= 19
   },
   {
     t= 19.80004,
-    throughput= 260.416656,
-    per= 0.18869107736102608,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.080046395223893341,
+    iTbs= 19
   },
   {
     t= 19.90004,
-    throughput= 260.416656,
-    per= 0.19024993524833844,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.084243195194492748,
+    iTbs= 19
   },
   {
     t= 20.00004,
-    throughput= 260.416656,
-    per= 0.19180968508781027,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.088422164256757307,
+    iTbs= 19
   },
   {
     t= 20.10004,
-    throughput= 260.416656,
-    per= 0.19375475166718736,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.092702617516118191,
+    iTbs= 19
   },
   {
     t= 20.20004,
-    throughput= 260.416656,
-    per= 0.19574819988027992,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.096815778051937751,
+    iTbs= 19
   },
   {
     t= 20.3000412,
-    throughput= 260.416656,
-    per= 0.19794113435772409,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.10094447032534304,
+    iTbs= 19
   },
   {
     t= 20.4000416,
-    throughput= 260.416656,
-    per= 0.20032989698444781,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.10500294682528333,
+    iTbs= 19
   },
   {
     t= 20.500042,
-    throughput= 260.416656,
-    per= 0.20291201114172941,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.10915267044699428,
+    iTbs= 19
   },
   {
     t= 20.6000423,
-    throughput= 260.416656,
-    per= 0.20547028197871786,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.11330187236615707,
+    iTbs= 19
   },
   {
     t= 20.7000427,
-    throughput= 260.416656,
-    per= 0.20838008411667841,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.11729463420001318,
+    iTbs= 19
   },
   {
     t= 20.8000431,
-    throughput= 260.416656,
-    per= 0.21139631537256065,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.12129462266985325,
+    iTbs= 19
   },
   {
     t= 20.9000435,
-    throughput= 260.416656,
-    per= 0.21448454602296463,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.12537760475103821,
+    iTbs= 19
   },
   {
     t= 21.0000439,
-    throughput= 260.416656,
-    per= 0.21810219327157165,
-    iTbs= 15
+    throughput= 37.9464264,
+    per= 0.12946543818797362,
+    iTbs= 19
   },
   {
     t= 21.1000443,
-    throughput= 662.202332,
-    per= 0.22162022713944607,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.13327064486904838,
+    iTbs= 19
   },
   {
     t= 21.2000446,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.13680543633062647,
+    iTbs= 19
   },
   {
     t= 21.300045,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.14019520283762943,
+    iTbs= 19
   },
   {
     t= 21.4000454,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.14368056622176872,
+    iTbs= 19
   },
   {
     t= 21.5000458,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.14714228384961847,
+    iTbs= 19
   },
   {
     t= 21.6000462,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.15056153310520048,
+    iTbs= 19
   },
   {
     t= 21.7000465,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.15397078309690371,
+    iTbs= 19
   },
   {
     t= 21.8000469,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.15741212138234362,
+    iTbs= 19
   },
   {
     t= 21.9000473,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.16078724259376709,
+    iTbs= 19
   },
   {
     t= 22.0000477,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.16413436426178918,
+    iTbs= 19
   },
   {
     t= 22.1000481,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.1673842645865371,
+    iTbs= 19
   },
   {
     t= 22.2000484,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.17070977073326588,
+    iTbs= 19
   },
   {
     t= 22.3000488,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.1739944166480345,
+    iTbs= 19
   },
   {
     t= 22.40005,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.17721421036238572,
+    iTbs= 19
   },
   {
     t= 22.50005,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.18050765242629052,
+    iTbs= 19
   },
   {
     t= 22.60005,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.18375765781122755,
+    iTbs= 19
   },
   {
     t= 22.70005,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.18701747656346057,
+    iTbs= 19
   },
   {
     t= 22.80005,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.19023433414000213,
+    iTbs= 19
   },
   {
     t= 22.9000511,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.19348517339205884,
+    iTbs= 19
   },
   {
     t= 23.0000515,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.19665025668258918,
+    iTbs= 19
   },
   {
     t= 23.1000519,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.1998041184338647,
+    iTbs= 19
   },
   {
     t= 23.2000523,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.2028034725125053,
+    iTbs= 19
   },
   {
     t= 23.3000526,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.2062329348262073,
+    iTbs= 19
   },
   {
     t= 23.400053,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.20942331654724555,
+    iTbs= 19
   },
   {
     t= 23.5000534,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.2125643826734529,
+    iTbs= 19
   },
   {
     t= 23.6000538,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.21562382741779151,
+    iTbs= 19
   },
   {
     t= 23.7000542,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 37.9464264,
+    per= 0.22123881344952312,
+    iTbs= 19
   },
   {
     t= 23.8000546,
-    throughput= 572.9166,
-    per= 0.0,
-    iTbs= 25
+    throughput= 37.9464264,
+    per= 0.22722630556313195,
+    iTbs= 19
   },
   {
     t= 23.9000549,
-    throughput= 572.9166,
-    per= 0.0,
-    iTbs= 25
+    throughput= 37.9464264,
+    per= 0.23318276008941297,
+    iTbs= 19
   },
   {
     t= 24.0000553,
-    throughput= 572.9166,
-    per= 0.0,
-    iTbs= 25
+    throughput= 37.9464264,
+    per= 0.23910776362156505,
+    iTbs= 19
   },
   {
     t= 24.1000557,
-    throughput= 572.9166,
-    per= 0.0,
-    iTbs= 25
+    throughput= 37.9464264,
+    per= 0.24486809691953204,
+    iTbs= 19
   },
   {
     t= 24.2000561,
-    throughput= 572.9166,
-    per= 0.0,
-    iTbs= 25
+    throughput= 37.9464264,
+    per= 0.25069324915244673,
+    iTbs= 19
   },
   {
     t= 24.3000565,
-    throughput= 14.8809528,
-    per= 0.0,
-    iTbs= 0
+    throughput= 37.9464264,
+    per= 0.25661471525084467,
+    iTbs= 19
   },
   {
     t= 24.4000568,
-    throughput= 14.8809528,
-    per= 0.93015853472259535,
-    iTbs= 0
+    throughput= 37.9464264,
+    per= 0.26214708770068773,
+    iTbs= 19
   },
   {
     t= 24.5000572,
-    throughput= 14.8809528,
-    per= 0.83786641325714717,
-    iTbs= 0
+    throughput= 37.9464264,
+    per= 0.26809312550851794,
+    iTbs= 19
   },
   {
     t= 24.6000576,
-    throughput= 14.8809528,
-    per= 0.985976147696467,
-    iTbs= 0
+    throughput= 37.9464264,
+    per= 0.27380401806114241,
+    iTbs= 19
   },
   {
     t= 24.700058,
-    throughput= 14.8809528,
-    per= 0.96110862870202507,
-    iTbs= 0
+    throughput= 37.9464264,
+    per= 0.27935026416057185,
+    iTbs= 19
   },
   {
     t= 24.8000584,
-    throughput= 111.60714,
-    per= 0.90403698923297693,
-    iTbs= 8
+    throughput= 37.9464264,
+    per= 0.28509672345670511,
+    iTbs= 19
   },
   {
     t= 24.9000587,
-    throughput= 14.8809528,
-    per= 0.016383683380761127,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.29071722902116193,
+    iTbs= 15
   },
   {
     t= 25.00006,
-    throughput= 14.8809528,
-    per= 0.99896080951341515,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.16416022952693654,
+    iTbs= 15
   },
   {
     t= 25.10006,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.16858591777116205,
+    iTbs= 15
   },
   {
     t= 25.20006,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.1729034794487434,
+    iTbs= 15
   },
   {
     t= 25.30006,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.17730747384811507,
+    iTbs= 15
   },
   {
     t= 25.40006,
-    throughput= 662.202332,
-    per= 1.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.18153054615613784,
+    iTbs= 15
   },
   {
     t= 25.500061,
-    throughput= 662.202332,
-    per= 1.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.185780066557101,
+    iTbs= 15
   },
   {
     t= 25.6000614,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.19009516958222727,
+    iTbs= 15
   },
   {
     t= 25.7000618,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.19422964326999037,
+    iTbs= 15
   },
   {
     t= 25.8000622,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.19848320601241132,
+    iTbs= 15
   },
   {
     t= 25.9000626,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.20263961781818063,
+    iTbs= 15
   },
   {
     t= 26.0000629,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.20689495070753949,
+    iTbs= 15
   },
   {
     t= 26.1000633,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.21109618822203258,
+    iTbs= 15
   },
   {
     t= 26.2000637,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.21517007821402245,
+    iTbs= 15
   },
   {
     t= 26.3000641,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.21933714168431639,
+    iTbs= 15
   },
   {
     t= 26.4000645,
-    throughput= 14.8809528,
-    per= 1.0,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.22342407186037272,
+    iTbs= 15
   },
   {
     t= 26.5000648,
-    throughput= 14.8809528,
-    per= 0.99999999997833944,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.22749014292707437,
+    iTbs= 15
   },
   {
     t= 26.6000652,
-    throughput= 37.2023773,
-    per= 0.21078054044926231,
-    iTbs= 3
+    throughput= 26.041666,
+    per= 0.23156238061533929,
+    iTbs= 15
   },
   {
     t= 26.7000656,
-    throughput= 14.8809528,
-    per= 0.17480992654469973,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.23553571574018295,
+    iTbs= 15
   },
   {
     t= 26.800066,
-    throughput= 14.8809528,
-    per= 0.31693474138526068,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.2396237065861212,
+    iTbs= 15
   },
   {
     t= 26.9000664,
-    throughput= 14.8809528,
-    per= 0.26772969579992134,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.24368945774922146,
+    iTbs= 15
   },
   {
     t= 27.0000668,
-    throughput= 14.8809528,
-    per= 0.22000658649036409,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.24778692549515657,
+    iTbs= 15
   },
   {
     t= 27.1000671,
-    throughput= 14.8809528,
-    per= 0.16970582536325651,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.2517515477854626,
+    iTbs= 15
   },
   {
     t= 27.2000675,
-    throughput= 14.8809528,
-    per= 0.11801936026277859,
-    iTbs= 0
+    throughput= 26.041666,
+    per= 0.25576754791380241,
+    iTbs= 15
   },
   {
     t= 27.3000679,
-    throughput= 260.416656,
-    per= 0.015062044988293999,
+    throughput= 26.041666,
+    per= 0.2597188970137515,
     iTbs= 15
   },
   {
     t= 27.4000683,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.26371067943882576,
+    iTbs= 15
   },
   {
     t= 27.5000687,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.26755022557449704,
+    iTbs= 15
   },
   {
     t= 27.600069,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.27147320231931693,
+    iTbs= 15
   },
   {
     t= 27.70007,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.27535033101285444,
+    iTbs= 15
   },
   {
     t= 27.80007,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.27926408046627282,
+    iTbs= 15
   },
   {
     t= 27.90007,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.28322035326527961,
+    iTbs= 15
   },
   {
     t= 28.00007,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.28702739349977247,
+    iTbs= 15
   },
   {
     t= 28.10007,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.029397993407536016,
+    iTbs= 15
   },
   {
     t= 28.2000713,
-    throughput= 483.630951,
-    per= 0.0,
-    iTbs= 22
+    throughput= 26.041666,
+    per= 0.031234217111621,
+    iTbs= 15
   },
   {
     t= 28.3000717,
-    throughput= 662.202332,
-    per= 0.28972100030817161,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.033073528905817273,
+    iTbs= 15
   },
   {
     t= 28.4000721,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.034899978422072153,
+    iTbs= 15
   },
   {
     t= 28.5000725,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.036776370708649253,
+    iTbs= 15
   },
   {
     t= 28.6000729,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.038613453535321418,
+    iTbs= 15
   },
   {
     t= 28.7000732,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.040429717873735616,
+    iTbs= 15
   },
   {
     t= 28.8000736,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.042286078386195358,
+    iTbs= 15
   },
   {
     t= 28.900074,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.044101345129603731,
+    iTbs= 15
   },
   {
     t= 29.0000744,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.045911658560542468,
+    iTbs= 15
   },
   {
     t= 29.1000748,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.0477067376505117,
+    iTbs= 15
   },
   {
     t= 29.2000751,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.049506880050753765,
+    iTbs= 15
   },
   {
     t= 29.3000755,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.051284820436383605,
+    iTbs= 15
   },
   {
     t= 29.4000759,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.053030215379704204,
+    iTbs= 15
   },
   {
     t= 29.5000763,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.054814017629716272,
+    iTbs= 15
   },
   {
     t= 29.6000767,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.056571419210617258,
+    iTbs= 15
   },
   {
     t= 29.7000771,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.058341506790043129,
+    iTbs= 15
   },
   {
     t= 29.8000774,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.06011499403819176,
+    iTbs= 15
   },
   {
     t= 29.9000778,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.061852953754337081,
+    iTbs= 15
   },
   {
     t= 30.0000782,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.063627745940796565,
+    iTbs= 15
   },
   {
     t= 30.1000786,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.065329465749368709,
+    iTbs= 15
   },
   {
     t= 30.200079,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.067011703689780044,
+    iTbs= 15
   },
   {
     t= 30.30008,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.068854663002402283,
+    iTbs= 15
   },
   {
     t= 30.40008,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.070574009119417136,
+    iTbs= 15
   },
   {
     t= 30.50008,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.072294189787474927,
+    iTbs= 15
   },
   {
     t= 30.60008,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.0739995669692819,
+    iTbs= 15
   },
   {
     t= 30.70008,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.075717898150713725,
+    iTbs= 15
   },
   {
     t= 30.8000813,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.077432178222856418,
+    iTbs= 15
   },
   {
     t= 30.9000816,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.079127908296585892,
+    iTbs= 15
   },
   {
     t= 31.000082,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.080840905334620072,
+    iTbs= 15
   },
   {
     t= 31.1000824,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.082500635590254667,
+    iTbs= 15
   },
   {
     t= 31.2000828,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.084213910274191228,
+    iTbs= 15
   },
   {
     t= 31.3000832,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.085901440969957332,
+    iTbs= 15
   },
   {
     t= 31.4000835,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.08754648249816499,
+    iTbs= 15
   },
   {
     t= 31.5000839,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.089871760656753841,
+    iTbs= 15
   },
   {
     t= 31.6000843,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.092405440636320724,
+    iTbs= 15
   },
   {
     t= 31.7000847,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.094937817522292578,
+    iTbs= 15
   },
   {
     t= 31.8000851,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.097501749444281582,
+    iTbs= 15
   },
   {
     t= 31.9000854,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.0999867386090807,
+    iTbs= 15
   },
   {
     t= 32.0000839,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.10252506848961529,
+    iTbs= 15
   },
   {
     t= 32.1000824,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.10501190472134381,
+    iTbs= 15
   },
   {
     t= 32.20008,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.10749978634136392,
+    iTbs= 15
   },
   {
     t= 32.30008,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.11002534637069994,
+    iTbs= 15
   },
   {
     t= 32.4000778,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.11248970197270725,
+    iTbs= 15
   },
   {
     t= 32.5000763,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.11493114370913893,
+    iTbs= 15
   },
   {
     t= 32.6000748,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.11742311000125683,
+    iTbs= 15
   },
   {
     t= 32.7000732,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.11988121612028046,
+    iTbs= 15
   },
   {
     t= 32.80007,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.122302745960719,
+    iTbs= 15
   },
   {
     t= 32.90007,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.1247240655680214,
+    iTbs= 15
   },
   {
     t= 33.00007,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.12717466138200051,
+    iTbs= 15
   },
   {
     t= 33.1000671,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.12957731686080676,
+    iTbs= 15
   },
   {
     t= 33.2000656,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.13202845910718564,
+    iTbs= 15
   },
   {
     t= 33.3000641,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.13444750843556086,
+    iTbs= 15
   },
   {
     t= 33.4000626,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.1368199256305529,
+    iTbs= 15
   },
   {
     t= 33.50006,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.13923900978342574,
+    iTbs= 15
   },
   {
     t= 33.60006,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.1416516552440219,
+    iTbs= 15
   },
   {
     t= 33.700058,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.14401863303270146,
+    iTbs= 15
   },
   {
     t= 33.8000565,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.14633581112154725,
+    iTbs= 15
   },
   {
     t= 33.9000549,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.14880465391774256,
+    iTbs= 15
   },
   {
     t= 34.0000534,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.15110261766268762,
+    iTbs= 15
   },
   {
     t= 34.10005,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.15348259436362288,
+    iTbs= 15
   },
   {
     t= 34.20005,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.15585188906451253,
+    iTbs= 15
   },
   {
     t= 34.30005,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.15821130770133429,
+    iTbs= 15
   },
   {
     t= 34.4000473,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.16050987642118686,
+    iTbs= 15
   },
   {
     t= 34.5000458,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.16288813003215996,
+    iTbs= 15
   },
   {
     t= 34.6000443,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.16519384800610648,
+    iTbs= 15
   },
   {
     t= 34.7000427,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.16746086948329275,
+    iTbs= 15
   },
   {
     t= 34.80004,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.16978231253520359,
+    iTbs= 15
   },
   {
     t= 34.90004,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.17209647773755754,
+    iTbs= 15
   },
   {
     t= 35.00004,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.17440743714952278,
+    iTbs= 15
   },
   {
     t= 35.1000366,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.17673324710597327,
+    iTbs= 15
   },
   {
     t= 35.2000351,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.17900391587608422,
+    iTbs= 15
   },
   {
     t= 35.3000336,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.182208924641873,
+    iTbs= 15
   },
   {
     t= 35.400032,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.18634633739571238,
+    iTbs= 15
   },
   {
     t= 35.50003,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.19026617746647778,
+    iTbs= 15
   },
   {
     t= 35.60003,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.19421704216392344,
+    iTbs= 15
   },
   {
     t= 35.7000275,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.19819189298484863,
+    iTbs= 15
   },
   {
     t= 35.8000259,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.20223685481993059,
+    iTbs= 15
   },
   {
     t= 35.9000244,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.20611480470608812,
+    iTbs= 15
   },
   {
     t= 36.0000229,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.21012091259415389,
+    iTbs= 15
   },
   {
     t= 36.10002,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.21409537557634328,
+    iTbs= 15
   },
   {
     t= 36.20002,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.21795796036851678,
+    iTbs= 15
   },
   {
     t= 36.30002,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.22201820655901405,
+    iTbs= 15
   },
   {
     t= 36.4000168,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.22594537658233205,
+    iTbs= 15
   },
   {
     t= 36.5000153,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.22983618725398358,
+    iTbs= 15
   },
   {
     t= 36.6000137,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.23370228901574652,
+    iTbs= 15
   },
   {
     t= 36.7000122,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.23758588353976939,
+    iTbs= 15
   },
   {
     t= 36.80001,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.24131136701386391,
+    iTbs= 15
   },
   {
     t= 36.90001,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.24530363080652295,
+    iTbs= 15
   },
   {
     t= 37.0000076,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.24910663305534009,
+    iTbs= 15
   },
   {
     t= 37.1000061,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.252858300325013,
+    iTbs= 15
   },
   {
     t= 37.2000046,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.25674868133559281,
+    iTbs= 15
   },
   {
     t= 37.3000031,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.26014856078584558,
+    iTbs= 15
   },
   {
     t= 37.4,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.26429986418622131,
+    iTbs= 15
   },
   {
     t= 37.5,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.26827623390659827,
+    iTbs= 15
   },
   {
     t= 37.6,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.27205876922875838,
+    iTbs= 15
   },
   {
     t= 37.6999969,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.2758076325675618,
+    iTbs= 15
   },
   {
     t= 37.7999954,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.2796256300775869,
+    iTbs= 15
   },
   {
     t= 37.8999939,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.28337737018488196,
+    iTbs= 15
   },
   {
     t= 37.9999924,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.28719762946443983,
+    iTbs= 15
   },
   {
     t= 38.09999,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.29097369436886988,
+    iTbs= 15
   },
   {
     t= 38.19999,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.294700390752472,
+    iTbs= 15
   },
   {
     t= 38.2999878,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.29838500109346111,
+    iTbs= 15
   },
   {
     t= 38.3999863,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.301936812930486,
+    iTbs= 15
   },
   {
     t= 38.4999847,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.30595557628051984,
+    iTbs= 15
   },
   {
     t= 38.5999832,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.30961800393792127,
+    iTbs= 15
   },
   {
     t= 38.69998,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.31337689840249916,
+    iTbs= 15
   },
   {
     t= 38.79998,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.317112148431989,
+    iTbs= 15
   },
   {
     t= 38.89998,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.32077807516963297,
+    iTbs= 15
   },
   {
     t= 38.9999771,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.32441393743978431,
+    iTbs= 15
   },
   {
     t= 39.0999756,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.32811863497627969,
+    iTbs= 15
   },
   {
     t= 39.1999741,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.33179203338403207,
+    iTbs= 15
   },
   {
     t= 39.2999725,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.33542497769497115,
+    iTbs= 15
   },
   {
     t= 39.39997,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 26.041666,
+    per= 0.33903880798866948,
+    iTbs= 15
   },
   {
     t= 39.49997,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 19.3452358,
+    per= 0.34269882933007789,
+    iTbs= 12
   },
   {
     t= 39.599968,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 19.3452358,
+    per= 0.058607305396170872,
+    iTbs= 12
   },
   {
     t= 39.6999664,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 19.3452358,
+    per= 0.059584789441714747,
+    iTbs= 12
   },
   {
     t= 39.7999649,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 19.3452358,
+    per= 0.060542772239932208,
+    iTbs= 12
   },
   {
     t= 39.8999634,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 19.3452358,
+    per= 0.061505442106642216,
+    iTbs= 12
   },
   {
     t= 39.99996,
-    throughput= 662.202332,
-    per= 0.0,
-    iTbs= 26
+    throughput= 19.3452358,
+    per= 0.062446068976228175,
+    iTbs= 12
   }
 }

@@ -5,22 +5,26 @@ public class VehicleDangerousTurn : MonoBehaviour
 {
     public VehicleBehaviour vehicleBehaviour;
     public VehicleBlindSpotDetector vehicleBlindSpotDetector;
-    private bool isCount;
+    private bool isDangerousCount;
+    private bool isPassCount;
     public int rightTurnCount;
     public int dangerousTurnCount;
+    public int passCount;
     private double dangerousTimeThreshold = 0.3;
 
     private void Start()
     {
-        isCount = true;
+        isDangerousCount = true;
+        isPassCount = true;
         dangerousTurnCount = 0;
         rightTurnCount = 0;
+        passCount = 0;
     }
 
     private void Update()
     {
         BlindSpotInfo[] blindSpots = vehicleBlindSpotDetector.blindSpotInfos;
-        if (vehicleBehaviour.dangerousTurn && isCount)
+        if (vehicleBehaviour.dangerousTurn && isDangerousCount)
         {
             if (vehicleBehaviour.dangerousIntersection == blindSpots[0].intersection)
             { rightTurnCount++; GlobalStatistikDangerousTurn.RightTurnCount(); }
@@ -37,8 +41,16 @@ public class VehicleDangerousTurn : MonoBehaviour
                     }
                 }
             }
-            isCount = false;
+            isDangerousCount = false;
         }
-        if (!vehicleBehaviour.dangerousTurn) { isCount = true; }
+        if (!vehicleBehaviour.dangerousTurn) { isDangerousCount = true; }
+
+        if (vehicleBehaviour.passingThroughIntersection && isPassCount)
+        {
+            if (vehicleBehaviour.currentIntersection == blindSpots[0].intersection)
+            { passCount++; GlobalStatistikDangerousTurn.IntersectionPassCount(); }
+            isPassCount = false;
+        }
+        if (!vehicleBehaviour.passingThroughIntersection) { isPassCount = true; }
     }
 }

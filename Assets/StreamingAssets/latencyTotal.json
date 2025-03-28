@@ -1,26 +1,170 @@
 [
   {
+    "time": "0",
+    "latency": "0.152"
+  },
+  {
+    "time": "1",
+    "latency": "0.378"
+  },
+  {
+    "time": "2",
+    "latency": "0.725"
+  },
+  {
+    "time": "3",
+    "latency": "1.133"
+  },
+  {
+    "time": "4",
+    "latency": "1.524"
+  },
+  {
     "time": "5",
-    "latency": "0.159"
+    "latency": "1.890"
   },
   {
     "time": "6",
-    "latency": "0.185"
+    "latency": "2.284"
   },
   {
     "time": "7",
-    "latency": "0.176"
+    "latency": "2.681"
   },
   {
     "time": "8",
-    "latency": "0.196"
+    "latency": "3.037"
   },
   {
     "time": "9",
-    "latency": "0.195"
+    "latency": "3.452"
   },
   {
     "time": "10",
-    "latency": "0.115"
+    "latency": "3.884"
+  },
+  {
+    "time": "11",
+    "latency": "4.358"
+  },
+  {
+    "time": "12",
+    "latency": "4.839"
+  },
+  {
+    "time": "13",
+    "latency": "5.355"
+  },
+  {
+    "time": "14",
+    "latency": "5.871"
+  },
+  {
+    "time": "15",
+    "latency": "6.447"
+  },
+  {
+    "time": "16",
+    "latency": "7.013"
+  },
+  {
+    "time": "17",
+    "latency": "7.575"
+  },
+  {
+    "time": "18",
+    "latency": "8.196"
+  },
+  {
+    "time": "19",
+    "latency": "8.823"
+  },
+  {
+    "time": "20",
+    "latency": "9.451"
+  },
+  {
+    "time": "21",
+    "latency": "10.081"
+  },
+  {
+    "time": "22",
+    "latency": "10.724"
+  },
+  {
+    "time": "23",
+    "latency": "11.366"
+  },
+  {
+    "time": "24",
+    "latency": "11.998"
+  },
+  {
+    "time": "25",
+    "latency": "12.724"
+  },
+  {
+    "time": "26",
+    "latency": "13.471"
+  },
+  {
+    "time": "27",
+    "latency": "14.219"
+  },
+  {
+    "time": "28",
+    "latency": "14.985"
+  },
+  {
+    "time": "29",
+    "latency": "15.722"
+  },
+  {
+    "time": "30",
+    "latency": "16.475"
+  },
+  {
+    "time": "31",
+    "latency": "17.230"
+  },
+  {
+    "time": "32",
+    "latency": "17.965"
+  },
+  {
+    "time": "33",
+    "latency": "18.707"
+  },
+  {
+    "time": "34",
+    "latency": "19.456"
+  },
+  {
+    "time": "35",
+    "latency": "20.212"
+  },
+  {
+    "time": "36",
+    "latency": "20.975"
+  },
+  {
+    "time": "37",
+    "latency": "21.732"
+  },
+  {
+    "time": "38",
+    "latency": "22.467"
+  },
+  {
+    "time": "39",
+    "latency": "23.213"
+  },
+  {
+    "time": "40",
+    "latency": "24.042"
+  },
+  {
+    "time": "41",
+    "latency": "24.806"
   }
 ]
