@@ -31,9 +31,9 @@ public class DielectricObstacleLoss : MonoBehaviour
     {
         float lossTangent = GetDielectricLossTangent(material, frequency);
         float propagationSpeed = GetPropagationSpeed(material);
-        double delta = Math.Atan(lossTangent);
+        //double delta = Math.Atan(lossTangent);
         float k = 2 * Mathf.PI * frequency / propagationSpeed;
-        double factor = Math.Exp(-2 * delta * (k * distance));
+        double factor = Math.Exp(-1 * lossTangent * (k * distance));
 
         //Debug.Log("Dielectric loss factor: " + factor);
         //Debug.Log("Distance: " + distance);

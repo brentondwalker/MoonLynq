@@ -13,6 +13,7 @@ public class MGDataToJSON : MonoBehaviour
         ThroughputJson();
         LatencyJson();
         PktJson();
+        RlcQueueJson();
     }
 
     public void ThroughputJson()
@@ -26,8 +27,6 @@ public class MGDataToJSON : MonoBehaviour
         }
 
         string json = JsonConvert.SerializeObject(pdcpData, Formatting.Indented);
-
-        Debug.Log("PDCP Throughput JSON: " + json);
 
         string folderPath = Application.streamingAssetsPath;
         string filePath = folderPath + "/pdcpThroughput.json";
@@ -46,13 +45,11 @@ public class MGDataToJSON : MonoBehaviour
 
         if (latencyData == null || latencyData.Count == 0)
         {
-            Debug.LogWarning("No pkt data available.");
+            Debug.LogWarning("No latency data available.");
             return;
         }
 
         string json = JsonConvert.SerializeObject(latencyData, Formatting.Indented);
-
-        Debug.Log("pkt JSON: " + json);
 
         string folderPath = Application.streamingAssetsPath;
         string filePath = folderPath + "/latencyTotal.json";
@@ -76,6 +73,24 @@ public class MGDataToJSON : MonoBehaviour
 
         string folderPath = Application.streamingAssetsPath;
         string filePath = folderPath + "/pktInfo.json";
+
+        if (!Directory.Exists(folderPath))
+        {
+            Directory.CreateDirectory(folderPath);
+        }
+
+        File.WriteAllText(filePath, json);
+        Debug.Log("JSON saved to: " + filePath);
+    }
+
+    public void RlcQueueJson()
+    {
+        List<rlcQueue> RlcQueue = messageManager.getRlcQueueBase();
+
+        string json = JsonConvert.SerializeObject(RlcQueue, Formatting.Indented);
+
+        string folderPath = Application.streamingAssetsPath;
+        string filePath = folderPath + "/rlcQueue.json";
 
         if (!Directory.Exists(folderPath))
         {

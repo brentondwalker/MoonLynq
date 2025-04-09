@@ -63,21 +63,20 @@ public class DataRecorder : MonoBehaviour
     IEnumerator RecordData()
     {
         isRecording = true;
-        elapsedTime = 0f;
         recordedData.Clear();
+        float startTime = Time.time; 
 
-        while (elapsedTime < recordDuration)
+        while (Time.time - startTime < recordDuration)
         {
+            elapsedTime = Time.time - startTime; 
             recordedData.Add(new DataRecord(elapsedTime, mcs.pkts, harq.per, mcs.iTbs));
 
-            yield return new WaitForSeconds(recordInterval);
-            elapsedTime += recordInterval;
+            yield return new WaitForSeconds(recordInterval); 
         }
 
         Debug.Log("Recording finished!");
-        
-        SaveToJson();
 
+        SaveToJson();
         isRecording = false;
     }
 

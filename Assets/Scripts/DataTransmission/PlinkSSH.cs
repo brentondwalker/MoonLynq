@@ -19,11 +19,7 @@ public class PlinkSSH : MonoBehaviour
     public string sshHost = "pc32.filab.uni-hannover.de";
 
     public bool enterMoonGenDirectory = false;
-
-
-
     private ConcurrentQueue<string> logQueue = new ConcurrentQueue<string>();
-
 
 
     void Start()

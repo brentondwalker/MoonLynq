@@ -151,7 +151,7 @@ function receive(ring, rxQueue, rxDev, ns, threadId)
 	local ring_capacity = math.ceil(2048000/1280)
 
 
-	-- ring_capacity = 1
+	--ring_capacity = 200
 
 	while mg.running() do
 		count = rxQueue:recv(bufs)

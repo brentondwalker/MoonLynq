@@ -9,7 +9,7 @@ public class UeMovementControl : MonoBehaviour
     public Transform cameraTransform;
     public Vector3 positionLocal;
 
-    void Update()
+    void FixedUpdate()
     {
         positionLocal = transform.localPosition;
         Vector3 move = Vector3.zero;
@@ -19,42 +19,47 @@ public class UeMovementControl : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            move += cameraTransform.forward;
+            move += cameraForward;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            move += -cameraTransform.forward;
+            move -= cameraForward;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            move += -cameraTransform.right;
+            move -= cameraRight;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            move += cameraTransform.right;
+            move += cameraRight;
         }
         if (Input.GetKey(KeyCode.I))
         {
-            move.z += moveSpeed * Time.deltaTime;
+            move.z += 1;
         }
         if (Input.GetKey(KeyCode.K))
         {
-            move.z -= moveSpeed * Time.deltaTime;
+            move.z -= 1;
         }
         if (Input.GetKey(KeyCode.J))
         {
-            move.x -= moveSpeed * Time.deltaTime;
+            move.x -= 1;
         }
         if (Input.GetKey(KeyCode.L))
         {
-            move.x += moveSpeed * Time.deltaTime;
+            move.x += 1;
         }
 
         move.y = 0;
 
+        if (move != Vector3.zero)
+        {
+            move = move.normalized; 
+        }
+
         if (statusDisplay.status)
         {
-            transform.Translate(move.normalized * moveSpeed * Time.deltaTime, Space.World);
+            transform.Translate(move * moveSpeed * Time.fixedDeltaTime, Space.World);
         }
     }
 }

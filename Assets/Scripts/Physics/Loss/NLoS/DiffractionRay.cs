@@ -194,7 +194,7 @@ public class DiffractionRay : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag(targetTag))
             {
-                newDirectionF = ScanCorner(rayStart, dest, 1, 30, directionF, hitInfo, false, out hitStatusB);
+                newDirectionF = ScanCorner(rayStart, dest, 1, 12, directionF, hitInfo, false, out hitStatusB);
                 if (newDirectionF != Vector3.zero)
                 {
                     newDirectionF = ScanCorner(rayStart, dest, 0.2f, 2.2f, newDirectionF, hitInfo, false, out hitStatusB);

@@ -20,8 +20,16 @@ public class HeatmapJSON : MonoBehaviour
 
     public void WriteHeatmapData()
     {
+        string mode = heatMapRayBase.dropdownManager.currentMode;
+        List<float> totalLosses = new List<float>();
+
+        if (mode == "LoS") totalLosses = heatMapRayBase.losTotalLosses;
+        if (mode == "Reflection") totalLosses = heatMapRayBase.reflectionTotalLosses;
+        if (mode == "Diffraction") totalLosses = heatMapRayBase.diffractionTotalLosses;
+        if (mode == "Total") totalLosses = heatMapRayBase.totalLosses;
+
         List<Vector3> dataPoints = heatMapRayBase.dataPoints;
-        List<float> totalLosses = heatMapRayBase.losTotalLosses;
+  
 
         if (dataPoints == null || totalLosses == null || dataPoints.Count != totalLosses.Count)
         {

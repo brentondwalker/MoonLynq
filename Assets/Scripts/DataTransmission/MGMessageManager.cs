@@ -113,7 +113,7 @@ public class MGMessageManager : MonoBehaviour
             .OrderBy(pkt => int.Parse(pkt.txTime))
             .ToList();
 
-        int interval = 1000;
+        int interval = 100;
 
         if (sortedPkts.Count == 0) return;
         int minTimeSlot = int.Parse(sortedPkts.First().txTime) / interval;

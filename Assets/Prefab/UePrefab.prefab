@@ -566,6 +566,8 @@ MonoBehaviour:
   ueBase: {fileID: 3627855485555203804}
   transmission: {fileID: 2264497643332812639}
   cqi: 00000000
+  targetId: 
+  ueBases: []
   timeSinceLastUpdate: 0
   updateInterval: 0.1
 --- !u!1 &773465341190450368
@@ -1309,6 +1311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cqiBase: {fileID: 6172561450079861695}
   cqi: 0
+  targetId: 0
 --- !u!1 &2358315614897382957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,9 +1547,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isError: {fileID: 7252248730496720909}
-  ErrorRateFrame: 0
-  PktErrorRateFrame: 0
+  per: 0
   mcsTest: {fileID: 1112139728689876349}
+  enablePer: 1
   timeSinceLastUpdate: 0
 --- !u!1 &3395387911839546460
 GameObject:
@@ -3156,6 +3159,7 @@ MonoBehaviour:
   dlInfo: 
   ueObject: {fileID: 7669437582577715501}
   ueBases: []
+  extraModule: {fileID: 0}
   maxD2D_ConnectionDistance: 300
   maxD2D_ConnectionNum: 4
 --- !u!114 &1609333289611013543
@@ -3190,7 +3194,7 @@ MonoBehaviour:
   txPower: 26
   frequency: 2e+9
   noiseFigure: 5
-  thermalNoise: -104
+  thermalNoise: -104.5
   antennaGain: 0
   cableLoss: 2
   numBands: 1

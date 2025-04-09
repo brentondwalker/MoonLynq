@@ -1,170 +1,138 @@
 [
   {
     "time": "0",
-    "latency": "0.152"
+    "latency": "0.023"
   },
   {
     "time": "1",
-    "latency": "0.378"
+    "latency": "0.020"
   },
   {
     "time": "2",
-    "latency": "0.725"
+    "latency": "0.020"
   },
   {
     "time": "3",
-    "latency": "1.133"
+    "latency": "0.020"
   },
   {
     "time": "4",
-    "latency": "1.524"
+    "latency": "0.020"
   },
   {
     "time": "5",
-    "latency": "1.890"
+    "latency": "0.161"
   },
   {
     "time": "6",
-    "latency": "2.284"
+    "latency": "0.464"
   },
   {
     "time": "7",
-    "latency": "2.681"
+    "latency": "0.764"
   },
   {
     "time": "8",
-    "latency": "3.037"
+    "latency": "1.064"
   },
   {
     "time": "9",
-    "latency": "3.452"
+    "latency": "1.364"
   },
   {
     "time": "10",
-    "latency": "3.884"
+    "latency": "1.793"
   },
   {
     "time": "11",
-    "latency": "4.358"
+    "latency": "2.525"
   },
   {
     "time": "12",
-    "latency": "4.839"
+    "latency": "3.225"
   },
   {
     "time": "13",
-    "latency": "5.355"
+    "latency": "3.925"
   },
   {
     "time": "14",
-    "latency": "5.871"
+    "latency": "4.625"
   },
   {
     "time": "15",
-    "latency": "6.447"
+    "latency": "5.372"
   },
   {
     "time": "16",
-    "latency": "7.013"
+    "latency": "6.277"
   },
   {
     "time": "17",
-    "latency": "7.575"
+    "latency": "6.966"
   },
   {
     "time": "18",
-    "latency": "8.196"
+    "latency": "7.633"
   },
   {
     "time": "19",
-    "latency": "8.823"
+    "latency": "8.299"
   },
   {
     "time": "20",
-    "latency": "9.451"
+    "latency": "8.410"
   },
   {
     "time": "21",
-    "latency": "10.081"
+    "latency": "7.771"
   },
   {
     "time": "22",
-    "latency": "10.724"
+    "latency": "6.276"
   },
   {
     "time": "23",
-    "latency": "11.366"
+    "latency": "3.390"
   },
   {
     "time": "24",
-    "latency": "11.998"
+    "latency": "3.201"
   },
   {
     "time": "25",
-    "latency": "12.724"
+    "latency": "2.903"
   },
   {
     "time": "26",
-    "latency": "13.471"
+    "latency": "2.304"
   },
   {
     "time": "27",
-    "latency": "14.219"
+    "latency": "2.001"
   },
   {
     "time": "28",
-    "latency": "14.985"
+    "latency": "2.001"
   },
   {
     "time": "29",
-    "latency": "15.722"
+    "latency": "2.000"
   },
   {
     "time": "30",
-    "latency": "16.475"
+    "latency": "2.001"
   },
   {
     "time": "31",
-    "latency": "17.230"
+    "latency": "2.001"
   },
   {
     "time": "32",
-    "latency": "17.965"
+    "latency": "2.001"
   },
   {
     "time": "33",
-    "latency": "18.707"
-  },
-  {
-    "time": "34",
-    "latency": "19.456"
-  },
-  {
-    "time": "35",
-    "latency": "20.212"
-  },
-  {
-    "time": "36",
-    "latency": "20.975"
-  },
-  {
-    "time": "37",
-    "latency": "21.732"
-  },
-  {
-    "time": "38",
-    "latency": "22.467"
-  },
-  {
-    "time": "39",
-    "latency": "23.213"
-  },
-  {
-    "time": "40",
-    "latency": "24.042"
-  },
-  {
-    "time": "41",
-    "latency": "24.806"
+    "latency": "2.000"
   }
 ]
