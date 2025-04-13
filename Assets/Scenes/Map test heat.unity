@@ -147,12 +147,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12332159}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 300.25, y: 0, z: -200}
   m_LocalScale: {x: 0.5, y: 10, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 288128546}
+  m_Father: {fileID: 1982060987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &12332161
 BoxCollider:
@@ -272,12 +272,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81911107}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 250.25, y: 0, z: -250}
   m_LocalScale: {x: 0.5, y: 10, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 288128546}
+  m_Father: {fileID: 1982060987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &81911109
 BoxCollider:
@@ -513,10 +513,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3caa5f2ee199c56419f6a1fa66aa57d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gnbId: 1
+  enbId: 1
   txPower: 40
-  gnbMobiltiyLocal: {x: 0, y: 0, z: 0}
-  gnbMobilityInfo: 
+  enbMobiltiyLocal: {x: 0, y: 0, z: 0}
+  enbMobilityInfo: 
+  antennaGain: 18
+  enbObject: {fileID: 0}
 --- !u!1 &212303090 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1431983854225700337, guid: d43815731c534a240825eff79b7303dc, type: 3}
@@ -989,12 +991,7 @@ Transform:
   - {fileID: 1471452496}
   - {fileID: 1605634266}
   - {fileID: 1443755446}
-  - {fileID: 81911108}
-  - {fileID: 12332160}
-  - {fileID: 2104359319}
-  - {fileID: 1542761155}
-  - {fileID: 1911008124}
-  - {fileID: 2050378340}
+  - {fileID: 1982060987}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &288128547
@@ -1009,19 +1006,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4747425d4651a24e945b17de7d33cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectA: {fileID: 0}
-  objectB: {fileID: 87149796}
   targetTag: Obstacle
   lineRendererG: {fileID: 0}
   lineRendererR: {fileID: 0}
   collision: 0
   hitInfo: 
   DielectricObstacleLoss: {fileID: 0}
-  UeInfo: {fileID: 0}
+  UeBase: {fileID: 0}
   totalLossForward: 0
   totalLossReverse: 0
   totalLossForwardInDB: 0
   totalLossReverseInDB: 0
+  lineWidth: 0.5
 --- !u!114 &288128548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4268,6 +4264,9 @@ MonoBehaviour:
   targetGnb: {fileID: 87149796}
   frequency: 2e+9
   dataPoints: []
+  losTotalLosses: []
+  reflectionTotalLosses: []
+  diffractionTotalLosses: []
   totalLosses: []
   gridSpacing: 10
   rangeX: 0
@@ -4279,9 +4278,12 @@ MonoBehaviour:
   cols: 1
   obstacleLos: {fileID: 1231390259}
   collisionInfo: 
+  reflectionRay: {fileID: 0}
+  diffractionRay: {fileID: 0}
   heatMap: {fileID: 1605634271}
   planeInfo: {fileID: 1605634272}
   textureSize: 256
+  dropdownManager: {fileID: 0}
   timeSinceLastUpdate: 0
 --- !u!114 &1486178121 stripped
 MonoBehaviour:
@@ -4322,12 +4324,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542761154}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 275, y: 0, z: -150.25}
   m_LocalScale: {x: 50, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 288128546}
+  m_Father: {fileID: 1982060987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1542761156
 BoxCollider:
@@ -4816,7 +4818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UeManager: {fileID: 1471452497}
-  GnbInfo: {fileID: 87149800}
+  enbInfo: {fileID: 0}
 --- !u!1 &1688173330
 GameObject:
   m_ObjectHideFlags: 0
@@ -5312,12 +5314,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911008123}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 275, y: 0, z: -100.25}
   m_LocalScale: {x: 50, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 288128546}
+  m_Father: {fileID: 1982060987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1911008125
 BoxCollider:
@@ -5409,6 +5411,43 @@ MonoBehaviour:
   resistivity: 0
   relativePermittivity: 0
   relativePermeability: 0
+--- !u!1 &1982060986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1982060987}
+  m_Layer: 0
+  m_Name: Room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1982060987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982060986}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 81911108}
+  - {fileID: 12332160}
+  - {fileID: 2104359319}
+  - {fileID: 1542761155}
+  - {fileID: 1911008124}
+  - {fileID: 2050378340}
+  m_Father: {fileID: 288128546}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1995087611
 GameObject:
   m_ObjectHideFlags: 0
@@ -5455,7 +5494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filename: heatmap_data.json
   timeSinceLastUpdate: 0
-  heatMapLosRay: {fileID: 1481869462}
+  heatMapRayBase: {fileID: 0}
   jsonData: 
   writeJsonToLocal: 1
 --- !u!1 &2013410473
@@ -5530,12 +5569,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050378339}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 250, y: 0, z: -300.25}
   m_LocalScale: {x: 100, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 288128546}
+  m_Father: {fileID: 1982060987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2050378341
 BoxCollider:
@@ -5791,12 +5830,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104359318}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 200.25, y: 0, z: -200}
   m_LocalScale: {x: 0.5, y: 10, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 288128546}
+  m_Father: {fileID: 1982060987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2104359320
 MonoBehaviour:

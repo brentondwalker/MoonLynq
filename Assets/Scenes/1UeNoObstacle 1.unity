@@ -2324,7 +2324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6561244180125394828, guid: 1499069da9af06442848d617c4a2b2c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: iperf -u -b 1m -c 192.168.1.1 -i 1 -t 60 -l 1250
+      value: iperf -s  -u -i 1
       objectReference: {fileID: 0}
     - target: {fileID: 6920046287511782139, guid: 1499069da9af06442848d617c4a2b2c1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3372,7 +3372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1572525398018570716, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: targetBler
-      value: 0.01
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1609333289611013543, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: materialIdle
@@ -3465,6 +3465,10 @@ PrefabInstance:
     - target: {fileID: 4421550662611993277, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: numBands
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328276967716637472, guid: d43815731c534a240825eff79b7303dc, type: 3}
+      propertyPath: enableReflection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5328276967716637472, guid: d43815731c534a240825eff79b7303dc, type: 3}
       propertyPath: enableDiffraction

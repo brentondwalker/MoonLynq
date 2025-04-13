@@ -12,15 +12,24 @@ public class LteAMC : MonoBehaviour
 
         private CQIelem[] cqiTable;
 
-        public int GetItbsPerCqi(int cqi, bool isUpload)
+
+
+    private void Start()
+    {
+        lteMcs.Rescale(156);
+    }
+
+
+    public int GetItbsPerCqi(int cqi, bool isUpload)
         {
-            //McsTable mcsTable = null;
-            //if (dir == Direction.DL)
-            //    mcsTable = dlMcsTable_;
-            //else if (dir == Direction.UL || dir == Direction.D2D || dir == Direction.D2D_MULTI)
-            //    mcsTable = ulMcsTable_;
-            //else
-            //    throw new Exception("LteAmc::getItbsPerCqi(): Unrecognized direction");
+        //McsTable mcsTable = null;
+        //if (dir == Direction.DL)
+        //    mcsTable = dlMcsTable_;
+        //else if (dir == Direction.UL || dir == Direction.D2D || dir == Direction.D2D_MULTI)
+        //    mcsTable = ulMcsTable_;
+        //else
+        //    throw new Exception("LteAmc::getItbsPerCqi(): Unrecognized direction");
+
 
             CQIelem entry = lteMcs.CQITable[cqi];
             double rate = entry.CodeRate;

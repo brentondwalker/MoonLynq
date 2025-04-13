@@ -148,10 +148,10 @@ function receive(ring, rxQueue, rxDev, ns, threadId)
 	local start_time = limiter:get_tsc_cycles() / tsc_hz_ms
 	--local ring_capacity = pipe:capacityPktsizedRing(ring.ring)
 	--local ring_capacity = math.ceil(2097152/1280)
-	local ring_capacity = math.ceil(2048000/1280)
+	local ring_capacity = math.ceil(204800/1280)
 
 
-	--ring_capacity = 200
+	--ring_capacity = 20
 
 	while mg.running() do
 		count = rxQueue:recv(bufs)

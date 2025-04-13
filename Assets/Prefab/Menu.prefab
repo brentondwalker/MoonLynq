@@ -5158,7 +5158,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: iperf -u -b 1m -c 192.168.1.1 -i 1 -t 60 -l 1250
+          m_StringArgument: iperf -s -u -i 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2114183170948584902

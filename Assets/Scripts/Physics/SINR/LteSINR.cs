@@ -30,8 +30,8 @@ public class LteSINR : MonoBehaviour
 
         double frequency = transmissionParameter.frequency;
 
-        if (isUpload ) {recvPower = txPowerUl; }
-        else {recvPower = txPowerDl; }
+        //if (isUpload ) {recvPower = txPowerUl; }
+        //else {recvPower = txPowerDl; }
 
         recvPower = totalRecvPower.computeTotalRecvpower(isUpload, transmissionParameter);
 

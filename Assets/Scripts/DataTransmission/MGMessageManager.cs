@@ -27,7 +27,7 @@ public class MGMessageManager : MonoBehaviour
 
     public List <latencyTotal> GetLatencyTotalInfo () 
     {  
-        CalculateLatencyPerSecond();
+        CalculateLatencyByInterval();
         return latencyTotalInfo; 
     }
 
@@ -113,7 +113,7 @@ public class MGMessageManager : MonoBehaviour
             .OrderBy(pkt => int.Parse(pkt.txTime))
             .ToList();
 
-        int interval = 100;
+        int interval = 1000;
 
         if (sortedPkts.Count == 0) return;
         int minTimeSlot = int.Parse(sortedPkts.First().txTime) / interval;
@@ -147,8 +147,11 @@ public class MGMessageManager : MonoBehaviour
     }
 
 
-    public void CalculateLatencyPerSecond()
+    public void CalculateLatencyByInterval()
     {
+        int interval = 100;
+
+
         var sortedPkts = pktInfo
             .Where(pkt => pkt.txTime != "Loss")
             .OrderBy(pkt => int.Parse(pkt.txTime))
@@ -161,16 +164,16 @@ public class MGMessageManager : MonoBehaviour
             if (int.TryParse(pkt.txTime, out int txTimeValue) &&
                 int.TryParse(pkt.rxTime, out int rxTimeValue))
             {
-                int currentSecond = txTimeValue / 1000;
-                int latency = txTimeValue - rxTimeValue; 
+                int intervalKey = txTimeValue / interval;
+                int latency = txTimeValue - rxTimeValue;
 
-                if (!latencyData.ContainsKey(currentSecond))
+                if (!latencyData.ContainsKey(intervalKey))
                 {
-                    latencyData[currentSecond] = (0, 0);
+                    latencyData[intervalKey] = (0, 0);
                 }
 
-                var currentData = latencyData[currentSecond];
-                latencyData[currentSecond] = (currentData.totalLatency + latency, currentData.count + 1);
+                var currentData = latencyData[intervalKey];
+                latencyData[intervalKey] = (currentData.totalLatency + latency, currentData.count + 1);
             }
         }
 
@@ -178,9 +181,11 @@ public class MGMessageManager : MonoBehaviour
         foreach (var entry in latencyData)
         {
             double avgLatencySeconds = (double)entry.Value.totalLatency / entry.Value.count / 1000.0;
+            double intervalStartSec = (entry.Key * interval) / 1000.0;
+
             latencyTotalInfo.Add(new latencyTotal
             {
-                time = entry.Key.ToString(),
+                time = intervalStartSec.ToString("F3"),
                 latency = avgLatencySeconds.ToString("F3")
             });
         }
