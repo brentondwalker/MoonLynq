@@ -48,6 +48,30 @@ public  class GetBLER_TU : MonoBehaviour
                 (SINR_15_CQI_TU[CQI - 1, index + 1] - SINR_15_CQI_TU[CQI - 1, index]);
 
             BLER = BLER_15_CQI_TU[CQI - 1, index] + R * (BLER_15_CQI_TU[CQI - 1, index + 1] - BLER_15_CQI_TU[CQI - 1, index]);
+
+
+
+            if (false)
+            {
+                double t = (SINR - SINR_15_CQI_TU[CQI - 1, index]) /
+                           (SINR_15_CQI_TU[CQI - 1, index + 1] - SINR_15_CQI_TU[CQI - 1, index]);
+
+                int row = CQI - 1;
+                int i0 = Mathf.Clamp(index - 1, 0, 14);
+                int i1 = index;
+                int i2 = index + 1;
+                int i3 = Mathf.Clamp(index + 2, 0, 15);
+
+                double blerInterp = CatmullRom(
+                    BLER_15_CQI_TU[row, i0],
+                    BLER_15_CQI_TU[row, i1],
+                    BLER_15_CQI_TU[row, i2],
+                    BLER_15_CQI_TU[row, i3],
+                    t);
+
+                BLER = Math.Min(Math.Max(blerInterp, 0.0), 1.0);
+            }
+
         }
 
         if (BLER >= 0.1)
@@ -59,4 +83,19 @@ public  class GetBLER_TU : MonoBehaviour
 
         return BLER;
     }
+
+
+
+    double CatmullRom(double p0, double p1, double p2, double p3, double t)
+    {
+        double t2 = t * t;
+        double t3 = t2 * t;
+        return 0.5 * (
+            (2.0 * p1) +
+            (-p0 + p2) * t +
+            (2.0 * p0 - 5.0 * p1 + 4.0 * p2 - p3) * t2 +
+            (-p0 + 3.0 * p1 - 3.0 * p2 + p3) * t3
+        );
+    }
+
 }

@@ -148,7 +148,7 @@ function receive(ring, rxQueue, rxDev, ns, threadId)
 	local start_time = limiter:get_tsc_cycles() / tsc_hz_ms
 	--local ring_capacity = pipe:capacityPktsizedRing(ring.ring)
 	--local ring_capacity = math.ceil(2097152/1280)
-	local ring_capacity = math.ceil(204800/1280)
+	local ring_capacity = math.ceil(2048000/(1250*1.14))
 
 
 	--ring_capacity = 20
@@ -221,16 +221,21 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 	local emu_time = 0
 	local start_time = limiter:get_tsc_cycles() / tsc_hz_ms
 
+	local compensation = 0
+
 	local packetBuffer = {}
 	local bufferIndex = 1
 	local throughput = 0
 	
-	local baseLatency = 20
+	local baseLatency = 0
+	--local extraLatency = 16
 
 	local harqLossRate = 0
 	local latencyHarq = 8
 	local harqLossReduction = 0.2
 	local harqMaxAttempt = 4
+
+	local throughputTable, perTable = preprocessData(preFile)
 
 
 	while mg.running() do
@@ -250,18 +255,35 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 			if file then
 				emu_time = (limiter:get_tsc_cycles() / tsc_hz_ms - start_time)
 				if (emu_time - last_file_read_time) > 100 then
-					throughput = getThroughput(emu_time, preFile)
-					harqLossRate = getPer(emu_time, preFile)
+					throughput = getThroughput(emu_time, throughputTable, throughput)
+					--harqLossRate = getPer(emu_time, perTable)
 					last_file_read_time = emu_time
 					-- print("emu_time: ", emu_time)
 				end
 			end
 
 
+
 			local retransmissionAttempt = 0;
 			local buf = bufs[iix]
 
 			local harqLossRateReduced =  harqLossRate
+
+
+
+
+
+
+
+			harqLossRateReduced = 0
+
+
+
+
+
+
+
+
 
 
 			-- print("harqLossRate: ", harqLossRate)
@@ -292,20 +314,25 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 			--local min_latency_due_to_throughput = (1292 * 8) / throughPutPdcp * tsc_hz_ms
 
-			local min_latency_due_to_throughput = 1 / throughput * tsc_hz
+
+
+			local min_latency_due_to_throughput = 1 / (throughput) * tsc_hz
+
+			if last_send_time == 0 then
+				last_send_time = arrival_timestamp
+			end
 
 			local send_time_base = arrival_timestamp + baseLatency * tsc_hz_ms + retransmissionAttempt * (latencyHarq) * tsc_hz_ms
 			local send_time_limit = last_send_time + retransmissionAttempt * (latencyHarq) * tsc_hz_ms + min_latency_due_to_throughput
 			
-			local send_time = arrival_timestamp
 			if send_time_base > send_time_limit then
 				send_time = send_time_base
 			else
 				send_time = send_time_limit
 			end
 
-			last_send_time = send_time
 
+			last_send_time = send_time
 
 			--print("TXTX send time: ", bit64.tohex(send_time))
 			 --print("TXTX tsc_cycles: ", bit64.tohex(limiter:get_tsc_cycles()))
@@ -318,6 +345,7 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 				end
 			end
 
+			--last_send_time = limiter:get_tsc_cycles()
 			
 			if threadId == 1 then
 			local packetId = packetInfoLength + iix
@@ -327,6 +355,8 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
                 receiveTime = buf.udata64 / tsc_hz_ms - start_time,
 
 				-- receiveTime = dequeue_timestamp - start_time,
+
+
 
                 sendTime = 0,
 				rlcQueue = pipe:countPktsizedRing(ring.ring)
@@ -340,7 +370,7 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 		end
 
-
+		local infoSendInterval = 20
 
 		if count > 0 then
 			-- the rate here doesn't affect the result afaict.  It's just to help decide the size of the bad pkts
@@ -358,8 +388,8 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 				end
 
 
-                local packetId = packetInfoLength + iix
-                if packetInfo[packetId] and sendCount >= 0 then
+                local packetId = packetInfoLength + iix 
+                if packetInfo[packetId] and sendCount >= 0 and (packetId % infoSendInterval) == 1 then
                     packetInfo[packetId].sendTime = currentSendTime  - start_time
 					
 					--print(string.format("Inserted Packet Info: ID=%d, ReceiveTime=%s, SendTime=%s",
@@ -381,28 +411,32 @@ function forward(ring, txQueue, txDev, ns, rate, latency, lossrate, harqLossRate
 
 		local currentTime = limiter:get_tsc_cycles() / tsc_hz
 
+		
 
-
-if currentTime - lastPrintTime >= 0.1 and packetInfo[ns.packetIdToSend] and ns.packetIdToSend < packetInfoLength and ns.packetIdToSend >= ns.messageId then
+if currentTime - lastPrintTime >= 42 and packetInfo[ns.packetIdToSend] and ns.packetIdToSend < packetInfoLength and ns.packetIdToSend >= ns.messageId then
     local packetIdToSend = ns.packetIdToSend
-
-    local maxBatchSize = 1000  
+    local maxBatchSize = 100000000000
     local batchCount = 0
 
     while packetIdToSend < packetInfoLength and batchCount < maxBatchSize do
         local packet = packetInfo[packetIdToSend]
         if packet and packet.id and packet.receiveTime and packet.sendTime then
-            packetBuffer[bufferIndex] = 
-                string.format("[Pkt] Id: %d, RX: %s, TX: %s, RLCQ: %d\n", 
-                packet.id, tostring(packet.receiveTime), tostring(packet.sendTime), packet.rlcQueue)
-
+            --packetBuffer[bufferIndex] = 
+                --string.format("[Pkt] Id: %d, RX: %s, TX: %s, RLCQ: %d\n", 
+                --packet.id, tostring(packet.receiveTime), tostring(packet.sendTime), packet.rlcQueue)
+			packetBuffer[bufferIndex] = 
+				"[Pkt] Id: " .. packet.id ..
+				", RX: " .. tostring(packet.receiveTime) ..
+				", TX: " .. tostring(packet.sendTime) ..
+				", RLCQ: " .. packet.rlcQueue .. "\n"
             ns.messageId = packet.id
-            packetIdToSend = packetIdToSend + 1
+            packetIdToSend = packetIdToSend + infoSendInterval
             bufferIndex = bufferIndex + 1
             batchCount = batchCount + 1
         else
             print("Packet missing required fields for ID: " .. tostring(ns.packetIdToSend))
         end
+
     end
 
     lastPrintTime = currentTime  
@@ -431,6 +465,9 @@ function server(ns, listener)
 
 	local lastReportTime = limiter:get_tsc_cycles() / tsc_hz_ms
 	local startTime = limiter:get_tsc_cycles() / tsc_hz_ms
+
+
+	local infoSendInterval = 20
 
 
 	ns.packetIdToSend = 1
@@ -470,13 +507,21 @@ function server(ns, listener)
 	local success, test_err = pcall(function()
 		local send_client = socket.tcp()
         send_client:settimeout(0.1)
+
+		local connected = send_client:connect("127.0.0.1", 12350)
+		if not connected then
+			error("Connect failed")
+		end
+
+
         while ns.packetInfoLength and ns.packetIdToSend <= ns.packetInfoLength do
             if ns.messageToSend and ns.messageId >= ns.packetIdToSend then
-                if send_client:connect("127.0.0.1", 12350) then
-                    send_client:send(ns.messageToSend)
-                    ns.packetIdToSend = ns.messageId + 1    
-                end        
-            end
+				if ns.messageId % infoSendInterval == 1 then
+					local send_res, send_err = send_client:send(ns.messageToSend)
+					ns.packetIdToSend = ns.messageId + infoSendInterval		     
+				end
+					
+			end
         end
 		send_client:close()
     end)
@@ -513,43 +558,40 @@ function loadDataFromFile(filepath)
     return content
 end
 
-function getThroughput(current_time, data)
+function preprocessData(rawData)
+    local throughputTable = {}
+    local perTable = {}
 
---print("Data before calling getThroughput:", data) 
-
-if not data then
-    print("Error: data is nil!") 
-else
-    --print("Data length:", #data) 
-end
-
-    for i = #data, 1, -1 do 
-        local entry_time = tonumber(data[i].t) * 1000
-        if current_time > entry_time then
-			print("Current throughput: ", data[i].throughput)
-            return data[i].throughput
-        end
+    for i = 1, #rawData do
+        local entry = rawData[i]
+        local timestamp = math.floor(tonumber(entry.t) * 10) 
+        throughputTable[timestamp] = entry.throughput
+        perTable[timestamp] = entry.per
     end
-    return 0 
+
+    return throughputTable, perTable
 end
 
-function getPer(current_time, data)
-
-
-if not data then
-    print("Error: data is nil!") 
-else
-    --print("Data length:", #data) 
-end
-
-    for i = #data, 1, -1 do 
-        local entry_time = tonumber(data[i].t) * 1000
-        if current_time > entry_time then
-			print("Current PER: ", data[i].per)
-            return data[i].per
-        end
+function getThroughput(current_time, throughputTable, lastThroughput)
+    local key = math.floor(tonumber(current_time)/1000*10)
+    local value = throughputTable[key]
+    if value then
+        print("Current throughput: ", value)
+        return value
+    else
+        return lastThroughput
     end
-    return 0 
+end
+
+function getPer(current_time, perTable)
+    local key = math.floor(tonumber(current_time)/1000*10)
+    local value = perTable[key]
+    if value then
+        print("Current PER: ", value)
+        return value
+    else
+        return 0
+    end
 end
 
 function stringToTable(str)

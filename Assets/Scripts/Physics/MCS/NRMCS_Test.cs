@@ -17,6 +17,7 @@ public class NRMCS_Test : MonoBehaviour
 
     public int packetLength = 1344;
     public float pkts = 0f;
+    public float overhead = 0f;
 
     void Start()
     {
@@ -43,11 +44,11 @@ public class NRMCS_Test : MonoBehaviour
         cqi = cqiBase.cqi;
         int numBands = ueBase.ueParameters.numBands;
         int numLayers = ueBase.ueParameters.numLayers;
-        tbs = nrAmc.ComputeCodewordTbs(numLayers,1,cqi,true,13,1);
+        tbs = nrAmc.ComputeCodewordTbs(numLayers,1,cqi,true,14,1);
         CQIelem entry = nrMcs.CQITable[cqi];
         mod = entry.ModulationType;
         throughput = nrAmc.ThroughputComputation(numBands,numLayers,tbs);
-        pkts = throughput / 8 / packetLength;
+        pkts = throughput / 8 / packetLength * (1-overhead);
     }
 
 }

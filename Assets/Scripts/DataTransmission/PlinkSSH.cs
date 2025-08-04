@@ -21,6 +21,8 @@ public class PlinkSSH : MonoBehaviour
     public bool enterMoonGenDirectory = false;
     private ConcurrentQueue<string> logQueue = new ConcurrentQueue<string>();
 
+    private bool showDebugLog = false;
+
 
     void Start()
     {
@@ -30,19 +32,19 @@ public class PlinkSSH : MonoBehaviour
     {
         while (logQueue.TryDequeue(out string logMessage))
         {
-            UnityEngine.Debug.Log(logMessage);
+            if (showDebugLog) UnityEngine.Debug.Log(logMessage);
             messageLogger.LogMessage(logMessage);
             if (messageManager != null)
             {
                 if (logMessage.Contains("[Pkt]"))
                 {
                     messageManager.HandlePktMessage(logMessage);
-                    UnityEngine.Debug.Log("PKT message handled");
+                    if (showDebugLog) UnityEngine.Debug.Log("PKT message handled");
                 }
                 else if (logMessage.Contains("[RLC]"))
                 {
                     messageManager.HandleRlcMessage(logMessage);
-                    UnityEngine.Debug.Log("RLC message handled");
+                    if (showDebugLog) UnityEngine.Debug.Log("RLC message handled");
                 }
             }
         }
@@ -123,7 +125,7 @@ public class PlinkSSH : MonoBehaviour
 
         sshProcess = new Process { StartInfo = psi, EnableRaisingEvents = true };
         sshProcess.OutputDataReceived += (sender, e) => {
-            if (!string.IsNullOrEmpty(e.Data)) UnityEngine.Debug.Log($"SSH Output: {e.Data}");
+            if (!string.IsNullOrEmpty(e.Data) && showDebugLog) UnityEngine.Debug.Log($"SSH Output: {e.Data}");
         };
         sshProcess.ErrorDataReceived += (sender, e) => {
             if (!string.IsNullOrEmpty(e.Data)) UnityEngine.Debug.LogError($"SSH Error: {e.Data}");

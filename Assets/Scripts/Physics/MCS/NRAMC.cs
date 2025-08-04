@@ -86,7 +86,8 @@ public class NRAMC : MonoBehaviour
         }
 
         double coderate = mcsElem.CodeRate / 1024.0;
-        int numRe = blocks * symbolsPerSlot * 12;
+
+        int numRe = GetResourceElements(blocks, symbolsPerSlot);
         double nInfo = numRe * coderate * modFactor * layers;
         coderateDisplay = coderate.ToString("0.000");
         modFactorDisplay = modFactor.ToString("0");
@@ -122,6 +123,30 @@ public class NRAMC : MonoBehaviour
         }
 
         return ret;
+    }
+
+    public int GetResourceElements(int blocks, int symbolsPerSlot)
+    {
+        int numRePerBlock = GetResourceElementsPerBlock(symbolsPerSlot);
+
+        if (numRePerBlock > 156)
+            return 156 * blocks;
+
+        return numRePerBlock * blocks;
+    }
+
+    public int GetResourceElementsPerBlock(int symbolsPerSlot)
+    {
+        int numSubcarriers = 12;
+        int reSignal = 1;
+        int nOverhead = 0;
+
+        Debug.Log("!!SymbolsPerSlot: " + symbolsPerSlot);
+
+        if (symbolsPerSlot == 0)
+            return 0;
+
+        return (numSubcarriers * symbolsPerSlot) - reSignal - nOverhead;
     }
 
     public float ThroughputComputation(int numBands, int numLayers, uint tbs)

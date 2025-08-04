@@ -93,6 +93,11 @@ public class TotalRecvPower : MonoBehaviour
         return rand.NextDouble() * 2 * Math.PI;
     }
 
-    double LosPathLoss(double distance, float frequency) { return 20 * Math.Log10(distance) + 20 * Math.Log10(frequency) - 147.55; }
+    double LosPathLoss(double distance, float frequency)
+    {
+        double pathloss = 20 * Math.Log10(distance) + 20 * Math.Log10(frequency) - 147.55;
+        //Debug.Log("Pathloss: " + pathloss);
+        return pathloss;
+    }
 
 }
