@@ -115,7 +115,7 @@ public class NRAMC : MonoBehaviour
             if (elem.CodeRate <= rate)
             { 
                 ret = elem;
-                iModDisplay = (i+1).ToString();
+                iModDisplay = (i).ToString();
 
             }
             else
@@ -141,7 +141,7 @@ public class NRAMC : MonoBehaviour
         int reSignal = 1;
         int nOverhead = 0;
 
-        Debug.Log("!!SymbolsPerSlot: " + symbolsPerSlot);
+        //Debug.Log("!!SymbolsPerSlot: " + symbolsPerSlot);
 
         if (symbolsPerSlot == 0)
             return 0;
@@ -149,10 +149,10 @@ public class NRAMC : MonoBehaviour
         return (numSubcarriers * symbolsPerSlot) - reSignal - nOverhead;
     }
 
-    public float ThroughputComputation(int numBands, int numLayers, uint tbs)
+    public float ThroughputComputation(int numBands, uint tbs)
     {
         float TTI = 0.001f;
-        float throughput = numBands * numLayers * tbs/ TTI;
+        float throughput = numBands * tbs/ TTI;
         return throughput;
     }
 }

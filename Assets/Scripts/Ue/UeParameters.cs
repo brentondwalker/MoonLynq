@@ -11,5 +11,6 @@ public class UeParameters : MonoBehaviour
     public double cableLoss = 2.0;
 
     public int numBands = 1;
+    public int numPRBs = 1;
     public int numLayers = 1;
 }
