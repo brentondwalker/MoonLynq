@@ -8,6 +8,7 @@ public class ChannelModelManager : MonoBehaviour
     private TransmissionManager[] transmissionManagers;
 
     public int[] cqi;
+    public double[] snr;
     public int[] targetId;
     public UeBase[] ueBases;
 
@@ -18,6 +19,7 @@ public class ChannelModelManager : MonoBehaviour
         transmissionManagers = new TransmissionManager[1];
         transmissionManagers[0] = transmission.GetComponent<TransmissionManager>();
         cqi = new int[1];
+        snr = new double[1];
     }
 
     public float timeSinceLastUpdate;
@@ -56,13 +58,15 @@ public class ChannelModelManager : MonoBehaviour
         }
 
         cqi = new int[connectionNum];
+        snr = new double[connectionNum];
         targetId = new int[connectionNum];
         ueBases = new UeBase[connectionNum];
         for (int i = 0; i < connectionNum; i++)
         {
             cqi[i] = transmissionManagers[i].GetCqi(ueBase.transmissionParameters[i]);
+            snr[i] = transmissionManagers[i].snr;
             targetId[i] = transmissionManagers[i].GetTargetId(ueBase.transmissionParameters[i]);
-            ueBases[i] = transmissionManagers[i].GetTargetUe(ueBase.transmissionParameters[i]);
+            ueBases[i] = (UeBase)transmissionManagers[i].GetTargetNode(ueBase.transmissionParameters[i]);
         }
     }
 }

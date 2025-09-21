@@ -4,10 +4,12 @@ public class TransmissionManager : MonoBehaviour
 {
     public CQI_Base cqiBase;
     public int cqi;
+    public double snr;
     public int targetId;
     public int GetCqi(TransmissionParameter parameter)
     {
         cqi = cqiBase.GetCqi(parameter);
+        snr = cqiBase.meanSNR;
         return cqi;
     }
 
@@ -17,8 +19,8 @@ public class TransmissionManager : MonoBehaviour
         return targetId;
     }
 
-    public UeBase GetTargetUe(TransmissionParameter parameter) 
+    public GenericNodeBase GetTargetNode(TransmissionParameter parameter) 
     {
-        return parameter.targetUeBase;
+        return parameter.targetNode;
     }
 }

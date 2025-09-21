@@ -21,7 +21,7 @@ public class TransmissionParameterManager : MonoBehaviour
         public double noiseFigure;
         public double thermalNoise;
 
-        public UeBase targetUeBase;
+        public GenericNodeBase targetNode;
         public float lastUpdateTime;
     }
 }

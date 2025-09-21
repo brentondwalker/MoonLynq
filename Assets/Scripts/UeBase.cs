@@ -6,7 +6,7 @@ using System.Linq;
 
 
 
-public class UeBase : MonoBehaviour
+public class UeBase : GenericNodeBase
 {
 
     public LOS_Ray LOS_Ray;
@@ -122,7 +122,7 @@ public class UeBase : MonoBehaviour
             transmissionParameters[i].thermalNoise = ueParameters.thermalNoise;
 
             transmissionParameters[i].lastUpdateTime = Time.time;
-            transmissionParameters[i].targetUeBase = ueBases[i];
+            transmissionParameters[i].targetNode = ueBases[i];
         }
     }
 
