@@ -42,9 +42,9 @@ public class NRMCS_Test : MonoBehaviour
     void CustomUpdate()
     {
         cqi = cqiBase.cqi;
-        int numBands = ueBase.ueParameters.numBands;
-        int numLayers = ueBase.ueParameters.numLayers;
-        int numPrbs = ueBase.ueParameters.numPRBs;
+        int numBands = ueBase.radioParameters.numBands;
+        int numLayers = ueBase.radioParameters.numLayers;
+        int numPrbs = ueBase.radioParameters.numPRBs;
         tbs = nrAmc.ComputeCodewordTbs(numLayers,1,cqi,true,14,numPrbs);
         CQIelem entry = nrMcs.CQITable[cqi];
         mod = entry.ModulationType;

@@ -132,7 +132,7 @@ public class LOS_Ray : MonoBehaviour
             if (hitForward[i].collider != null)
             {
                 Collider obstacleHit = hitForward[i].collider;
-                totalLossForward *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeBase.ueParameters.frequency, start, end);
+                totalLossForward *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeBase.radioParameters.frequency, start, end);
                 totalLossForwardInDB = PowerCalculator.linearToDb(totalLossForward);
             }
         }
@@ -146,7 +146,7 @@ public class LOS_Ray : MonoBehaviour
             if (hitReverse[i].collider != null)
             {
                 Collider obstacleHit = hitReverse[i].collider;           
-                totalLossReverse *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeBase.ueParameters.frequency, end, start);
+                totalLossReverse *= DielectricObstacleLoss.ComputeObjectLoss(obstacleHit, UeBase.radioParameters.frequency, end, start);
                 totalLossReverseInDB = PowerCalculator.linearToDb(totalLossReverse);
             }
         }

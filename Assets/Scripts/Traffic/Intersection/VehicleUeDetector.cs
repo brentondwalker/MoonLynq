@@ -20,7 +20,7 @@ public class VehicleUeDetector : MonoBehaviour
     {
         UeBase[] allUeBases = FindObjectsByType<UeBase>(FindObjectsSortMode.None);
         ueBases = allUeBases
-            .Where(ue => Vector3.Distance(ue.ueObject.transform.position, transform.position) < maxDetectDistance)
+            .Where(ue => Vector3.Distance(ue.nodeObject.transform.position, transform.position) < maxDetectDistance)
             .ToArray();
         ueCount = ueBases.Length;
     }

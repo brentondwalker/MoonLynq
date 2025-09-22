@@ -26,7 +26,7 @@ public class VehicleDataCommunicator : MonoBehaviour
 
         selfBlindSpotInfo = selfBlindSpot.blindSpotInfos;
         BlindSpotInfo[] targerBlindSpot = new BlindSpotInfo[selfBlindSpotInfo.Length];
-        ueBases = channelModelManager.ueBases;
+        ueBases = (UeBase[]) channelModelManager.nodeBases;
         cqi = channelModelManager.cqi;
 
         for (int i = 0; i < selfBlindSpotInfo.Length; i++)

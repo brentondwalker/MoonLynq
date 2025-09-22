@@ -563,11 +563,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb097d47f64a184d9755c19fcbee707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ueBase: {fileID: 0}
+  nodeBase: {fileID: 6695199950815017869}
   transmission: {fileID: 2264497643332812639}
   cqi: 00000000
+  snr: []
   targetId: 
-  ueBases: []
+  nodeBases: []
   timeSinceLastUpdate: 0
   updateInterval: 0.1
 --- !u!1 &773465341190450368
@@ -1031,7 +1032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5839165448725125935}
   m_Layer: 0
-  m_Name: 802.15.4-Prefab
+  m_Name: Ieee802154-Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1187,7 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ueInfoDisplay: {fileID: 7008071830997057029}
-  UeBase: {fileID: 0}
+  nodeBase: {fileID: 6695199950815017869}
 --- !u!114 &3150079033817898654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,7 +1277,7 @@ GameObject:
   - component: {fileID: 4089395226048959910}
   m_Layer: 0
   m_Name: Ieee802154
-  m_TagString: Ue
+  m_TagString: MLNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1387,17 +1388,17 @@ MonoBehaviour:
   txPowerUl: 0
   txPowerDl: 0
   nodeId: 0
-  nodeType: 0
-  radioParameters: {fileID: 0}
-  statusDisplay: {fileID: 0}
+  radioParameters: {fileID: 4089395226048959910}
+  statusDisplay: {fileID: 8707984126227847639}
   isSelect: 0
-  TargetNode: {fileID: 0}
+  TargetEnb: {fileID: 0}
   prefabMovement: {fileID: 0}
   prefabPosition: {x: 0, y: 0, z: 0}
   mobilityInfo: 
   ulInfo: 
   dlInfo: 
-  ieee802154Object: {fileID: 0}
+  nodeObject: {fileID: 1993224865985436569}
+  nodeType: 0
   ieee802154Bases: []
   extraModule: {fileID: 0}
   maxD2D_ConnectionDistance: 300
@@ -1600,6 +1601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cqiBase: {fileID: 6172561450079861695}
   cqi: 0
+  snr: 0
   targetId: 0
 --- !u!1 &2358315614897382957
 GameObject:
@@ -3222,7 +3224,7 @@ MonoBehaviour:
   lteAmc: {fileID: 1789630483437207225}
   lteMcs: {fileID: 3350767231099524412}
   cqiBase: {fileID: 6172561450079861695}
-  ueBase: {fileID: 0}
+  nodeBase: {fileID: 6695199950815017869}
   cqi: 0
   iTbs: 0
   tbs: 0

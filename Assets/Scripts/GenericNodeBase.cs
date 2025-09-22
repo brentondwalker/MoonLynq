@@ -10,4 +10,25 @@ public class GenericNodeBase : MonoBehaviour
 {
 
 
+    public LOS_Ray LOS_Ray;
+    public double txPowerUl = 0.0f;
+    public double txPowerDl = 0.0f;
+    public int nodeId = 0;
+
+    public UeParameters radioParameters;
+    private bool losCollision = false;
+    public UeStatusDisplay statusDisplay;
+    public bool isSelect = false;
+    public EnbInfo TargetEnb;
+    public UeMovementControl prefabMovement;
+
+    public Vector3 prefabPosition;
+
+    public string mobilityInfo;
+
+    public string ulInfo = "";
+    public string dlInfo = "";
+
+    public GameObject nodeObject;
+    public TransmissionParameter[] transmissionParameters;
 }

@@ -8,39 +8,32 @@ using System.Linq;
 
 public class UeBase : GenericNodeBase
 {
-
-    public LOS_Ray LOS_Ray;
-    public double txPowerUl = 0.0f;
-    public double txPowerDl = 0.0f;
-    public int ueId = 0;
-
-
     public enum UeType
     {
         Standard,
         UeD2D
     }
     public UeType ueType = UeType.Standard;
-    public UeParameters ueParameters;
+    //public UeParameters ueParameters;
 
-    private bool losCollision = false;
+    //private bool losCollision = false;
 
-    public UeStatusDisplay statusDisplay;
-    public bool isSelect = false;
+    //public UeStatusDisplay statusDisplay;
+    //public bool isSelect = false;
 
-    public EnbInfo TargetEnb;
+    //public EnbInfo TargetEnb;
 
-    public UeMovementControl prefabMovement;
-    public Vector3 prefabPosition;
+    //public UeMovementControl prefabMovement;
+    //public Vector3 prefabPosition;
 
-    public string mobilityInfo;
+    //public string mobilityInfo;
 
-    public string ulInfo = "";
-    public string dlInfo = "";
+    //public string ulInfo = "";
+    //public string dlInfo = "";
 
-    public GameObject ueObject;
+    //public GameObject ueObject;
 
-    public TransmissionParameter[] transmissionParameters;
+    //public TransmissionParameter[] transmissionParameters;
     public UeBase[] ueBases;
 
     public UeExtraModuleManager extraModule;
@@ -81,7 +74,7 @@ public class UeBase : GenericNodeBase
         if (prefabMovement != null)
         {
             prefabPosition = prefabMovement.positionLocal;
-            mobilityInfo = ueId.ToString() + ": " + Math.Round(prefabPosition.x, 1) + " " + -Math.Round(prefabPosition.z, 1) + " " + Math.Round(prefabPosition.y, 1);
+            mobilityInfo = nodeId.ToString() + ": " + Math.Round(prefabPosition.x, 1) + " " + -Math.Round(prefabPosition.z, 1) + " " + Math.Round(prefabPosition.y, 1);
         }
 
         //losCollision = LOS_Ray.collision;
@@ -92,8 +85,8 @@ public class UeBase : GenericNodeBase
         //txPowerDl = System.Math.Round(TargetEnb.txPower+LOS_Ray.totalLossReverseInDB, 1);
 
         
-        //ulInfo = "txPower" + ueId.ToString() + "->" + targetEnbId.ToString()  + ": " + txPowerUl.ToString();
-        //dlInfo = "txPower" + targetEnbId.ToString() + "->" + ueId.ToString() + ": " + txPowerDl.ToString();
+        //ulInfo = "txPower" + nodeId.ToString() + "->" + targetEnbId.ToString()  + ": " + txPowerUl.ToString();
+        //dlInfo = "txPower" + targetEnbId.ToString() + "->" + nodeId.ToString() + ": " + txPowerDl.ToString();
 
         if (statusDisplay != null) isSelect = statusDisplay.status;
 
@@ -104,22 +97,22 @@ public class UeBase : GenericNodeBase
     {
         for (int i = 0; i < transmissionParameters.Length; i++)
         {
-            transmissionParameters[i].nodeA_Id = ueId;
-            transmissionParameters[i].positionA = ueObject.transform.position;
-            transmissionParameters[i].txPowerA = ueParameters.txPower;
-            transmissionParameters[i].antennaGainA = ueParameters.antennaGain;
+            transmissionParameters[i].nodeA_Id = nodeId;
+            transmissionParameters[i].positionA = nodeObject.transform.position;
+            transmissionParameters[i].txPowerA = radioParameters.txPower;
+            transmissionParameters[i].antennaGainA = radioParameters.antennaGain;
 
-            transmissionParameters[i].nodeB_Id = ueBases[i].ueId;
-            transmissionParameters[i].positionB = ueBases[i].ueObject.transform.position;
-            transmissionParameters[i].txPowerB = ueBases[i].ueParameters.txPower;
-            transmissionParameters[i].antennaGainB = ueBases[i].ueParameters.antennaGain;
+            transmissionParameters[i].nodeB_Id = ueBases[i].nodeId;
+            transmissionParameters[i].positionB = ueBases[i].nodeObject.transform.position;
+            transmissionParameters[i].txPowerB = ueBases[i].radioParameters.txPower;
+            transmissionParameters[i].antennaGainB = ueBases[i].radioParameters.antennaGain;
 
-            transmissionParameters[i].frequency = ueParameters.frequency;
-            transmissionParameters[i].numBands = ueParameters.numBands;
-            transmissionParameters[i].numLayers = ueParameters.numLayers;
-            transmissionParameters[i].cableLoss = ueParameters.cableLoss;
-            transmissionParameters[i].noiseFigure = ueParameters.noiseFigure;
-            transmissionParameters[i].thermalNoise = ueParameters.thermalNoise;
+            transmissionParameters[i].frequency = radioParameters.frequency;
+            transmissionParameters[i].numBands = radioParameters.numBands;
+            transmissionParameters[i].numLayers = radioParameters.numLayers;
+            transmissionParameters[i].cableLoss = radioParameters.cableLoss;
+            transmissionParameters[i].noiseFigure = radioParameters.noiseFigure;
+            transmissionParameters[i].thermalNoise = radioParameters.thermalNoise;
 
             transmissionParameters[i].lastUpdateTime = Time.time;
             transmissionParameters[i].targetNode = ueBases[i];
@@ -128,22 +121,22 @@ public class UeBase : GenericNodeBase
 
     void updateTransmissionParameterStandard(EnbInfo enb)
     {
-            transmissionParameters[0].nodeA_Id = ueId;
-            transmissionParameters[0].positionA = ueObject.transform.position;
-            transmissionParameters[0].txPowerA = ueParameters.txPower;
-            transmissionParameters[0].antennaGainA = ueParameters.antennaGain;
+            transmissionParameters[0].nodeA_Id = nodeId;
+            transmissionParameters[0].positionA = nodeObject.transform.position;
+            transmissionParameters[0].txPowerA = radioParameters.txPower;
+            transmissionParameters[0].antennaGainA = radioParameters.antennaGain;
 
             transmissionParameters[0].nodeB_Id = enb.enbId;
             transmissionParameters[0].positionB = enb.enbObject.transform.position;
             transmissionParameters[0].txPowerB = enb.txPower;
             transmissionParameters[0].antennaGainB = enb.antennaGain;
 
-            transmissionParameters[0].frequency = ueParameters.frequency;
-            transmissionParameters[0].numBands = ueParameters.numBands;
-            transmissionParameters[0].numLayers = ueParameters.numLayers;
-            transmissionParameters[0].cableLoss = ueParameters.cableLoss;
-            transmissionParameters[0].noiseFigure = ueParameters.noiseFigure;
-            transmissionParameters[0].thermalNoise = ueParameters.thermalNoise;
+            transmissionParameters[0].frequency = radioParameters.frequency;
+            transmissionParameters[0].numBands = radioParameters.numBands;
+            transmissionParameters[0].numLayers = radioParameters.numLayers;
+            transmissionParameters[0].cableLoss = radioParameters.cableLoss;
+            transmissionParameters[0].noiseFigure = radioParameters.noiseFigure;
+            transmissionParameters[0].thermalNoise = radioParameters.thermalNoise;
 
         transmissionParameters[0].lastUpdateTime = Time.time;
     }
@@ -152,7 +145,7 @@ public class UeBase : GenericNodeBase
     {
         UeBase[] allUeBases = FindObjectsByType<UeBase>(FindObjectsSortMode.None);
         ueBases = allUeBases
-            .Where(ue => ue != this && Vector3.Distance(ue.ueObject.transform.position, this.ueObject.transform.position) < maxD2D_ConnectionDistance)
+            .Where(ue => ue != this && Vector3.Distance(ue.nodeObject.transform.position, this.nodeObject.transform.position) < maxD2D_ConnectionDistance)
             .Take(maxD2D_ConnectionNum)
             .ToArray();
     }

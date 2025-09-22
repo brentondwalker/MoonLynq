@@ -11,6 +11,8 @@ TagManager:
   - Screen
   - vehicle
   - eNB
+  - Ieee802154
+  - MLNode
   layers:
   - Default
   - TransparentFX

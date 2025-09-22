@@ -30,7 +30,7 @@ public class LteHARQ : MonoBehaviour
     void CustomUpdate()
     {
         int cqi = mcsTest.cqiBase.cqi;
-        int numBands = mcsTest.ueBase.ueParameters.numBands;
+        int numBands = mcsTest.nodeBase.radioParameters.numBands;
         if (enablePer) per = isError.GetErrorRate(cqi, numBands, mcsTest.cqiBase.snrv);
         else per = 0;
     }

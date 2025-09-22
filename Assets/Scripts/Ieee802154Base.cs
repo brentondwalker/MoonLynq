@@ -9,10 +9,6 @@ using System.Linq;
 public class Ieee802154Base : GenericNodeBase
 {
 
-    public LOS_Ray LOS_Ray;
-    public double txPowerUl = 0.0f;
-    public double txPowerDl = 0.0f;
-    public int nodeId = 0;
 
 
     public enum NodeType
@@ -23,26 +19,21 @@ public class Ieee802154Base : GenericNodeBase
 
     // there is nothing too UE-specific here anyway
     // just the numbands numlayers stuff
-    public UeParameters radioParameters;
+    //public UeParameters radioParameters;
 
-    private bool losCollision = false;
+    //private bool losCollision = false;
 
-    public UeStatusDisplay statusDisplay;
-    public bool isSelect = false;
+    //public UeStatusDisplay statusDisplay;
+    //public bool isSelect = false;
 
-    public Ieee802154Base TargetNode;
+    //public Ieee802154Base TargetNode;
 
-    public UeMovementControl prefabMovement;
-    public Vector3 prefabPosition;
+    //public string ulInfo = "";
+    //public string dlInfo = "";
 
-    public string mobilityInfo;
+    //public GameObject ieee802154Object;
 
-    public string ulInfo = "";
-    public string dlInfo = "";
-
-    public GameObject ieee802154Object;
-
-    public TransmissionParameter[] transmissionParameters;
+    //public TransmissionParameter[] transmissionParameters;
     public Ieee802154Base[] ieee802154Bases;
 
     public UeExtraModuleManager extraModule;
@@ -99,12 +90,12 @@ public class Ieee802154Base : GenericNodeBase
         for (int i = 0; i < transmissionParameters.Length; i++)
         {
             transmissionParameters[i].nodeA_Id = nodeId;
-            transmissionParameters[i].positionA = ieee802154Object.transform.position;
+            transmissionParameters[i].positionA = nodeObject.transform.position;
             transmissionParameters[i].txPowerA = radioParameters.txPower;
             transmissionParameters[i].antennaGainA = radioParameters.antennaGain;
 
             transmissionParameters[i].nodeB_Id = ieee802154Bases[i].nodeId;
-            transmissionParameters[i].positionB = ieee802154Bases[i].ieee802154Object.transform.position;
+            transmissionParameters[i].positionB = ieee802154Bases[i].nodeObject.transform.position;
             transmissionParameters[i].txPowerB = ieee802154Bases[i].radioParameters.txPower;
             transmissionParameters[i].antennaGainB = ieee802154Bases[i].radioParameters.antennaGain;
 
@@ -124,7 +115,7 @@ public class Ieee802154Base : GenericNodeBase
     {
         Ieee802154Base[] allIeee802154Bases = FindObjectsByType<Ieee802154Base>(FindObjectsSortMode.None);
         ieee802154Bases = allIeee802154Bases
-            .Where(node => node != this && Vector3.Distance(node.ieee802154Object.transform.position, this.ieee802154Object.transform.position) < maxD2D_ConnectionDistance)
+            .Where(node => node != this && Vector3.Distance(node.nodeObject.transform.position, this.nodeObject.transform.position) < maxD2D_ConnectionDistance)
             .Take(maxD2D_ConnectionNum)
             .ToArray();
     }

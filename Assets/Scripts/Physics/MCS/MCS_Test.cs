@@ -8,7 +8,7 @@ public class MCS_Test : MonoBehaviour
     public LteAMC lteAmc;
     public LteMCS lteMcs;
     public CQI_Base cqiBase;
-    public UeBase ueBase;
+    public GenericNodeBase nodeBase;
 
     public int cqi;
     public int iTbs;
@@ -42,8 +42,8 @@ public class MCS_Test : MonoBehaviour
     void CustomUpdate()
     {
         cqi = cqiBase.cqi;
-        int numBands = ueBase.ueParameters.numBands;
-        int numLayers = ueBase.ueParameters.numLayers;
+        int numBands = nodeBase.radioParameters.numBands;
+        int numLayers = nodeBase.radioParameters.numLayers;
         tbs = lteAmc.ComputeBitsOnNRbs(cqi,numLayers,1,true);
         iTbs = lteAmc.GetItbsPerCqi(cqi, true);
         CQIelem entry = lteMcs.CQITable[cqi];

@@ -17,7 +17,7 @@ public class VehicleBlindSpotDetector : MonoBehaviour
 
     void Start()
     {
-        vehiclePosition = ueBase.ueObject.transform.position;
+        vehiclePosition = ueBase.nodeObject.transform.position;
         allBlindSpots = FindObjectsByType<BlindSpot>(FindObjectsSortMode.InstanceID);
 
         for (int i = 0; i < blindSpotInfos.Length; i++)
@@ -34,7 +34,7 @@ public class VehicleBlindSpotDetector : MonoBehaviour
 
     void Update()
     {
-        vehiclePosition = ueBase.ueObject.transform.position;
+        vehiclePosition = ueBase.nodeObject.transform.position;
 
         int index = 0; 
         foreach (var blindSpot in allBlindSpots)

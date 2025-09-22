@@ -21,6 +21,7 @@ public class DataDisplay : MonoBehaviour
 
     void Update()
     {
+        /*
         timeSinceLastUpdate = Time.time - lastUpdateTime;
         if (timeSinceLastUpdate >= updateInterval)
         {
@@ -30,6 +31,7 @@ public class DataDisplay : MonoBehaviour
 
         string smMacLayerDelay = SharedMemoryReader.data;
         SMMacLayerDelay.text = smMacLayerDelay;
+        */
     }
 
 
@@ -45,7 +47,7 @@ public class DataDisplay : MonoBehaviour
         }
         else
         {
-            Debug.LogError("ÎÄ¼þÂ·¾¶²»´æÔÚ£¡");
+            Debug.LogError("ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½");
         }
     }
 }

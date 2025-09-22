@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ChannelModelManager : MonoBehaviour
 {
-    public UeBase ueBase;
+    public GenericNodeBase nodeBase;
     public GameObject transmission;
     private GameObject[] transmissionList;
     private TransmissionManager[] transmissionManagers;
@@ -10,7 +10,7 @@ public class ChannelModelManager : MonoBehaviour
     public int[] cqi;
     public double[] snr;
     public int[] targetId;
-    public UeBase[] ueBases;
+    public GenericNodeBase[] nodeBases;
 
     void Start()
     {
@@ -38,7 +38,7 @@ public class ChannelModelManager : MonoBehaviour
 
     void CustomUpdate()
     {
-        int connectionNum = ueBase.transmissionParameters.Length;
+        int connectionNum = nodeBase.transmissionParameters.Length;
 
         //Debug.Log("connectionNum: " + connectionNum);
 
@@ -60,13 +60,13 @@ public class ChannelModelManager : MonoBehaviour
         cqi = new int[connectionNum];
         snr = new double[connectionNum];
         targetId = new int[connectionNum];
-        ueBases = new UeBase[connectionNum];
+        nodeBases = new GenericNodeBase[connectionNum];
         for (int i = 0; i < connectionNum; i++)
         {
-            cqi[i] = transmissionManagers[i].GetCqi(ueBase.transmissionParameters[i]);
+            cqi[i] = transmissionManagers[i].GetCqi(nodeBase.transmissionParameters[i]);
             snr[i] = transmissionManagers[i].snr;
-            targetId[i] = transmissionManagers[i].GetTargetId(ueBase.transmissionParameters[i]);
-            ueBases[i] = (UeBase)transmissionManagers[i].GetTargetNode(ueBase.transmissionParameters[i]);
+            targetId[i] = transmissionManagers[i].GetTargetId(nodeBase.transmissionParameters[i]);
+            nodeBases[i] = (GenericNodeBase)transmissionManagers[i].GetTargetNode(nodeBase.transmissionParameters[i]);
         }
     }
 }
