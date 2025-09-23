@@ -1384,14 +1384,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7ae906a844a3352abd4f7515ca36ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LOS_Ray: {fileID: 0}
+  LOS_Ray: {fileID: 2623294467197763648}
   txPowerUl: 0
   txPowerDl: 0
   nodeId: 0
   radioParameters: {fileID: 4089395226048959910}
   statusDisplay: {fileID: 8707984126227847639}
   isSelect: 0
-  TargetEnb: {fileID: 0}
+  TargetNode: {fileID: 0}
   prefabMovement: {fileID: 0}
   prefabPosition: {x: 0, y: 0, z: 0}
   mobilityInfo: 

@@ -19,7 +19,7 @@ public class GenericNodeBase : MonoBehaviour
     private bool losCollision = false;
     public UeStatusDisplay statusDisplay;
     public bool isSelect = false;
-    public EnbInfo TargetEnb;
+    public GenericNodeBase TargetNode;
     public UeMovementControl prefabMovement;
 
     public Vector3 prefabPosition;

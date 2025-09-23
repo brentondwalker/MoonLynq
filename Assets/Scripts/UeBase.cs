@@ -21,7 +21,7 @@ public class UeBase : GenericNodeBase
     //public UeStatusDisplay statusDisplay;
     //public bool isSelect = false;
 
-    //public EnbInfo TargetEnb;
+    public EnbInfo TargetEnb;
 
     //public UeMovementControl prefabMovement;
     //public Vector3 prefabPosition;

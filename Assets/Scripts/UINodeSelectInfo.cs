@@ -28,6 +28,7 @@ public class UINodeSelectInfo : MonoBehaviour
         {
             display.SetActive(true);
             selectNode = nodeManager.nodeSelect;
+            /*
             displayInfo =
                             "<b>Nodetype:</b> Ue\n" +
                             "<b>NodeId:</b> " + selectNode.nodeId + "\n" +
@@ -36,10 +37,24 @@ public class UINodeSelectInfo : MonoBehaviour
                                 -Math.Round(selectNode.prefabPosition.z, 1) + " " +
                                 Math.Round(selectNode.prefabPosition.y, 1) + "\n" +
                             "<b>TxPower:</b> " + Math.Round(selectNode.txPowerUl, 1) + "dBm" + "\n" + 
-                            "<b>Upload:</b> " + selectNode.nodeId + "->" + selectNode.TargetEnb.enbId +
+                            "<b>Upload:</b> " + selectNode.nodeId + "->" + selectNode.TargetNode.nodeId +
                                 " TxPower: " + Math.Round(selectNode.txPowerUl, 1) + "dBm" + " Loss: " + Math.Round(selectNode.LOS_Ray.GetLosLoss(true, selectNode.transmissionParameters[0]),1) + "dBm" + "\n" +
-                            "<b>Download:</b> " + selectNode.TargetEnb.enbId + "->" + selectNode.nodeId +
+                            "<b>Download:</b> " + selectNode.TargetNode.nodeId + "->" + selectNode.nodeId +
                                 " TxPower: " + Math.Round(selectNode.txPowerDl, 1) + "dBm" + " Loss " + Math.Round(selectNode.LOS_Ray.GetLosLoss(false, selectNode.transmissionParameters[0]), 1) + "dBm" + "\n";
+                                */
+            displayInfo = "<b>Nodetype:</b> Ue\n";
+            displayInfo += "<b>NodeId:</b> " + selectNode.nodeId + "\n";
+            displayInfo += "<b>Position:</b> ";
+            displayInfo += Math.Round(selectNode.prefabPosition.x, 1) + " ";
+            displayInfo += -Math.Round(selectNode.prefabPosition.z, 1) + " ";
+            displayInfo += Math.Round(selectNode.prefabPosition.y, 1) + "\n";
+            displayInfo += "<b>TxPower:</b> " + Math.Round(selectNode.txPowerUl, 1) + "dBm" + "\n";
+            displayInfo += "<b>Upload:</b> " + selectNode.nodeId + "->" + selectNode.TargetNode.nodeId +"\n"; 
+            displayInfo += "<b>Distance:</b> " + Math.Round(selectNode.LOS_Ray.distance) + "\n";
+            displayInfo += " TxPower: " + Math.Round(selectNode.txPowerUl, 1) + "dBm" + " Loss: " + Math.Round(selectNode.LOS_Ray.GetLosLoss(true, selectNode.transmissionParameters[0]), 1) + "dBm" + "\n";
+            displayInfo += "<b>Download:</b> " + selectNode.TargetNode.nodeId + "->" + selectNode.nodeId;
+            displayInfo += " TxPower: " + Math.Round(selectNode.txPowerDl, 1) + "dBm" + " Loss " + Math.Round(selectNode.LOS_Ray.GetLosLoss(false, selectNode.transmissionParameters[0]), 1) + "dBm" + "\n";
+
             nodeInfoDisplay.text = displayInfo;
         }
     }

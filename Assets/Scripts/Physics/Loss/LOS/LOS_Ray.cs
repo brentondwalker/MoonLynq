@@ -32,6 +32,8 @@ public class LOS_Ray : MonoBehaviour
     private Vector3 start = Vector3.zero;
     private Vector3 end = Vector3.zero;
 
+    public double distance = 0.0;
+
     public float lineWidth = 0.5f;
 
     
@@ -97,7 +99,7 @@ public class LOS_Ray : MonoBehaviour
         start = parameter.positionA;
         end = parameter.positionB;
 
-
+        distance = Vector3.Distance(start, end);
         Vector3 directionF = end - start;
         Ray rayF = new Ray(start, directionF);
 
