@@ -54,6 +54,7 @@ public class UINodeSelectInfo : MonoBehaviour
             displayInfo += " TxPower: " + Math.Round(selectNode.txPowerUl, 1) + "dBm" + " Loss: " + Math.Round(selectNode.LOS_Ray.GetLosLoss(true, selectNode.transmissionParameters[0]), 1) + "dBm" + "\n";
             displayInfo += "<b>Download:</b> " + selectNode.TargetNode.nodeId + "->" + selectNode.nodeId;
             displayInfo += " TxPower: " + Math.Round(selectNode.txPowerDl, 1) + "dBm" + " Loss " + Math.Round(selectNode.LOS_Ray.GetLosLoss(false, selectNode.transmissionParameters[0]), 1) + "dBm" + "\n";
+            displayInfo += "<b>SINR:</b> "+selectNode.channelModelManager.snr[0] + "\n";
 
             nodeInfoDisplay.text = displayInfo;
         }

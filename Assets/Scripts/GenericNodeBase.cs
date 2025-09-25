@@ -31,4 +31,6 @@ public class GenericNodeBase : MonoBehaviour
 
     public GameObject nodeObject;
     public TransmissionParameter[] transmissionParameters;
+
+    public ChannelModelManager channelModelManager;
 }

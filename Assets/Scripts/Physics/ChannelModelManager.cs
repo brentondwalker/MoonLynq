@@ -65,6 +65,7 @@ public class ChannelModelManager : MonoBehaviour
         {
             cqi[i] = transmissionManagers[i].GetCqi(nodeBase.transmissionParameters[i]);
             snr[i] = transmissionManagers[i].snr;
+            //Debug.Log("CMM: snr = "+snr[i]);
             targetId[i] = transmissionManagers[i].GetTargetId(nodeBase.transmissionParameters[i]);
             nodeBases[i] = (GenericNodeBase)transmissionManagers[i].GetTargetNode(nodeBase.transmissionParameters[i]);
         }

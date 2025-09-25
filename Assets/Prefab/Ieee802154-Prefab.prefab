@@ -1398,6 +1398,7 @@ MonoBehaviour:
   ulInfo: 
   dlInfo: 
   nodeObject: {fileID: 1993224865985436569}
+  channelModelManager: {fileID: 2287759694864528533}
   nodeType: 0
   ieee802154Bases: []
   extraModule: {fileID: 0}
@@ -2591,6 +2592,7 @@ MonoBehaviour:
   totalLossReverse: 0
   totalLossForwardInDB: 0
   totalLossReverseInDB: 0
+  distance: 0
   lineWidth: 0.5
 --- !u!1 &6312950002865945092
 GameObject:

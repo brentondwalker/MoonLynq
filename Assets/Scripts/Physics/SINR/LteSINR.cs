@@ -16,7 +16,7 @@ public class LteSINR : MonoBehaviour
     public TotalRecvPower totalRecvPower;
     public List<double> GetSINR(bool isUpload, TransmissionParameter transmissionParameter)
     {
-        //Debug.Log(transmissionParameter.numBands);
+        //Debug.Log("LteSINR: numBands = " + transmissionParameter.numBands);
         List<double> snrVector = new List<double>(new double[transmissionParameter.numBands]);
 
         double noiseFigure = transmissionParameter.noiseFigure;
@@ -48,6 +48,7 @@ public class LteSINR : MonoBehaviour
             double noise = thermalNoise + noiseFigure;
             double sinr = recvPower + fading - interference - noise;
             snrVector[i] = sinr;
+            //Debug.Log("LteSINR: snr["+i+"] = "+sinr);
         }
 
         return snrVector;
